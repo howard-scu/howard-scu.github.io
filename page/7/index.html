@@ -1,94 +1,411 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
 
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Code Planet">
 <meta property="og:url" content="http://yoursite.com/page/7/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="default">
+<meta property="og:site_name" content="Code Planet">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Code Planet">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/7/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Code Planet</title>
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Code Planet</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e4-b9-a6-e7-b1-8d" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e4-b9-a6-e7-b1-8d/" class="article-date">
-  <time datetime="2014-01-10T03:16:58.000Z" itemprop="datePublished">2014-01-10</time>
-</a>
+        <p class="site-subtitle">为了发现更大的世界</p>
+      
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/machine-learning/">machine learning</a>
+    
   </div>
 
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+</div>
+
+
+
+<nav class="site-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e4-b9-a6-e7-b1-8d/">机器学习经典书籍</a>
-    </h1>
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
   
 
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e4-b9-a6-e7-b1-8d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e4-b9-a6-e7-b1-8d/" class="post-title-link" itemprop="url">机器学习经典书籍</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2014-01-10 11:16:58" itemprop="dateCreated datePublished" datetime="2014-01-10T11:16:58+08:00">2014-01-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h3 id="入门书单"><a href="#入门书单" class="headerlink" title="入门书单"></a>入门书单</h3><ol>
+      
+
+      
+        
+          
+            <h3 id="入门书单"><a href="#入门书单" class="headerlink" title="入门书单"></a>入门书单</h3><ol>
 <li>《数学之美》 <a href="http://ishare.iask.sina.com.cn/f/12813884.html" target="_blank" rel="noopener">PDF</a>作者吴军大家都很熟悉。以极为通俗的语言讲述了数学在机器学习和自然语言处理等领域的应用。</li>
 <li>《Programming Collective Intelligence》（《集体智慧编程》）<a href="http://ishare.iask.sina.com.cn/f/20937916.html" target="_blank" rel="noopener">PDF</a>作者Toby Segaran也是《BeautifulData : The Stories Behind Elegant Data Solutions》（《数据之美：解密优雅数据解决方案背后的故事》）的作者。这本书最大的优势就是里面没有理论推导和复杂的数学公式，是很不错的入门书。目前中文版已经脱销，对于有志于这个领域的人来说，英文的pdf是个不错的选择，因为后面有很多经典书的翻译都较差，只能看英文版，不如从这个入手。还有，这本书适合于快速看完，因为据评论，看完一些经典的带有数学推导的书后会发现这本书什么都没讲，只是举了很多例子而已。</li>
 <li>《Algorithms of the Intelligent Web》（《智能web算法》）<a href="http://ishare.iask.sina.com.cn/f/22685227.html" target="_blank" rel="noopener">PDF</a>作者Haralambos Marmanis、Dmitry Babenko。这本书中的公式比《集体智慧编程》要略多一点，里面的例子多是互联网上的应用，看名字就知道。不足的地方在于里面的配套代码是BeanShell而不是python或其他。总起来说，这本书还是适合初学者，与上一本一样需要快速读完，如果读完上一本的话，这一本可以不必细看代码，了解算法主要思想就行了。</li>
@@ -125,46 +442,178 @@
 </ol>
 <p>【来源】<a href="http://suanfazu.com/discussion/109/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E4%B9%A6%E7%B1%8D" target="_blank" rel="noopener">http://suanfazu.com/discussion/109/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E4%B9%A6%E7%B1%8D</a></p>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e4-b9-a6-e7-b1-8d/" data-id="cjsnzpd2g009yz8h8k7nkxqxv" class="article-share-link">Share</a>
+
+    
+
+    
+    
+    
+
+    
+
+    
       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/" class="article-date">
-  <time datetime="2014-01-10T03:14:17.000Z" itemprop="datePublished">2014-01-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/machine-learning/">machine learning</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/">机器学习经典论文/survey合集</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/" class="post-title-link" itemprop="url">机器学习经典论文/survey合集</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2014-01-10 11:14:17" itemprop="dateCreated datePublished" datetime="2014-01-10T11:14:17+08:00">2014-01-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p><strong>Active Learning</strong></p>
+      
+
+      
+        
+          
+            <p><strong>Active Learning</strong></p>
 <ul>
 <li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/106.pdf" target="_blank" rel="noopener">Two Faces of Active Learning</a>, Dasgupta, 2011</li>
 <li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/104.pdf" target="_blank" rel="noopener">Active Learning Literature Survey</a>, Settles, 2010<br><strong>Applications</strong></p>
@@ -354,48 +803,178 @@
 <li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/60.pdf" target="_blank" rel="noopener">Data Mining for Hypertext: A Tutorial Survey</a>, Chakrabarti, 2000<br><a href="http://www.mlsurveys.com/" target="_blank" rel="noopener">http://www.mlsurveys.com/</a></li>
 </ul>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/" data-id="cjsnzpd4x00b9z8h8thr7bk1p" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/01/07/vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b/" class="article-date">
-  <time datetime="2014-01-07T14:27:06.000Z" itemprop="datePublished">2014-01-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vtk/">vtk</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/07/vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/07/vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b/">vtk鼠标交互三例</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/01/07/vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b/" class="post-title-link" itemprop="url">vtk鼠标交互三例</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2014-01-07 22:27:06" itemprop="dateCreated datePublished" datetime="2014-01-07T22:27:06+08:00">2014-01-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div>例一：</div><div>显示Dicom序列，通过鼠标滚轮切换，并能显示操作提示。</div><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_ad8eb3a0ec7af9eb9189cc2b97ad6c68.jpg" alt></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;!--more--&gt;&lt;div&gt;&lt;font color=&quot;#008000&quot;&gt;//&lt;/font&gt;
+      
+
+      
+        
+          
+            <div>例一：</div><div>显示Dicom序列，通过鼠标滚轮切换，并能显示操作提示。</div><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_ad8eb3a0ec7af9eb9189cc2b97ad6c68.jpg" alt></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;!--more--&gt;&lt;div&gt;&lt;font color=&quot;#008000&quot;&gt;//&lt;/font&gt;
 &lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;This&amp;nbsp;example&amp;nbsp;demonstrates&amp;nbsp;how&amp;nbsp;to&amp;nbsp;read&amp;nbsp;a&amp;nbsp;series&amp;nbsp;of&amp;nbsp;dicom&amp;nbsp;images&lt;/font&gt;
 &lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;and&amp;nbsp;how&amp;nbsp;to&amp;nbsp;scroll&amp;nbsp;with&amp;nbsp;the&amp;nbsp;mousewheel&amp;nbsp;or&amp;nbsp;the&amp;nbsp;up/down&amp;nbsp;keys&lt;/font&gt;
 &lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;through&amp;nbsp;all&amp;nbsp;slices&lt;/font&gt;
@@ -862,46 +1441,178 @@ vtkStandardNewMacro(MouseInteractorStyle3);
 &lt;/div&gt;&lt;/div&gt;</code></div></div><div><br></div><div><br></div>
 
 <div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/01/07/vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b/" data-id="cjsnzpd7900byz8h8qjwfowpt" class="article-share-link">Share</a>
+
+    
+
+    
+    
+    
+
+    
+
+    
       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-2014-e8-ae-a1-e5-88-92" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/01/01/2014-e8-ae-a1-e5-88-92/" class="article-date">
-  <time datetime="2014-01-01T11:18:18.000Z" itemprop="datePublished">2014-01-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/essay/">essay</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/01/2014-e8-ae-a1-e5-88-92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/01/2014-e8-ae-a1-e5-88-92/">2014计划（想到再加）</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/01/01/2014-e8-ae-a1-e5-88-92/" class="post-title-link" itemprop="url">2014计划（想到再加）</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2014-01-01 19:18:18" itemprop="dateCreated datePublished" datetime="2014-01-01T19:18:18+08:00">2014-01-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>1.2.  更多阅读；</p>
+      
+
+      
+        
+          
+            <p>1.2.  更多阅读；</p>
 <ol start="3">
 <li>练习长跑；</li>
 <li>学习摄影；</li>
@@ -914,48 +1625,178 @@ vtkStandardNewMacro(MouseInteractorStyle3);
 <li>学习公开课；</li>
 </ol>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/01/01/2014-e8-ae-a1-e5-88-92/" data-id="cjsnzpco80008z8h8d45ptobz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/plan/">plan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/to-do-list/">to-do list</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-e3-80-90-e8-bd-ac-e3-80-91c-e6-a8-a1-e6-9d-bf-e7-bc-96-e8-af-91-e9-97-ae-e9-a2-98-e4-b8-8e-e8-af-8d-e6-b3-95-e6-b6-88-e6-ad-a7-e8-ae-be-e8-ae-a1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/29/e3-80-90-e8-bd-ac-e3-80-91c-e6-a8-a1-e6-9d-bf-e7-bc-96-e8-af-91-e9-97-ae-e9-a2-98-e4-b8-8e-e8-af-8d-e6-b3-95-e6-b6-88-e6-ad-a7-e8-ae-be-e8-ae-a1/" class="article-date">
-  <time datetime="2013-12-29T11:41:34.000Z" itemprop="datePublished">2013-12-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c-cpp/">c/cpp</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/29/e3-80-90-e8-bd-ac-e3-80-91c-e6-a8-a1-e6-9d-bf-e7-bc-96-e8-af-91-e9-97-ae-e9-a2-98-e4-b8-8e-e8-af-8d-e6-b3-95-e6-b6-88-e6-ad-a7-e8-ae-be-e8-ae-a1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/29/e3-80-90-e8-bd-ac-e3-80-91c-e6-a8-a1-e6-9d-bf-e7-bc-96-e8-af-91-e9-97-ae-e9-a2-98-e4-b8-8e-e8-af-8d-e6-b3-95-e6-b6-88-e6-ad-a7-e8-ae-be-e8-ae-a1/">【转】C++模板”&gt;&gt;”编译问题与词法消歧设计</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/29/e3-80-90-e8-bd-ac-e3-80-91c-e6-a8-a1-e6-9d-bf-e7-bc-96-e8-af-91-e9-97-ae-e9-a2-98-e4-b8-8e-e8-af-8d-e6-b3-95-e6-b6-88-e6-ad-a7-e8-ae-be-e8-ae-a1/" class="post-title-link" itemprop="url">【转】C++模板”>>”编译问题与词法消歧设计</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-29 19:41:34" itemprop="dateCreated datePublished" datetime="2013-12-29T19:41:34+08:00">2013-12-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/" itemprop="url" rel="index"><span itemprop="name">c/cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>在编译理论中，通常将编译过程抽象为5个主要阶段：词法分析(Lexical Analysis)，语法分析(Parsing)，语义分析(Semantic Analysis)，优化(Optimization)，代码生成(Code Generation)。这5个阶段类似Unix管道模型，上一个阶段的输出作为下一个阶段的输入。其中，词法分析是根据输入源代码文本流，分割出词，识别类别，产生词法元素(Token)流，如：</p>
+      
+
+      
+        
+          
+            <p>在编译理论中，通常将编译过程抽象为5个主要阶段：词法分析(Lexical Analysis)，语法分析(Parsing)，语义分析(Semantic Analysis)，优化(Optimization)，代码生成(Code Generation)。这5个阶段类似Unix管道模型，上一个阶段的输出作为下一个阶段的输入。其中，词法分析是根据输入源代码文本流，分割出词，识别类别，产生词法元素(Token)流，如：</p>
 <div><br><div id="highlighter_793902"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td><br><div>1</div></td><br><td><br><div><br><div><code>int</code> <code>a = 10;</code></div><br></div></td><br></tr><br></tbody><br></table><br></div><br></div><br>经过词法分析会得到[(Type, “int”), (Identifier, “a”), (AssignOperator, “=”), (IntLiteral, 10)]，在后续的语法分析阶段，就会根据这些词法元素匹配相应的语法规则。在我学习编译原理时，教科书中对于词法分析的介绍主要是基于正则表达式的，言下之意就是普通语言的词法规则是可以通过正则表达式描述的。比如，C语言的变量名规则是“包含字母、数字或下划线，并且以字母或下划线开头”，这就可以用正则表达式<code>[a-zA-Z_][a-zA-Z0-9_]*</code>表达。但是，在实践中我发现不管是主流语言，还是自己设计的DSL都大量存在不能简单通过正则表达式进行词法分析的例子。来看C++98的模版例子：<br><div><br><div id="highlighter_750615"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td><br><div>1</div></td><br><td><br><div><br><div><code>map&amp;lt;`</code>int<code>, vector&amp;lt;</code>int<code>&amp;gt;&amp;gt;`&lt;/div&gt;
 &lt;/div&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -1031,363 +1872,1397 @@ Scannerless Parsing方法弥补了词法规则无法消歧的问题，但是同�
 &lt;td&gt;
 &lt;div&gt;
 &lt;div&gt;</code>Foo&lt;(3&gt;&gt;1)&gt; foo;`</div><br></div></td><br></tr><br></tbody><br></table><br>转自酷壳：<a href="http://coolshell.cn/articles/10449.html" target="_blank" rel="noopener">http://coolshell.cn/articles/10449.html</a><br><br></div><br></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/29/e3-80-90-e8-bd-ac-e3-80-91c-e6-a8-a1-e6-9d-bf-e7-bc-96-e8-af-91-e9-97-ae-e9-a2-98-e4-b8-8e-e8-af-8d-e6-b3-95-e6-b6-88-e6-ad-a7-e8-ae-be-e8-ae-a1/" data-id="cjsnzpcr7001qz8h8ebnmz7fj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/template/">template</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-itk-e6-97-a0-e6-b3-95-e7-94-9f-e6-88-90io-e5-af-b9-e8-b1-a1-e9-97-ae-e9-a2-98" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/29/itk-e6-97-a0-e6-b3-95-e7-94-9f-e6-88-90io-e5-af-b9-e8-b1-a1-e9-97-ae-e9-a2-98/" class="article-date">
-  <time datetime="2013-12-29T11:40:26.000Z" itemprop="datePublished">2013-12-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/itk/">itk</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/29/itk-e6-97-a0-e6-b3-95-e7-94-9f-e6-88-90io-e5-af-b9-e8-b1-a1-e9-97-ae-e9-a2-98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/29/itk-e6-97-a0-e6-b3-95-e7-94-9f-e6-88-90io-e5-af-b9-e8-b1-a1-e9-97-ae-e9-a2-98/">ITK无法生成IO对象问题</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/29/itk-e6-97-a0-e6-b3-95-e7-94-9f-e6-88-90io-e5-af-b9-e8-b1-a1-e9-97-ae-e9-a2-98/" class="post-title-link" itemprop="url">ITK无法生成IO对象问题</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-29 19:40:26" itemprop="dateCreated datePublished" datetime="2013-12-29T19:40:26+08:00">2013-12-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/itk/" itemprop="url" rel="index"><span itemprop="name">itk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>&nbsp;</p>
+      
+
+      
+        
+          
+            <p>&nbsp;</p>
 <header>
 
 <h1 id="当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。"><a href="#当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。" class="headerlink" title="当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。"></a><span style="font-size: 13px;">当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。</span></h1><p></p></header><p></p>
 <div><br><br>报错是说:<br><br>Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file suffix, or    set the suffix to an unsupported type.<br><br>这是由于没有加入ITKIO的预处理器。<br><br>解决方法：<br><br>属性  -&gt;  配置属性  -&gt;  C/C++  -&gt;  预处理器<br><br>预处理器定义中加入：<strong>ITK_IO_FACTORY_REGISTER_MANAGER</strong><br><br></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/29/itk-e6-97-a0-e6-b3-95-e7-94-9f-e6-88-90io-e5-af-b9-e8-b1-a1-e9-97-ae-e9-a2-98/" data-id="cjsnzpctm003jz8h8xaec5oks" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/itk/">itk</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-e5-8c-bb-e5-ad-a6-e5-bd-b1-e5-83-8fwl-e7-ae-97-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/29/e5-8c-bb-e5-ad-a6-e5-bd-b1-e5-83-8fwl-e7-ae-97-e6-b3-95/" class="article-date">
-  <time datetime="2013-12-29T11:39:46.000Z" itemprop="datePublished">2013-12-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vtk/">vtk</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/29/e5-8c-bb-e5-ad-a6-e5-bd-b1-e5-83-8fwl-e7-ae-97-e6-b3-95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/29/e5-8c-bb-e5-ad-a6-e5-bd-b1-e5-83-8fwl-e7-ae-97-e6-b3-95/">医学影像W/L算法</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/29/e5-8c-bb-e5-ad-a6-e5-bd-b1-e5-83-8fwl-e7-ae-97-e6-b3-95/" class="post-title-link" itemprop="url">医学影像W/L算法</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-29 19:39:46" itemprop="dateCreated datePublished" datetime="2013-12-29T19:39:46+08:00">2013-12-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>&nbsp;</p>
+      
+
+      
+        
+          
+            <p>&nbsp;</p>
 <header>
 
 <h1 id="窗宽与窗位"><a href="#窗宽与窗位" class="headerlink" title="窗宽与窗位"></a><strong>窗宽与窗位</strong></h1><p></p></header><p></p>
 <div><br><br>CT能识别人体内2000个不同灰阶的密度差别。而人的眼睛却只能分辨16 个灰阶度。因此，人眼在CT图像上能分辨的CT值应为125 Hu ( 2000 / 16 ）。换句话说，人体内不同组织CT 值只有相差125Hu 以上，才能为人眼所识别。人体软组织CT值多变化在20 – 50 Hu之间，人眼就无法识别。为此，必须进行分段观察，才能使CT 的优点反映出来。观察的CT 值范围，人们称之为窗宽；观察的中心CT值即为窗位或窗中心。<br>（一）窗宽指CT图像所显示的CT 值范围。在此CT值范围内的组织结构按其密度高低从白到黑分为16 个灰阶以供观察对比。例如，窗宽选定为100 Hu ，则人眼可分辨的CT值为100 / 16 =6 . 25 Hu ，即2 种组织CT值相差在6 . 25Hu以上者即可为人眼所识别。因此，窗宽的宽窄直接影响图像的清晰度与对比度。如果使用窄的窗宽，则显示的CT 值范围小，每一灰阶代表的CT 值幅度小，对比度强，适于观察密度接近的组织结构（如脑组织）。反之，如果使用宽的窗宽，则显示的CT值范围大，每一灰阶代表的CT 值幅度大，则图像对比度差，但密度均匀，适于观察密度差别大的结构（如骨与软组织）。<br>（二）窗位（窗中心）指窗宽范围内均值或中心值。比如一幅CT图像，窗宽为100Hu，窗位选在0Hu；则以窗位为中心（0Hu），向上包括+50Hu，向下包括-50Hu，凡是在这个100Hu 范围内的组织均可显示出来并为人眼所识别。凡是大于+50Hu 的组织均为白色；凡是小子-50Hu 的组织均为黑色，其密度差异无法显示。人眼只能识别土50Hu 范围内的CT 值，每一个灰阶的CT 值范围是100 / 16＝6 . 25 Hu 。<br>原则上说窗位应该等于或接近需要观察的CT 值；窗宽应能反映该组织或病变的CT 值变化范围。<br><br>&nbsp;<br><br><strong>技术问题：</strong><br>显示器往往只有 8-bit， 而数据有 12- 至 16-bits。<br>如果将数据的 min 和 max 间 (dynamic range) 的之间转换到 8-bit 0-255 去，过程是个有损转换，而且出来的图像往往突出的是些噪音。<br><br>针对这些问题，研究人员先提出一些要求 (requirements)，然后根据这些要求提出了一些算法。这些算法现在都很成熟。<br><br>要求一：充分利用 0-255 间的显示有效值域<br>要求二：尽量减少值域压缩带来的损失<br>要求三：不能损失应该突出的组织部分<br><br><strong>算法分析：<br>A. 16-bit 到 8-bit 直接转换：</strong><br><br>computeMinMax(pixel_val, min, max); // 先算图像的最大和最小值<br>for (i = 0; i &lt; nNumPixels; i++)<br>disp_pixel_val = (pixel_val – min)<em>255.0/(double)(max – min);<br><br>这个算法必须有，对不少种类的图像是很有效的：如 8-bit 图像，MRI, ECT, CR 等等。<br><br><strong>B. Window-leveling 算法</strong>:<br><br>W/L 是专门为 CT 设计的。原理很简单：CT 图像里不同组织的密度 (用 Hounsfield 单位) 是在固定的值域， 与具体设备和成像软件没有关系。因此，要看头颅时， 我们只需将头颅的值域转换到 0-255 就行了。<br><br>CT W/L 不讲头颅值域的 min 和 max, 而说 max – min (即 window_width) 和 (max+min)/2 (即 window_center)。<br><br>我们还可以用原来的公式，只是 min 和 max 的算法不一样。<br><br>// 先算图像的最大和最小值<br>min = (2</em>window_center – window_width)/2.0 + 0.5;<br>max = (2<em>window_center + window_width)/2.0 + 0.5;<br>for (i = 0; i &lt; nNumPixels; i++)<br>disp_pixel_val = (pixel_val – min)</em>255.0/(double)(max – min);<br><br>请注意，CT 图像必须先转换成 Hounsfield 值再做 window-level。 这个转换包括将多余高位 bits 变成 0 (clipping), 和用 recale slope 和 rescale intercept 来做单位转换。<br><br>HU = pixel_val<em>rescale_slope + rescale_intercept<br><br><strong>C.非线性转换</strong><br><br>我刚刚说的是将 min 和 max 间的数值线性转换到 0-255 之间。 如果 max – min 出来是个很大的数值，比如说 25500， 那就说每 100 原始密度会压缩成一个显示灰度。 这样的损失可能会很大。<br><br>因为人眼对灰度地反应式是非线性的，非线性转换可以解决一些问题。 常用算法有 log 和 gamma 两种。gamma 比较好调 gamma 值，因此用得比较多。<br><br>for (i = 0; i &lt; nNumPixels; i++)<br>disp_pixel_val = 255.0 </em> pow(pixel_value/(max-min), 1.0/gamma);<br><br><strong>D. 有效值域</strong>：CT 的 Window-level 有标准的定义，请参看 “Practical CT Techniques”, by Wladyslaw Gedroyc and Sheila Rankin, Springer-Verlag。最常用到的有 WW = 400, WL = 40 （实用许多部位）; WW = 100, WL = 36 (头);WW = 3200, WL = 200 (骨头)，等等。<br><br>&nbsp;<br><br><strong>补充几点：</strong><br><br><em>   <strong>在做任何转换时要注意有效灰度域外的数值的处理。</strong><br><br>最好先用 int 而非 unsigned char 来算，再转入矩阵，以避免 overflow 和 underflow。<br><br>double dFactor = 255.0/(double)(max – min);<br>int nPixelVal;<br><br>for (i = 0; i &lt; nNumPixels; i++)<br>{<br><br>nPixelVal = (int) ((pixel_val – min)</em>dFactor);<br><br>if (nPixelVal &lt; 0)<br>disp_pixel_val = 0;<br>else if (nPixelVal &gt; 255)<br>disp_pixel_val = 255;<br>else<br>disp_pixel_val = nPixelVal;<br><br>}<br><br><em>   <strong>做 window-level 时要注意 min 和 max 之外原始数据的处理</strong><br>double dFactor， min, max;<br>int nPixelVal;<br><br>min = (2</em>window_center – window_width)/2.0 + 0.5;<br>max = (2<em>window_center + window_width)/2.0 + 0.5;<br>dFactor = 255.0/(double)(max – min);<br><br>for (i = 0; i &lt; nNumPixels; i++)<br>{<br>if (pixel_val &lt; min)<br>{<br>disp_pixel_val = 0;<br>continue;<br>}<br><br>if (pixel_val &gt; max)<br>{<br>disp_pixel_val = 255;<br>continue;<br>}<br><br>nPixelVal = (int)((pixel_val – min)</em>dFactor);<br><br>if (nPixelVal &lt; 0)<br>disp_pixel_val = 0;<br>else if (nPixelVal &gt; 255)<br>disp_pixel_val = 255;<br>else<br>disp_pixel_val = nPixelVal;<br><br>}<br><br>摘自：<a href="http://www.cnblogs.com/okaimee/archive/2010/12/31/1922648.html" target="_blank" rel="noopener">http://www.cnblogs.com/okaimee/archive/2010/12/31/1922648.html</a><br><br></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/29/e5-8c-bb-e5-ad-a6-e5-bd-b1-e5-83-8fwl-e7-ae-97-e6-b3-95/" data-id="cjsnzpcrm0020z8h8w656krut" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/itk/">itk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vtk/">vtk</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-the-road-not-taken" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/29/the-road-not-taken/" class="article-date">
-  <time datetime="2013-12-29T09:23:45.000Z" itemprop="datePublished">2013-12-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/poem/">poem</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/29/the-road-not-taken/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/29/the-road-not-taken/">The Road Not Taken</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/29/the-road-not-taken/" class="post-title-link" itemprop="url">The Road Not Taken</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-29 17:23:45" itemprop="dateCreated datePublished" datetime="2013-12-29T17:23:45+08:00">2013-12-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/poem/" itemprop="url" rel="index"><span itemprop="name">poem</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h4 id="—-by-Robert-Frost"><a href="#—-by-Robert-Frost" class="headerlink" title="—-by Robert Frost"></a><span style="widows: 2; text-transform: none; background-color: #f9f9f9; text-indent: 0px; letter-spacing: normal; display: inline !important; font: x-small verdana, arial, 'lucida sans', helvetica, geneva, sans-serif; white-space: normal; orphans: 2; float: none; color: #000000; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><em>—-by<span class="Apple-converted-space"> </span></em></span><a href="http://www.poets.org/poet.php/prmPID/192" target="_blank" rel="noopener"><em>Robert Frost</em></a></h4><div><br><div><em><span style="font-family: 'Times New Roman';">Two roads diverged in a yellow wood,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And sorry I could not travel both</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And be one traveler, long I stood</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And looked down one as far as I could</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">To where it bent in the undergrowth;</span></em></div><br><div></div><br><div><em><span style="font-family: 'Times New Roman';">Then took the other, as just as fair,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And having perhaps the better claim,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Because it was grassy and wanted wear;</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Though as for that the passing there</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Had worn them really about the same,</span></em></div><br><div></div><br><div><em><span style="font-family: 'Times New Roman';">And both that morning equally lay</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">In leaves no step had trodden black.</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Oh, I kept the first for another day!</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Yet knowing how way leads on to way,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">I doubted if I should ever come back.</span></em></div><br><div></div><br><div><em><span style="font-family: 'Times New Roman';">I shall be telling this with a sigh</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Somewhere ages and ages hence:</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Two roads diverged in a wood, and I–</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">I took the one less traveled by,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And that has made all the difference.</span></em></div><br></div><br><div></div><br><div></div>
+      
+
+      
+        
+          
+            <h4 id="—-by-Robert-Frost"><a href="#—-by-Robert-Frost" class="headerlink" title="—-by Robert Frost"></a><span style="widows: 2; text-transform: none; background-color: #f9f9f9; text-indent: 0px; letter-spacing: normal; display: inline !important; font: x-small verdana, arial, 'lucida sans', helvetica, geneva, sans-serif; white-space: normal; orphans: 2; float: none; color: #000000; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><em>—-by<span class="Apple-converted-space"> </span></em></span><a href="http://www.poets.org/poet.php/prmPID/192" target="_blank" rel="noopener"><em>Robert Frost</em></a></h4><div><br><div><em><span style="font-family: 'Times New Roman';">Two roads diverged in a yellow wood,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And sorry I could not travel both</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And be one traveler, long I stood</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And looked down one as far as I could</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">To where it bent in the undergrowth;</span></em></div><br><div></div><br><div><em><span style="font-family: 'Times New Roman';">Then took the other, as just as fair,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And having perhaps the better claim,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Because it was grassy and wanted wear;</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Though as for that the passing there</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Had worn them really about the same,</span></em></div><br><div></div><br><div><em><span style="font-family: 'Times New Roman';">And both that morning equally lay</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">In leaves no step had trodden black.</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Oh, I kept the first for another day!</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Yet knowing how way leads on to way,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">I doubted if I should ever come back.</span></em></div><br><div></div><br><div><em><span style="font-family: 'Times New Roman';">I shall be telling this with a sigh</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Somewhere ages and ages hence:</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">Two roads diverged in a wood, and I–</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">I took the one less traveled by,</span></em></div><br><div><em><span style="font-family: 'Times New Roman';">And that has made all the difference.</span></em></div><br></div><br><div></div><br><div></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/29/the-road-not-taken/" data-id="cjsnzpcvm004uz8h8uyqklal7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poem/">poem</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/" class="article-date">
-  <time datetime="2013-12-19T19:02:55.000Z" itemprop="datePublished">2013-12-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/itk/">itk</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/">ITK读写ImageFileReaderException问题</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/" class="post-title-link" itemprop="url">ITK读写ImageFileReaderException问题</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-20 03:02:55" itemprop="dateCreated datePublished" datetime="2013-12-20T03:02:55+08:00">2013-12-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/itk/" itemprop="url" rel="index"><span itemprop="name">itk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div><br><div><strong>用户层面</strong>：itkImageFileReader（读）  itkImageFileWriter（写）</div><br><div><strong>内部实现</strong>：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象<span style="font-size: 10.5pt; line-height: 1.5;">工厂根据用户输入文件类型生成相应的ImageIO对象</span></div><br>
+      
+
+      
         
-          <p class="article-more-link">
-            <a href="/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/#more">Read More</a>
-          </p>
+          <div><br><div><strong>用户层面</strong>：itkImageFileReader（读）  itkImageFileWriter（写）</div><br><div><strong>内部实现</strong>：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象<span style="font-size: 10.5pt; line-height: 1.5;">工厂根据用户输入文件类型生成相应的ImageIO对象</span></div><br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/" data-id="cjsnzpcti003fz8h8tifkbagp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exception/">exception</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/itk/">itk</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</div></article>
+  
+  
+  </div></article>
 
+
+    
+      
 
   
-    <article id="post-cmake-e8-8c-83-e4-be-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/19/cmake-e8-8c-83-e4-be-8b/" class="article-date">
-  <time datetime="2013-12-19T11:05:58.000Z" itemprop="datePublished">2013-12-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/cmake/">cmake</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/19/cmake-e8-8c-83-e4-be-8b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/19/cmake-e8-8c-83-e4-be-8b/">CMake范例</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/19/cmake-e8-8c-83-e4-be-8b/" class="post-title-link" itemprop="url">CMake范例</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-19 19:05:58" itemprop="dateCreated datePublished" datetime="2013-12-19T19:05:58+08:00">2013-12-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cmake/" itemprop="url" rel="index"><span itemprop="name">cmake</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div><!--StartFragment--><br><br>## <span id="Basics" class="mw-headline"><span style="color: #ff0000;">基础</span></span><br><br>### 设置cmake变量<br><br>
+      
+
+      
         
-          <p class="article-more-link">
-            <a href="/2013/12/19/cmake-e8-8c-83-e4-be-8b/#more">Read More</a>
-          </p>
+          <div><!--StartFragment--><br><br>## <span id="Basics" class="mw-headline"><span style="color: #ff0000;">基础</span></span><br><br>### 设置cmake变量<br><br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2013/12/19/cmake-e8-8c-83-e4-be-8b/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/19/cmake-e8-8c-83-e4-be-8b/" data-id="cjsnzpd6f00btz8h8jpetj4jc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/">cmake</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</div></article>
+  
+  
+  </div></article>
 
+
+    
+  </section>
 
   
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
-</section>
+
+
+          </div>
+          
+
+        </div>
         
-          <aside id="sidebar">
+          
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ANNs/">ANNs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Big-Data/">Big Data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language-Study/">Language Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Photography/">Photography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/">c/cpp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/cmake/">cmake</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp/">cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data-science/">data science</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/design-pattern/">design pattern</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/itk/">itk</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/itk/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poem/">poem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vtk/">vtk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li></ul>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perceptron/">Perceptron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photography/">Photography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cv/">cv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-struct/">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/">design pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dll/">dll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/">event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interactor/">interactor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itk/">itk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lib/">lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nltk/">nltk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/observer/">observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/">pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poem/">poem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pygame/">pygame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sae/">sae</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setuptools/">setuptools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/signals/">signals</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slots/">slots</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite3/">sqlite3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/titan/">titan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/to-do-list/">to-do list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vtk/">vtk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win/">win</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wxPython/">wxPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lu Xiaohua</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">92</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
     </div>
-  </div>
-
-
+  </aside>
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Cpp/" style="font-size: 12px;">Cpp</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/Neural-Networks/" style="font-size: 12px;">Neural Networks</a> <a href="/tags/Perceptron/" style="font-size: 12px;">Perceptron</a> <a href="/tags/Photography/" style="font-size: 10px;">Photography</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/algorithms/" style="font-size: 10px;">algorithms</a> <a href="/tags/big-data/" style="font-size: 10px;">big data</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/callback/" style="font-size: 10px;">callback</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/cpp/" style="font-size: 18px;">cpp</a> <a href="/tags/cv/" style="font-size: 12px;">cv</a> <a href="/tags/data-science/" style="font-size: 12px;">data science</a> <a href="/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/event/" style="font-size: 10px;">event</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interactor/" style="font-size: 10px;">interactor</a> <a href="/tags/itk/" style="font-size: 16px;">itk</a> <a href="/tags/lib/" style="font-size: 10px;">lib</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine learning</a> <a href="/tags/matlab/" style="font-size: 12px;">matlab</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/nltk/" style="font-size: 12px;">nltk</a> <a href="/tags/observer/" style="font-size: 10px;">observer</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/poem/" style="font-size: 14px;">poem</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qt/" style="font-size: 16px;">qt</a> <a href="/tags/sae/" style="font-size: 10px;">sae</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/setuptools/" style="font-size: 10px;">setuptools</a> <a href="/tags/signals/" style="font-size: 10px;">signals</a> <a href="/tags/slots/" style="font-size: 10px;">slots</a> <a href="/tags/smartpointer/" style="font-size: 10px;">smartpointer</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlite3/" style="font-size: 10px;">sqlite3</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/titan/" style="font-size: 10px;">titan</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to-do list</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a> <a href="/tags/ubuntu/" style="font-size: 12px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 12px;">ui</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vs2010/" style="font-size: 12px;">vs2010</a> <a href="/tags/vtk/" style="font-size: 18px;">vtk</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/win/" style="font-size: 10px;">win</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/wxPython/" style="font-size: 10px;">wxPython</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/02/28/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
-      <footer id="footer">
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lu Xiaohua</span>
+
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
 
+    
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    
   </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

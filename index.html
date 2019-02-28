@@ -1,90 +1,377 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
 
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Code Planet">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="default">
+<meta property="og:site_name" content="Code Planet">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/28/hello-world/" class="article-date">
-  <time datetime="2019-02-28T01:51:06.568Z" itemprop="datePublished">2019-02-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/28/hello-world/">Hello World</a>
-    </h1>
+<meta name="twitter:title" content="Code Planet">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Code Planet</title>
   
 
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Code Planet</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">为了发现更大的世界</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-02-28 09:51:06" itemprop="dateCreated datePublished" datetime="2019-02-28T09:51:06+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -94,46 +381,165 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/28/hello-world/" data-id="cjsnzpcsv002zz8h8uqmssemj" class="article-share-link">Share</a>
+
+    
+
+    
+    
+    
+
+    
+
+    
       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-matplotlib基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/29/matplotlib基础/" class="article-date">
-  <time datetime="2015-12-29T07:32:45.000Z" itemprop="datePublished">2015-12-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/29/matplotlib基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/12/29/matplotlib基础/" class="post-title-link" itemprop="url">matplotlib基础</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-12-29 15:32:45 / Updated at: 15:46:53" itemprop="dateCreated datePublished" datetime="2015-12-29T15:32:45+08:00">2015-12-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h2 id="matplotlib基础"><a href="#matplotlib基础" class="headerlink" title="matplotlib基础"></a>matplotlib基础</h2><h3 id="1-基本绘图"><a href="#1-基本绘图" class="headerlink" title="1.基本绘图"></a>1.基本绘图</h3><h4 id="控制颜色"><a href="#控制颜色" class="headerlink" title="控制颜色"></a>控制颜色</h4><ul>
+      
+
+      
+        
+          <h2 id="matplotlib基础"><a href="#matplotlib基础" class="headerlink" title="matplotlib基础"></a>matplotlib基础</h2><h3 id="1-基本绘图"><a href="#1-基本绘图" class="headerlink" title="1.基本绘图"></a>1.基本绘图</h3><h4 id="控制颜色"><a href="#控制颜色" class="headerlink" title="控制颜色"></a>控制颜色</h4><ul>
 <li><p>颜色之间的对应关系为</p>
 <blockquote>
 <p>b—blue<br>c—cyan<br>g—green<br>k—-black<br>m—magenta<br>r—red<br>w—white<br>y—-yellow</p>
@@ -161,56 +567,177 @@
 </ul>
 <h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入matplot库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出图像大小</span></span><br><span class="line">plt.rc(<span class="string">'figure'</span>, figsize=(<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">10</span>)  				<span class="comment"># [0,2]之间均匀产生10个值</span></span><br><span class="line">plt.plot(x, x, <span class="string">'o-'</span>, label=<span class="string">'linear'</span>)	<span class="comment"># y = x 曲线</span></span><br><span class="line">plt.plot(x, x ** <span class="number">2</span>, <span class="string">'x-'</span>, label=<span class="string">'quadratic'</span>)	<span class="comment"># y=x^2曲线</span></span><br><span class="line">plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">plt.title(<span class="string">'Linear vs Quadratic progression'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Input'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Output'</span>);</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <h4 id="生成结果"><a href="#生成结果" class="headerlink" title="生成结果"></a>生成结果</h4><p><img src="/image/1451373096231.png" alt="Alt text"></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/12/29/matplotlib基础/#more">Read More</a>
-          </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/12/29/matplotlib基础/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/29/matplotlib基础/" data-id="cjsnzpcu0003tz8h8pmbfwrc0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-science/">data science</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-NLTK安装教程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/17/NLTK安装教程/" class="article-date">
-  <time datetime="2015-12-17T06:01:16.000Z" itemprop="datePublished">2015-12-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/NLP/">NLP</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/NLTK安装教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/12/17/NLTK安装教程/" class="post-title-link" itemprop="url">NLTK安装教程</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-12-17 14:01:16 / Updated at: 14:14:24" itemprop="dateCreated datePublished" datetime="2015-12-17T14:01:16+08:00">2015-12-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h3 id="1-安装nltk"><a href="#1-安装nltk" class="headerlink" title="1. 安装nltk"></a>1. 安装nltk</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install nltk</span><br></pre></td></tr></table></figure>
+      
+
+      
+        
+          
+            <h3 id="1-安装nltk"><a href="#1-安装nltk" class="headerlink" title="1. 安装nltk"></a>1. 安装nltk</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip <span class="keyword">install</span> nltk</span><br></pre></td></tr></table></figure>
 <h3 id="2-安装nltk-data"><a href="#2-安装nltk-data" class="headerlink" title="2. 安装nltk_data"></a>2. 安装nltk_data</h3><ul>
 <li><p>nltk.downloader自动下载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m nltk.downloader all</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m nltk<span class="selector-class">.downloader</span> all</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>网盘链接: <a href="http://pan.baidu.com/s/1mgGozzU" target="_blank" rel="noopener">http://pan.baidu.com/s/1mgGozzU</a> 密码: axx8</p>
 <pre><code>&gt; 解压地址：
@@ -220,50 +747,168 @@
 </code></pre></li>
 </ul>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/17/NLTK安装教程/" data-id="cjsnzpcpz000zz8h87d875ddw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nlp/">nlp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nltk/">nltk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-NLTK命名实体识别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/17/NLTK命名实体识别/" class="article-date">
-  <time datetime="2015-12-17T05:58:46.000Z" itemprop="datePublished">2015-12-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/NLP/">NLP</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/NLTK命名实体识别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/12/17/NLTK命名实体识别/" class="post-title-link" itemprop="url">NLTK命名实体识别</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-12-17 13:58:46 / Updated at: 14:14:31" itemprop="dateCreated datePublished" datetime="2015-12-17T13:58:46+08:00">2015-12-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>###引例：<br>NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。<br>下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> nltk</span><br><span class="line">In [<span class="number">2</span>]: tokens = nltk.word_tokenize(<span class="string">'I am very excited about the next generation of Apple products.'</span>)</span><br><span class="line">In [<span class="number">3</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">4</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[(<span class="string">'I'</span>, <span class="string">'PRP'</span>), (<span class="string">'am'</span>, <span class="string">'VBP'</span>), (<span class="string">'very'</span>, <span class="string">'RB'</span>), (<span class="string">'excited'</span>, <span class="string">'JJ'</span>), (<span class="string">'about'</span>, <span class="string">'IN'</span>), (<span class="string">'the'</span>, <span class="string">'DT'</span>), (<span class="string">'next'</span>, <span class="string">'JJ'</span>), (<span class="string">'generation'</span>, <span class="string">'NN'</span>), (<span class="string">'of'</span>, <span class="string">'IN'</span>), (<span class="string">'Apple'</span>, <span class="string">'NNP'</span>), (<span class="string">'products'</span>, <span class="string">'NNS'</span>), (<span class="string">'.'</span>, <span class="string">'.'</span>)]</span><br><span class="line">In [<span class="number">5</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">6</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S</span><br><span class="line">  I/PRP</span><br><span class="line">  am/VBP</span><br><span class="line">  very/RB</span><br><span class="line">  excited/JJ</span><br><span class="line">  about/IN</span><br><span class="line">  the/DT</span><br><span class="line">  next/JJ</span><br><span class="line">  generation/NN</span><br><span class="line">  of/IN</span><br><span class="line">  (GPE Apple/NNP)</span><br><span class="line">  products/NNS</span><br><span class="line">  ./.)</span><br><span class="line">In [<span class="number">7</span>]: tokens = nltk.word_tokenize(<span class="string">'I bought these Apple products today.'</span>)</span><br><span class="line">In [<span class="number">8</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">9</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[<span class="string">'I'</span>, <span class="string">'bought'</span>, <span class="string">'these'</span>, <span class="string">'Apple'</span>, <span class="string">'products'</span>, <span class="string">'today'</span>, <span class="string">'.'</span>]</span><br><span class="line">In [<span class="number">10</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">11</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S I/PRP bought/VBD these/DT Apple/NNP products/NNS today/NN ./.)</span><br></pre></td></tr></table></figure></p>
+      
+
+      
+        
+          
+            <p>###引例：<br>NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。<br>下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> nltk</span><br><span class="line">In [<span class="number">2</span>]: tokens = nltk.word_tokenize(<span class="string">'I am very excited about the next generation of Apple products.'</span>)</span><br><span class="line">In [<span class="number">3</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">4</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[(<span class="string">'I'</span>, <span class="string">'PRP'</span>), (<span class="string">'am'</span>, <span class="string">'VBP'</span>), (<span class="string">'very'</span>, <span class="string">'RB'</span>), (<span class="string">'excited'</span>, <span class="string">'JJ'</span>), (<span class="string">'about'</span>, <span class="string">'IN'</span>), (<span class="string">'the'</span>, <span class="string">'DT'</span>), (<span class="string">'next'</span>, <span class="string">'JJ'</span>), (<span class="string">'generation'</span>, <span class="string">'NN'</span>), (<span class="string">'of'</span>, <span class="string">'IN'</span>), (<span class="string">'Apple'</span>, <span class="string">'NNP'</span>), (<span class="string">'products'</span>, <span class="string">'NNS'</span>), (<span class="string">'.'</span>, <span class="string">'.'</span>)]</span><br><span class="line">In [<span class="number">5</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">6</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S</span><br><span class="line">  I/PRP</span><br><span class="line">  am/VBP</span><br><span class="line">  very/RB</span><br><span class="line">  excited/JJ</span><br><span class="line">  about/IN</span><br><span class="line">  the/DT</span><br><span class="line">  next/JJ</span><br><span class="line">  generation/NN</span><br><span class="line">  of/IN</span><br><span class="line">  (GPE Apple/NNP)</span><br><span class="line">  products/NNS</span><br><span class="line">  ./.)</span><br><span class="line">In [<span class="number">7</span>]: tokens = nltk.word_tokenize(<span class="string">'I bought these Apple products today.'</span>)</span><br><span class="line">In [<span class="number">8</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">9</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[<span class="string">'I'</span>, <span class="string">'bought'</span>, <span class="string">'these'</span>, <span class="string">'Apple'</span>, <span class="string">'products'</span>, <span class="string">'today'</span>, <span class="string">'.'</span>]</span><br><span class="line">In [<span class="number">10</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">11</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S I/PRP bought/VBD these/DT Apple/NNP products/NNS today/NN ./.)</span><br></pre></td></tr></table></figure></p>
 <h3 id="最大熵算法"><a href="#最大熵算法" class="headerlink" title="最大熵算法"></a>最大熵算法</h3><p>注意到在上述两个例子Apple这个词被词性标注为NNP（NNP是宾夕法尼亚大学树图资料库II为专有名词，单数）。另外，这两个单词都以大写字母开始。为什么Apple在1例中被标记为GPE（地缘政治实体），而2例未标记？另外，为什么Apple标记为GPE，而不是ORG（组织机构）？</p>
-<p>NLTK的命名实体识别是通过使用的MaxEnt分类器。MaxEnt分类器工作有两个原则：1.总是试图保持均匀分布(即最大化熵)，2.保持其统计概率与经验数据一致。经验数据来源于语料库，通过手动标记，所以大多数标记数据并不是免费的。NLTK不提供其训练命名实体识别器的语料库（训练数据来自ACE（自动内容抽取））。NLTK所提供的是一个pickle文件（在nltk_data/chunkers/目录下），而这个pickle文件，就是训练好的MaxEnt分类器实例。　　 　　<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  maxent_ne_chunker  tree</span><br><span class="line">.</span><br><span class="line">├── english_ace_binary.pickle</span><br><span class="line">├── english_ace_multiclass.pickle</span><br><span class="line">└── PY3</span><br><span class="line">    ├── english_ace_binary.pickle</span><br><span class="line">    └── english_ace_multiclass.pickle</span><br></pre></td></tr></table></figure></p>
+<p>NLTK的命名实体识别是通过使用的MaxEnt分类器。MaxEnt分类器工作有两个原则：1.总是试图保持均匀分布(即最大化熵)，2.保持其统计概率与经验数据一致。经验数据来源于语料库，通过手动标记，所以大多数标记数据并不是免费的。NLTK不提供其训练命名实体识别器的语料库（训练数据来自ACE（自动内容抽取））。NLTK所提供的是一个pickle文件（在nltk_data/chunkers/目录下），而这个pickle文件，就是训练好的MaxEnt分类器实例。　　 　　<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  maxent_ne_chunker  tree</span><br><span class="line">.</span><br><span class="line">├── english_ace_binary.pickle</span><br><span class="line">├── english_ace_multiclass.pickle</span><br><span class="line">└── PY3</span><br><span class="line">    ├── english_ace_binary.pickle</span><br><span class="line">    └── english_ace_multiclass.pickle</span><br></pre></td></tr></table></figure></p>
 <p>要训练良好的监督学习的算法基于良好的特征。在命名实体识别中，特征可能是这个词是否包含一个大写字母。所以NLTK使用的特征有哪些呢？下面我列出他们：</p>
 <ul>
 <li>词的形状（是否包含数字/首字母大写/包含符号）　　</li>
@@ -281,15 +926,15 @@
 <li>…</li>
 </ul>
 <p>下面的代码可以列出NLTK中所使用的标签<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 载入序列化对象</span></span><br><span class="line">chunker = nltk.data.load(<span class="string">'chunkers/maxent_ne_chunker/english_ace_multiclass.pickle'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最大熵分类器</span></span><br><span class="line">maxEnt = chunker._tagger.classifier()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maxEnt_report</span><span class="params">()</span>:</span></span><br><span class="line">    maxEnt = chunker._tagger.classifier()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'These are the labels used by the NLTK\'s NEC...'</span></span><br><span class="line">    <span class="keyword">print</span> maxEnt.labels()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'These are the most informative features found in the ACE corpora...'</span></span><br><span class="line">    maxEnt.show_most_informative_features()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ne_report</span><span class="params">(sentence, report_all=False)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 词性标记</span></span><br><span class="line">    tokens = nltk.word_tokenize(sentence)</span><br><span class="line">    tokens = nltk.pos_tag(tokens)</span><br><span class="line"></span><br><span class="line">    tags = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(tokens)):</span><br><span class="line">        featureset = chunker._tagger.feature_detector(tokens, i, tags)</span><br><span class="line">        tag = chunker._tagger.choose_tag(tokens, i, tags)</span><br><span class="line">        <span class="keyword">if</span> tag != <span class="string">'O'</span> <span class="keyword">or</span> report_all:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'\nExplanation on the why the word \''</span> + tokens[i][<span class="number">0</span>] + <span class="string">'\' was tagged:'</span></span><br><span class="line">            featureset = chunker._tagger.feature_detector(tokens, i, tags)</span><br><span class="line">            maxEnt.explain(featureset)</span><br><span class="line">        tags.append(tag)</span><br></pre></td></tr></table></figure></p>
-<p>下面的输出报告中列出了NLTK所使用的标签，”I-“，”B-“, “O”前缀的含义为包含/开始/例外（inside/begin/others）标记。当一块开始，第一个词是前缀“B”来表示这个词是一个块的开始。下一个单词，如果它属于同一块，将以”I-“前缀，表示这是块的一部分，而不是开始。如果一个词不属于一块，贴上“O”，这意味着它是在外面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  test  python dd.py </span><br><span class="line">These are the labels used by the NLTK&apos;s NEC...</span><br><span class="line">[&apos;I-GSP&apos;, &apos;B-LOCATION&apos;, &apos;B-GPE&apos;, &apos;I-ORGANIZATION&apos;, &apos;I-PERSON&apos;, &apos;O&apos;, &apos;I-FACILITY&apos;, &apos;I-LOCATION&apos;, &apos;B-PERSON&apos;, &apos;B-FACILITY&apos;, &apos;B-GSP&apos;, &apos;B-ORGANIZATION&apos;, &apos;I-GPE&apos;]</span><br><span class="line"></span><br><span class="line">These are the most informative features found in the ACE corpora...</span><br><span class="line">  10.125 bias==True and label is &apos;O&apos;</span><br><span class="line">   6.631 suffix3==&apos;day&apos; and label is &apos;O&apos;</span><br><span class="line">  -6.207 bias==True and label is &apos;I-GSP&apos;</span><br><span class="line">   5.628 prevtag==&apos;O&apos; and label is &apos;O&apos;</span><br><span class="line">  -4.740 shape==&apos;upcase&apos; and label is &apos;O&apos;</span><br><span class="line">   4.106 shape+prevtag==&apos;&lt;function shape at 0x8bde0d4&gt;+O&apos; and label is &apos;O&apos;</span><br><span class="line">  -3.994 shape==&apos;mixedcase&apos; and label is &apos;O&apos;</span><br><span class="line">   3.992 pos+prevtag==&apos;NNP+B-PERSON&apos; and label is &apos;I-PERSON&apos;</span><br><span class="line">   3.890 prevtag==&apos;I-ORGANIZATION&apos; and label is &apos;I-ORGANIZATION&apos;</span><br><span class="line">   3.879 shape+prevtag==&apos;&lt;function shape at 0x8bde0d4&gt;+I-ORGANIZATION&apos; and label is &apos;I-ORGANIZATION&apos;</span><br></pre></td></tr></table></figure></p>
+<p>下面的输出报告中列出了NLTK所使用的标签，”I-“，”B-“, “O”前缀的含义为包含/开始/例外（inside/begin/others）标记。当一块开始，第一个词是前缀“B”来表示这个词是一个块的开始。下一个单词，如果它属于同一块，将以”I-“前缀，表示这是块的一部分，而不是开始。如果一个词不属于一块，贴上“O”，这意味着它是在外面。<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  test  python dd.py </span><br><span class="line">These are the labels used by the NLTK<span class="symbol">'s</span> NEC...</span><br><span class="line">[<span class="symbol">'I</span>-GSP', <span class="symbol">'B</span>-LOCATION', <span class="symbol">'B</span>-GPE', <span class="symbol">'I</span>-ORGANIZATION', <span class="symbol">'I</span>-PERSON', <span class="symbol">'O</span>', <span class="symbol">'I</span>-FACILITY', <span class="symbol">'I</span>-LOCATION', <span class="symbol">'B</span>-PERSON', <span class="symbol">'B</span>-FACILITY', <span class="symbol">'B</span>-GSP', <span class="symbol">'B</span>-ORGANIZATION', <span class="symbol">'I</span>-GPE']</span><br><span class="line"></span><br><span class="line">These are the most informative features found <span class="keyword">in</span> the ACE corpora...</span><br><span class="line">  <span class="number">10.125</span> bias==<span class="literal">True</span> <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">6.631</span> suffix3==<span class="symbol">'day</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">6.207</span> bias==<span class="literal">True</span> <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-GSP'</span><br><span class="line">   <span class="number">5.628</span> prevtag==<span class="symbol">'O</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">4.740</span> shape==<span class="symbol">'upcase</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">4.106</span> shape+prevtag=='&lt;<span class="keyword">function</span> shape at <span class="number">0</span>x8bde0d4&gt;+O' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">3.994</span> shape==<span class="symbol">'mixedcase</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">3.992</span> pos+prevtag==<span class="symbol">'NNP</span>+B-PERSON' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-PERSON'</span><br><span class="line">   <span class="number">3.890</span> prevtag==<span class="symbol">'I</span>-ORGANIZATION' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-ORGANIZATION'</span><br><span class="line">   <span class="number">3.879</span> shape+prevtag=='&lt;<span class="keyword">function</span> shape at <span class="number">0</span>x8bde0d4&gt;+I-ORGANIZATION' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-ORGANIZATION'</span><br></pre></td></tr></table></figure></p>
 <p><strong>Note:</strong> </p>
 <ul>
 <li>GPE is Geo-Political Entity</li>
 <li>GSP is Geo-Socio-Political group</li>
 </ul>
-<p><strong>例1输出：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">Explanation on the why the word &apos;Apple&apos; was tagged:</span><br><span class="line">  Feature                                            B-GPE       O B-ORGAN   B-GSP</span><br><span class="line">  --------------------------------------------------------------------------------</span><br><span class="line">  prevtag==&apos;O&apos; (1)                                   3.767</span><br><span class="line">  shape==&apos;upcase&apos; (1)                                2.701</span><br><span class="line">  pos+prevtag==&apos;NNP+O&apos; (1)                           2.254</span><br><span class="line">  en-wordlist==False (1)                             2.095</span><br><span class="line">  label is &apos;B-GPE&apos; (1)                              -2.005</span><br><span class="line">  bias==True (1)                                    -1.975</span><br><span class="line">  prevword==&apos;of&apos; (1)                                 0.742</span><br><span class="line">  pos==&apos;NNP&apos; (1)                                     0.681</span><br><span class="line">  nextpos==&apos;nns&apos; (1)                                 0.661</span><br><span class="line">  prevpos==&apos;IN&apos; (1)                                  0.311</span><br><span class="line">  wordlen==5 (1)                                     0.113</span><br><span class="line">  nextword==&apos;products&apos; (1)                           0.060</span><br><span class="line">  bias==True (1)                                            10.125</span><br><span class="line">  prevtag==&apos;O&apos; (1)                                           5.628</span><br><span class="line">  shape==&apos;upcase&apos; (1)                                       -4.740</span><br><span class="line">  prevpos==&apos;IN&apos; (1)                                         -1.668</span><br><span class="line">  label is &apos;O&apos; (1)                                          -1.075</span><br><span class="line">  pos==&apos;NNP&apos; (1)                                            -1.024</span><br><span class="line">  suffix3==&apos;ple&apos; (1)                                         0.797</span><br><span class="line">  en-wordlist==False (1)                                     0.698</span><br><span class="line">  wordlen==5 (1)                                            -0.449</span><br><span class="line">  prevword==&apos;of&apos; (1)                                        -0.217</span><br><span class="line">  nextpos==&apos;nns&apos; (1)                                         0.104</span><br><span class="line">  prefix3==&apos;app&apos; (1)                                         0.089</span><br><span class="line">  pos+prevtag==&apos;NNP+O&apos; (1)                                   0.011</span><br><span class="line">  nextword==&apos;products&apos; (1)                                   0.005</span><br><span class="line">  prevtag==&apos;O&apos; (1)                                                   3.389</span><br><span class="line">  pos+prevtag==&apos;NNP+O&apos; (1)                                           1.725</span><br><span class="line">  bias==True (1)                                                     0.955</span><br><span class="line">  en-wordlist==False (1)                                             0.837</span><br><span class="line">  label is &apos;B-ORGANIZATION&apos; (1)                                      0.718</span><br><span class="line">  nextpos==&apos;nns&apos; (1)                                                 0.365</span><br><span class="line">  wordlen==5 (1)                                                    -0.351</span><br><span class="line">  pos==&apos;NNP&apos; (1)                                                     0.174</span><br><span class="line">  prevpos==&apos;IN&apos; (1)                                                 -0.139</span><br><span class="line">  prevword==&apos;of&apos; (1)                                                 0.131</span><br><span class="line">  prefix3==&apos;app&apos; (1)                                                -0.126</span><br><span class="line">  shape==&apos;upcase&apos; (1)                                               -0.084</span><br><span class="line">  suffix3==&apos;ple&apos; (1)                                                -0.077</span><br><span class="line">  prevtag==&apos;O&apos; (1)                                                           2.925</span><br><span class="line">  pos+prevtag==&apos;NNP+O&apos; (1)                                                   2.213</span><br><span class="line">  shape==&apos;upcase&apos; (1)                                                        0.929</span><br><span class="line">  en-wordlist==False (1)                                                     0.891</span><br><span class="line">  bias==True (1)                                                            -0.592</span><br><span class="line">  label is &apos;B-GSP&apos; (1)                                                      -0.565</span><br><span class="line">  prevpos==&apos;IN&apos; (1)                                                          0.410</span><br><span class="line">  nextpos==&apos;nns&apos; (1)                                                         0.399</span><br><span class="line">  pos==&apos;NNP&apos; (1)                                                             0.393</span><br><span class="line">  prevword==&apos;of&apos; (1)                                                         0.184</span><br><span class="line">  wordlen==5 (1)                                                             0.177</span><br><span class="line">  ---------------------------------------------------------------------------------</span><br><span class="line">  TOTAL:                                             9.406   8.283   7.515   7.366</span><br><span class="line">  PROBS:                                             0.453   0.208   0.122   0.110</span><br></pre></td></tr></table></figure></p>
+<p><strong>例1输出：</strong><br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">Explanation <span class="keyword">on</span> the why the word <span class="symbol">'Apple</span>' was tagged:</span><br><span class="line">  Feature                                            B-GPE       O B-ORGAN   B-GSP</span><br><span class="line">  <span class="comment">--------------------------------------------------------------------------------</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                   <span class="number">3.767</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                <span class="number">2.701</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                           <span class="number">2.254</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                             <span class="number">2.095</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GPE' (<span class="number">1</span>)                              -<span class="number">2.005</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                    -<span class="number">1.975</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                 <span class="number">0.742</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                     <span class="number">0.681</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                 <span class="number">0.661</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                  <span class="number">0.311</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                     <span class="number">0.113</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                           <span class="number">0.060</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                            <span class="number">10.125</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                           <span class="number">5.628</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                       -<span class="number">4.740</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                         -<span class="number">1.668</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>' (<span class="number">1</span>)                                          -<span class="number">1.075</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                            -<span class="number">1.024</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                         <span class="number">0.797</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                     <span class="number">0.698</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                            -<span class="number">0.449</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                        -<span class="number">0.217</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                         <span class="number">0.104</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                         <span class="number">0.089</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                   <span class="number">0.011</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                                   <span class="number">0.005</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                   <span class="number">3.389</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                           <span class="number">1.725</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                     <span class="number">0.955</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                             <span class="number">0.837</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-ORGANIZATION' (<span class="number">1</span>)                                      <span class="number">0.718</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                 <span class="number">0.365</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                    -<span class="number">0.351</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                     <span class="number">0.174</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                                 -<span class="number">0.139</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                                 <span class="number">0.131</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                -<span class="number">0.126</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                               -<span class="number">0.084</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                                -<span class="number">0.077</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                           <span class="number">2.925</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                                   <span class="number">2.213</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                                        <span class="number">0.929</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                                     <span class="number">0.891</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                            -<span class="number">0.592</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GSP' (<span class="number">1</span>)                                                      -<span class="number">0.565</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                                          <span class="number">0.410</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                         <span class="number">0.399</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                             <span class="number">0.393</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                                         <span class="number">0.184</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                             <span class="number">0.177</span></span><br><span class="line">  <span class="comment">---------------------------------------------------------------------------------</span></span><br><span class="line">  TOTAL:                                             <span class="number">9.406</span>   <span class="number">8.283</span>   <span class="number">7.515</span>   <span class="number">7.366</span></span><br><span class="line">  PROBS:                                             <span class="number">0.453</span>   <span class="number">0.208</span>   <span class="number">0.122</span>   <span class="number">0.110</span></span><br></pre></td></tr></table></figure></p>
 <p>最后一行中列出的概率加起来加起来是0.893，而非1。这是因为只输出概率最大的四类标签。</p>
-<p><strong>例2输出：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">Explanation on the why the word &apos;Apple&apos; was tagged:</span><br><span class="line">  Feature                                                O   B-GPE B-ORGAN B-LOCAT</span><br><span class="line">  --------------------------------------------------------------------------------</span><br><span class="line">  bias==True (1)                                    10.125</span><br><span class="line">  prevtag==&apos;O&apos; (1)                                   5.628</span><br><span class="line">  shape==&apos;upcase&apos; (1)                               -4.740</span><br><span class="line">  label is &apos;O&apos; (1)                                  -1.075</span><br><span class="line">  pos==&apos;NNP&apos; (1)                                    -1.024</span><br><span class="line">  suffix3==&apos;ple&apos; (1)                                 0.797</span><br><span class="line">  en-wordlist==False (1)                             0.698</span><br><span class="line">  prevpos==&apos;DT&apos; (1)                                  0.585</span><br><span class="line">  wordlen==5 (1)                                    -0.449</span><br><span class="line">  nextpos==&apos;nns&apos; (1)                                 0.104</span><br><span class="line">  prefix3==&apos;app&apos; (1)                                 0.089</span><br><span class="line">  prevword==&apos;these&apos; (1)                             -0.024</span><br><span class="line">  pos+prevtag==&apos;NNP+O&apos; (1)                           0.011</span><br><span class="line">  nextword==&apos;products&apos; (1)                           0.005</span><br><span class="line">  prevtag==&apos;O&apos; (1)                                           3.767</span><br><span class="line">  shape==&apos;upcase&apos; (1)                                        2.701</span><br><span class="line">  pos+prevtag==&apos;NNP+O&apos; (1)                                   2.254</span><br><span class="line">  en-wordlist==False (1)                                     2.095</span><br><span class="line">  label is &apos;B-GPE&apos; (1)                                      -2.005</span><br><span class="line">  bias==True (1)                                            -1.975</span><br><span class="line">  pos==&apos;NNP&apos; (1)                                             0.681</span><br><span class="line">  nextpos==&apos;nns&apos; (1)                                         0.661</span><br><span class="line">  prevpos==&apos;DT&apos; (1)                                         -0.181</span><br><span class="line">  wordlen==5 (1)                                             0.113</span><br><span class="line">  nextword==&apos;products&apos; (1)                                   0.060</span><br><span class="line">  prevtag==&apos;O&apos; (1)                                                   3.389</span><br><span class="line">  pos+prevtag==&apos;NNP+O&apos; (1)                                           1.725</span><br><span class="line">  bias==True (1)                                                     0.955</span><br><span class="line">  en-wordlist==False (1)                                             0.837</span><br><span class="line">  label is &apos;B-ORGANIZATION&apos; (1)                                      0.718</span><br><span class="line">  prevpos==&apos;DT&apos; (1)                                                 -0.494</span><br><span class="line">  nextpos==&apos;nns&apos; (1)                                                 0.365</span><br><span class="line">  wordlen==5 (1)                                                    -0.351</span><br><span class="line">  pos==&apos;NNP&apos; (1)                                                     0.174</span><br><span class="line">  prefix3==&apos;app&apos; (1)                                                -0.126</span><br><span class="line">  shape==&apos;upcase&apos; (1)                                               -0.084</span><br><span class="line">  suffix3==&apos;ple&apos; (1)                                                -0.077</span><br><span class="line">  prevword==&apos;these&apos; (1)                                              0.067</span><br><span class="line">  prevtag==&apos;O&apos; (1)                                                           2.682</span><br><span class="line">  label is &apos;B-LOCATION&apos; (1)                                                 -2.038</span><br><span class="line">  pos+prevtag==&apos;NNP+O&apos; (1)                                                   1.724</span><br><span class="line">  shape==&apos;upcase&apos; (1)                                                        1.275</span><br><span class="line">  prefix3==&apos;app&apos; (1)                                                         1.169</span><br><span class="line">  bias==True (1)                                                             0.747</span><br><span class="line">  prevpos==&apos;DT&apos; (1)                                                          0.745</span><br><span class="line">  pos==&apos;NNP&apos; (1)                                                             0.616</span><br><span class="line">  en-wordlist==False (1)                                                    -0.309</span><br><span class="line">  nextpos==&apos;nns&apos; (1)                                                         0.151</span><br><span class="line">  wordlen==5 (1)                                                             0.041</span><br><span class="line">  ---------------------------------------------------------------------------------</span><br><span class="line">  TOTAL:                                            10.730   8.171   7.095   6.802</span><br><span class="line">  PROBS:                                             0.697   0.118   0.056   0.046</span><br></pre></td></tr></table></figure></p>
+<p><strong>例2输出：</strong><br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">Explanation <span class="keyword">on</span> the why the word <span class="symbol">'Apple</span>' was tagged:</span><br><span class="line">  Feature                                                O   B-GPE B-ORGAN B-LOCAT</span><br><span class="line">  <span class="comment">--------------------------------------------------------------------------------</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                    <span class="number">10.125</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                   <span class="number">5.628</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                               -<span class="number">4.740</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>' (<span class="number">1</span>)                                  -<span class="number">1.075</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                    -<span class="number">1.024</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                 <span class="number">0.797</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                             <span class="number">0.698</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                  <span class="number">0.585</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                    -<span class="number">0.449</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                 <span class="number">0.104</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                 <span class="number">0.089</span></span><br><span class="line">  prevword==<span class="symbol">'these</span>' (<span class="number">1</span>)                             -<span class="number">0.024</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                           <span class="number">0.011</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                           <span class="number">0.005</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                           <span class="number">3.767</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                        <span class="number">2.701</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                   <span class="number">2.254</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                     <span class="number">2.095</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GPE' (<span class="number">1</span>)                                      -<span class="number">2.005</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                            -<span class="number">1.975</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                             <span class="number">0.681</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                         <span class="number">0.661</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                         -<span class="number">0.181</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                             <span class="number">0.113</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                                   <span class="number">0.060</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                   <span class="number">3.389</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                           <span class="number">1.725</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                     <span class="number">0.955</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                             <span class="number">0.837</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-ORGANIZATION' (<span class="number">1</span>)                                      <span class="number">0.718</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                                 -<span class="number">0.494</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                 <span class="number">0.365</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                    -<span class="number">0.351</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                     <span class="number">0.174</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                -<span class="number">0.126</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                               -<span class="number">0.084</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                                -<span class="number">0.077</span></span><br><span class="line">  prevword==<span class="symbol">'these</span>' (<span class="number">1</span>)                                              <span class="number">0.067</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                           <span class="number">2.682</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-LOCATION' (<span class="number">1</span>)                                                 -<span class="number">2.038</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                                   <span class="number">1.724</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                                        <span class="number">1.275</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                         <span class="number">1.169</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                             <span class="number">0.747</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                                          <span class="number">0.745</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                             <span class="number">0.616</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                                    -<span class="number">0.309</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                         <span class="number">0.151</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                             <span class="number">0.041</span></span><br><span class="line">  <span class="comment">---------------------------------------------------------------------------------</span></span><br><span class="line">  TOTAL:                                            <span class="number">10.730</span>   <span class="number">8.171</span>   <span class="number">7.095</span>   <span class="number">6.802</span></span><br><span class="line">  PROBS:                                             <span class="number">0.697</span>   <span class="number">0.118</span>   <span class="number">0.056</span>   <span class="number">0.046</span></span><br></pre></td></tr></table></figure></p>
 <p>由此：1和2中在GPE识别中唯一的区别在于下面三行：</p>
 <blockquote>
 <p> prevword==’of’ (1)                                0.742<br> prevpos==’IN’ (1)                                  0.311<br> prevpos==’DT’ (1)                                -0.181</p>
@@ -297,94 +942,329 @@
 <p>可见，1中<br>1中的Apple被识别为B-GPE，而2中的Apple被识别为O。</p>
 <h3 id="引用："><a href="#引用：" class="headerlink" title="引用："></a>引用：</h3><p>[1] <a href="http://www.nltk.org/book/ch07.html" target="_blank" rel="noopener">http://www.nltk.org/book/ch07.html</a><br>[2] <a href="http://spark-public.s3.amazonaws.com/nlp/slides/Information_Extraction_and_Named_Entity_Recognition_v2.pdf" target="_blank" rel="noopener">http://spark-public.s3.amazonaws.com/nlp/slides/Information_Extraction_and_Named_Entity_Recognition_v2.pdf</a><br>[3] <a href="http://www.mattshomepage.com/#/blog/feb2013/liftingthehood" target="_blank" rel="noopener">http://www.mattshomepage.com/#/blog/feb2013/liftingthehood</a></p>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/17/NLTK命名实体识别/" data-id="cjsnzpd1t009pz8h8jxaxldqy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nlp/">nlp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nltk/">nltk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-Titan连接Hbase后端" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/17/Titan连接Hbase后端/" class="article-date">
-  <time datetime="2015-12-17T05:55:20.000Z" itemprop="datePublished">2015-12-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/big-data/">big data</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/Titan连接Hbase后端/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/12/17/Titan连接Hbase后端/" class="post-title-link" itemprop="url">Titan连接Hbase后端</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-12-17 13:55:20 / Updated at: 14:14:40" itemprop="dateCreated datePublished" datetime="2015-12-17T13:55:20+08:00">2015-12-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/big-data/" itemprop="url" rel="index"><span itemprop="name">big data</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.启动hbase<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  hbase-1.1.2  ./bin/start-hbase.sh</span><br><span class="line">starting master, logging to /home/luxh/hbase/hbase-1.1.2/bin/../logs/hbase-luxh-master-ubuntu.out</span><br></pre></td></tr></table></figure></p>
-<p> 2.启动gremlin：连接本地hbase时不需要显式加入host<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  titan-1.0.0-hadoop1  bin/gremlin.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: aurelius.titan</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</span><br><span class="line">15:04:30 INFO  org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph  - HADOOP_GREMLIN_LIBS is set to: /home/luxh/titan/titan-1.0.0-hadoop1/lib</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line"><span class="meta">gremlin&gt;</span> </span><br><span class="line"><span class="meta">gremlin&gt;</span> TitanGraph graph = TitanFactory.build().set("storage.backend", "hbase").open();</span><br><span class="line">==&gt;standardtitangraph[hbase:[127.0.0.1]]</span><br><span class="line"><span class="meta">gremlin&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>连接远程hbase时，语句如下更改为如下方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TitanGraph g = TitanFactory.build().set(&quot;storage.backend&quot;, &quot;hbase&quot;).set(&quot;storage.hostname&quot;, &quot;77.77.77.77, 77.77.77.78, 77.77.77.79&quot;).open();</span><br></pre></td></tr></table></figure></p>
+      
+
+      
+        
+          
+            <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.启动hbase<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  hbase-1.1.2  ./bin/start-hbase.sh</span><br><span class="line">starting master, logging to /home/luxh/hbase/hbase-1.1.2/bin/../logs/hbase-luxh-master-ubuntu.out</span><br></pre></td></tr></table></figure></p>
+<p> 2.启动gremlin：连接本地hbase时不需要显式加入host<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  titan-1.0.0-hadoop1  bin/gremlin.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: aurelius.titan</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</span><br><span class="line">15:04:30 INFO  org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph  - HADOOP_GREMLIN_LIBS is set to: /home/luxh/titan/titan-1.0.0-hadoop1/lib</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"> TitanGraph graph = TitanFactory.build().<span class="built_in">set</span>(<span class="string">"storage.backend"</span>, <span class="string">"hbase"</span>).open();</span></span><br><span class="line">==&gt;standardtitangraph[hbase:[127.0.0.1]]</span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure></p>
+<p>连接远程hbase时，语句如下更改为如下方式<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TitanGraph g = TitanFactory.build().<span class="builtin-name">set</span>(<span class="string">"storage.backend"</span>, <span class="string">"hbase"</span>).<span class="builtin-name">set</span>(<span class="string">"storage.hostname"</span>, <span class="string">"77.77.77.77, 77.77.77.78, 77.77.77.79"</span>).open();</span><br></pre></td></tr></table></figure></p>
 <h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>[1]. <a href="http://s3.thinkaurelius.com/docs/titan/1.0.0/hbase.html" target="_blank" rel="noopener">http://s3.thinkaurelius.com/docs/titan/1.0.0/hbase.html</a></p>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/17/Titan连接Hbase后端/" data-id="cjsnzpcqb0019z8h8vozfw45q" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/big-data/">big data</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/titan/">titan</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-Numpy包数据处理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/11/26/Numpy包数据处理/" class="article-date">
-  <time datetime="2015-11-26T13:13:05.000Z" itemprop="datePublished">2015-11-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/data-science/">data science</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/26/Numpy包数据处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/26/Numpy包数据处理/">Numpy包数据处理</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/11/26/Numpy包数据处理/" class="post-title-link" itemprop="url">Numpy包数据处理</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-11-26 21:13:05 / Updated at: 21:24:40" itemprop="dateCreated datePublished" datetime="2015-11-26T21:13:05+08:00">2015-11-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/data-science/" itemprop="url" rel="index"><span itemprop="name">data science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h3 id="1-Numpy包导入"><a href="#1-Numpy包导入" class="headerlink" title="1. Numpy包导入"></a>1. Numpy包导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+      
+
+      
+        
+          <h3 id="1-Numpy包导入"><a href="#1-Numpy包导入" class="headerlink" title="1. Numpy包导入"></a>1. Numpy包导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h3 id="2-生成矩阵"><a href="#2-生成矩阵" class="headerlink" title="2. 生成矩阵"></a>2. 生成矩阵</h3><ul>
 <li>zeros 0矩阵</li>
 <li>ones  1矩阵</li>
@@ -394,335 +1274,1194 @@
 <li>empty 依据内存生成矩阵</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> a</span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.zeros(<span class="number">5</span>)</span><br><span class="line">array([ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.ones(shape=(<span class="number">3</span>,<span class="number">4</span>),dtype=np.int32)</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]], dtype=int32)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.identity(<span class="number">3</span>) </span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.eye(<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.random.rand(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">[[ <span class="number">0.40974346</span>  <span class="number">0.09968249</span>  <span class="number">0.32264537</span>  <span class="number">0.78815716</span>]</span><br><span class="line"> [ <span class="number">0.52959935</span>  <span class="number">0.74650259</span>  <span class="number">0.36604339</span>  <span class="number">0.80450681</span>]</span><br><span class="line"> [ <span class="number">0.07308854</span>  <span class="number">0.83747867</span>  <span class="number">0.18952243</span>  <span class="number">0.03182399</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.empty(shape=(<span class="number">3</span>,<span class="number">3</span>),dtype=np.int16)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> x</span><br><span class="line">[[  <span class="number">6088</span>   <span class="number">5994</span>  <span class="number">32645</span>]</span><br><span class="line"> [     <span class="number">0</span> <span class="number">-16048</span>    <span class="number">630</span>]</span><br><span class="line"> [     <span class="number">0</span>      <span class="number">0</span>     <span class="number">32</span>]]</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2015/11/26/Numpy包数据处理/#more">Read More</a>
-          </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/11/26/Numpy包数据处理/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/26/Numpy包数据处理/" data-id="cjsnzpcpu000vz8h83n05u9ky" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-science/">data science</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-笔试练习（二）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/13/笔试练习（二）/" class="article-date">
-  <time datetime="2015-10-13T15:35:01.000Z" itemprop="datePublished">2015-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/cpp/">cpp</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/13/笔试练习（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/13/笔试练习（二）/">笔试练习（二）</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/10/13/笔试练习（二）/" class="post-title-link" itemprop="url">笔试练习（二）</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-10-13 23:35:01 / Updated at: 23:42:44" itemprop="dateCreated datePublished" datetime="2015-10-13T23:35:01+08:00">2015-10-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h3 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h3><ul>
+      
+
+      
+        
+          <h3 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h3><ul>
 <li>根据先序遍历和中序遍历重建二叉树</li>
 <li>问题1：vector分片</li>
 <li>问题2：相似语句复制粘贴容易出问题而且不易察觉（特别是仅有下标不同的情况）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	TreeNode *left;</span><br><span class="line">	TreeNode *right;</span><br><span class="line">	TreeNode(<span class="keyword">int</span> x) : val(x), left(<span class="literal">NULL</span>), right(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct TreeNode* <span class="title">reConstructBinaryTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pre.empty() || in.empty()) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	TreeNode* root = <span class="keyword">new</span> TreeNode(pre[<span class="number">0</span>]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;pre.size();i++)</span><br><span class="line">		<span class="keyword">if</span>(pre[<span class="number">0</span>] == in[i]) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre1(pre.begin()+<span class="number">1</span>, pre.begin()+i+<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre2(pre.begin()+i+<span class="number">1</span>, pre.end());</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in1(in.begin(), in.begin()+i);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in2(in.begin()+i+<span class="number">1</span>, in.end());</span><br><span class="line"></span><br><span class="line">	<span class="comment">//vector&lt;int&gt;::iterator it;</span></span><br><span class="line">	<span class="comment">//for(it = pre1.begin();it!=pre1.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = pre2.begin();it!=pre2.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = in1.begin();it!=in1.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = in2.begin();it!=in2.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	root-&gt;left = reConstructBinaryTree(pre1,in1);</span><br><span class="line">	root-&gt;right = reConstructBinaryTree(pre2,in2);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/13/笔试练习（二）/#more">Read More</a>
-          </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/10/13/笔试练习（二）/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/13/笔试练习（二）/" data-id="cjsnzpcy0006bz8h8k0rvb0w5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-笔试练习-一" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/13/笔试练习-一/" class="article-date">
-  <time datetime="2015-10-12T17:18:28.000Z" itemprop="datePublished">2015-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/cpp/">cpp</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/13/笔试练习-一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/13/笔试练习-一/">笔试练习(一)</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/10/13/笔试练习-一/" class="post-title-link" itemprop="url">笔试练习(一)</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-10-13 01:18:28 / Updated at: 01:22:52" itemprop="dateCreated datePublished" datetime="2015-10-13T01:18:28+08:00">2015-10-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h3 id="1-二维数组中的查找"><a href="#1-二维数组中的查找" class="headerlink" title="1.二维数组中的查找"></a>1.二维数组中的查找</h3><ul>
+      
+
+      
+        
+          <h3 id="1-二维数组中的查找"><a href="#1-二维数组中的查找" class="headerlink" title="1.二维数组中的查找"></a>1.二维数组中的查找</h3><ul>
 <li>思路：根据矩阵特点，左下角和右上角对应的值对应两个方向上递增或者递减</li>
 <li>问题1：编码中ncol中没有添加下标</li>
 <li>问题2：比较时i和j搞混了</li>
 <li>问题3：二维数组初始化问题</li>
 </ul>
 <p>ac代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="built_in">array</span>,<span class="keyword">int</span> target)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> nrow = <span class="built_in">array</span>.size();        </span><br><span class="line">		<span class="keyword">int</span> ncol = <span class="built_in">array</span>[<span class="number">0</span>].size();        </span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> i = ncol<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i,j; i&gt;=<span class="number">0</span> &amp;&amp; j&lt;=(nrow<span class="number">-1</span>);)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">array</span>[j][i] == target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[j][i] &gt; target) i--;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[j][i] &lt; target) j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/13/笔试练习-一/#more">Read More</a>
-          </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/10/13/笔试练习-一/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/13/笔试练习-一/" data-id="cjsnzpcy4006ez8h89k5u99g3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-关键词提取算法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/26/关键词提取算法/" class="article-date">
-  <time datetime="2015-08-26T14:30:58.000Z" itemprop="datePublished">2015-08-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/NLP/">NLP</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/26/关键词提取算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/关键词提取算法/">关键词提取算法</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/08/26/关键词提取算法/" class="post-title-link" itemprop="url">关键词提取算法</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-08-26 22:30:58 / Updated at: 22:46:44" itemprop="dateCreated datePublished" datetime="2015-08-26T22:30:58+08:00">2015-08-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>##TFIDF<br>想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率)</p>
+      
+
+      
+        
+          
+            <p>##TFIDF<br>想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率)</p>
 <p>##TextRank</p>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/26/关键词提取算法/" data-id="cjsnzpcxp0062z8h87au2pnoi" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-wordpress博客迁移入hexo方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/15/wordpress博客迁移入hexo方法/" class="article-date">
-  <time datetime="2015-08-15T13:43:58.000Z" itemprop="datePublished">2015-08-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/blog/">blog</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/15/wordpress博客迁移入hexo方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/15/wordpress博客迁移入hexo方法/">wordpress博客迁移入hexo方法</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/08/15/wordpress博客迁移入hexo方法/" class="post-title-link" itemprop="url">wordpress博客迁移入hexo方法</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2015-08-15 21:43:58 / Updated at: 21:48:54" itemprop="dateCreated datePublished" datetime="2015-08-15T21:43:58+08:00">2015-08-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>##导出文章<br>登录wordpress管理控制台，选择工具-&gt;导出xml文件</p>
+      
+
+      
+        
+          
+            <p>##导出文章<br>登录wordpress管理控制台，选择工具-&gt;导出xml文件</p>
 <p>##安装插件<br>安装WordPress migrator插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-migrator-wordpress --save</span><br></pre></td></tr></table></figure></p>
 <p>##hexo生成<br>运行hexo命令，生成post文章<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo migrate wordpress <span class="built_in">source</span></span><br></pre></td></tr></table></figure></p>
 <p>##have fun</p>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/15/wordpress博客迁移入hexo方法/" data-id="cjsnzpcxl005yz8h8mkwn498o" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+  </section>
 
   
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
-</section>
+
+
+          </div>
+          
+
+        </div>
         
-          <aside id="sidebar">
+          
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ANNs/">ANNs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Big-Data/">Big Data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language-Study/">Language Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Photography/">Photography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/">c/cpp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/cmake/">cmake</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp/">cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data-science/">data science</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/design-pattern/">design pattern</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/itk/">itk</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/itk/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poem/">poem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vtk/">vtk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li></ul>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perceptron/">Perceptron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photography/">Photography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cv/">cv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-struct/">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/">design pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dll/">dll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/">event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interactor/">interactor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itk/">itk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lib/">lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nltk/">nltk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/observer/">observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/">pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poem/">poem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pygame/">pygame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sae/">sae</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setuptools/">setuptools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/signals/">signals</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slots/">slots</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite3/">sqlite3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/titan/">titan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/to-do-list/">to-do list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vtk/">vtk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win/">win</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wxPython/">wxPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lu Xiaohua</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">92</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
     </div>
-  </div>
-
-
+  </aside>
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Cpp/" style="font-size: 12px;">Cpp</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/Neural-Networks/" style="font-size: 12px;">Neural Networks</a> <a href="/tags/Perceptron/" style="font-size: 12px;">Perceptron</a> <a href="/tags/Photography/" style="font-size: 10px;">Photography</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/algorithms/" style="font-size: 10px;">algorithms</a> <a href="/tags/big-data/" style="font-size: 10px;">big data</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/callback/" style="font-size: 10px;">callback</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/cpp/" style="font-size: 18px;">cpp</a> <a href="/tags/cv/" style="font-size: 12px;">cv</a> <a href="/tags/data-science/" style="font-size: 12px;">data science</a> <a href="/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/event/" style="font-size: 10px;">event</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interactor/" style="font-size: 10px;">interactor</a> <a href="/tags/itk/" style="font-size: 16px;">itk</a> <a href="/tags/lib/" style="font-size: 10px;">lib</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine learning</a> <a href="/tags/matlab/" style="font-size: 12px;">matlab</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/nltk/" style="font-size: 12px;">nltk</a> <a href="/tags/observer/" style="font-size: 10px;">observer</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/poem/" style="font-size: 14px;">poem</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qt/" style="font-size: 16px;">qt</a> <a href="/tags/sae/" style="font-size: 10px;">sae</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/setuptools/" style="font-size: 10px;">setuptools</a> <a href="/tags/signals/" style="font-size: 10px;">signals</a> <a href="/tags/slots/" style="font-size: 10px;">slots</a> <a href="/tags/smartpointer/" style="font-size: 10px;">smartpointer</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlite3/" style="font-size: 10px;">sqlite3</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/titan/" style="font-size: 10px;">titan</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to-do list</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a> <a href="/tags/ubuntu/" style="font-size: 12px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 12px;">ui</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vs2010/" style="font-size: 12px;">vs2010</a> <a href="/tags/vtk/" style="font-size: 18px;">vtk</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/win/" style="font-size: 10px;">win</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/wxPython/" style="font-size: 10px;">wxPython</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/02/28/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
-      <footer id="footer">
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lu Xiaohua</span>
+
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
 
+    
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    
   </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

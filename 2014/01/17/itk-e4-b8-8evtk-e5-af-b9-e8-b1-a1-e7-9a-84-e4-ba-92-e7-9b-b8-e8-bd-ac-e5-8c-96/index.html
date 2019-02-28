@@ -1,20 +1,109 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+
+
+
+
+
+
+
+
+
+
+
 
   
-  <title>ITK与VTK对象的互相转化 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
   <meta name="description" content="ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处">
 <meta name="keywords" content="itk,vtk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ITK与VTK对象的互相转化">
 <meta property="og:url" content="http://yoursite.com/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Code Planet">
 <meta property="og:description" content="ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKliucheng1.jpg">
 <meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_VTKliucheng1.jpg">
 <meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKtoVTK1.jpg">
@@ -23,77 +112,309 @@
 <meta name="twitter:title" content="ITK与VTK对象的互相转化">
 <meta name="twitter:description" content="ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处">
 <meta name="twitter:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKliucheng1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ITK与VTK对象的互相转化 | Code Planet</title>
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Code Planet</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/" class="article-date">
-  <time datetime="2014-01-16T19:59:49.000Z" itemprop="datePublished">2014-01-17</time>
-</a>
+        <p class="site-subtitle">为了发现更大的世界</p>
+      
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/itk/">itk</a>►<a class="article-category-link" href="/categories/itk/vtk/">vtk</a>
+    
   </div>
 
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+</div>
+
+
+
+<nav class="site-nav">
   
-    <h1 class="article-title" itemprop="name">
-      ITK与VTK对象的互相转化
-    </h1>
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
   
 
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ITK与VTK对象的互相转化
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2014-01-17 03:59:49" itemprop="dateCreated datePublished" datetime="2014-01-17T03:59:49+08:00">2014-01-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/itk/" itemprop="url" rel="index"><span itemprop="name">itk</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/itk/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处理。最后，ImageFileWriter将处理的图像数据结果保存，或输人给图形显示系统(如VTK)，进行数据可视化。</span></div><br><div><span style="font-family: 微软雅黑;"> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKliucheng1.jpg" alt></span></div><br><div><span style="font-family: 微软雅黑;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">VTK是C++语言开发的、公开源码的、面向对象的数据可视化软件开发包，并不单纯用于医学图像数据的可视化。VTK支持跨平台的编译，可以应用于Windows,Linux等系统。VTK支持包括数量、向量、张量、结构和测定体积等方法一系列可视化算法，VTK还支持包括建模。</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">VTK的数据流同样采用流水线作业方式，如图2所示。</span></div><br><div><span style="font-family: 微软雅黑;"> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_VTKliucheng1.jpg" alt></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkSource为整个可视化流的开始，比如读取、生成数据等。vtkFilte对输入源数据进行各种处理，与ITK的Fileter类似。原始数据经过各种Filte:的处理后，再由vtkMappe:转换(或映射)成可供其它算法模块直接使用的数据形式，比如为几何数据。vtkActor类用来描述绘制场景中一个实体，即绘制场景的某个角色(Actor)。通过SetMapper()方法，可以将几何数据的属性传递给Actor，再由vtkRenderer类将处理后的数据结果显示出来。</span></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">由于ITK和VTK的数据流都是采用流水线作业形式，比较方便地利用类库本身提供的类型转换类来实现，如图3所示。通过ITKtoVTKImageFilter类操作将ITK和VTK的图像数据连接了起来，VTK负责图像数据的显示，而ITK负责图像的处理，其中VTK的Image Viewe:是一个很方便实现的图像显示类，它在内部管理着vtkImageWindow, vtkRenderer, vtkActor2D和vtkImageMapper等图象类，实现图像查看、显示和可视化功能。</span></div><br><div><span style="font-family: 微软雅黑;"><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKtoVTK1.jpg" alt></span></div><br><div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><a id="more"></a><br></span></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><strong>下面具体解释下ITK对象到VTK对象的两种转换方式：</strong></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5; font-family: 微软雅黑;"><strong>第一种</strong>方式是使用</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;"><strong>itkImageToVTKImageFilter</strong></span>类</span></div><br><div>通过例子来说明：</div><br><div><br><div><br><pre class="brush:cpp">#include “itkImage.h”<br>#include “itkImageFileReader.h”<br>#include “itkImageToVTKImageFilter.h”<br><br>#include “vtkImageViewer.h”<br>#include “vtkRenderWindowInteractor.h”<br><br>int main( int argc, char <strong>argv )<br>{<br>    typedef itk::Image&lt; unsigned short, 2 &gt;             ImageType;<br>    typedef itk::ImageFileReader&lt;ImageType&gt;          ReaderType;<br>    <span style="color: #ff0000;">typedef itk::ImageToVTKImageFilter&lt; ImageType&gt; FilterType;</span><br><br>    ReaderType::Pointer reader = ReaderType::New();<br>    <span style="color: #ff0000;">FilterType::Pointer connector = FilterType::New();</span><br>    reader-&gt;SetFileName( “d:\1.png”);<br>    <span style="color: #ff0000;">connector-&gt;SetInput( reader-&gt;GetOutput() );</span><br><br>    vtkImageViewer <em> viewer = vtkImageViewer::New();<br><br>    vtkRenderWindowInteractor </em> renderWindowInteractor = vtkRenderWindowInteractor::New();<br><br>    viewer-&gt;SetupInteractor( renderWindowInteractor );<br>    viewer-&gt;SetInput(<span style="color: #ff0000;"> connector-&gt;GetOutput()</span> );<br>    viewer-&gt;Render();<br>    viewer-&gt;SetColorWindow( 255 );<br>    viewer-&gt;SetColorLevel( 128 );<br>    renderWindowInteractor-&gt;Start();<br><br>    return 0;<br>}</strong></pre><br></div><br><div></div><br><span style="font-size: 10.5pt; line-height: 1.5;">第二种<strong>方式是使用</strong></span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">itkVTKImageExport <strong></strong></span>/ </span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageImport<strong></strong></span>和</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageExport <strong></strong></span>/ </span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageImport<strong></strong></span></span><span style="font-size: 10.5pt; line-height: 1.5;">类</span><br><br></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">例子如下：</span></div><br><div><br><pre class="brush:cpp">#include “itkCommand.h”<br>#include “itkImage.h”<br>#include “itkVTKImageExport.h”<br>#include “itkVTKImageImport.h”<br>#include “itkCurvatureFlowImageFilter.h”<br>#include “itkCastImageFilter.h”<br>#include “itkRGBPixel.h”<br>#include “itkImageFileReader.h”<br>#include “itkImageFileWriter.h”<br>#include “vtkImageData.h”<br><br>#include “vtkImageImport.h”<br>#include “vtkImageExport.h”<br>#include “vtkImageActor.h”<br>#include “vtkRenderer.h”<br>#include “vtkRenderWindow.h”<br>#include “vtkRenderWindowInteractor.h”<br>#include “vtkInteractorStyleImage.h”<br>#include “itkPNGImageIO.h”<br>/<br><em> This will be setup as a callback for a progress event on an ITK
 </em> filter.<br><em>/<br>struct ProgressDisplay<br>{<br>    ProgressDisplay(itk::ProcessObject</em> process): m_Process(process) {}<br><br>    void Display()<br>    {<br>        float progress = m_Process-&gt;GetProgress()<em>100.0;<br>        std::cout &lt;&lt; “Progress “ &lt;&lt; progress &lt;&lt; “ percent.” &lt;&lt; std::endl;<br>    }<br><br>    itk::ProcessObject::Pointer m_Process;<br>};<br><br>/**
@@ -109,145 +430,542 @@
 </em> well.<br><em>/<br>int main(int argc, char </em> argv [] )<br>{<br><br>    // Load a color image using ITK and display it with VTK<br><br>    try<br>    {<br>        typedef itk::RGBPixel&lt; unsigned char &gt; PixelType;<br>        typedef itk::Image&lt; PixelType, 2 &gt; ImageType;<br><br>        typedef itk::ImageFileReader&lt; ImageType &gt; ReaderType;<br><br>        ReaderType::Pointer reader  = ReaderType::New();<br>        reader-&gt;SetFileName(“d:\1.png”);<br>        reader-&gt;Update();<br><br><span style="color: #ff0000;"> typedef itk::VTKImageExport&lt; ImageType &gt; ExportFilterType; ExportFilterType::Pointer itkExporter = ExportFilterType::New(); itkExporter-&gt;SetInput( reader-&gt;GetOutput() );</span><br><br>        // Create the vtkImageImport and connect it to the<br>        // itk::VTKImageExport instance.<br>        <span style="color: #ff0000;">vtkImageImport<em> vtkImporter = vtkImageImport::New();</em></span><br>        <span style="color: #ff0000;">ConnectPipelines(itkExporter, vtkImporter);</span><br><br>        // Just for double checking export it from VTK back into ITK<br>        // and save it into a file.<br><span style="color: #ff0000;"> typedef itk::VTKImageImport&lt; ImageType &gt; ImportFilterType; ImportFilterType::Pointer itkImporter = ImportFilterType::New(); vtkImageExport vtkExporter = vtkImageExport::New(); ConnectPipelines(vtkExporter, itkImporter);</span><br><span style="color: #ff0000;"> vtkExporter-&gt;SetInput( vtkImporter-&gt;GetOutput() );</span><br><br>        typedef itk::ImageFileWriter&lt; ImageType &gt; WriterType;<br>        WriterType::Pointer itkWriter = WriterType::New();<br>        <span style="color: #ff0000;">itkWriter-&gt;SetInput( itkImporter-&gt;GetOutput() );</span><br><br>        const char <em> filename = “d:\2.png”;<br>        std::cout &lt;&lt; “Writing file “ &lt;&lt; filename &lt;&lt; std::endl;<br>        itkWriter-&gt;SetFileName( filename );<br><br>        itkWriter-&gt;Update();<br><br>        //————————————————————————<br>        // VTK pipeline.<br>        //————————————————————————<br><br>        // Create a vtkImageActor to help render the image.  Connect it to<br>        // the vtkImporter instance.<br>        vtkImageActor</em> actor = vtkImageActor::New();<br>        <span style="color: #ff0000;">actor-&gt;SetInput(vtkImporter-&gt;GetOutput());</span><br><br>        vtkInteractorStyleImage <em> interactorStyle = vtkInteractorStyleImage::New();<br><br>        // Create a renderer, render window, and render window interactor to<br>        // display the results.<br>        vtkRenderer</em> renderer = vtkRenderer::New();<br>        vtkRenderWindow<em> renWin = vtkRenderWindow::New();<br>        vtkRenderWindowInteractor</em> iren = vtkRenderWindowInteractor::New();<br><br>        renWin-&gt;SetSize(500, 500);<br>        renWin-&gt;AddRenderer(renderer);<br>        iren-&gt;SetRenderWindow(renWin);<br>        iren-&gt;SetInteractorStyle( interactorStyle );<br><br>        // Add the vtkImageActor to the renderer for display.<br>        renderer-&gt;AddActor(actor);<br>        renderer-&gt;SetBackground(0.4392, 0.5020, 0.5647);<br><br>        // Bring up the render window and begin interaction.<br>        renWin-&gt;Render();<br>        iren-&gt;Start();<br><br>        // Release all VTK components<br>        actor-&gt;Delete();<br>        interactorStyle-&gt;Delete();<br>        vtkImporter-&gt;Delete();<br>        vtkExporter-&gt;Delete();<br>        renWin-&gt;Delete();<br>        renderer-&gt;Delete();<br>        iren-&gt;Delete();<br><br>    }<br>    catch( itk::ExceptionObject &amp; e )<br>    {<br>        std::cerr &lt;&lt; “Exception catched !! “ &lt;&lt; e &lt;&lt; std::endl;<br>    }<br><br>    return 0;<br>}</pre><br></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">【参考来源】：</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><a href="http://image.szpt.edu.cn/cn/Article_content.asp?id=311" target="_blank" rel="noopener">http://image.szpt.edu.cn/cn/Article_content.asp?id=311</a></span></div><br></div><br><div></div>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/" data-id="cjsnzpd2m00a1z8h8v48375fe" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/itk/">itk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vtk/">vtk</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/itk/" rel="tag"># itk</a>
+          
+            <a href="/tags/vtk/" rel="tag"># vtk</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/01/11/vtk-callbacks/" rel="next" title="VTK Callbacks">
+                <i class="fa fa-chevron-left"></i> VTK Callbacks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/17/vtk-e4-b8-adgetoutput-e5-92-8cgetoutputport-e5-8c-ba-e5-88-ab/" rel="prev" title="VTK中GetOutput()和GetOutputPort()区别">
+                VTK中GetOutput()和GetOutputPort()区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
   </div>
   
-    
-<nav id="article-nav">
   
-    <a href="/2014/01/17/vtk-e4-b8-adgetoutput-e5-92-8cgetoutputport-e5-8c-ba-e5-88-ab/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
         
-          VTK中GetOutput()和GetOutputPort()区别
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lu Xiaohua</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">92</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2014/01/11/vtk-callbacks/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">VTK Callbacks</div>
-    </a>
-  
-</nav>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lu Xiaohua</span>
 
   
-</article>
 
-</section>
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ANNs/">ANNs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Big-Data/">Big Data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language-Study/">Language Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Photography/">Photography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/">c/cpp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/cmake/">cmake</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp/">cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data-science/">data science</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/design-pattern/">design pattern</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/itk/">itk</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/itk/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poem/">poem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vtk/">vtk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perceptron/">Perceptron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photography/">Photography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cv/">cv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-struct/">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/">design pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dll/">dll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/">event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interactor/">interactor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itk/">itk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lib/">lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nltk/">nltk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/observer/">observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/">pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poem/">poem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pygame/">pygame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sae/">sae</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setuptools/">setuptools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/signals/">signals</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slots/">slots</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite3/">sqlite3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/titan/">titan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/to-do-list/">to-do list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vtk/">vtk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win/">win</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wxPython/">wxPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Cpp/" style="font-size: 12px;">Cpp</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/Neural-Networks/" style="font-size: 12px;">Neural Networks</a> <a href="/tags/Perceptron/" style="font-size: 12px;">Perceptron</a> <a href="/tags/Photography/" style="font-size: 10px;">Photography</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/algorithms/" style="font-size: 10px;">algorithms</a> <a href="/tags/big-data/" style="font-size: 10px;">big data</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/callback/" style="font-size: 10px;">callback</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/cpp/" style="font-size: 18px;">cpp</a> <a href="/tags/cv/" style="font-size: 12px;">cv</a> <a href="/tags/data-science/" style="font-size: 12px;">data science</a> <a href="/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/event/" style="font-size: 10px;">event</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interactor/" style="font-size: 10px;">interactor</a> <a href="/tags/itk/" style="font-size: 16px;">itk</a> <a href="/tags/lib/" style="font-size: 10px;">lib</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine learning</a> <a href="/tags/matlab/" style="font-size: 12px;">matlab</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/nltk/" style="font-size: 12px;">nltk</a> <a href="/tags/observer/" style="font-size: 10px;">observer</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/poem/" style="font-size: 14px;">poem</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qt/" style="font-size: 16px;">qt</a> <a href="/tags/sae/" style="font-size: 10px;">sae</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/setuptools/" style="font-size: 10px;">setuptools</a> <a href="/tags/signals/" style="font-size: 10px;">signals</a> <a href="/tags/slots/" style="font-size: 10px;">slots</a> <a href="/tags/smartpointer/" style="font-size: 10px;">smartpointer</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlite3/" style="font-size: 10px;">sqlite3</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/titan/" style="font-size: 10px;">titan</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to-do list</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a> <a href="/tags/ubuntu/" style="font-size: 12px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 12px;">ui</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vs2010/" style="font-size: 12px;">vs2010</a> <a href="/tags/vtk/" style="font-size: 18px;">vtk</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/win/" style="font-size: 10px;">win</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/wxPython/" style="font-size: 10px;">wxPython</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/02/28/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
+
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
 
+    
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    
   </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

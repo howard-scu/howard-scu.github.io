@@ -1,94 +1,410 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
 
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Code Planet">
 <meta property="og:url" content="http://yoursite.com/page/8/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="default">
+<meta property="og:site_name" content="Code Planet">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Code Planet">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/8/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Code Planet</title>
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Code Planet</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/17/itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb/" class="article-date">
-  <time datetime="2013-12-16T22:09:38.000Z" itemprop="datePublished">2013-12-17</time>
-</a>
+        <p class="site-subtitle">为了发现更大的世界</p>
+      
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/itk/">itk</a>
+    
   </div>
 
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+</div>
+
+
+
+<nav class="site-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/17/itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb/">ITK文件格式和像素类型对应关系</a>
-    </h1>
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
   
 
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/17/itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/17/itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb/" class="post-title-link" itemprop="url">ITK文件格式和像素类型对应关系</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-17 06:09:38" itemprop="dateCreated datePublished" datetime="2013-12-17T06:09:38+08:00">2013-12-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/itk/" itemprop="url" rel="index"><span itemprop="name">itk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p><table style="font-size: 10.5pt; line-height: 1.5; text-align: center; width: 100%;" border="1" cellspacing="0" cellpadding="0"></table></p>
+      
+
+      
+        
+          <p><table style="font-size: 10.5pt; line-height: 1.5; text-align: center; width: 100%;" border="1" cellspacing="0" cellpadding="0"></table></p>
 <p><tbody></tbody></p>
 <p><tr></tr></p>
 <p><td><strong><span style="font-size: 12pt;" data-wiz-span="data-wiz-span"><span style="color: #ff0000;">格式名称</span></span></strong></td></p>
@@ -98,188 +414,713 @@
 <p><td>BMP</td></p>
 <p><td>.bmp</td></p>
 <p><td>
-        
-          <p class="article-more-link">
-            <a href="/2013/12/17/itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb/#more">Read More</a>
-          </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2013/12/17/itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </td></p></div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/17/itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb/" data-id="cjsnzpct50036z8h8ugh9y5a9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/itk/">itk</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-qt-e8-87-aa-e5-ae-9a-e4-b9-89-e7-aa-97-e5-8f-a3-e9-83-a8-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/12/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e7-aa-97-e5-8f-a3-e9-83-a8-e4-bb-b6/" class="article-date">
-  <time datetime="2013-12-11T20:08:02.000Z" itemprop="datePublished">2013-12-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/qt/">qt</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/12/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e7-aa-97-e5-8f-a3-e9-83-a8-e4-bb-b6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/12/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e7-aa-97-e5-8f-a3-e9-83-a8-e4-bb-b6/">Qt自定义窗口部件</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/12/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e7-aa-97-e5-8f-a3-e9-83-a8-e4-bb-b6/" class="post-title-link" itemprop="url">Qt自定义窗口部件</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-12 04:08:02" itemprop="dateCreated datePublished" datetime="2013-12-12T04:08:02+08:00">2013-12-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p><span style="color: #ff0000;"><strong><span style="font-size: 10.5pt; line-height: 1.5;">一、单一继承方式：</span><span style="font-size: 10.5pt; line-height: 1.5;"> </span></strong></span></p>
-<div><br><div>      即将ui作为类的成员变量使用。优点是，能够控制用户界面的外观和显示方式，并能够与用户交互；同事还允许使用同样的ui文件生成多个不同的自定义界面类。</div><br>
+      
+
+      
         
-          <p class="article-more-link">
-            <a href="/2013/12/12/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e7-aa-97-e5-8f-a3-e9-83-a8-e4-bb-b6/#more">Read More</a>
-          </p>
+          <p><span style="color: #ff0000;"><strong><span style="font-size: 10.5pt; line-height: 1.5;">一、单一继承方式：</span><span style="font-size: 10.5pt; line-height: 1.5;"> </span></strong></span></p>
+<div><br><div>      即将ui作为类的成员变量使用。优点是，能够控制用户界面的外观和显示方式，并能够与用户交互；同事还允许使用同样的ui文件生成多个不同的自定义界面类。</div><br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2013/12/12/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e7-aa-97-e5-8f-a3-e9-83-a8-e4-bb-b6/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/12/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e7-aa-97-e5-8f-a3-e9-83-a8-e4-bb-b6/" data-id="cjsnzpcv5004iz8h8c9x0n5p7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ui/">ui</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</div></article>
+  
+  
+  </div></article>
 
+
+    
+      
 
   
-    <article id="post-qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/" class="article-date">
-  <time datetime="2013-12-09T16:27:46.000Z" itemprop="datePublished">2013-12-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/qt/">qt</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/">Qt ui设置centralwidget布局</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/" class="post-title-link" itemprop="url">Qt ui设置centralwidget布局</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-10 00:27:46" itemprop="dateCreated datePublished" datetime="2013-12-10T00:27:46+08:00">2013-12-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图：</span></span><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23595182.png" alt></p>
+      
+
+      
+        
+          
+            <p><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图：</span></span><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23595182.png" alt></p>
 <p><pre><span style="font-family: 微软雅黑; font-size: 12pt; line-height: 1.5;"><strong>解决方法：</strong></span></pre><br><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">1.使用文本编辑器打开ui界面</span></span></p>
 <p><pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话：</span></pre></p>
 <div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #333399;">&lt;</span>layout class<span style="color: #333399;">=</span><span style="color: #ff00bf;">“QGridLayout”</span> name<span style="color: #333399;">=</span><span style="color: #ff00bf;">“gridLayout”</span><span style="color: #333399;">/</span><span style="color: #333399;">&gt;</span></div><br></div><br><pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;" data-wiz-span="data-wiz-span">其中</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;" data-wiz-span="data-wiz-span">QGridLayout</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">可以写成水平、垂直其他风格。</span></pre><br><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23902223.png" alt><br><pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">3.保存后，再使用界面编辑器打开ui，centralWidget被成功设置了对应的布局了。可以自动适应屏幕大小。</span></pre><br><pre><span style="font-size: 10.5pt; line-height: 1.5; font-family: 微软雅黑;"><em>来源：<a href="http://klqulei23.blog.163.com/blog/static/132315337201391844235992/" target="_blank" rel="noopener">http://klqulei23.blog.163.com/blog/static/132315337201391844235992/</a></em></span></pre><br><div></div><br><div></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/" data-id="cjsnzpcuw004dz8h80vpwrbmv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ui/">ui</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-qt-e4-b8-ad-e7-88-b6-e7-aa-97-e5-8f-a3-e5-a4-84-e7-90-86-e5-ad-90-e7-aa-97-e5-8f-a3-e4-ba-8b-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/03/qt-e4-b8-ad-e7-88-b6-e7-aa-97-e5-8f-a3-e5-a4-84-e7-90-86-e5-ad-90-e7-aa-97-e5-8f-a3-e4-ba-8b-e4-bb-b6/" class="article-date">
-  <time datetime="2013-12-02T16:14:41.000Z" itemprop="datePublished">2013-12-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/qt/">qt</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/03/qt-e4-b8-ad-e7-88-b6-e7-aa-97-e5-8f-a3-e5-a4-84-e7-90-86-e5-ad-90-e7-aa-97-e5-8f-a3-e4-ba-8b-e4-bb-b6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/03/qt-e4-b8-ad-e7-88-b6-e7-aa-97-e5-8f-a3-e5-a4-84-e7-90-86-e5-ad-90-e7-aa-97-e5-8f-a3-e4-ba-8b-e4-bb-b6/">Qt中父窗口处理子窗口事件</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/03/qt-e4-b8-ad-e7-88-b6-e7-aa-97-e5-8f-a3-e5-a4-84-e7-90-86-e5-ad-90-e7-aa-97-e5-8f-a3-e4-ba-8b-e4-bb-b6/" class="post-title-link" itemprop="url">Qt中父窗口处理子窗口事件</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-03 00:14:41" itemprop="dateCreated datePublished" datetime="2013-12-03T00:14:41+08:00">2013-12-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。</span></div><br><div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">2）子窗口的按钮slot函数中emit这个signal。</span></div><br><div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">3）在父窗口中把子窗口的这个signal连到自己的响应slot。</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #008000;">// 子窗口</span><br><span style="color: #0000ff;"><strong>class</strong></span> ChildWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> QWidget<br>{<br>Q_OBJECT<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br>ChildWindow(QWidget<span style="color: #333399;"><em></em></span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)<br><span style="color: #333399;">:</span>QWidget(p)<br>{<br>QVBoxLayout<span style="color: #333399;"></span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QVBoxLayout(<span style="color: #0000ff;"><strong>this</strong></span>);<br>QPushButton<span style="color: #333399;"><em></em></span> btn <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QPushButton(<span style="color: #ff00bf;">“btn”</span>, <span style="color: #0000ff;"><strong>this</strong></span>);<br>l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(btn);connect(btn, SIGNAL(clicked()), SLOT(ClickedBtn());<br>}signals<span style="color: #333399;">:</span><br><span style="color: #ff0000;"><strong>    // 这个信号是发给父窗口的。<br>void ChildWindowEvent();</strong></span><br><span style="color: #0000ff;"><strong>protected</strong></span> slots<span style="color: #333399;">:</span><br><br><span style="color: #008000;">// 点击子窗口中按钮的slot</span><br><span style="color: #ff0000;"><strong>        void ClickedBtn()<br>{<br>// 触发子窗口的信号给父窗口接收。<br>emit ChildWindowEvent();<br>}</strong></span><br>}<br><br></div><br></div><br></div><br><div></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #008000;">// 父窗口</span><br><span style="color: #0000ff;"><strong>class</strong></span> ParentWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> QWidget<br>{<br>Q_OBJECT<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br>ParentWindow(QWidget<span style="color: #333399;"></span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)<br><span style="color: #333399;">:</span>QWidget(p)<br>{<br>QVBoxLayout<span style="color: #333399;"><em></em></span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QVBoxLayout(<span style="color: #0000ff;"><strong>this</strong></span>);<br>w <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> ChildWindow(<span style="color: #0000ff;"><strong>this</strong></span>);<br>l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(w);<span style="color: #ff0000;"><strong>        // 把子窗口的信号连接到父窗口来。<br>connect(w, SIGNAL(ChildWindowEvent()), SLOT(ChildWindowEventSlot());</strong></span><br>}<span style="color: #0000ff;"><strong>protected</strong></span><span style="color: #333399;">:</span><br><br>ChildWindow<span style="color: #333399;"></span> w;<br><br><span style="color: #0000ff;"><strong>protected</strong></span> slots<span style="color: #333399;">:</span><br><br><span style="color: #008000;">// 父窗口用于接收子窗口信号的slot。</span><br><span style="color: #ff0000;"><strong>        void ChildWindowEventSlot()<br>{<br>//子窗口的按钮被点击了。<br>}</strong></span><br>}<br><br></div><br></div><br></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">来源：<a href="http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY" target="_blank" rel="noopener">http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY</a>_</span></div><br><div></div><br><div></div>
+      
+
+      
+        
+          
+            <div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。</span></div><br><div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">2）子窗口的按钮slot函数中emit这个signal。</span></div><br><div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">3）在父窗口中把子窗口的这个signal连到自己的响应slot。</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #008000;">// 子窗口</span><br><span style="color: #0000ff;"><strong>class</strong></span> ChildWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> QWidget<br>{<br>Q_OBJECT<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br>ChildWindow(QWidget<span style="color: #333399;"><em></em></span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)<br><span style="color: #333399;">:</span>QWidget(p)<br>{<br>QVBoxLayout<span style="color: #333399;"></span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QVBoxLayout(<span style="color: #0000ff;"><strong>this</strong></span>);<br>QPushButton<span style="color: #333399;"><em></em></span> btn <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QPushButton(<span style="color: #ff00bf;">“btn”</span>, <span style="color: #0000ff;"><strong>this</strong></span>);<br>l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(btn);connect(btn, SIGNAL(clicked()), SLOT(ClickedBtn());<br>}signals<span style="color: #333399;">:</span><br><span style="color: #ff0000;"><strong>    // 这个信号是发给父窗口的。<br>void ChildWindowEvent();</strong></span><br><span style="color: #0000ff;"><strong>protected</strong></span> slots<span style="color: #333399;">:</span><br><br><span style="color: #008000;">// 点击子窗口中按钮的slot</span><br><span style="color: #ff0000;"><strong>        void ClickedBtn()<br>{<br>// 触发子窗口的信号给父窗口接收。<br>emit ChildWindowEvent();<br>}</strong></span><br>}<br><br></div><br></div><br></div><br><div></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #008000;">// 父窗口</span><br><span style="color: #0000ff;"><strong>class</strong></span> ParentWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> QWidget<br>{<br>Q_OBJECT<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br>ParentWindow(QWidget<span style="color: #333399;"></span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)<br><span style="color: #333399;">:</span>QWidget(p)<br>{<br>QVBoxLayout<span style="color: #333399;"><em></em></span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QVBoxLayout(<span style="color: #0000ff;"><strong>this</strong></span>);<br>w <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> ChildWindow(<span style="color: #0000ff;"><strong>this</strong></span>);<br>l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(w);<span style="color: #ff0000;"><strong>        // 把子窗口的信号连接到父窗口来。<br>connect(w, SIGNAL(ChildWindowEvent()), SLOT(ChildWindowEventSlot());</strong></span><br>}<span style="color: #0000ff;"><strong>protected</strong></span><span style="color: #333399;">:</span><br><br>ChildWindow<span style="color: #333399;"></span> w;<br><br><span style="color: #0000ff;"><strong>protected</strong></span> slots<span style="color: #333399;">:</span><br><br><span style="color: #008000;">// 父窗口用于接收子窗口信号的slot。</span><br><span style="color: #ff0000;"><strong>        void ChildWindowEventSlot()<br>{<br>//子窗口的按钮被点击了。<br>}</strong></span><br>}<br><br></div><br></div><br></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">来源：<a href="http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY" target="_blank" rel="noopener">http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY</a>_</span></div><br><div></div><br><div></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/03/qt-e4-b8-ad-e7-88-b6-e7-aa-97-e5-8f-a3-e5-a4-84-e7-90-86-e5-ad-90-e7-aa-97-e5-8f-a3-e4-ba-8b-e4-bb-b6/" data-id="cjsnzpcum0047z8h8wpbqomfm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/signals/">signals</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/slots/">slots</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-qt-e8-87-aa-e5-ae-9a-e4-b9-89-e4-ba-8b-e4-bb-b6-e7-b1-bb-e5-9e-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/02/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e4-ba-8b-e4-bb-b6-e7-b1-bb-e5-9e-8b/" class="article-date">
-  <time datetime="2013-12-02T15:07:23.000Z" itemprop="datePublished">2013-12-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/qt/">qt</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/02/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e4-ba-8b-e4-bb-b6-e7-b1-bb-e5-9e-8b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/02/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e4-ba-8b-e4-bb-b6-e7-b1-bb-e5-9e-8b/">QT自定义事件类型</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/02/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e4-ba-8b-e4-bb-b6-e7-b1-bb-e5-9e-8b/" class="post-title-link" itemprop="url">QT自定义事件类型</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-12-02 23:07:23" itemprop="dateCreated datePublished" datetime="2013-12-02T23:07:23+08:00">2013-12-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p><table class="valuelist" style="margin: 5px 0px 20px; padding: 5px 5px 5px 10px; font-family: 'Open Sans', sans-serif; border-color: #e6e6e6; border-collapse: separate; border-spacing: 0px; empty-cells: show; font-size: 11px; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: #f6f6f6; color: #363534;"></table></p>
+      
+
+      
+        
+          
+            <p><table class="valuelist" style="margin: 5px 0px 20px; padding: 5px 5px 5px 10px; font-family: 'Open Sans', sans-serif; border-color: #e6e6e6; border-collapse: separate; border-spacing: 0px; empty-cells: show; font-size: 11px; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: #f6f6f6; color: #363534;"></table></p>
 <p><tbody style="margin: 0px; padding: 0px;"></tbody></p>
 <p><tr class="odd" style="margin: 0px; padding: 0px; border-left-width: 1px; border-left-style: solid; border-left-color: #e6e6e6; background-color: #e6e6e6; color: #66666e;" valign="top"></tr></p>
 <p><th class="tblConst" style="margin: 0px; padding: 5px 15px 5px 10px; vertical-align: top; font-weight: inherit; font-style: inherit; border-left-width: 1px; border-left-style: solid; border-left-color: #e6e6e6;">Constant</th></p>
@@ -862,48 +1703,185 @@
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">126</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget’s z-order has changed. This event is never sent to top level windows.</td></p>
 <div style="color: gray;"><span style="color: #000000; font-size: 11px; line-height: 19px;"> </span></div><br><br><br><br><div></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/02/qt-e8-87-aa-e5-ae-9a-e4-b9-89-e4-ba-8b-e4-bb-b6-e7-b1-bb-e5-9e-8b/" data-id="cjsnzpd7y00c5z8h8vhm9fju1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/event/">event</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/" class="article-date">
-  <time datetime="2013-11-29T11:04:27.000Z" itemprop="datePublished">2013-11-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c-cpp/">c/cpp</a>►<a class="article-category-link" href="/categories/c-cpp/vtk/">vtk</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/">智能指针有一个让人困惑的地方：当你创建一个智能指针类型的对象</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/" class="post-title-link" itemprop="url">智能指针有一个让人困惑的地方：当你创建一个智能指针类型的对象</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-11-29 19:04:27" itemprop="dateCreated datePublished" datetime="2013-11-29T19:04:27+08:00">2013-11-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/" itemprop="url" rel="index"><span itemprop="name">c/cpp</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p><strong>智能指针有一个让人困惑的地方：当你创建一个智能指针类型的对象，然后改变它的指向，这时引用计数就会出错。</strong>例如：</p>
+      
+
+      
+        
+          
+            <p><strong>智能指针有一个让人困惑的地方：当你创建一个智能指针类型的对象，然后改变它的指向，这时引用计数就会出错。</strong>例如：</p>
 <p>vtkSmartPointer&lt;vtkImageData&gt;imageData = vtkSmartPointer&lt;vtkImageData&gt;::New();</p>
 <p>imageData= Reader-&gt;GetOutput();</p>
 <p>上面两行代码里，我们首先创建一个imageData，并给他分配好了内存，接着我们又把imageData指向Reader的输出，而不是一直指向我们创建的那块内存。对于这种情况，我们只要简单地调用：</p>
@@ -911,48 +1889,178 @@
 <p><strong>这里没有必要使用智能指针，因为我们没有实际创建任何新的对象。</strong></p>
 <p>综上所述，可以看出引用计数和智能指针是息息相关的，它们主要都是用于内存管理。使用智能指针可以免去很多手动删除变量的烦恼，所以在本教程里，我们从一开始都使用智能指针来创建VTK对象。如果你想了解更多关于引用计数和智能指针的内容，可以参考C++的经典著作《<a style="color: #6a3906;" name="OLE_LINK7"></a><a style="color: #6a3906;" name="OLE_LINK6"></a>More Effective C++》这本书。</p>
 <div style="color: gray;"><small>来源： &lt;<a href="http://blog.csdn.net/www_doling_net/article/details/8540242" target="_blank" rel="noopener">http://blog.csdn.net/www_doling_net/article/details/8540242</a><small>&gt;</small></small></div><br><small><small> </small></small><br><div></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/" data-id="cjsnzpcs5002fz8h814pfy2ek" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vtk/">vtk</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-invictus" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/29/invictus/" class="article-date">
-  <time datetime="2013-09-29T12:24:01.000Z" itemprop="datePublished">2013-09-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/poem/">poem</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/09/29/invictus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/29/invictus/">Invictus</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/09/29/invictus/" class="post-title-link" itemprop="url">Invictus</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-09-29 20:24:01" itemprop="dateCreated datePublished" datetime="2013-09-29T20:24:01+08:00">2013-09-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/poem/" itemprop="url" rel="index"><span itemprop="name">poem</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <blockquote>
+      
+
+      
+        
+          
+            <blockquote>
 <div><em><span style="font-family: 'Times New Roman'; font-size: small;">—-by William Ernest Henley</span></em></div>
 
 <div></div>
@@ -996,271 +2104,1047 @@
 <div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I am the captain of my soul.</span></em></div>
 </blockquote>
 <div></div><br><div></div>
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/09/29/invictus/" data-id="cjsnzpcte003cz8h8ptwsa8qv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poem/">poem</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-e4-b8-89-e7-99-be-e5-85-ad-e5-8d-81-e4-ba-94-e9-87-8c-e8-b7-af" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/29/e4-b8-89-e7-99-be-e5-85-ad-e5-8d-81-e4-ba-94-e9-87-8c-e8-b7-af/" class="article-date">
-  <time datetime="2013-09-28T17:17:14.000Z" itemprop="datePublished">2013-09-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/essay/">essay</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/09/29/e4-b8-89-e7-99-be-e5-85-ad-e5-8d-81-e4-ba-94-e9-87-8c-e8-b7-af/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/29/e4-b8-89-e7-99-be-e5-85-ad-e5-8d-81-e4-ba-94-e9-87-8c-e8-b7-af/">生而孤独</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/09/29/e4-b8-89-e7-99-be-e5-85-ad-e5-8d-81-e4-ba-94-e9-87-8c-e8-b7-af/" class="post-title-link" itemprop="url">生而孤独</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-09-29 01:17:14" itemprop="dateCreated datePublished" datetime="2013-09-29T01:17:14+08:00">2013-09-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>今天在知乎上看到这个问题—-<a href="http://www.zhihu.com/question/20621878/answer/15678261?utm_source=weibo&amp;utm_medium=weibo_share&amp;utm_content=share_answer&amp;utm_campaign=share_button" target="_blank" rel="noopener">什么样的美打动过你</a>？被@<a href="http://www.zhihu.com/people/gao-shan-liu-jiong" target="_blank" rel="noopener">高山流囧</a>回答中的这个The Earthrise图片戳中。</p>
+      
+
+      
+        
+          
+            <p>今天在知乎上看到这个问题—-<a href="http://www.zhihu.com/question/20621878/answer/15678261?utm_source=weibo&amp;utm_medium=weibo_share&amp;utm_content=share_answer&amp;utm_campaign=share_button" target="_blank" rel="noopener">什么样的美打动过你</a>？被@<a href="http://www.zhihu.com/people/gao-shan-liu-jiong" target="_blank" rel="noopener">高山流囧</a>回答中的这个The Earthrise图片戳中。</p>
 <p><img src="http://p1.zhimg.com/40/01/4001ee096603656e0947ebdcfffacc9c_r.jpg" alt title="the earthrise"></p>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/09/29/e4-b8-89-e7-99-be-e5-85-ad-e5-8d-81-e4-ba-94-e9-87-8c-e8-b7-af/" data-id="cjsnzpcrf001wz8h8xdrsj9eh" class="article-share-link">Share</a>
+
+    
+
+    
+    
+    
+
+    
+
+    
       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+      
 
   
-    <article id="post-visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/23/visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae/" class="article-date">
-  <time datetime="2013-09-23T14:19:51.000Z" itemprop="datePublished">2013-09-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c-cpp/">c/cpp</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/09/23/visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/23/visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae/">Visual Studio环境变量配置</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/09/23/visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae/" class="post-title-link" itemprop="url">Visual Studio环境变量配置</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-09-23 22:19:51" itemprop="dateCreated datePublished" datetime="2013-09-23T22:19:51+08:00">2013-09-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/" itemprop="url" rel="index"><span itemprop="name">c/cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div id="home" class="hui-d-custom"><br><div id="body" class="hui-d3 hui-t5"><br><div class="hui-main"><br><div class="hui-b"><br><div id="topics"><br><div class="post"><br><div class="postBody"><br><div id="cnblogs_post_body"><br><br><strong>在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？</strong><br><br>
+      
+
+      
         
-          <p class="article-more-link">
-            <a href="/2013/09/23/visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae/#more">Read More</a>
-          </p>
+          <div id="home" class="hui-d-custom"><br><div id="body" class="hui-d3 hui-t5"><br><div class="hui-main"><br><div class="hui-b"><br><div id="topics"><br><div class="post"><br><div class="postBody"><br><div id="cnblogs_post_body"><br><br><strong>在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？</strong><br><br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2013/09/23/visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/09/23/visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae/" data-id="cjsnzpcwz005pz8h8qgpepgil" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dll/">dll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lib/">lib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</div></div></div></div></div></div></div></div></article>
+  
+  
+  </div></div></div></div></div></div></div></div></article>
 
+
+    
+      
 
   
-    <article id="post-vtkvs1064bitwin7-e5-ae-89-e8-a3-85-e9-85-8d-e7-bd-ae" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/23/vtkvs1064bitwin7-e5-ae-89-e8-a3-85-e9-85-8d-e7-bd-ae/" class="article-date">
-  <time datetime="2013-09-23T12:17:46.000Z" itemprop="datePublished">2013-09-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c-cpp/">c/cpp</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/09/23/vtkvs1064bitwin7-e5-ae-89-e8-a3-85-e9-85-8d-e7-bd-ae/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/23/vtkvs1064bitwin7-e5-ae-89-e8-a3-85-e9-85-8d-e7-bd-ae/">VTK+VS10(64bitWin7)安装配置</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/09/23/vtkvs1064bitwin7-e5-ae-89-e8-a3-85-e9-85-8d-e7-bd-ae/" class="post-title-link" itemprop="url">VTK+VS10(64bitWin7)安装配置</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2013-09-23 20:17:46" itemprop="dateCreated datePublished" datetime="2013-09-23T20:17:46+08:00">2013-09-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/" itemprop="url" rel="index"><span itemprop="name">c/cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div><font size="3">1.下载：<strong>vtk-5.10.1.zip</strong>源程序<strong>vtkdata-5.10.1.zip</strong> 数据（vtk相关安装程序下载：<a href="http://vtk.org）**cmake-2.8.2-win32-x86.zip**（cmake程序下载：[http://www.cmake.org/HTML/Index.html](http://www.cmake.org/HTML/Index.html)）" target="_blank" rel="noopener">http://vtk.org）**cmake-2.8.2-win32-x86.zip**（cmake程序下载：[http://www.cmake.org/HTML/Index.html](http://www.cmake.org/HTML/Index.html)）</a></font></div>
+      
+
+      
         
-          <p class="article-more-link">
-            <a href="/2013/09/23/vtkvs1064bitwin7-e5-ae-89-e8-a3-85-e9-85-8d-e7-bd-ae/#more">Read More</a>
-          </p>
+          <div><font size="3">1.下载：<strong>vtk-5.10.1.zip</strong>源程序<strong>vtkdata-5.10.1.zip</strong> 数据（vtk相关安装程序下载：<a href="http://vtk.org）**cmake-2.8.2-win32-x86.zip**（cmake程序下载：[http://www.cmake.org/HTML/Index.html](http://www.cmake.org/HTML/Index.html)）" target="_blank" rel="noopener">http://vtk.org）**cmake-2.8.2-win32-x86.zip**（cmake程序下载：[http://www.cmake.org/HTML/Index.html](http://www.cmake.org/HTML/Index.html)）</a></font></div>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2013/09/23/vtkvs1064bitwin7-e5-ae-89-e8-a3-85-e9-85-8d-e7-bd-ae/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/09/23/vtkvs1064bitwin7-e5-ae-89-e8-a3-85-e9-85-8d-e7-bd-ae/" data-id="cjsnzpd3m00akz8h8jvr8u6eh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vtk/">vtk</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
+
+    
+  </section>
 
   
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
-</section>
+
+
+          </div>
+          
+
+        </div>
         
-          <aside id="sidebar">
+          
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ANNs/">ANNs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Big-Data/">Big Data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language-Study/">Language Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Photography/">Photography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/">c/cpp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/cmake/">cmake</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp/">cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data-science/">data science</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/design-pattern/">design pattern</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/itk/">itk</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/itk/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poem/">poem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vtk/">vtk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li></ul>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perceptron/">Perceptron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photography/">Photography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cv/">cv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-struct/">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/">design pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dll/">dll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/">event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interactor/">interactor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itk/">itk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lib/">lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nltk/">nltk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/observer/">observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/">pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poem/">poem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pygame/">pygame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sae/">sae</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setuptools/">setuptools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/signals/">signals</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slots/">slots</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite3/">sqlite3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/titan/">titan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/to-do-list/">to-do list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vtk/">vtk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win/">win</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wxPython/">wxPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lu Xiaohua</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">92</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
     </div>
-  </div>
-
-
+  </aside>
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Cpp/" style="font-size: 12px;">Cpp</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/Neural-Networks/" style="font-size: 12px;">Neural Networks</a> <a href="/tags/Perceptron/" style="font-size: 12px;">Perceptron</a> <a href="/tags/Photography/" style="font-size: 10px;">Photography</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/algorithms/" style="font-size: 10px;">algorithms</a> <a href="/tags/big-data/" style="font-size: 10px;">big data</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/callback/" style="font-size: 10px;">callback</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/cpp/" style="font-size: 18px;">cpp</a> <a href="/tags/cv/" style="font-size: 12px;">cv</a> <a href="/tags/data-science/" style="font-size: 12px;">data science</a> <a href="/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/event/" style="font-size: 10px;">event</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interactor/" style="font-size: 10px;">interactor</a> <a href="/tags/itk/" style="font-size: 16px;">itk</a> <a href="/tags/lib/" style="font-size: 10px;">lib</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine learning</a> <a href="/tags/matlab/" style="font-size: 12px;">matlab</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/nltk/" style="font-size: 12px;">nltk</a> <a href="/tags/observer/" style="font-size: 10px;">observer</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/poem/" style="font-size: 14px;">poem</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qt/" style="font-size: 16px;">qt</a> <a href="/tags/sae/" style="font-size: 10px;">sae</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/setuptools/" style="font-size: 10px;">setuptools</a> <a href="/tags/signals/" style="font-size: 10px;">signals</a> <a href="/tags/slots/" style="font-size: 10px;">slots</a> <a href="/tags/smartpointer/" style="font-size: 10px;">smartpointer</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlite3/" style="font-size: 10px;">sqlite3</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/titan/" style="font-size: 10px;">titan</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to-do list</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a> <a href="/tags/ubuntu/" style="font-size: 12px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 12px;">ui</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vs2010/" style="font-size: 12px;">vs2010</a> <a href="/tags/vtk/" style="font-size: 18px;">vtk</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/win/" style="font-size: 10px;">win</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/wxPython/" style="font-size: 10px;">wxPython</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/02/28/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
-      <footer id="footer">
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lu Xiaohua</span>
+
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
 
+    
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    
   </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

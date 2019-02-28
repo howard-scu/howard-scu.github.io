@@ -1,238 +1,953 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+
+
+
+
+
+
+
+
+
+
+
 
   
-  <title>VTK Callbacks | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
   <meta name="description" content="简介： 回调函数就是命令/观察者模式中的观察者。VTK对象状态发生变化时,它就会发出一个命令通知所有观察家该事件。为了捕获这个事件，你需要做下面几件事：1. 声明一个如下形式的函数:void func(vtkObject, unsigned long eid, void clientdata, void calldata)2. 创建一个vtkCallbackCommand对象，并将其回调函数设置为">
 <meta name="keywords" content="vtk,callback,command,observer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VTK Callbacks">
 <meta property="og:url" content="http://yoursite.com/2014/01/11/vtk-callbacks/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Code Planet">
 <meta property="og:description" content="简介： 回调函数就是命令/观察者模式中的观察者。VTK对象状态发生变化时,它就会发出一个命令通知所有观察家该事件。为了捕获这个事件，你需要做下面几件事：1. 声明一个如下形式的函数:void func(vtkObject, unsigned long eid, void clientdata, void calldata)2. 创建一个vtkCallbackCommand对象，并将其回调函数设置为">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VTK Callbacks">
 <meta name="twitter:description" content="简介： 回调函数就是命令/观察者模式中的观察者。VTK对象状态发生变化时,它就会发出一个命令通知所有观察家该事件。为了捕获这个事件，你需要做下面几件事：1. 声明一个如下形式的函数:void func(vtkObject, unsigned long eid, void clientdata, void calldata)2. 创建一个vtkCallbackCommand对象，并将其回调函数设置为">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/01/11/vtk-callbacks/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>VTK Callbacks | Code Planet</title>
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Code Planet</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-vtk-callbacks" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/01/11/vtk-callbacks/" class="article-date">
-  <time datetime="2014-01-11T12:24:14.000Z" itemprop="datePublished">2014-01-11</time>
-</a>
+        <p class="site-subtitle">为了发现更大的世界</p>
+      
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vtk/">vtk</a>
+    
   </div>
 
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+</div>
+
+
+
+<nav class="site-nav">
   
-    <h1 class="article-title" itemprop="name">
-      VTK Callbacks
-    </h1>
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
   
 
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/11/vtk-callbacks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VTK Callbacks
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2014-01-11 20:24:14" itemprop="dateCreated datePublished" datetime="2014-01-11T20:24:14+08:00">2014-01-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <div>简介：<span style="font-size: 10.5pt; line-height: 1.5;"> </span></div><br><div>回调函数就是命令/观察者模式中的观察者。<span style="background-color: #ffffff; color: #252525; font-family: 'Microsoft YaHei'; font-size: 16px; line-height: 25.33333396911621px;">VTK对象状态发生变化时,它就会发出一个命令通知所有观察家该事件。</span></div><br><div></div><br><div>为了捕获这个事件，你需要做下面几件事：</div><br><div></div><br><div>1. 声明一个如下形式的函数:</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>void</strong></span> func(vtkObject<span style="color: #333399;"><em></em></span>, <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>long</strong></span> eid, <span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"></span> clientdata, <span style="color: #0000ff;"><strong>void</strong></span> <span style="color: #333399;"><em></em></span>calldata)</div><br></div><br></div><br><div></div><br><div>2. 创建一个<span style="font-size: 10.5pt; line-height: 1.5;">vtkCallbackCommand对象，并将其回调函数设置为你自己创建的函数：</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>  vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> keypressCallback <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>keypressCallback<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetCallback ( func );</div><br></div><br></div><br><div></div><br><div>或者</div><br><div></div><br><div>2. 创建一个vtkCallbackCommand并重写execute函数：</div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">virtual void Execute(vtkObject caller, unsigned long, void<em>)</em></span></div><br><div>它会在创建<span style="font-size: 10.5pt; line-height: 1.5;">CallbackCommand对象后自动当成callback被执行</span><span style="font-size: 10.5pt; line-height: 1.5;"> </span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>  vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> keypressCallback <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();</div><br></div><br></div><br><div></div><br><div>3. 注册callback，监听命令</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span> renderWindowInteractor <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetRenderWindow(renderWindow);renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddObserver ( vtkCommand<span style="color: #333399;">:</span><span style="color: #333399;">:</span>KeyPressEvent, keypressCallback );<br><br></div><br></div><br></div><br><div>在这个例子中，<span style="font-size: 10.5pt; line-height: 1.5;">vtkRenderWindowInteractor用来监听</span><span style="font-size: 10.5pt; line-height: 1.5;">KeyPressEvent事件。</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"> </span></div><br><div><strong>caller</strong></div><br><div>vtkObject对象caller是观察者的指针。在例子中，因为我们是绑定<span style="font-size: 10.5pt; line-height: 1.5;">vtkCallbackCommand在</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkRenderWindowInteractor对象上，所以我们可以强制类型转换caller到</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkRenderWindowInteractor</span><span style="font-size: 10.5pt; line-height: 1.5;">类型。</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>void</strong></span> KeypressCallbackFunction ( vtkObject<span style="color: #333399;"></span> caller, <span style="color: #0000ff;"><strong>long</strong></span> <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span> eventId, <span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"><em></em></span> clientData, <span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"></span> callData )<br>{<br>cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">“Keypress callback”</span> <span style="color: #333399;">&lt;&lt;</span>endl;vtkRenderWindowInteractor <span style="color: #333399;"><em></em></span>iren <span style="color: #333399;">=</span><br><span style="color: #0000ff;"><strong>static_cast</strong></span><span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;"></span><span style="color: #333399;">&gt;</span>(caller);<br><br>cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">“Pressed: “</span> <span style="color: #333399;">&lt;&lt;</span> iren<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetKeySym() <span style="color: #333399;">&lt;&lt;</span> endl;<br>}<br><br></div><br></div><br></div><br><div></div><br><div><strong>clientdata</strong></div><br><div>clientdata提供了一种方法来提供对数据的访问,将必要的回调函数。你可以使用<span style="font-size: 10.5pt; line-height: 1.5;">vtkCallbackCommand函数的</span><span style="font-size: 10.5pt; line-height: 1.5;">SetClientData方法</span><span style="font-size: 10.5pt; line-height: 1.5;">设置该数据。假如,您想要访问</span><span style="font-size: 10.5pt; line-height: 1.5;">回调函数</span><span style="font-size: 10.5pt; line-height: 1.5;">的</span>vtkProgrammableFilter<span style="font-size: 10.5pt; line-height: 1.5;">实例,你可以这么做:</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>  vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkProgrammableFilter<span style="color: #333399;">&gt;</span> filter <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkProgrammableFilter<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> timerCallback <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>timerCallback<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetCallback ( func );<br>timerCallback<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetClientData(filter);<br><br></div><br></div><br></div><br><div></div><br><div>然后再回调函数中，你可以这样使用该数据：</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>void</strong></span> func ( vtkObject<span style="color: #333399;"><em></em></span> caller, <span style="color: #0000ff;"><strong>long</strong></span> <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span> eventId, <span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"></span> clientData, <span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"><em></em></span> callData )<br>{<br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkProgrammableFilter<span style="color: #333399;">&gt;</span> programmableFilter <span style="color: #333399;">=</span><br><span style="color: #0000ff;"><strong>reinterpret_cast</strong></span><span style="color: #333399;">&lt;</span>vtkProgrammableFilter<span style="color: #333399;"></span><span style="color: #333399;">&gt;</span>(clientData);<br>}</div><br></div><br></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"> </span><span style="font-size: 10.5pt; line-height: 1.5;">完整范例：</span></div><br><div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkPolyDataMapper.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkActor.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkSmartPointer.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkRenderWindow.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkRenderer.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkPolyData.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkSphereSource.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkCallbackCommand.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>vtkCommand.h<span style="color: #333399;">&gt;</span><span style="color: #0000ff;"><strong>static</strong></span> <span style="color: #0000ff;"><strong>void</strong></span> KeypressCallbackFunction ( vtkObject<span style="color: #333399;"><em></em></span> caller, <span style="color: #0000ff;"><strong>long</strong></span> <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span> eventId,<br><span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"></span> clientData, <span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"><em></em></span> callData );<br><br><span style="color: #0000ff;"><strong>int</strong></span> main(<span style="color: #0000ff;"><strong>int</strong></span>, <span style="color: #0000ff;"><strong>char</strong></span> <span style="color: #333399;"></span>[])<br>{<br><span style="color: #008000;">// Create a sphere</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkSphereSource<span style="color: #333399;">&gt;</span> sphereSource <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkSphereSource<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetCenter(<span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">0</span>, <span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">0</span>, <span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">0</span>);<br>sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetRadius(<span style="color: #6e00aa;">5</span>.<span style="color: #6e00aa;">0</span>);<br>sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update();<br><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkPolyDataMapper<span style="color: #333399;">&gt;</span> mapper <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkPolyDataMapper<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>mapper<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetInputConnection(sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetOutputPort());<br><br><span style="color: #008000;">// Create an actor</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkActor<span style="color: #333399;">&gt;</span> actor <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkActor<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>actor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetMapper(mapper);<br><br><span style="color: #008000;">// A renderer and render window</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderer<span style="color: #333399;">&gt;</span> renderer <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderer<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindow<span style="color: #333399;">&gt;</span> renderWindow <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindow<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>renderWindow<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddRenderer(renderer);<br><br><span style="color: #008000;">// An interactor</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span> renderWindowInteractor <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetRenderWindow(renderWindow);<br><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> keypressCallback <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br><br><span style="color: #008000;">// Allow the observer to access the sphereSource</span><br><span style="color: #ff0000;">  <strong>keypressCallback-&gt;SetClientData(sphereSource);//设置clientdata对象</strong></span><br><strong><span style="color: #ff0000;">  keypressCallback-&gt;SetCallback(KeypressCallbackFunction );//将回调命令与callback函数绑定</span></strong><br><strong><span style="color: #ff0000;">renderWindowInteractor-&gt;AddObserver(vtkCommand::KeyPressEvent, keypressCallback);//监听keypress事件，绑定回调命令</span></strong><br><br>renderer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddActor(actor);<br>renderer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetBackground(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">1</span>); <span style="color: #008000;">// Background color white</span><br>renderWindow<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Render();<br>renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Start();<br><br><span style="color: #0000ff;"><strong>return</strong></span> EXIT_SUCCESS;<br>}<br><br><span style="color: #0000ff;"><strong>void</strong></span> KeypressCallbackFunction(vtkObject<span style="color: #333399;"><em></em></span> caller, <span style="color: #0000ff;"><strong>long</strong></span> <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span> vtkNotUsed(eventId), <span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"></span> clientData, <span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"><em></em></span> vtkNotUsed(callData) )<br>{<br><span style="color: #008000;">// Prove that we can access the sphere source</span><br><span style="color: #ff0000;">**  vtkSphereSource sphereSource =<br>static_cast&lt;vtkSphereSource<em>&gt;(clientData);//强制类型转换为原来的对象<strong></strong></em></span><br>std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">“Radius is “</span> <span style="color: #333399;">&lt;&lt;</span> sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetRadius() <span style="color: #333399;">&lt;&lt;</span> std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>endl;<br>}<br><br></div><br></div><br></div><br></div><br><div></div><br><div><br><div>calldata<strong></strong></div><br><div>calldata是通过callback传递的数据。例如,当ProgressEvent事件被发送时,进程值可以作为calldata被一同发送。</div><br><div>完整范例：在这里例子中，我们创建一个自定义的VTK过滤器来调用我们绑定的带有calldata值的事件。我们使用一个定制的计时器来更新过滤器以便事件可以自动重复触发。更新过程为<span style="font-family: 'Courier New'; font-size: 11.578947067260742px; line-height: 18.947368621826172px;">vtkMyTestFilter更新-&gt;</span><span style="font-family: 'Courier New'; font-size: 11.578947067260742px; line-height: 18.947368621826172px;"> vtkCallbackCommand-&gt;</span><span style="font-family: 'Courier New'; font-size: 11.578947067260742px; line-height: 18.947368621826172px;"> CallbackFunction</span></div><br></div><br><div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkObjectFactory.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkCommand.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkCallbackCommand.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkStreamingDemandDrivenPipeline.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkInformationVector.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkInformation.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkDataObject.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkSmartPointer.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkAppendPolyData.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkSphereSource.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkPolyDataAlgorithm.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkRenderer.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkRenderWindow.h”</span><br>#<span style="color: #0000ff;">include<strong></strong></span> <span style="color: #ff00bf;">“vtkRenderWindowInteractor.h”</span><br><span style="color: #0000ff;">class<strong></strong></span> vtkMyTestFilter <span style="color: #333399;">:</span> <span style="color: #0000ff;">public<strong></strong></span> vtkPolyDataAlgorithm<br>{<br><span style="color: #0000ff;">public<strong></strong></span><span style="color: #333399;">:</span><br>vtkTypeMacro(vtkMyTestFilter,vtkPolyDataAlgorithm);<br><span style="color: #0000ff;">static**</span> vtkMyTestFilter <span style="color: #333399;"></span>New();<br><span style="color: #0000ff;"><strong>int</strong></span> RefreshEvent;<br><span style="color: #0000ff;"><strong>protected</strong></span><span style="color: #333399;">:</span><br>vtkMyTestFilter()<br>{<br><span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetNumberOfInputPorts(<span style="color: #6e00aa;">0</span>);<br><span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>RefreshEvent <span style="color: #333399;">=</span> vtkCommand<span style="color: #333399;">:</span><span style="color: #333399;">:</span>UserEvent <span style="color: #333399;">+</span> <span style="color: #6e00aa;">1</span>;<br><span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Counter <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>;<br>}<br><span style="color: #0000ff;"><strong>int</strong></span> RequestData(vtkInformation <span style="color: #333399;"><em></em></span>, vtkInformationVector <span style="color: #333399;"></span><span style="color: #333399;"><em></em></span>, vtkInformationVector <span style="color: #333399;"></span>)<br>{<br><span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>InvokeEvent(<span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>RefreshEvent, <span style="color: #333399;">&amp;</span><span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Counter);<br><span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Counter<span style="color: #333399;">++</span>;<br><span style="color: #0000ff;"><strong>return</strong></span> <span style="color: #6e00aa;">1</span>;<br>}<br><span style="color: #0000ff;"><strong>private</strong></span><span style="color: #333399;">:</span><br>vtkMyTestFilter(<span style="color: #0000ff;"><strong>const</strong></span> vtkMyTestFilter<span style="color: #333399;">&amp;</span>);  <span style="color: #008000;">// Not implemented.</span><br><span style="color: #0000ff;"><strong>void</strong></span> <span style="color: #0000ff;"><strong>operator</strong></span><span style="color: #333399;">=</span>(<span style="color: #0000ff;"><strong>const</strong></span> vtkMyTestFilter<span style="color: #333399;">&amp;</span>);  <span style="color: #008000;">// Not implemented.</span><br><span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span> Counter;<br>};<br>vtkStandardNewMacro(vtkMyTestFilter);<br><span style="color: #0000ff;"><strong>static</strong></span> <span style="color: #0000ff;"><strong>void</strong></span> CallbackFunction(vtkObject<span style="color: #333399;"><em></em></span> caller,<br><span style="color: #0000ff;"><strong>long</strong></span> <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span> eventId,<br><span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"></span> clientData,<br><span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"><em></em></span> callData );<br><span style="color: #0000ff;"><strong>class</strong></span> vtkTimerCallback <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> vtkCommand<br>{<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br><span style="color: #0000ff;"><strong>static</strong></span> vtkTimerCallback <span style="color: #333399;"></span>New()<br>{<br>vtkTimerCallback <span style="color: #333399;"><em></em></span>cb <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> vtkTimerCallback;<br><span style="color: #0000ff;"><strong>return</strong></span> cb;<br>}<br><span style="color: #0000ff;"><strong>virtual</strong></span> <span style="color: #0000ff;"><strong>void</strong></span> Execute(vtkObject <span style="color: #333399;"></span>vtkNotUsed(caller),<br><span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>long</strong></span> vtkNotUsed(eventId),<br><span style="color: #0000ff;"><strong>void</strong></span> <span style="color: #333399;"><em></em></span>vtkNotUsed(callData))<br>{<br>TestFilter<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Modified();<br>TestFilter<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update();<br>}<br>vtkMyTestFilter<span style="color: #333399;"></span> TestFilter;<br>};<br><span style="color: #0000ff;"><strong>int</strong></span> main(<span style="color: #0000ff;"><strong>int</strong></span>, <span style="color: #0000ff;"><strong>char</strong></span> <span style="color: #333399;"><em></em></span>[])<br>{<br><span style="color: #008000;">// Create a renderer, render window, and interactor</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderer<span style="color: #333399;">&gt;</span> renderer <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderer<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindow<span style="color: #333399;">&gt;</span> renderWindow <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindow<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>renderWindow<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddRenderer(renderer);<br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span> renderWindowInteractor <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetRenderWindow(renderWindow);<br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkMyTestFilter<span style="color: #333399;">&gt;</span> testFilter <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkMyTestFilter<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> callback <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br><strong><span style="color: #ff0000;">callback-&gt;SetCallback(CallbackFunction );</span></strong><br><strong><span style="color: #ff0000;">testFilter-&gt;AddObserver(testFilter-&gt;RefreshEvent, callback);//将callback函数绑定testFilter的更新事件</span></strong><br>testFilter<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update();<br>renderWindow<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Render();<br>renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Initialize();<br><span style="color: #008000;">// Sign up to receive TimerEvent</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkTimerCallback<span style="color: #333399;">&gt;</span> timerCallback <span style="color: #333399;">=</span><br>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkTimerCallback<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>timerCallback<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>TestFilter <span style="color: #333399;">=</span> testFilter;<br>renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddObserver(vtkCommand<span style="color: #333399;">:</span><span style="color: #333399;">:</span>TimerEvent, timerCallback);<br>renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>CreateRepeatingTimer(<span style="color: #6e00aa;">100</span>);<br>renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Start();<br><span style="color: #0000ff;"><strong>return</strong></span> EXIT_SUCCESS;<br>}<br><span style="color: #0000ff;"><strong>void</strong></span> CallbackFunction(vtkObject<span style="color: #333399;"></span> vtkNotUsed(caller),<br><span style="color: #0000ff;"><strong>long</strong></span> <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span> vtkNotUsed(eventId),<br><span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"><em></em></span> vtkNotUsed(clientData),<br><span style="color: #0000ff;"><strong>void</strong></span><span style="color: #333399;"></span> callData )<br>{<br><span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span><span style="color: #333399;"><em></em></span> callDataCasted <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>reinterpret_cast</strong></span><span style="color: #333399;">&lt;</span><span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span><span style="color: #333399;"></span><span style="color: #333399;">&gt;</span>(callData);<br>std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #333399;">*</span>callDataCasted <span style="color: #333399;">&lt;&lt;</span> std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>endl;<br>}</div><br></div><br></div><br></div><br><div></div><br><div></div>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/01/11/vtk-callbacks/" data-id="cjsnzpd5z00bfz8h8038ux8c7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/callback/">callback</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command/">command</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/observer/">observer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vtk/">vtk</a></li></ul>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vtk/" rel="tag"># vtk</a>
+          
+            <a href="/tags/callback/" rel="tag"># callback</a>
+          
+            <a href="/tags/command/" rel="tag"># command</a>
+          
+            <a href="/tags/observer/" rel="tag"># observer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/01/11/command-and-observer/" rel="next" title="Command and Observer">
+                <i class="fa fa-chevron-left"></i> Command and Observer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/" rel="prev" title="ITK与VTK对象的互相转化">
+                ITK与VTK对象的互相转化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
   </div>
   
-    
-<nav id="article-nav">
   
-    <a href="/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
         
-          ITK与VTK对象的互相转化
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lu Xiaohua</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">92</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2014/01/11/command-and-observer/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Command and Observer</div>
-    </a>
-  
-</nav>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lu Xiaohua</span>
 
   
-</article>
 
-</section>
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ANNs/">ANNs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Big-Data/">Big Data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language-Study/">Language Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Photography/">Photography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/">c/cpp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/cmake/">cmake</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp/">cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data-science/">data science</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/design-pattern/">design pattern</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/itk/">itk</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/itk/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poem/">poem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vtk/">vtk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perceptron/">Perceptron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photography/">Photography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cv/">cv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-struct/">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/">design pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dll/">dll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/">event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interactor/">interactor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itk/">itk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lib/">lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nltk/">nltk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/observer/">observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/">pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poem/">poem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pygame/">pygame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sae/">sae</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setuptools/">setuptools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/signals/">signals</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slots/">slots</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite3/">sqlite3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/titan/">titan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/to-do-list/">to-do list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vtk/">vtk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win/">win</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wxPython/">wxPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Cpp/" style="font-size: 12px;">Cpp</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/Neural-Networks/" style="font-size: 12px;">Neural Networks</a> <a href="/tags/Perceptron/" style="font-size: 12px;">Perceptron</a> <a href="/tags/Photography/" style="font-size: 10px;">Photography</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/algorithms/" style="font-size: 10px;">algorithms</a> <a href="/tags/big-data/" style="font-size: 10px;">big data</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/callback/" style="font-size: 10px;">callback</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/cpp/" style="font-size: 18px;">cpp</a> <a href="/tags/cv/" style="font-size: 12px;">cv</a> <a href="/tags/data-science/" style="font-size: 12px;">data science</a> <a href="/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/event/" style="font-size: 10px;">event</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interactor/" style="font-size: 10px;">interactor</a> <a href="/tags/itk/" style="font-size: 16px;">itk</a> <a href="/tags/lib/" style="font-size: 10px;">lib</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine learning</a> <a href="/tags/matlab/" style="font-size: 12px;">matlab</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/nltk/" style="font-size: 12px;">nltk</a> <a href="/tags/observer/" style="font-size: 10px;">observer</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/poem/" style="font-size: 14px;">poem</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qt/" style="font-size: 16px;">qt</a> <a href="/tags/sae/" style="font-size: 10px;">sae</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/setuptools/" style="font-size: 10px;">setuptools</a> <a href="/tags/signals/" style="font-size: 10px;">signals</a> <a href="/tags/slots/" style="font-size: 10px;">slots</a> <a href="/tags/smartpointer/" style="font-size: 10px;">smartpointer</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlite3/" style="font-size: 10px;">sqlite3</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/titan/" style="font-size: 10px;">titan</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to-do list</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a> <a href="/tags/ubuntu/" style="font-size: 12px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 12px;">ui</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vs2010/" style="font-size: 12px;">vs2010</a> <a href="/tags/vtk/" style="font-size: 18px;">vtk</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/win/" style="font-size: 10px;">win</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/wxPython/" style="font-size: 10px;">wxPython</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/02/28/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
+
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
 
+    
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    
   </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
