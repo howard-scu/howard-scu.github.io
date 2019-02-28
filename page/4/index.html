@@ -340,199 +340,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/14/k-means-clustering-in-opencv/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/01/14/k-means-clustering-in-opencv/" class="post-title-link" itemprop="url">K-Means Clustering in OpenCV</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-01-14 16:23:41" itemprop="dateCreated datePublished" datetime="2015-01-14T16:23:41+08:00">2015-01-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/未分类/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/01/14/k-means-clustering-in-opencv/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/14/k-means-clustering-in-opencv/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="cv2-kmeans-nbsp"><a href="#cv2-kmeans-nbsp" class="headerlink" title="cv2.kmeans()&nbsp;"></a><font face="微软雅黑" style="font-weight: normal;"><span style="line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);"><span data-wiz-span="data-wiz-span" style="font-size: 20pt;">cv2.kmeans()</span></span><span style="line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);"><span data-wiz-span="data-wiz-span" style="font-size: 20pt;">&nbsp;</span></span></font></h2><div><div class="section" id="input-parameters" style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: normal; background-color: rgb(255, 255, 255);"><br><br>### Input parameters<a href="http://docs.opencv.org/trunk/doc/py_tutorials/py_ml/py_kmeans/py_kmeans_opencv/py_kmeans_opencv.html#input-parameters" title="Permalink to this headline" target="_blank" rel="noopener"></a><br>&gt; 1.  <strong>samples</strong>&nbsp;: It should be of&nbsp;<strong>np.float32</strong>&nbsp;data type, and each feature should be put in a single column.<br>&gt;<br>&gt; 2.  <strong>nclusters(K)</strong>&nbsp;: Number of clusters required at end<br>&gt;<br>&gt; 3.  <dl class="first docutils" style="margin-bottom: 15px; margin-top: 0px !important;"><dt><strong>criteria</strong>&nbsp;<span class="classifier-delimiter">:</span>&nbsp;<span class="classifier" style="font-style: oblique;">It is the iteration termination criteria. When this criteria is satisfied, algorithm iteration stops. Actually, it should be a tuple of 3 parameters. They are&nbsp;<tt class="docutils literal" style="font-family: Consolas, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace; min-width: 780px; max-width: 1080px; color: rgb(0, 48, 72); padding: 1px;"><span class="pre">(</span>&nbsp;<span class="pre">type,</span>&nbsp;<span class="pre">max_iter,</span>&nbsp;<span class="pre">epsilon</span>&nbsp;<span class="pre">)</span></tt>:</span></dt><dd style="margin-top: 1em; margin-bottom: 1em; margin-left: 30px; line-height: 18.200000762939453px;"><br>&gt;<br>&gt;         <em>   <dl class="first docutils" style="margin-bottom: 15px; margin-top: 0px !important;"><dt>3.a - type of termination criteria&nbsp;<span class="classifier-delimiter">:</span>&nbsp;<span class="classifier" style="font-style: oblique;">It has 3 flags as below:</span></dt><dd style="margin-top: 1em; margin-bottom: 1em; margin-left: 30px; line-height: 18.200000762939453px;"><br>&gt;<br>&gt;         <strong>cv2.TERM_CRITERIA_EPS</strong>&nbsp;- stop the algorithm iteration if specified accuracy,&nbsp;<em>epsilon</em>, is reached.&nbsp;<strong>cv2.TERM_CRITERIA_MAX_ITER</strong>&nbsp;- stop the algorithm after the specified number of iterations,&nbsp;_max_iter_.&nbsp;<strong>cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER</strong>&nbsp;- stop the iteration when any of the above condition is met.<br>&gt; </dd></dl><br>&gt;     </em>   3.b - max_iter - An integer specifying maximum number of iterations.<br>&gt;<br>&gt;         *   3.c - epsilon - Required accuracy</dd></dl><br>&gt; 4.  <strong>attempts</strong>&nbsp;: Flag to specify the number of times the algorithm is executed using different initial labellings. The algorithm returns the labels that yield the best compactness. This compactness is returned as output.<br>&gt;<br>&gt; 5.  <strong>flags</strong>&nbsp;: This flag is used to specify how initial centers are taken. Normally two flags are used for this :<strong>cv2.KMEANS_PP_CENTERS</strong>&nbsp;and&nbsp;<strong>cv2.KMEANS_RANDOM_CENTERS</strong>.</div><div class="section" id="output-parameters" style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: normal; background-color: rgb(255, 255, 255);"><br><br>### Output parameters<a href="http://docs.opencv.org/trunk/doc/py_tutorials/py_ml/py_kmeans/py_kmeans_opencv/py_kmeans_opencv.html#output-parameters" title="Permalink to this headline" target="_blank" rel="noopener"></a><br>&gt; 1.  <strong>compactness</strong>&nbsp;: It is the sum of squared distance from each point to their corresponding centers.<br>&gt; 2.  <strong>labels</strong>&nbsp;: This is the label array (same as ‘code’ in previous article) where each element marked ‘0’, ‘1’…..<br>&gt; 3.  <strong>centers</strong>&nbsp;: This is array of centers of clusters.</div></div><div style="text-align: justify;"><span style="line-height: 18.1875px;"><font face="微软雅黑"><span data-wiz-span="data-wiz-span" style="font-size: 18pt;">示例：</span></font></span></div><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; numpy &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;</code><br>2.  <code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; cv2&lt;/span&gt;</code><br>3.  <code>&lt;span class=&quot;kwd&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; matplotlib &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; pyplot &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;</code><br>4.5.  <code>&lt;span class=&quot;pln&quot;&gt;X &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;))&lt;/span&gt;</code><br>6.  <code>&lt;span class=&quot;pln&quot;&gt;Y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;))&lt;/span&gt;</code><br>7.  <code>&lt;span class=&quot;pln&quot;&gt;Z &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;vstack&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;))&lt;/span&gt;</code><br>8.9.  <code>&lt;span class=&quot;com&quot;&gt;# convert to np.float32&lt;/span&gt;</code><br>10.  <code>&lt;span class=&quot;pln&quot;&gt;Z &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>11.12.  <code>&lt;span class=&quot;com&quot;&gt;# define criteria and apply kmeans()&lt;/span&gt;</code><br>13.  <code>&lt;span class=&quot;pln&quot;&gt;criteria &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cv2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;TERM_CRITERIA_EPS &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; cv2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;TERM_CRITERIA_MAX_ITER&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>14.  <code>&lt;span class=&quot;pln&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cv2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;kmeans&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;criteria&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cv2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;KMEANS_RANDOM_CENTERS&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>15.16.  <code>&lt;span class=&quot;com&quot;&gt;# Now separate the data, Note the flatten()&lt;/span&gt;</code><br>17.  <code>&lt;span class=&quot;pln&quot;&gt;A &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; Z&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ravel&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()==&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;]&lt;/span&gt;</code><br>18.  <code>&lt;span class=&quot;pln&quot;&gt;B &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; Z&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ravel&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()==&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;]&lt;/span&gt;</code><br>19.20.  <code>&lt;span class=&quot;com&quot;&gt;# Plot the data&lt;/span&gt;</code><br>21.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;])&lt;/span&gt;</code><br>22.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;c &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>23.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;s &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;c &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;y&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; marker &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;s&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>24.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;Height&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;Weight&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>25.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code></pre></div><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/01/wpid-d2ab590efc92b80dda0dbf8a3363cb77_f29be1bf-f12c-4f1e-b005-cfaf99fe5156.png" alt><br></div></div><div><span style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);"><br></span></div>
-
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/11/25/eigen-e8-ae-a1-e7-ae-97-e7-89-b9-e5-be-81-e5-90-91-e9-87-8f-e4-b8-8e-e7-89-b9-e5-be-81-e5-80-bc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -720,7 +533,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -928,7 +741,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1120,7 +933,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1305,7 +1118,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1491,7 +1304,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1676,7 +1489,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1862,7 +1675,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2062,7 +1875,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/image/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2228,6 +2041,193 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/10/471/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/07/10/471/" class="post-title-link" itemprop="url">471</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-07-10 14:40:23" itemprop="dateCreated datePublished" datetime="2014-07-10T14:40:23+08:00">2014-07-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/未分类/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2014/07/10/471/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/07/10/471/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>How many roads must a man walk down</p>
+<p>Before they call him a man</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2263,7 +2263,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Lu Xiaohua">
+              <img class="site-author-image" itemprop="image" src="/image/avatar.png" alt="Lu Xiaohua">
             
               <p class="site-author-name" itemprop="name">Lu Xiaohua</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -2276,7 +2276,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">92</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
