@@ -340,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/13/OpenCv特征点算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/libmodbus实现modbus-poll功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -360,7 +360,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/07/13/OpenCv特征点算法/" class="post-title-link" itemprop="url">OpenCv特征点算法</a>
+                <a href="/2019/02/28/libmodbus实现modbus-poll功能/" class="post-title-link" itemprop="url">libmodbus实现modbus_poll功能</a>
               
             
           </h1>
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="创建时间：2015-07-13 09:20:30 / 修改时间：09:27:56" itemprop="dateCreated datePublished" datetime="2015-07-13T09:20:30+08:00">2015-07-13</time>
+              <time title="创建时间：2019-02-28 12:25:49 / 修改时间：12:26:24" itemprop="dateCreated datePublished" datetime="2019-02-28T12:25:49+08:00">2019-02-28</time>
             
 
             
@@ -407,7 +407,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
 
                 
                 
@@ -426,8 +426,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/07/13/OpenCv特征点算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/13/OpenCv特征点算法/" itemprop="commentCount"></span>
+                <a href="/2019/02/28/libmodbus实现modbus-poll功能/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/libmodbus实现modbus-poll功能/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -457,40 +457,8 @@
       
         
           
-            <p>OpenCV 中和 2D 特征检测相关的算法的头文件位于<br>opencv\modules\features2d\include\opencv2\features2d.hpp，除<strong>SIFT、SURF以外</strong>的特征。<br>opencv\modules\nonfree\include\opencv2\nonfree\features2d.hpp，只包含SIFT、SURF这两个受专利保护的特征，因此<strong><em>不是免费的</em></strong>（nonfree）。</p>
-<p>我们来看具体的类<br><strong>DescriptorExtractor</strong>的子类都是描述子提取器，包含</p>
-<ul>
-<li>FREAK</li>
-<li>OpponentColorDescriptorExtractor</li>
-<li>BriefDescriptorExtractor</li>
-</ul>
-<p><strong>FeatureDetector</strong>的子类都是特征检测器，包含</p>
-<ul>
-<li>MSER</li>
-<li>StarDetector，又名 StarFeatureDetector</li>
-<li>FastFeatureDetector</li>
-<li>GFTTDetector，又名 GoodFeaturesToTrackDetector</li>
-<li>SimpleBlobDetector</li>
-<li>DenseFeatureDetector</li>
-</ul>
-<p><strong>FeatureDetector</strong>还提供一系列特殊的适配器子类，用于增强或加速之前的 FeatureDetector 类</p>
-<ul>
-<li>GridAdaptedFeatureDetector</li>
-<li>PyramidAdaptedFeatureDetector</li>
-<li>AdjusterAdapter</li>
-<li>DynamicAdaptedFeatureDetector</li>
-<li>FastAdjuster</li>
-<li>StarAdjuster</li>
-<li>SurfAdjuster</li>
-</ul>
-<p><strong>Feature2D</strong>的子类既是 FeatureDetector，又是 DescriptorExtractor，包含</p>
-<ul>
-<li>BRISK</li>
-<li>ORB</li>
-<li>SIFT</li>
-<li>SURF</li>
-</ul>
-<p><strong>来源</strong>：<br>【1】<a href="http://zhi.hu/oG6v" target="_blank" rel="noopener">http://zhi.hu/oG6v</a></p>
+            <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;modbus.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">modbus_t</span> *ctx;</span><br><span class="line">	srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 创建modbus连接</span></span><br><span class="line">	ctx = modbus_new_tcp(<span class="string">"127.0.0.1"</span>, <span class="number">502</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (ctx == <span class="literal">NULL</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 创建失败</span></span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Unable to allocate libmodbus context\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 设置调试模式</span></span><br><span class="line">	modbus_set_debug(ctx,<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 设置连接的slave号，此处为1</span></span><br><span class="line">	<span class="keyword">int</span> rc = modbus_set_slave(ctx, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span> (rc == <span class="number">-1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Invalid slave ID\n"</span>);</span><br><span class="line">		modbus_free(ctx);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 连接</span></span><br><span class="line">	<span class="keyword">if</span> (modbus_connect(ctx) == <span class="number">-1</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Connection failed: %s\n"</span>, modbus_strerror(errno));</span><br><span class="line">		modbus_free(ctx);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 读寄存器</span></span><br><span class="line">		<span class="keyword">uint16_t</span>* dest= (<span class="keyword">uint16_t</span> *) <span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="keyword">uint16_t</span>));</span><br><span class="line">		<span class="built_in">memset</span>(dest, <span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line">		<span class="keyword">int</span> rc = modbus_read_registers(ctx, <span class="number">0</span>, <span class="number">10</span>, dest);</span><br><span class="line">		<span class="keyword">if</span> (rc == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"%s\n"</span>, modbus_strerror(errno));</span><br><span class="line">			<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span> ; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">"\t:\t"</span> &lt;&lt; dest[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		Sleep(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 写寄存器</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (dest[i] == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				dest[i] = rand() %<span class="number">20</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				dest[i] *= <span class="number">3</span>;</span><br><span class="line">				dest[i] %= <span class="number">20</span> ;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		rc = modbus_write_registers(ctx, <span class="number">0</span>, <span class="number">10</span>, dest);</span><br><span class="line">		<span class="keyword">if</span> (rc == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"%s\n"</span>, modbus_strerror(errno));</span><br><span class="line">			<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		Sleep(<span class="number">1000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	modbus_close(ctx);  </span><br><span class="line">	modbus_free(ctx);  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p>[1]. <a href="http://www.exbob.com/post/blog/2015-05-24" target="_blank" rel="noopener">http://www.exbob.com/post/blog/2015-05-24</a><br>[2]. <a href="http://libmodbus.org/docs/v3.1.4/" target="_blank" rel="noopener">http://libmodbus.org/docs/v3.1.4/</a></p>
 
           
         
@@ -547,7 +515,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/10/bitset实现无重复随机数生成/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/可用的Qt设置桌面图标方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -567,7 +535,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/07/10/bitset实现无重复随机数生成/" class="post-title-link" itemprop="url">bitset实现无重复随机数生成</a>
+                <a href="/2019/02/28/可用的Qt设置桌面图标方法/" class="post-title-link" itemprop="url">可用的Qt设置桌面图标方法</a>
               
             
           </h1>
@@ -592,7 +560,7 @@
                 
               
 
-              <time title="创建时间：2015-07-10 20:11:33 / 修改时间：20:12:58" itemprop="dateCreated datePublished" datetime="2015-07-10T20:11:33+08:00">2015-07-10</time>
+              <time title="创建时间：2019-02-28 12:23:27 / 修改时间：12:24:18" itemprop="dateCreated datePublished" datetime="2019-02-28T12:23:27+08:00">2019-02-28</time>
             
 
             
@@ -614,7 +582,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
 
                 
                 
@@ -633,8 +601,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/07/10/bitset实现无重复随机数生成/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/10/bitset实现无重复随机数生成/" itemprop="commentCount"></span>
+                <a href="/2019/02/28/可用的Qt设置桌面图标方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/可用的Qt设置桌面图标方法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -663,13 +631,197 @@
 
       
         
-          <p>简单的随机数生成采用rand()函数就可以得到：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rv= rand() % UpperBound;</span><br></pre></td></tr></table></figure></p>
-<p>这样得到的随机数，每次运行都一样，我们可以加一个srand()，使每次运行产生的数都不一样<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">srand((<span class="keyword">int</span>)time(<span class="number">0</span>));</span><br></pre></td></tr></table></figure></p>
-<p>但是这样避免不了产生相同的数值，下面是我运行两次的结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 7 4 0 9 4 8 8 2 4</span><br><span class="line">5 5 1 7 1 1 5 2 7 6</span><br></pre></td></tr></table></figure></p>
+          
+            <p>官方解决方案要设置pro文件，一般win下开发使用vs-addin，所以不适用。<br>网上另一种解决方案是修改vs的vcxproj文件，我试了，没有效果。<br>亲测可用的方案如下：</p>
+<p>1.添加ico文件<br>2.重命名“appnameico.ico”(不确定是不是必须)<br>3.新建txt文件，命名为appname.rc，添加<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IDI_ICON1 ICON <span class="keyword">DISCARDABLE </span><span class="string">"appnameico.ico"</span></span><br></pre></td></tr></table></figure></p>
+<p>4.重新编译生成appname.res文件<br>5.链接res文件（属性-&gt;配置属性-&gt;链接器-&gt;输入-&gt;嵌入托管资源文件），添加生成的res文件（关键步骤）。</p>
+<p>[1]<a href="http://stackoverflow.com/questions/2949261/howto-set-icon-to-qt-application-created-with-qt-visual-studio-add-in" target="_blank" rel="noopener">http://stackoverflow.com/questions/2949261/howto-set-icon-to-qt-application-created-with-qt-visual-studio-add-in</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/基于cyptopp库的rsa加解密详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/基于cyptopp库的rsa加解密详解/" class="post-title-link" itemprop="url">基于cyptopp库的rsa加解密详解</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:16:08 / 修改时间：12:23:02" itemprop="dateCreated datePublished" datetime="2019-02-28T12:16:08+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/基于cyptopp库的rsa加解密详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/基于cyptopp库的rsa加解密详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="编译Cryptopp"><a href="#编译Cryptopp" class="headerlink" title="编译Cryptopp"></a>编译Cryptopp</h2><p>编译过程没有什么特别，需要注意的是，如果使用dll版本的库，只包含IPS认证的算法，而编译静态链接库则包含全部算法，具体参考[1,2]。</p>
+<blockquote>
+<ul>
+<li>cryptopp - This builds the DLL. Please note that if you wish to use Crypto++ as a FIPS validated module, you must use a pre-built DLL that has undergone the FIPS validation process instead of building your own.</li>
+<li>dlltest - This builds a sample application that only uses the DLL.</li>
+<li>cryptest Non-DLL-Import Configuration - This builds the full static library along with a full test driver.</li>
+<li>cryptest DLL-Import Configuration - This builds a static library containing only algorithms not in the DLL, along with a full test driver that uses both the DLL and the static library.</li>
+</ul>
+</blockquote>
+<p>本人编译的lib库大小为50多M。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2015/07/10/bitset实现无重复随机数生成/#more" rel="contents">
+              <a class="btn" href="/2019/02/28/基于cyptopp库的rsa加解密详解/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -729,7 +881,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/07/Scrapy运行Import-Error解决方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/29/matplotlib基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -749,7 +901,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/07/07/Scrapy运行Import-Error解决方法/" class="post-title-link" itemprop="url">Scrapy运行Import Error解决方法</a>
+                <a href="/2015/12/29/matplotlib基础/" class="post-title-link" itemprop="url">matplotlib基础</a>
               
             
           </h1>
@@ -774,7 +926,7 @@
                 
               
 
-              <time title="创建时间：2015-07-07 21:31:58 / 修改时间：21:42:32" itemprop="dateCreated datePublished" datetime="2015-07-07T21:31:58+08:00">2015-07-07</time>
+              <time title="创建时间：2015-12-29 15:32:45 / 修改时间：15:46:53" itemprop="dateCreated datePublished" datetime="2015-12-29T15:32:45+08:00">2015-12-29</time>
             
 
             
@@ -796,7 +948,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
 
                 
                 
@@ -815,8 +967,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/07/07/Scrapy运行Import-Error解决方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/07/Scrapy运行Import-Error解决方法/" itemprop="commentCount"></span>
+                <a href="/2015/12/29/matplotlib基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/29/matplotlib基础/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -845,17 +997,226 @@
 
       
         
-          
-            <h2 id="Scrapy安装"><a href="#Scrapy安装" class="headerlink" title="Scrapy安装"></a>Scrapy安装</h2><p>所有依赖使用easy_install安装<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">easy_install Twisted</span><br><span class="line">easy_install Zope.Interface</span><br><span class="line">easy_install w3lib</span><br><span class="line">easy_install pyOpenSSL</span><br><span class="line">easy_install libxml2</span><br><span class="line">easy_install Scrapy</span><br></pre></td></tr></table></figure></p>
-<p>如果libxml2没有安装成功可以使用下面的地址进行安装<br>下载地址：<a href="http://users.skynet.be/sbi/libxml-python/binaries/libxml2-python-2.7.7.win32-py2.7.exe" target="_blank" rel="noopener">http://users.skynet.be/sbi/libxml-python/binaries/libxml2-python-2.7.7.win32-py2.7.exe</a></p>
-<h2 id="scrapy-Import-Error"><a href="#scrapy-Import-Error" class="headerlink" title="scrapy Import Error"></a>scrapy Import Error</h2><p>解决的办法是把下面三个文件复制到C:\python27\Lib\site-packages\win32\目录下</p>
-<ul>
-<li>pythoncom27.dll</li>
-<li>pythoncomloader27.dll</li>
-<li>pywintype.dll</li>
+          <h2 id="matplotlib基础"><a href="#matplotlib基础" class="headerlink" title="matplotlib基础"></a>matplotlib基础</h2><h3 id="1-基本绘图"><a href="#1-基本绘图" class="headerlink" title="1.基本绘图"></a>1.基本绘图</h3><h4 id="控制颜色"><a href="#控制颜色" class="headerlink" title="控制颜色"></a>控制颜色</h4><ul>
+<li><p>颜色之间的对应关系为</p>
+<blockquote>
+<p>b—blue<br>c—cyan<br>g—green<br>k—-black<br>m—magenta<br>r—red<br>w—white<br>y—-yellow</p>
+</blockquote>
+</li>
+<li><p>表示颜色的方式:</p>
+<blockquote>
+<p>a:用全名<br>b:16进制如：#FF00FF<br>c:RGB或RGBA元组（1,0,1,1）<br>d:灰度强度如：‘0.7’</p>
+</blockquote>
+</li>
 </ul>
-<h2 id="运行tutorial"><a href="#运行tutorial" class="headerlink" title="运行tutorial"></a>运行tutorial</h2><p>详见参考3</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>【1】<a href="http://www.cnblogs.com/txw1958/archive/2012/07/12/scrapy_installation_introduce.html" target="_blank" rel="noopener">http://www.cnblogs.com/txw1958/archive/2012/07/12/scrapy_installation_introduce.html</a><br>【2】<a href="http://stackoverflow.com/questions/23529348/scrapy-import-error-scrapy-core-downloader-handlers-s3-s3downloadhandler" target="_blank" rel="noopener">http://stackoverflow.com/questions/23529348/scrapy-import-error-scrapy-core-downloader-handlers-s3-s3downloadhandler</a><br>【3】<a href="http://scrapy-chs.readthedocs.org/zh_CN/latest/intro/tutorial.html" target="_blank" rel="noopener">http://scrapy-chs.readthedocs.org/zh_CN/latest/intro/tutorial.html</a></p>
+<h4 id="控制线型"><a href="#控制线型" class="headerlink" title="控制线型"></a>控制线型</h4><ul>
+<li>符号和线型之间的对应关系<blockquote>
+<ul>
+<li>实线<br>–     短线<br>-.     短点相间线<br>：     虚点线</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="控制标记风格"><a href="#控制标记风格" class="headerlink" title="控制标记风格"></a>控制标记风格</h4><ul>
+<li>标记风格有多种：<blockquote>
+<p>.     Point marker<br>,     Pixel marker<br>o     Circle marker<br>v     Triangle down marker<br>^     Triangle up marker<br>&lt;     Triangle left marker<br>>     Triangle right marker<br>1     Tripod down marker<br>2     Tripod up marker<br>3     Tripod left marker<br>4     Tripod right marker<br>s     Square marker<br>p     Pentagon marker<br>*     Star marker<br>h     Hexagon marker<br>H     Rotated hexagon D Diamond marker<br>d     Thin diamond marker<br>|     Vertical line (vlinesymbol) marker<br>_     Horizontal line (hline symbol) marker<br>+     Plus marker<br>x     Cross (x) marker</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入matplot库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出图像大小</span></span><br><span class="line">plt.rc(<span class="string">'figure'</span>, figsize=(<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">10</span>)  				<span class="comment"># [0,2]之间均匀产生10个值</span></span><br><span class="line">plt.plot(x, x, <span class="string">'o-'</span>, label=<span class="string">'linear'</span>)	<span class="comment"># y = x 曲线</span></span><br><span class="line">plt.plot(x, x ** <span class="number">2</span>, <span class="string">'x-'</span>, label=<span class="string">'quadratic'</span>)	<span class="comment"># y=x^2曲线</span></span><br><span class="line">plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">plt.title(<span class="string">'Linear vs Quadratic progression'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Input'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Output'</span>);</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h4 id="生成结果"><a href="#生成结果" class="headerlink" title="生成结果"></a>生成结果</h4><p><img src="/image/1451373096231.png" alt="Alt text"></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/12/29/matplotlib基础/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/NLTK安装教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/12/17/NLTK安装教程/" class="post-title-link" itemprop="url">NLTK安装教程</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-12-17 14:01:16 / 修改时间：14:14:24" itemprop="dateCreated datePublished" datetime="2015-12-17T14:01:16+08:00">2015-12-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/12/17/NLTK安装教程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/17/NLTK安装教程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-安装nltk"><a href="#1-安装nltk" class="headerlink" title="1. 安装nltk"></a>1. 安装nltk</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip <span class="keyword">install</span> nltk</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装nltk-data"><a href="#2-安装nltk-data" class="headerlink" title="2. 安装nltk_data"></a>2. 安装nltk_data</h3><ul>
+<li><p>nltk.downloader自动下载</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m nltk<span class="selector-class">.downloader</span> all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网盘链接: <a href="http://pan.baidu.com/s/1mgGozzU" target="_blank" rel="noopener">http://pan.baidu.com/s/1mgGozzU</a> 密码: axx8</p>
+<pre><code>&gt; 解压地址：
+&gt; (1). C:\nltk_data (Windows); 
+&gt; (2). /usr/local/share/nltk_data (Mac); 
+&gt; (3). and /usr/share/nltk_data (Unix). 
+</code></pre></li>
+</ul>
 
           
         
@@ -912,7 +1273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/02/值得学习的Cpp开源项目/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/NLTK命名实体识别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -932,7 +1293,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/07/02/值得学习的Cpp开源项目/" class="post-title-link" itemprop="url">值得学习的Cpp开源项目</a>
+                <a href="/2015/12/17/NLTK命名实体识别/" class="post-title-link" itemprop="url">NLTK命名实体识别</a>
               
             
           </h1>
@@ -957,7 +1318,7 @@
                 
               
 
-              <time title="创建时间：2015-07-02 20:23:28 / 修改时间：20:39:36" itemprop="dateCreated datePublished" datetime="2015-07-02T20:23:28+08:00">2015-07-02</time>
+              <time title="创建时间：2015-12-17 13:58:46 / 修改时间：14:14:31" itemprop="dateCreated datePublished" datetime="2015-12-17T13:58:46+08:00">2015-12-17</time>
             
 
             
@@ -979,7 +1340,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
 
                 
                 
@@ -998,8 +1359,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/07/02/值得学习的Cpp开源项目/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/02/值得学习的Cpp开源项目/" itemprop="commentCount"></span>
+                <a href="/2015/12/17/NLTK命名实体识别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/17/NLTK命名实体识别/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1028,389 +1389,590 @@
 
       
         
-          <p>##值得学习的C语言开源项目</p>
-<p>###1.Webbench</p>
-<p>Webbench是一个在linux下使用的非常简单的网站压测工具。它使用fork()模拟多个客户端同时访问我们设定的URL，测试网站在压力下工作的性能，最多可以模拟3万个并发连接去测试网站的负载能力。Webbench使用C语言编写, 代码实在太简洁，源码加起来不到600行。</p>
-<p>下载链接：<a href="https://github.com/LippiOuYang/WebBench" target="_blank" rel="noopener">https://github.com/LippiOuYang/WebBench</a></p>
-<p>###2.Tinyhttpd</p>
-<p>tinyhttpd是一个超轻量型Http Server，使用C语言开发，全部代码只有502行(包括注释)，附带一个简单的Client，可以通过阅读这段代码理解一个 Http Server 的本质。</p>
-<p>下载链接：<a href="https://github.com/LippiOuYang/Tinyhttpd" target="_blank" rel="noopener">https://github.com/LippiOuYang/Tinyhttpd</a></p>
-<p>###3.cJSON</p>
-<p>cJSON是C语言中的一个JSON编解码器，非常轻量级，C文件只有500多行，速度也非常理想。</p>
-<p>cJSON也存在几个弱点，虽然功能不是非常强大，但cJSON的小身板和速度是最值得赞赏的。其代码被非常好地维护着，结构也简单易懂，可以作为一个非常好的C语言项目进行学习。</p>
-<p>项目主页:<a href="http://sourceforge.net/projects/cjson/" target="_blank" rel="noopener">http://sourceforge.net/projects/cjson/</a><br>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/02/值得学习的Cpp开源项目/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/30/Git配置和常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/06/30/Git配置和常用命令/" class="post-title-link" itemprop="url">Git配置和常用命令</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-06-30 21:40:23 / 修改时间：21:56:34" itemprop="dateCreated datePublished" datetime="2015-06-30T21:40:23+08:00">2015-06-30</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/06/30/Git配置和常用命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/30/Git配置和常用命令/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>转自： <a href="http://hunng.com/2014/04/25/git-configs-and-cammands/" target="_blank" rel="noopener">http://hunng.com/2014/04/25/git-configs-and-cammands/</a></p>
-<p>Git是一个分布式版本控制／软件配置管理软件，原来是linux内核开发者林纳斯·托瓦兹（Linus Torvalds）为了更好地管理linux内核开发而创立的。</p>
-<p>##Git配置##<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"hunng"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"huangthink@gmail.com"</span></span><br><span class="line">git<span class="built_in"> config </span>--global color.ui <span class="literal">true</span></span><br><span class="line">git<span class="built_in"> config </span>--global alias.co checkout</span><br><span class="line">git<span class="built_in"> config </span>--global alias.ci commit</span><br><span class="line">git<span class="built_in"> config </span>--global alias.st status</span><br><span class="line">git<span class="built_in"> config </span>--global alias.br branch</span><br><span class="line">git<span class="built_in"> config </span>-l  # 列举所有配置</span><br></pre></td></tr></table></figure></p>
-<p>用户的git配置文件在~/.gitconfig，我的配置：<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/06/30/Git配置和常用命令/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/30/C++内存池设计与实现（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/06/30/C++内存池设计与实现（一）/" class="post-title-link" itemprop="url">C++内存池设计与实现（一）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-06-30 20:51:29 / 修改时间：20:57:04" itemprop="dateCreated datePublished" datetime="2015-06-30T20:51:29+08:00">2015-06-30</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/06/30/C++内存池设计与实现（一）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/30/C++内存池设计与实现（一）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="C-内存池实现"><a href="#C-内存池实现" class="headerlink" title="C++内存池实现"></a>C++内存池实现</h2><h3 id="什么是内存池"><a href="#什么是内存池" class="headerlink" title="什么是内存池"></a>什么是内存池</h3><p>(Memory Pool)是一种内存分配方式。通常我们习惯直接使用new、malloc等API申请分配内存，这样做的缺点在于：由于所申请内存块的大小不定，当频繁使用时会造成大量的内存碎片并进而降低性能。使用该技术的优点是重用现有的内存块，以便减少系统调用的时间。</p>
-<p>###为什么使用内存池 ###<br>主要有两点：</p>
+            <p>###引例：<br>NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。<br>下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> nltk</span><br><span class="line">In [<span class="number">2</span>]: tokens = nltk.word_tokenize(<span class="string">'I am very excited about the next generation of Apple products.'</span>)</span><br><span class="line">In [<span class="number">3</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">4</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[(<span class="string">'I'</span>, <span class="string">'PRP'</span>), (<span class="string">'am'</span>, <span class="string">'VBP'</span>), (<span class="string">'very'</span>, <span class="string">'RB'</span>), (<span class="string">'excited'</span>, <span class="string">'JJ'</span>), (<span class="string">'about'</span>, <span class="string">'IN'</span>), (<span class="string">'the'</span>, <span class="string">'DT'</span>), (<span class="string">'next'</span>, <span class="string">'JJ'</span>), (<span class="string">'generation'</span>, <span class="string">'NN'</span>), (<span class="string">'of'</span>, <span class="string">'IN'</span>), (<span class="string">'Apple'</span>, <span class="string">'NNP'</span>), (<span class="string">'products'</span>, <span class="string">'NNS'</span>), (<span class="string">'.'</span>, <span class="string">'.'</span>)]</span><br><span class="line">In [<span class="number">5</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">6</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S</span><br><span class="line">  I/PRP</span><br><span class="line">  am/VBP</span><br><span class="line">  very/RB</span><br><span class="line">  excited/JJ</span><br><span class="line">  about/IN</span><br><span class="line">  the/DT</span><br><span class="line">  next/JJ</span><br><span class="line">  generation/NN</span><br><span class="line">  of/IN</span><br><span class="line">  (GPE Apple/NNP)</span><br><span class="line">  products/NNS</span><br><span class="line">  ./.)</span><br><span class="line">In [<span class="number">7</span>]: tokens = nltk.word_tokenize(<span class="string">'I bought these Apple products today.'</span>)</span><br><span class="line">In [<span class="number">8</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">9</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[<span class="string">'I'</span>, <span class="string">'bought'</span>, <span class="string">'these'</span>, <span class="string">'Apple'</span>, <span class="string">'products'</span>, <span class="string">'today'</span>, <span class="string">'.'</span>]</span><br><span class="line">In [<span class="number">10</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">11</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S I/PRP bought/VBD these/DT Apple/NNP products/NNS today/NN ./.)</span><br></pre></td></tr></table></figure></p>
+<h3 id="最大熵算法"><a href="#最大熵算法" class="headerlink" title="最大熵算法"></a>最大熵算法</h3><p>注意到在上述两个例子Apple这个词被词性标注为NNP（NNP是宾夕法尼亚大学树图资料库II为专有名词，单数）。另外，这两个单词都以大写字母开始。为什么Apple在1例中被标记为GPE（地缘政治实体），而2例未标记？另外，为什么Apple标记为GPE，而不是ORG（组织机构）？</p>
+<p>NLTK的命名实体识别是通过使用的MaxEnt分类器。MaxEnt分类器工作有两个原则：1.总是试图保持均匀分布(即最大化熵)，2.保持其统计概率与经验数据一致。经验数据来源于语料库，通过手动标记，所以大多数标记数据并不是免费的。NLTK不提供其训练命名实体识别器的语料库（训练数据来自ACE（自动内容抽取））。NLTK所提供的是一个pickle文件（在nltk_data/chunkers/目录下），而这个pickle文件，就是训练好的MaxEnt分类器实例。　　 　　<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  maxent_ne_chunker  tree</span><br><span class="line">.</span><br><span class="line">├── english_ace_binary.pickle</span><br><span class="line">├── english_ace_multiclass.pickle</span><br><span class="line">└── PY3</span><br><span class="line">    ├── english_ace_binary.pickle</span><br><span class="line">    └── english_ace_multiclass.pickle</span><br></pre></td></tr></table></figure></p>
+<p>要训练良好的监督学习的算法基于良好的特征。在命名实体识别中，特征可能是这个词是否包含一个大写字母。所以NLTK使用的特征有哪些呢？下面我列出他们：</p>
 <ul>
-<li>缩短的程序分配内存的时间</li>
-<li>避免内存碎片</li>
+<li>词的形状（是否包含数字/首字母大写/包含符号）　　</li>
+<li>词的长度</li>
+<li>词的前三个字母</li>
+<li>词尾三个字母　</li>
+<li>词性标签 </li>
+<li>词本身　</li>
+<li>该词是否存在</li>
+<li>该词前面词的词性（前面是否有名词）　　</li>
+<li>前词词性</li>
+<li>后词词性</li>
+<li>前词本身　</li>
+<li>后词本身　</li>
+<li>…</li>
+</ul>
+<p>下面的代码可以列出NLTK中所使用的标签<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 载入序列化对象</span></span><br><span class="line">chunker = nltk.data.load(<span class="string">'chunkers/maxent_ne_chunker/english_ace_multiclass.pickle'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最大熵分类器</span></span><br><span class="line">maxEnt = chunker._tagger.classifier()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maxEnt_report</span><span class="params">()</span>:</span></span><br><span class="line">    maxEnt = chunker._tagger.classifier()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'These are the labels used by the NLTK\'s NEC...'</span></span><br><span class="line">    <span class="keyword">print</span> maxEnt.labels()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'These are the most informative features found in the ACE corpora...'</span></span><br><span class="line">    maxEnt.show_most_informative_features()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ne_report</span><span class="params">(sentence, report_all=False)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 词性标记</span></span><br><span class="line">    tokens = nltk.word_tokenize(sentence)</span><br><span class="line">    tokens = nltk.pos_tag(tokens)</span><br><span class="line"></span><br><span class="line">    tags = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(tokens)):</span><br><span class="line">        featureset = chunker._tagger.feature_detector(tokens, i, tags)</span><br><span class="line">        tag = chunker._tagger.choose_tag(tokens, i, tags)</span><br><span class="line">        <span class="keyword">if</span> tag != <span class="string">'O'</span> <span class="keyword">or</span> report_all:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'\nExplanation on the why the word \''</span> + tokens[i][<span class="number">0</span>] + <span class="string">'\' was tagged:'</span></span><br><span class="line">            featureset = chunker._tagger.feature_detector(tokens, i, tags)</span><br><span class="line">            maxEnt.explain(featureset)</span><br><span class="line">        tags.append(tag)</span><br></pre></td></tr></table></figure></p>
+<p>下面的输出报告中列出了NLTK所使用的标签，”I-“，”B-“, “O”前缀的含义为包含/开始/例外（inside/begin/others）标记。当一块开始，第一个词是前缀“B”来表示这个词是一个块的开始。下一个单词，如果它属于同一块，将以”I-“前缀，表示这是块的一部分，而不是开始。如果一个词不属于一块，贴上“O”，这意味着它是在外面。<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  test  python dd.py </span><br><span class="line">These are the labels used by the NLTK<span class="symbol">'s</span> NEC...</span><br><span class="line">[<span class="symbol">'I</span>-GSP', <span class="symbol">'B</span>-LOCATION', <span class="symbol">'B</span>-GPE', <span class="symbol">'I</span>-ORGANIZATION', <span class="symbol">'I</span>-PERSON', <span class="symbol">'O</span>', <span class="symbol">'I</span>-FACILITY', <span class="symbol">'I</span>-LOCATION', <span class="symbol">'B</span>-PERSON', <span class="symbol">'B</span>-FACILITY', <span class="symbol">'B</span>-GSP', <span class="symbol">'B</span>-ORGANIZATION', <span class="symbol">'I</span>-GPE']</span><br><span class="line"></span><br><span class="line">These are the most informative features found <span class="keyword">in</span> the ACE corpora...</span><br><span class="line">  <span class="number">10.125</span> bias==<span class="literal">True</span> <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">6.631</span> suffix3==<span class="symbol">'day</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">6.207</span> bias==<span class="literal">True</span> <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-GSP'</span><br><span class="line">   <span class="number">5.628</span> prevtag==<span class="symbol">'O</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">4.740</span> shape==<span class="symbol">'upcase</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">4.106</span> shape+prevtag=='&lt;<span class="keyword">function</span> shape at <span class="number">0</span>x8bde0d4&gt;+O' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">3.994</span> shape==<span class="symbol">'mixedcase</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">3.992</span> pos+prevtag==<span class="symbol">'NNP</span>+B-PERSON' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-PERSON'</span><br><span class="line">   <span class="number">3.890</span> prevtag==<span class="symbol">'I</span>-ORGANIZATION' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-ORGANIZATION'</span><br><span class="line">   <span class="number">3.879</span> shape+prevtag=='&lt;<span class="keyword">function</span> shape at <span class="number">0</span>x8bde0d4&gt;+I-ORGANIZATION' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-ORGANIZATION'</span><br></pre></td></tr></table></figure></p>
+<p><strong>Note:</strong> </p>
+<ul>
+<li>GPE is Geo-Political Entity</li>
+<li>GSP is Geo-Socio-Political group</li>
+</ul>
+<p><strong>例1输出：</strong><br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">Explanation <span class="keyword">on</span> the why the word <span class="symbol">'Apple</span>' was tagged:</span><br><span class="line">  Feature                                            B-GPE       O B-ORGAN   B-GSP</span><br><span class="line">  <span class="comment">--------------------------------------------------------------------------------</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                   <span class="number">3.767</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                <span class="number">2.701</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                           <span class="number">2.254</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                             <span class="number">2.095</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GPE' (<span class="number">1</span>)                              -<span class="number">2.005</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                    -<span class="number">1.975</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                 <span class="number">0.742</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                     <span class="number">0.681</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                 <span class="number">0.661</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                  <span class="number">0.311</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                     <span class="number">0.113</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                           <span class="number">0.060</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                            <span class="number">10.125</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                           <span class="number">5.628</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                       -<span class="number">4.740</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                         -<span class="number">1.668</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>' (<span class="number">1</span>)                                          -<span class="number">1.075</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                            -<span class="number">1.024</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                         <span class="number">0.797</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                     <span class="number">0.698</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                            -<span class="number">0.449</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                        -<span class="number">0.217</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                         <span class="number">0.104</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                         <span class="number">0.089</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                   <span class="number">0.011</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                                   <span class="number">0.005</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                   <span class="number">3.389</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                           <span class="number">1.725</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                     <span class="number">0.955</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                             <span class="number">0.837</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-ORGANIZATION' (<span class="number">1</span>)                                      <span class="number">0.718</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                 <span class="number">0.365</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                    -<span class="number">0.351</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                     <span class="number">0.174</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                                 -<span class="number">0.139</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                                 <span class="number">0.131</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                -<span class="number">0.126</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                               -<span class="number">0.084</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                                -<span class="number">0.077</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                           <span class="number">2.925</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                                   <span class="number">2.213</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                                        <span class="number">0.929</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                                     <span class="number">0.891</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                            -<span class="number">0.592</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GSP' (<span class="number">1</span>)                                                      -<span class="number">0.565</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                                          <span class="number">0.410</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                         <span class="number">0.399</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                             <span class="number">0.393</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                                         <span class="number">0.184</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                             <span class="number">0.177</span></span><br><span class="line">  <span class="comment">---------------------------------------------------------------------------------</span></span><br><span class="line">  TOTAL:                                             <span class="number">9.406</span>   <span class="number">8.283</span>   <span class="number">7.515</span>   <span class="number">7.366</span></span><br><span class="line">  PROBS:                                             <span class="number">0.453</span>   <span class="number">0.208</span>   <span class="number">0.122</span>   <span class="number">0.110</span></span><br></pre></td></tr></table></figure></p>
+<p>最后一行中列出的概率加起来加起来是0.893，而非1。这是因为只输出概率最大的四类标签。</p>
+<p><strong>例2输出：</strong><br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">Explanation <span class="keyword">on</span> the why the word <span class="symbol">'Apple</span>' was tagged:</span><br><span class="line">  Feature                                                O   B-GPE B-ORGAN B-LOCAT</span><br><span class="line">  <span class="comment">--------------------------------------------------------------------------------</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                    <span class="number">10.125</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                   <span class="number">5.628</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                               -<span class="number">4.740</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>' (<span class="number">1</span>)                                  -<span class="number">1.075</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                    -<span class="number">1.024</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                 <span class="number">0.797</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                             <span class="number">0.698</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                  <span class="number">0.585</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                    -<span class="number">0.449</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                 <span class="number">0.104</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                 <span class="number">0.089</span></span><br><span class="line">  prevword==<span class="symbol">'these</span>' (<span class="number">1</span>)                             -<span class="number">0.024</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                           <span class="number">0.011</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                           <span class="number">0.005</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                           <span class="number">3.767</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                        <span class="number">2.701</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                   <span class="number">2.254</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                     <span class="number">2.095</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GPE' (<span class="number">1</span>)                                      -<span class="number">2.005</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                            -<span class="number">1.975</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                             <span class="number">0.681</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                         <span class="number">0.661</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                         -<span class="number">0.181</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                             <span class="number">0.113</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                                   <span class="number">0.060</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                   <span class="number">3.389</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                           <span class="number">1.725</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                     <span class="number">0.955</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                             <span class="number">0.837</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-ORGANIZATION' (<span class="number">1</span>)                                      <span class="number">0.718</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                                 -<span class="number">0.494</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                 <span class="number">0.365</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                    -<span class="number">0.351</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                     <span class="number">0.174</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                -<span class="number">0.126</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                               -<span class="number">0.084</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                                -<span class="number">0.077</span></span><br><span class="line">  prevword==<span class="symbol">'these</span>' (<span class="number">1</span>)                                              <span class="number">0.067</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                           <span class="number">2.682</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-LOCATION' (<span class="number">1</span>)                                                 -<span class="number">2.038</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                                   <span class="number">1.724</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                                        <span class="number">1.275</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                         <span class="number">1.169</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                             <span class="number">0.747</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                                          <span class="number">0.745</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                             <span class="number">0.616</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                                    -<span class="number">0.309</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                         <span class="number">0.151</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                             <span class="number">0.041</span></span><br><span class="line">  <span class="comment">---------------------------------------------------------------------------------</span></span><br><span class="line">  TOTAL:                                            <span class="number">10.730</span>   <span class="number">8.171</span>   <span class="number">7.095</span>   <span class="number">6.802</span></span><br><span class="line">  PROBS:                                             <span class="number">0.697</span>   <span class="number">0.118</span>   <span class="number">0.056</span>   <span class="number">0.046</span></span><br></pre></td></tr></table></figure></p>
+<p>由此：1和2中在GPE识别中唯一的区别在于下面三行：</p>
+<blockquote>
+<p> prevword==’of’ (1)                                0.742<br> prevpos==’IN’ (1)                                  0.311<br> prevpos==’DT’ (1)                                -0.181</p>
+</blockquote>
+<p>可见，1中<br>1中的Apple被识别为B-GPE，而2中的Apple被识别为O。</p>
+<h3 id="引用："><a href="#引用：" class="headerlink" title="引用："></a>引用：</h3><p>[1] <a href="http://www.nltk.org/book/ch07.html" target="_blank" rel="noopener">http://www.nltk.org/book/ch07.html</a><br>[2] <a href="http://spark-public.s3.amazonaws.com/nlp/slides/Information_Extraction_and_Named_Entity_Recognition_v2.pdf" target="_blank" rel="noopener">http://spark-public.s3.amazonaws.com/nlp/slides/Information_Extraction_and_Named_Entity_Recognition_v2.pdf</a><br>[3] <a href="http://www.mattshomepage.com/#/blog/feb2013/liftingthehood" target="_blank" rel="noopener">http://www.mattshomepage.com/#/blog/feb2013/liftingthehood</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/Titan连接Hbase后端/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/12/17/Titan连接Hbase后端/" class="post-title-link" itemprop="url">Titan连接Hbase后端</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-12-17 13:55:20 / 修改时间：14:14:40" itemprop="dateCreated datePublished" datetime="2015-12-17T13:55:20+08:00">2015-12-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/big-data/" itemprop="url" rel="index"><span itemprop="name">big data</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/12/17/Titan连接Hbase后端/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/17/Titan连接Hbase后端/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.启动hbase<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  hbase-1.1.2  ./bin/start-hbase.sh</span><br><span class="line">starting master, logging to /home/luxh/hbase/hbase-1.1.2/bin/../logs/hbase-luxh-master-ubuntu.out</span><br></pre></td></tr></table></figure></p>
+<p> 2.启动gremlin：连接本地hbase时不需要显式加入host<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  titan-1.0.0-hadoop1  bin/gremlin.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: aurelius.titan</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</span><br><span class="line">15:04:30 INFO  org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph  - HADOOP_GREMLIN_LIBS is set to: /home/luxh/titan/titan-1.0.0-hadoop1/lib</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"> TitanGraph graph = TitanFactory.build().<span class="built_in">set</span>(<span class="string">"storage.backend"</span>, <span class="string">"hbase"</span>).open();</span></span><br><span class="line">==&gt;standardtitangraph[hbase:[127.0.0.1]]</span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure></p>
+<p>连接远程hbase时，语句如下更改为如下方式<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TitanGraph g = TitanFactory.build().<span class="builtin-name">set</span>(<span class="string">"storage.backend"</span>, <span class="string">"hbase"</span>).<span class="builtin-name">set</span>(<span class="string">"storage.hostname"</span>, <span class="string">"77.77.77.77, 77.77.77.78, 77.77.77.79"</span>).open();</span><br></pre></td></tr></table></figure></p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>[1]. <a href="http://s3.thinkaurelius.com/docs/titan/1.0.0/hbase.html" target="_blank" rel="noopener">http://s3.thinkaurelius.com/docs/titan/1.0.0/hbase.html</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/26/Numpy包数据处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/11/26/Numpy包数据处理/" class="post-title-link" itemprop="url">Numpy包数据处理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-11-26 21:13:05 / 修改时间：21:24:40" itemprop="dateCreated datePublished" datetime="2015-11-26T21:13:05+08:00">2015-11-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/data-science/" itemprop="url" rel="index"><span itemprop="name">data science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/11/26/Numpy包数据处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/26/Numpy包数据处理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-Numpy包导入"><a href="#1-Numpy包导入" class="headerlink" title="1. Numpy包导入"></a>1. Numpy包导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h3 id="2-生成矩阵"><a href="#2-生成矩阵" class="headerlink" title="2. 生成矩阵"></a>2. 生成矩阵</h3><ul>
+<li>zeros 0矩阵</li>
+<li>ones  1矩阵</li>
+<li>identity 单位矩阵</li>
+<li>eye 对角矩阵</li>
+<li>random 随机矩阵</li>
+<li>empty 依据内存生成矩阵</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> a</span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.zeros(<span class="number">5</span>)</span><br><span class="line">array([ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.ones(shape=(<span class="number">3</span>,<span class="number">4</span>),dtype=np.int32)</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]], dtype=int32)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.identity(<span class="number">3</span>) </span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.eye(<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.random.rand(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">[[ <span class="number">0.40974346</span>  <span class="number">0.09968249</span>  <span class="number">0.32264537</span>  <span class="number">0.78815716</span>]</span><br><span class="line"> [ <span class="number">0.52959935</span>  <span class="number">0.74650259</span>  <span class="number">0.36604339</span>  <span class="number">0.80450681</span>]</span><br><span class="line"> [ <span class="number">0.07308854</span>  <span class="number">0.83747867</span>  <span class="number">0.18952243</span>  <span class="number">0.03182399</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.empty(shape=(<span class="number">3</span>,<span class="number">3</span>),dtype=np.int16)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> x</span><br><span class="line">[[  <span class="number">6088</span>   <span class="number">5994</span>  <span class="number">32645</span>]</span><br><span class="line"> [     <span class="number">0</span> <span class="number">-16048</span>    <span class="number">630</span>]</span><br><span class="line"> [     <span class="number">0</span>      <span class="number">0</span>     <span class="number">32</span>]]</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/11/26/Numpy包数据处理/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/13/笔试练习（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/10/13/笔试练习（二）/" class="post-title-link" itemprop="url">笔试练习（二）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-10-13 23:35:01 / 修改时间：23:42:44" itemprop="dateCreated datePublished" datetime="2015-10-13T23:35:01+08:00">2015-10-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/10/13/笔试练习（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/13/笔试练习（二）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h3><ul>
+<li>根据先序遍历和中序遍历重建二叉树</li>
+<li>问题1：vector分片</li>
+<li>问题2：相似语句复制粘贴容易出问题而且不易察觉（特别是仅有下标不同的情况）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	TreeNode *left;</span><br><span class="line">	TreeNode *right;</span><br><span class="line">	TreeNode(<span class="keyword">int</span> x) : val(x), left(<span class="literal">NULL</span>), right(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct TreeNode* <span class="title">reConstructBinaryTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pre.empty() || in.empty()) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	TreeNode* root = <span class="keyword">new</span> TreeNode(pre[<span class="number">0</span>]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;pre.size();i++)</span><br><span class="line">		<span class="keyword">if</span>(pre[<span class="number">0</span>] == in[i]) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre1(pre.begin()+<span class="number">1</span>, pre.begin()+i+<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre2(pre.begin()+i+<span class="number">1</span>, pre.end());</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in1(in.begin(), in.begin()+i);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in2(in.begin()+i+<span class="number">1</span>, in.end());</span><br><span class="line"></span><br><span class="line">	<span class="comment">//vector&lt;int&gt;::iterator it;</span></span><br><span class="line">	<span class="comment">//for(it = pre1.begin();it!=pre1.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = pre2.begin();it!=pre2.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = in1.begin();it!=in1.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = in2.begin();it!=in2.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	root-&gt;left = reConstructBinaryTree(pre1,in1);</span><br><span class="line">	root-&gt;right = reConstructBinaryTree(pre2,in2);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2015/06/30/C++内存池设计与实现（一）/#more" rel="contents">
+              <a class="btn" href="/2015/10/13/笔试练习（二）/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1470,7 +2032,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/24/计算机视觉进展20年/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/13/笔试练习-一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -1490,7 +2052,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/06/24/计算机视觉进展20年/" class="post-title-link" itemprop="url">计算机视觉进展20年</a>
+                <a href="/2015/10/13/笔试练习-一/" class="post-title-link" itemprop="url">笔试练习(一)</a>
               
             
           </h1>
@@ -1515,7 +2077,7 @@
                 
               
 
-              <time title="创建时间：2015-06-24 22:53:57 / 修改时间：23:20:14" itemprop="dateCreated datePublished" datetime="2015-06-24T22:53:57+08:00">2015-06-24</time>
+              <time title="创建时间：2015-10-13 01:18:28 / 修改时间：01:22:52" itemprop="dateCreated datePublished" datetime="2015-10-13T01:18:28+08:00">2015-10-13</time>
             
 
             
@@ -1537,7 +2099,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
 
                 
                 
@@ -1556,8 +2118,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/06/24/计算机视觉进展20年/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/24/计算机视觉进展20年/" itemprop="commentCount"></span>
+                <a href="/2015/10/13/笔试练习-一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/13/笔试练习-一/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1586,525 +2148,22 @@
 
       
         
-          <h2 id="计算机视觉的两大主要板块是：几何和识别，这里我们主要来讲述计算机视觉在1995～2015年间的进展。"><a href="#计算机视觉的两大主要板块是：几何和识别，这里我们主要来讲述计算机视觉在1995～2015年间的进展。" class="headerlink" title="计算机视觉的两大主要板块是：几何和识别，这里我们主要来讲述计算机视觉在1995～2015年间的进展。"></a>计算机视觉的两大主要板块是：几何和识别，这里我们主要来讲述计算机视觉在1995～2015年间的进展。</h2><p>##1. 影像特征点检测算子(detector)和描述算子(descriptor) SIFT的诞生 (1999, 2004)<br>Scale invariant feature transform (SIFT) 是在1999年由 UBC 的教授 David Lowe 首次提出，并在2004年进一步完善并发表的 影像特征点检测 (detector) 和描述算子 (descriptor)。SIFT的诞生是计算机视觉里程碑式的进步，它使得 homography estimation, structure from motion, epipolar geometry 以及 机器人 (robotics) 中的SLAM 有了飞跃式的改进，正是因为SIFT好于在它之前的任何描述子, 使得匹配更加准确。SIFT不只是在geometry上有应用， 它后来广泛应用于目标识别 (Object Recognition)（见后文）。<br>
+          <h3 id="1-二维数组中的查找"><a href="#1-二维数组中的查找" class="headerlink" title="1.二维数组中的查找"></a>1.二维数组中的查找</h3><ul>
+<li>思路：根据矩阵特点，左下角和右上角对应的值对应两个方向上递增或者递减</li>
+<li>问题1：编码中ncol中没有添加下标</li>
+<li>问题2：比较时i和j搞混了</li>
+<li>问题3：二维数组初始化问题</li>
+</ul>
+<p>ac代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="built_in">array</span>,<span class="keyword">int</span> target)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> nrow = <span class="built_in">array</span>.size();        </span><br><span class="line">		<span class="keyword">int</span> ncol = <span class="built_in">array</span>[<span class="number">0</span>].size();        </span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> i = ncol<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i,j; i&gt;=<span class="number">0</span> &amp;&amp; j&lt;=(nrow<span class="number">-1</span>);)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">array</span>[j][i] == target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[j][i] &gt; target) i--;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[j][i] &lt; target) j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2015/06/24/计算机视觉进展20年/#more" rel="contents">
+              <a class="btn" href="/2015/10/13/笔试练习-一/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
           
           <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/19/我们的征途是星辰大海/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/06/19/我们的征途是星辰大海/" class="post-title-link" itemprop="url">我们的征途是星辰大海</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-06-19 21:07:15 / 修改时间：21:23:44" itemprop="dateCreated datePublished" datetime="2015-06-19T21:07:15+08:00">2015-06-19</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Photography/" itemprop="url" rel="index"><span itemprop="name">Photography</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/06/19/我们的征途是星辰大海/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/19/我们的征途是星辰大海/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="/image/1.jpg" alt="我们的征途是星辰大海"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/19/Sublime-Text安装Ctags插件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/06/19/Sublime-Text安装Ctags插件/" class="post-title-link" itemprop="url">Sublime Text安装Ctags插件</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-06-19 14:59:51 / 修改时间：20:21:42" itemprop="dateCreated datePublished" datetime="2015-06-19T14:59:51+08:00">2015-06-19</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/06/19/Sublime-Text安装Ctags插件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/19/Sublime-Text安装Ctags插件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="什么是Ctags"><a href="#什么是Ctags" class="headerlink" title="什么是Ctags"></a>什么是Ctags</h2><p>ctags是vim下方便代码阅读的工具，以便支持代码跳转。在sublime text中也支持该插件。</p>
-<h2 id="Ctags常用命令"><a href="#Ctags常用命令" class="headerlink" title="Ctags常用命令"></a>Ctags常用命令</h2><p>1.$ ctags –R * ($为Linux系统Shell提示符,这个命令上面已经有所介绍)<br>2.$ vi –t tag (请把tag替换为您欲查找的变量或函数名)<br>3.:ts(ts助记字：tagslist, “:”开头的命令为VI中命令行模式命令)<br>4.:tp(tp助记字：tagspreview)—此命令不常用，可以不用记<br>5.:tn(tn助记字：tagsnext) —此命令不常用，可以不用记<br>6.Ctrl+ ]跳到光标所在函数或者结构体的定义处<br>7.Ctrl+ T返回查找或跳转</p>
-<h2 id="安装配置Ctags"><a href="#安装配置Ctags" class="headerlink" title="安装配置Ctags"></a>安装配置Ctags</h2><p>1.Ctrl + ` 打开sublime text命令行。输入下面代码，自动完成Package Control安装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib2,os;pf=&apos;Package Control.sublime-package&apos;;ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib2.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</span><br></pre></td></tr></table></figure></p>
-<p>2.Ctrl + Shitf + P 打开Package Control，输入ctag，确认自动完成安装。</p>
-<p>3.在你的源代码目录下输入命令1之后，目录底下会生成.tags文件。然后就可以通过命令自动实现函数跳转了。</p>
-<p>##Have fun!</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/19/你好世界/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/06/19/你好世界/" class="post-title-link" itemprop="url">你好世界</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-06-19 14:32:52 / 修改时间：14:36:22" itemprop="dateCreated datePublished" datetime="2015-06-19T14:32:52+08:00">2015-06-19</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/06/19/你好世界/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/19/你好世界/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>世界那么大，我想去看看！</p>
-
-          
         
       
     </div>
@@ -2148,7 +2207,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2192,7 +2251,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">91</span>
+                    <span class="site-state-item-count">104</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2420,7 +2479,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">71</span>
+                      
+                    
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

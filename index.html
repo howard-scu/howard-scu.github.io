@@ -340,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/29/matplotlib基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/Catch2单元测试框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -360,7 +360,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/12/29/matplotlib基础/" class="post-title-link" itemprop="url">matplotlib基础</a>
+                <a href="/2019/02/28/Catch2单元测试框架/" class="post-title-link" itemprop="url">Catch2单元测试框架</a>
               
             
           </h1>
@@ -385,973 +385,7 @@
                 
               
 
-              <time title="创建时间：2015-12-29 15:32:45 / 修改时间：15:46:53" itemprop="dateCreated datePublished" datetime="2015-12-29T15:32:45+08:00">2015-12-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/12/29/matplotlib基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/29/matplotlib基础/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="matplotlib基础"><a href="#matplotlib基础" class="headerlink" title="matplotlib基础"></a>matplotlib基础</h2><h3 id="1-基本绘图"><a href="#1-基本绘图" class="headerlink" title="1.基本绘图"></a>1.基本绘图</h3><h4 id="控制颜色"><a href="#控制颜色" class="headerlink" title="控制颜色"></a>控制颜色</h4><ul>
-<li><p>颜色之间的对应关系为</p>
-<blockquote>
-<p>b—blue<br>c—cyan<br>g—green<br>k—-black<br>m—magenta<br>r—red<br>w—white<br>y—-yellow</p>
-</blockquote>
-</li>
-<li><p>表示颜色的方式:</p>
-<blockquote>
-<p>a:用全名<br>b:16进制如：#FF00FF<br>c:RGB或RGBA元组（1,0,1,1）<br>d:灰度强度如：‘0.7’</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="控制线型"><a href="#控制线型" class="headerlink" title="控制线型"></a>控制线型</h4><ul>
-<li>符号和线型之间的对应关系<blockquote>
-<ul>
-<li>实线<br>–     短线<br>-.     短点相间线<br>：     虚点线</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h4 id="控制标记风格"><a href="#控制标记风格" class="headerlink" title="控制标记风格"></a>控制标记风格</h4><ul>
-<li>标记风格有多种：<blockquote>
-<p>.     Point marker<br>,     Pixel marker<br>o     Circle marker<br>v     Triangle down marker<br>^     Triangle up marker<br>&lt;     Triangle left marker<br>>     Triangle right marker<br>1     Tripod down marker<br>2     Tripod up marker<br>3     Tripod left marker<br>4     Tripod right marker<br>s     Square marker<br>p     Pentagon marker<br>*     Star marker<br>h     Hexagon marker<br>H     Rotated hexagon D Diamond marker<br>d     Thin diamond marker<br>|     Vertical line (vlinesymbol) marker<br>_     Horizontal line (hline symbol) marker<br>+     Plus marker<br>x     Cross (x) marker</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入matplot库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出图像大小</span></span><br><span class="line">plt.rc(<span class="string">'figure'</span>, figsize=(<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">10</span>)  				<span class="comment"># [0,2]之间均匀产生10个值</span></span><br><span class="line">plt.plot(x, x, <span class="string">'o-'</span>, label=<span class="string">'linear'</span>)	<span class="comment"># y = x 曲线</span></span><br><span class="line">plt.plot(x, x ** <span class="number">2</span>, <span class="string">'x-'</span>, label=<span class="string">'quadratic'</span>)	<span class="comment"># y=x^2曲线</span></span><br><span class="line">plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">plt.title(<span class="string">'Linear vs Quadratic progression'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Input'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Output'</span>);</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<h4 id="生成结果"><a href="#生成结果" class="headerlink" title="生成结果"></a>生成结果</h4><p><img src="/image/1451373096231.png" alt="Alt text"></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/12/29/matplotlib基础/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/NLTK安装教程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/12/17/NLTK安装教程/" class="post-title-link" itemprop="url">NLTK安装教程</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-12-17 14:01:16 / 修改时间：14:14:24" itemprop="dateCreated datePublished" datetime="2015-12-17T14:01:16+08:00">2015-12-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/12/17/NLTK安装教程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/17/NLTK安装教程/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-安装nltk"><a href="#1-安装nltk" class="headerlink" title="1. 安装nltk"></a>1. 安装nltk</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip <span class="keyword">install</span> nltk</span><br></pre></td></tr></table></figure>
-<h3 id="2-安装nltk-data"><a href="#2-安装nltk-data" class="headerlink" title="2. 安装nltk_data"></a>2. 安装nltk_data</h3><ul>
-<li><p>nltk.downloader自动下载</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m nltk<span class="selector-class">.downloader</span> all</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>网盘链接: <a href="http://pan.baidu.com/s/1mgGozzU" target="_blank" rel="noopener">http://pan.baidu.com/s/1mgGozzU</a> 密码: axx8</p>
-<pre><code>&gt; 解压地址：
-&gt; (1). C:\nltk_data (Windows); 
-&gt; (2). /usr/local/share/nltk_data (Mac); 
-&gt; (3). and /usr/share/nltk_data (Unix). 
-</code></pre></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/NLTK命名实体识别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/12/17/NLTK命名实体识别/" class="post-title-link" itemprop="url">NLTK命名实体识别</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-12-17 13:58:46 / 修改时间：14:14:31" itemprop="dateCreated datePublished" datetime="2015-12-17T13:58:46+08:00">2015-12-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/12/17/NLTK命名实体识别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/17/NLTK命名实体识别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###引例：<br>NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。<br>下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> nltk</span><br><span class="line">In [<span class="number">2</span>]: tokens = nltk.word_tokenize(<span class="string">'I am very excited about the next generation of Apple products.'</span>)</span><br><span class="line">In [<span class="number">3</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">4</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[(<span class="string">'I'</span>, <span class="string">'PRP'</span>), (<span class="string">'am'</span>, <span class="string">'VBP'</span>), (<span class="string">'very'</span>, <span class="string">'RB'</span>), (<span class="string">'excited'</span>, <span class="string">'JJ'</span>), (<span class="string">'about'</span>, <span class="string">'IN'</span>), (<span class="string">'the'</span>, <span class="string">'DT'</span>), (<span class="string">'next'</span>, <span class="string">'JJ'</span>), (<span class="string">'generation'</span>, <span class="string">'NN'</span>), (<span class="string">'of'</span>, <span class="string">'IN'</span>), (<span class="string">'Apple'</span>, <span class="string">'NNP'</span>), (<span class="string">'products'</span>, <span class="string">'NNS'</span>), (<span class="string">'.'</span>, <span class="string">'.'</span>)]</span><br><span class="line">In [<span class="number">5</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">6</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S</span><br><span class="line">  I/PRP</span><br><span class="line">  am/VBP</span><br><span class="line">  very/RB</span><br><span class="line">  excited/JJ</span><br><span class="line">  about/IN</span><br><span class="line">  the/DT</span><br><span class="line">  next/JJ</span><br><span class="line">  generation/NN</span><br><span class="line">  of/IN</span><br><span class="line">  (GPE Apple/NNP)</span><br><span class="line">  products/NNS</span><br><span class="line">  ./.)</span><br><span class="line">In [<span class="number">7</span>]: tokens = nltk.word_tokenize(<span class="string">'I bought these Apple products today.'</span>)</span><br><span class="line">In [<span class="number">8</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">9</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[<span class="string">'I'</span>, <span class="string">'bought'</span>, <span class="string">'these'</span>, <span class="string">'Apple'</span>, <span class="string">'products'</span>, <span class="string">'today'</span>, <span class="string">'.'</span>]</span><br><span class="line">In [<span class="number">10</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">11</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S I/PRP bought/VBD these/DT Apple/NNP products/NNS today/NN ./.)</span><br></pre></td></tr></table></figure></p>
-<h3 id="最大熵算法"><a href="#最大熵算法" class="headerlink" title="最大熵算法"></a>最大熵算法</h3><p>注意到在上述两个例子Apple这个词被词性标注为NNP（NNP是宾夕法尼亚大学树图资料库II为专有名词，单数）。另外，这两个单词都以大写字母开始。为什么Apple在1例中被标记为GPE（地缘政治实体），而2例未标记？另外，为什么Apple标记为GPE，而不是ORG（组织机构）？</p>
-<p>NLTK的命名实体识别是通过使用的MaxEnt分类器。MaxEnt分类器工作有两个原则：1.总是试图保持均匀分布(即最大化熵)，2.保持其统计概率与经验数据一致。经验数据来源于语料库，通过手动标记，所以大多数标记数据并不是免费的。NLTK不提供其训练命名实体识别器的语料库（训练数据来自ACE（自动内容抽取））。NLTK所提供的是一个pickle文件（在nltk_data/chunkers/目录下），而这个pickle文件，就是训练好的MaxEnt分类器实例。　　 　　<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  maxent_ne_chunker  tree</span><br><span class="line">.</span><br><span class="line">├── english_ace_binary.pickle</span><br><span class="line">├── english_ace_multiclass.pickle</span><br><span class="line">└── PY3</span><br><span class="line">    ├── english_ace_binary.pickle</span><br><span class="line">    └── english_ace_multiclass.pickle</span><br></pre></td></tr></table></figure></p>
-<p>要训练良好的监督学习的算法基于良好的特征。在命名实体识别中，特征可能是这个词是否包含一个大写字母。所以NLTK使用的特征有哪些呢？下面我列出他们：</p>
-<ul>
-<li>词的形状（是否包含数字/首字母大写/包含符号）　　</li>
-<li>词的长度</li>
-<li>词的前三个字母</li>
-<li>词尾三个字母　</li>
-<li>词性标签 </li>
-<li>词本身　</li>
-<li>该词是否存在</li>
-<li>该词前面词的词性（前面是否有名词）　　</li>
-<li>前词词性</li>
-<li>后词词性</li>
-<li>前词本身　</li>
-<li>后词本身　</li>
-<li>…</li>
-</ul>
-<p>下面的代码可以列出NLTK中所使用的标签<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 载入序列化对象</span></span><br><span class="line">chunker = nltk.data.load(<span class="string">'chunkers/maxent_ne_chunker/english_ace_multiclass.pickle'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最大熵分类器</span></span><br><span class="line">maxEnt = chunker._tagger.classifier()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maxEnt_report</span><span class="params">()</span>:</span></span><br><span class="line">    maxEnt = chunker._tagger.classifier()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'These are the labels used by the NLTK\'s NEC...'</span></span><br><span class="line">    <span class="keyword">print</span> maxEnt.labels()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'These are the most informative features found in the ACE corpora...'</span></span><br><span class="line">    maxEnt.show_most_informative_features()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ne_report</span><span class="params">(sentence, report_all=False)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 词性标记</span></span><br><span class="line">    tokens = nltk.word_tokenize(sentence)</span><br><span class="line">    tokens = nltk.pos_tag(tokens)</span><br><span class="line"></span><br><span class="line">    tags = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(tokens)):</span><br><span class="line">        featureset = chunker._tagger.feature_detector(tokens, i, tags)</span><br><span class="line">        tag = chunker._tagger.choose_tag(tokens, i, tags)</span><br><span class="line">        <span class="keyword">if</span> tag != <span class="string">'O'</span> <span class="keyword">or</span> report_all:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'\nExplanation on the why the word \''</span> + tokens[i][<span class="number">0</span>] + <span class="string">'\' was tagged:'</span></span><br><span class="line">            featureset = chunker._tagger.feature_detector(tokens, i, tags)</span><br><span class="line">            maxEnt.explain(featureset)</span><br><span class="line">        tags.append(tag)</span><br></pre></td></tr></table></figure></p>
-<p>下面的输出报告中列出了NLTK所使用的标签，”I-“，”B-“, “O”前缀的含义为包含/开始/例外（inside/begin/others）标记。当一块开始，第一个词是前缀“B”来表示这个词是一个块的开始。下一个单词，如果它属于同一块，将以”I-“前缀，表示这是块的一部分，而不是开始。如果一个词不属于一块，贴上“O”，这意味着它是在外面。<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  test  python dd.py </span><br><span class="line">These are the labels used by the NLTK<span class="symbol">'s</span> NEC...</span><br><span class="line">[<span class="symbol">'I</span>-GSP', <span class="symbol">'B</span>-LOCATION', <span class="symbol">'B</span>-GPE', <span class="symbol">'I</span>-ORGANIZATION', <span class="symbol">'I</span>-PERSON', <span class="symbol">'O</span>', <span class="symbol">'I</span>-FACILITY', <span class="symbol">'I</span>-LOCATION', <span class="symbol">'B</span>-PERSON', <span class="symbol">'B</span>-FACILITY', <span class="symbol">'B</span>-GSP', <span class="symbol">'B</span>-ORGANIZATION', <span class="symbol">'I</span>-GPE']</span><br><span class="line"></span><br><span class="line">These are the most informative features found <span class="keyword">in</span> the ACE corpora...</span><br><span class="line">  <span class="number">10.125</span> bias==<span class="literal">True</span> <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">6.631</span> suffix3==<span class="symbol">'day</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">6.207</span> bias==<span class="literal">True</span> <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-GSP'</span><br><span class="line">   <span class="number">5.628</span> prevtag==<span class="symbol">'O</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">4.740</span> shape==<span class="symbol">'upcase</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">4.106</span> shape+prevtag=='&lt;<span class="keyword">function</span> shape at <span class="number">0</span>x8bde0d4&gt;+O' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">  -<span class="number">3.994</span> shape==<span class="symbol">'mixedcase</span>' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>'</span><br><span class="line">   <span class="number">3.992</span> pos+prevtag==<span class="symbol">'NNP</span>+B-PERSON' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-PERSON'</span><br><span class="line">   <span class="number">3.890</span> prevtag==<span class="symbol">'I</span>-ORGANIZATION' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-ORGANIZATION'</span><br><span class="line">   <span class="number">3.879</span> shape+prevtag=='&lt;<span class="keyword">function</span> shape at <span class="number">0</span>x8bde0d4&gt;+I-ORGANIZATION' <span class="keyword">and</span> <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'I</span>-ORGANIZATION'</span><br></pre></td></tr></table></figure></p>
-<p><strong>Note:</strong> </p>
-<ul>
-<li>GPE is Geo-Political Entity</li>
-<li>GSP is Geo-Socio-Political group</li>
-</ul>
-<p><strong>例1输出：</strong><br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">Explanation <span class="keyword">on</span> the why the word <span class="symbol">'Apple</span>' was tagged:</span><br><span class="line">  Feature                                            B-GPE       O B-ORGAN   B-GSP</span><br><span class="line">  <span class="comment">--------------------------------------------------------------------------------</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                   <span class="number">3.767</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                <span class="number">2.701</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                           <span class="number">2.254</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                             <span class="number">2.095</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GPE' (<span class="number">1</span>)                              -<span class="number">2.005</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                    -<span class="number">1.975</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                 <span class="number">0.742</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                     <span class="number">0.681</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                 <span class="number">0.661</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                  <span class="number">0.311</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                     <span class="number">0.113</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                           <span class="number">0.060</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                            <span class="number">10.125</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                           <span class="number">5.628</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                       -<span class="number">4.740</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                         -<span class="number">1.668</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>' (<span class="number">1</span>)                                          -<span class="number">1.075</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                            -<span class="number">1.024</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                         <span class="number">0.797</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                     <span class="number">0.698</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                            -<span class="number">0.449</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                        -<span class="number">0.217</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                         <span class="number">0.104</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                         <span class="number">0.089</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                   <span class="number">0.011</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                                   <span class="number">0.005</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                   <span class="number">3.389</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                           <span class="number">1.725</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                     <span class="number">0.955</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                             <span class="number">0.837</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-ORGANIZATION' (<span class="number">1</span>)                                      <span class="number">0.718</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                 <span class="number">0.365</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                    -<span class="number">0.351</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                     <span class="number">0.174</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                                 -<span class="number">0.139</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                                 <span class="number">0.131</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                -<span class="number">0.126</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                               -<span class="number">0.084</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                                -<span class="number">0.077</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                           <span class="number">2.925</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                                   <span class="number">2.213</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                                        <span class="number">0.929</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                                     <span class="number">0.891</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                            -<span class="number">0.592</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GSP' (<span class="number">1</span>)                                                      -<span class="number">0.565</span></span><br><span class="line">  prevpos==<span class="symbol">'IN</span>' (<span class="number">1</span>)                                                          <span class="number">0.410</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                         <span class="number">0.399</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                             <span class="number">0.393</span></span><br><span class="line">  prevword==<span class="symbol">'of</span>' (<span class="number">1</span>)                                                         <span class="number">0.184</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                             <span class="number">0.177</span></span><br><span class="line">  <span class="comment">---------------------------------------------------------------------------------</span></span><br><span class="line">  TOTAL:                                             <span class="number">9.406</span>   <span class="number">8.283</span>   <span class="number">7.515</span>   <span class="number">7.366</span></span><br><span class="line">  PROBS:                                             <span class="number">0.453</span>   <span class="number">0.208</span>   <span class="number">0.122</span>   <span class="number">0.110</span></span><br></pre></td></tr></table></figure></p>
-<p>最后一行中列出的概率加起来加起来是0.893，而非1。这是因为只输出概率最大的四类标签。</p>
-<p><strong>例2输出：</strong><br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">Explanation <span class="keyword">on</span> the why the word <span class="symbol">'Apple</span>' was tagged:</span><br><span class="line">  Feature                                                O   B-GPE B-ORGAN B-LOCAT</span><br><span class="line">  <span class="comment">--------------------------------------------------------------------------------</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                    <span class="number">10.125</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                   <span class="number">5.628</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                               -<span class="number">4.740</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'O</span>' (<span class="number">1</span>)                                  -<span class="number">1.075</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                    -<span class="number">1.024</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                 <span class="number">0.797</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                             <span class="number">0.698</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                  <span class="number">0.585</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                    -<span class="number">0.449</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                 <span class="number">0.104</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                 <span class="number">0.089</span></span><br><span class="line">  prevword==<span class="symbol">'these</span>' (<span class="number">1</span>)                             -<span class="number">0.024</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                           <span class="number">0.011</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                           <span class="number">0.005</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                           <span class="number">3.767</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                        <span class="number">2.701</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                   <span class="number">2.254</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                     <span class="number">2.095</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-GPE' (<span class="number">1</span>)                                      -<span class="number">2.005</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                            -<span class="number">1.975</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                             <span class="number">0.681</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                         <span class="number">0.661</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                         -<span class="number">0.181</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                             <span class="number">0.113</span></span><br><span class="line">  nextword==<span class="symbol">'products</span>' (<span class="number">1</span>)                                   <span class="number">0.060</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                   <span class="number">3.389</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                           <span class="number">1.725</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                     <span class="number">0.955</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                             <span class="number">0.837</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-ORGANIZATION' (<span class="number">1</span>)                                      <span class="number">0.718</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                                 -<span class="number">0.494</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                 <span class="number">0.365</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                    -<span class="number">0.351</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                     <span class="number">0.174</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                -<span class="number">0.126</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                               -<span class="number">0.084</span></span><br><span class="line">  suffix3==<span class="symbol">'ple</span>' (<span class="number">1</span>)                                                -<span class="number">0.077</span></span><br><span class="line">  prevword==<span class="symbol">'these</span>' (<span class="number">1</span>)                                              <span class="number">0.067</span></span><br><span class="line">  prevtag==<span class="symbol">'O</span>' (<span class="number">1</span>)                                                           <span class="number">2.682</span></span><br><span class="line">  <span class="keyword">label</span> <span class="keyword">is</span> <span class="symbol">'B</span>-LOCATION' (<span class="number">1</span>)                                                 -<span class="number">2.038</span></span><br><span class="line">  pos+prevtag==<span class="symbol">'NNP</span>+O' (<span class="number">1</span>)                                                   <span class="number">1.724</span></span><br><span class="line">  shape==<span class="symbol">'upcase</span>' (<span class="number">1</span>)                                                        <span class="number">1.275</span></span><br><span class="line">  prefix3==<span class="symbol">'app</span>' (<span class="number">1</span>)                                                         <span class="number">1.169</span></span><br><span class="line">  bias==<span class="literal">True</span> (<span class="number">1</span>)                                                             <span class="number">0.747</span></span><br><span class="line">  prevpos==<span class="symbol">'DT</span>' (<span class="number">1</span>)                                                          <span class="number">0.745</span></span><br><span class="line">  pos==<span class="symbol">'NNP</span>' (<span class="number">1</span>)                                                             <span class="number">0.616</span></span><br><span class="line">  en-wordlist==<span class="literal">False</span> (<span class="number">1</span>)                                                    -<span class="number">0.309</span></span><br><span class="line">  nextpos==<span class="symbol">'nns</span>' (<span class="number">1</span>)                                                         <span class="number">0.151</span></span><br><span class="line">  wordlen==<span class="number">5</span> (<span class="number">1</span>)                                                             <span class="number">0.041</span></span><br><span class="line">  <span class="comment">---------------------------------------------------------------------------------</span></span><br><span class="line">  TOTAL:                                            <span class="number">10.730</span>   <span class="number">8.171</span>   <span class="number">7.095</span>   <span class="number">6.802</span></span><br><span class="line">  PROBS:                                             <span class="number">0.697</span>   <span class="number">0.118</span>   <span class="number">0.056</span>   <span class="number">0.046</span></span><br></pre></td></tr></table></figure></p>
-<p>由此：1和2中在GPE识别中唯一的区别在于下面三行：</p>
-<blockquote>
-<p> prevword==’of’ (1)                                0.742<br> prevpos==’IN’ (1)                                  0.311<br> prevpos==’DT’ (1)                                -0.181</p>
-</blockquote>
-<p>可见，1中<br>1中的Apple被识别为B-GPE，而2中的Apple被识别为O。</p>
-<h3 id="引用："><a href="#引用：" class="headerlink" title="引用："></a>引用：</h3><p>[1] <a href="http://www.nltk.org/book/ch07.html" target="_blank" rel="noopener">http://www.nltk.org/book/ch07.html</a><br>[2] <a href="http://spark-public.s3.amazonaws.com/nlp/slides/Information_Extraction_and_Named_Entity_Recognition_v2.pdf" target="_blank" rel="noopener">http://spark-public.s3.amazonaws.com/nlp/slides/Information_Extraction_and_Named_Entity_Recognition_v2.pdf</a><br>[3] <a href="http://www.mattshomepage.com/#/blog/feb2013/liftingthehood" target="_blank" rel="noopener">http://www.mattshomepage.com/#/blog/feb2013/liftingthehood</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/17/Titan连接Hbase后端/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/12/17/Titan连接Hbase后端/" class="post-title-link" itemprop="url">Titan连接Hbase后端</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-12-17 13:55:20 / 修改时间：14:14:40" itemprop="dateCreated datePublished" datetime="2015-12-17T13:55:20+08:00">2015-12-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/big-data/" itemprop="url" rel="index"><span itemprop="name">big data</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/12/17/Titan连接Hbase后端/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/17/Titan连接Hbase后端/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.启动hbase<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  hbase-1.1.2  ./bin/start-hbase.sh</span><br><span class="line">starting master, logging to /home/luxh/hbase/hbase-1.1.2/bin/../logs/hbase-luxh-master-ubuntu.out</span><br></pre></td></tr></table></figure></p>
-<p> 2.启动gremlin：连接本地hbase时不需要显式加入host<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  titan-1.0.0-hadoop1  bin/gremlin.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: aurelius.titan</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</span><br><span class="line">15:04:30 INFO  org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph  - HADOOP_GREMLIN_LIBS is set to: /home/luxh/titan/titan-1.0.0-hadoop1/lib</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"> TitanGraph graph = TitanFactory.build().<span class="built_in">set</span>(<span class="string">"storage.backend"</span>, <span class="string">"hbase"</span>).open();</span></span><br><span class="line">==&gt;standardtitangraph[hbase:[127.0.0.1]]</span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure></p>
-<p>连接远程hbase时，语句如下更改为如下方式<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TitanGraph g = TitanFactory.build().<span class="builtin-name">set</span>(<span class="string">"storage.backend"</span>, <span class="string">"hbase"</span>).<span class="builtin-name">set</span>(<span class="string">"storage.hostname"</span>, <span class="string">"77.77.77.77, 77.77.77.78, 77.77.77.79"</span>).open();</span><br></pre></td></tr></table></figure></p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>[1]. <a href="http://s3.thinkaurelius.com/docs/titan/1.0.0/hbase.html" target="_blank" rel="noopener">http://s3.thinkaurelius.com/docs/titan/1.0.0/hbase.html</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/26/Numpy包数据处理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/11/26/Numpy包数据处理/" class="post-title-link" itemprop="url">Numpy包数据处理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-11-26 21:13:05 / 修改时间：21:24:40" itemprop="dateCreated datePublished" datetime="2015-11-26T21:13:05+08:00">2015-11-26</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/data-science/" itemprop="url" rel="index"><span itemprop="name">data science</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/11/26/Numpy包数据处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/26/Numpy包数据处理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-Numpy包导入"><a href="#1-Numpy包导入" class="headerlink" title="1. Numpy包导入"></a>1. Numpy包导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<h3 id="2-生成矩阵"><a href="#2-生成矩阵" class="headerlink" title="2. 生成矩阵"></a>2. 生成矩阵</h3><ul>
-<li>zeros 0矩阵</li>
-<li>ones  1矩阵</li>
-<li>identity 单位矩阵</li>
-<li>eye 对角矩阵</li>
-<li>random 随机矩阵</li>
-<li>empty 依据内存生成矩阵</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> a</span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.zeros(<span class="number">5</span>)</span><br><span class="line">array([ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.ones(shape=(<span class="number">3</span>,<span class="number">4</span>),dtype=np.int32)</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]], dtype=int32)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.identity(<span class="number">3</span>) </span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.eye(<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.random.rand(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">[[ <span class="number">0.40974346</span>  <span class="number">0.09968249</span>  <span class="number">0.32264537</span>  <span class="number">0.78815716</span>]</span><br><span class="line"> [ <span class="number">0.52959935</span>  <span class="number">0.74650259</span>  <span class="number">0.36604339</span>  <span class="number">0.80450681</span>]</span><br><span class="line"> [ <span class="number">0.07308854</span>  <span class="number">0.83747867</span>  <span class="number">0.18952243</span>  <span class="number">0.03182399</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.empty(shape=(<span class="number">3</span>,<span class="number">3</span>),dtype=np.int16)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> x</span><br><span class="line">[[  <span class="number">6088</span>   <span class="number">5994</span>  <span class="number">32645</span>]</span><br><span class="line"> [     <span class="number">0</span> <span class="number">-16048</span>    <span class="number">630</span>]</span><br><span class="line"> [     <span class="number">0</span>      <span class="number">0</span>     <span class="number">32</span>]]</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/11/26/Numpy包数据处理/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/13/笔试练习（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/10/13/笔试练习（二）/" class="post-title-link" itemprop="url">笔试练习（二）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-10-13 23:35:01 / 修改时间：23:42:44" itemprop="dateCreated datePublished" datetime="2015-10-13T23:35:01+08:00">2015-10-13</time>
+              <time title="创建时间：2019-02-28 12:36:24 / 修改时间：12:37:06" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:24+08:00">2019-02-28</time>
             
 
             
@@ -1392,8 +426,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/10/13/笔试练习（二）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/13/笔试练习（二）/" itemprop="commentCount"></span>
+                <a href="/2019/02/28/Catch2单元测试框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/Catch2单元测试框架/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1422,16 +456,12 @@
 
       
         
-          <h3 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h3><ul>
-<li>根据先序遍历和中序遍历重建二叉树</li>
-<li>问题1：vector分片</li>
-<li>问题2：相似语句复制粘贴容易出问题而且不易察觉（特别是仅有下标不同的情况）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	TreeNode *left;</span><br><span class="line">	TreeNode *right;</span><br><span class="line">	TreeNode(<span class="keyword">int</span> x) : val(x), left(<span class="literal">NULL</span>), right(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct TreeNode* <span class="title">reConstructBinaryTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pre.empty() || in.empty()) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	TreeNode* root = <span class="keyword">new</span> TreeNode(pre[<span class="number">0</span>]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;pre.size();i++)</span><br><span class="line">		<span class="keyword">if</span>(pre[<span class="number">0</span>] == in[i]) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre1(pre.begin()+<span class="number">1</span>, pre.begin()+i+<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre2(pre.begin()+i+<span class="number">1</span>, pre.end());</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in1(in.begin(), in.begin()+i);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in2(in.begin()+i+<span class="number">1</span>, in.end());</span><br><span class="line"></span><br><span class="line">	<span class="comment">//vector&lt;int&gt;::iterator it;</span></span><br><span class="line">	<span class="comment">//for(it = pre1.begin();it!=pre1.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = pre2.begin();it!=pre2.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = in1.begin();it!=in1.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = in2.begin();it!=in2.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	root-&gt;left = reConstructBinaryTree(pre1,in1);</span><br><span class="line">	root-&gt;right = reConstructBinaryTree(pre2,in2);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Catch2是一个header-only测试框架。</p>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CATCH_CONFIG_MAIN  <span class="comment">// 宏定义指明main()函数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"catch.hpp"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试用例</span></span><br><span class="line">TEST_CASE( <span class="string">"vectors can be sized and resized"</span>, <span class="string">"[vector]"</span> )</span><br><span class="line"> &#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v( <span class="number">5</span> );</span><br><span class="line"></span><br><span class="line">    REQUIRE( v.size() == <span class="number">5</span> );</span><br><span class="line">    REQUIRE( v.capacity() &gt;= <span class="number">5</span> );</span><br><span class="line">	<span class="comment">// 执行每一个SECTION,都会重新开始执行</span></span><br><span class="line">    SECTION( <span class="string">"resizing bigger changes size and capacity"</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        v.resize( <span class="number">10</span> );</span><br><span class="line"></span><br><span class="line">        REQUIRE( v.size() == <span class="number">10</span> );</span><br><span class="line">        REQUIRE( v.capacity() &gt;= <span class="number">10</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 执行下面的SECTION时，v.size()=5</span></span><br><span class="line">    SECTION( <span class="string">"resizing smaller changes size but not capacity"</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        v.resize( <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">        REQUIRE( v.size() == <span class="number">0</span> );</span><br><span class="line">        REQUIRE( v.capacity() &gt;= <span class="number">5</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    SECTION( <span class="string">"reserving bigger changes capacity but not size"</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        v.reserve( <span class="number">10</span> );</span><br><span class="line"></span><br><span class="line">        REQUIRE( v.size() == <span class="number">5</span> );</span><br><span class="line">        REQUIRE( v.capacity() &gt;= <span class="number">10</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    SECTION( <span class="string">"reserving smaller does not change size or capacity"</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        v.reserve( <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">        REQUIRE( v.size() == <span class="number">5</span> );</span><br><span class="line">        REQUIRE( v.capacity() &gt;= <span class="number">5</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2015/10/13/笔试练习（二）/#more" rel="contents">
+              <a class="btn" href="/2019/02/28/Catch2单元测试框架/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1491,7 +521,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/13/笔试练习-一/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtk多个窗口交互问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -1511,7 +541,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/10/13/笔试练习-一/" class="post-title-link" itemprop="url">笔试练习(一)</a>
+                <a href="/2019/02/28/vtk多个窗口交互问题/" class="post-title-link" itemprop="url">vtk多个窗口交互问题</a>
               
             
           </h1>
@@ -1536,7 +566,7 @@
                 
               
 
-              <time title="创建时间：2015-10-13 01:18:28 / 修改时间：01:22:52" itemprop="dateCreated datePublished" datetime="2015-10-13T01:18:28+08:00">2015-10-13</time>
+              <time title="创建时间：2019-02-28 12:35:32 / 修改时间：12:36:41" itemprop="dateCreated datePublished" datetime="2019-02-28T12:35:32+08:00">2019-02-28</time>
             
 
             
@@ -1577,8 +607,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/10/13/笔试练习-一/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/13/笔试练习-一/" itemprop="commentCount"></span>
+                <a href="/2019/02/28/vtk多个窗口交互问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtk多个窗口交互问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1607,17 +637,11 @@
 
       
         
-          <h3 id="1-二维数组中的查找"><a href="#1-二维数组中的查找" class="headerlink" title="1.二维数组中的查找"></a>1.二维数组中的查找</h3><ul>
-<li>思路：根据矩阵特点，左下角和右上角对应的值对应两个方向上递增或者递减</li>
-<li>问题1：编码中ncol中没有添加下标</li>
-<li>问题2：比较时i和j搞混了</li>
-<li>问题3：二维数组初始化问题</li>
-</ul>
-<p>ac代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="built_in">array</span>,<span class="keyword">int</span> target)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> nrow = <span class="built_in">array</span>.size();        </span><br><span class="line">		<span class="keyword">int</span> ncol = <span class="built_in">array</span>[<span class="number">0</span>].size();        </span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> i = ncol<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i,j; i&gt;=<span class="number">0</span> &amp;&amp; j&lt;=(nrow<span class="number">-1</span>);)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">array</span>[j][i] == target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[j][i] &gt; target) i--;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[j][i] &lt; target) j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+          <p>vtk多个窗口进行交互，每个窗口需要有单独的vtkRenderWindowInteractor。<br>在render的时候，执行vtkRenderWindowInteractor::Start之后，主线程会被阻塞。<br>所以以下方式进行渲染是错误的。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void Render(int <span class="built_in">i</span>)</span><br><span class="line">&#123;</span><br><span class="line">....</span><br><span class="line">interactor-&gt;Start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>;<span class="built_in">i</span>&lt;N;<span class="built_in">i</span>++)</span><br><span class="line">&#123;</span><br><span class="line">Render(<span class="built_in">i</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2015/10/13/笔试练习-一/#more" rel="contents">
+              <a class="btn" href="/2019/02/28/vtk多个窗口交互问题/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1677,7 +701,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/26/关键词提取算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtk录制avi解决方案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -1697,7 +721,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/08/26/关键词提取算法/" class="post-title-link" itemprop="url">关键词提取算法</a>
+                <a href="/2019/02/28/vtk录制avi解决方案/" class="post-title-link" itemprop="url">vtk录制avi解决方案</a>
               
             
           </h1>
@@ -1722,7 +746,7 @@
                 
               
 
-              <time title="创建时间：2015-08-26 22:30:58 / 修改时间：22:46:44" itemprop="dateCreated datePublished" datetime="2015-08-26T22:30:58+08:00">2015-08-26</time>
+              <time title="创建时间：2019-02-28 12:34:38 / 修改时间：12:35:11" itemprop="dateCreated datePublished" datetime="2019-02-28T12:34:38+08:00">2019-02-28</time>
             
 
             
@@ -1744,7 +768,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
 
                 
                 
@@ -1763,8 +787,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/08/26/关键词提取算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/26/关键词提取算法/" itemprop="commentCount"></span>
+                <a href="/2019/02/28/vtk录制avi解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtk录制avi解决方案/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1794,8 +818,7 @@
       
         
           
-            <p>##TFIDF<br>想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率)</p>
-<p>##TextRank</p>
+            <p>vtk中使用vtkWindowToImageFilter和vtkAVIWriter来实现render window内容的录制。但是在录制过程中需要自行Modify vtkWindowToImageFilter数据以及vtkAVIWriter的writer方法。<br>自然而然的想法是使用Timer来定时执行。通过指定帧率，可以计算出采样帧的时间间隔。<br>方案一：<br>对interactor创建timer callbak，在callback中写render window帧。此种方案有个问题，当鼠标进行交互时，会block timer的callback。<br>方案二：<br>对render window创建render event的callback，在callback中计时，超出interval时间，则进行写帧。</p>
 
           
         
@@ -1852,7 +875,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/15/wordpress博客迁移入hexo方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/二值图像距离图生成算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Xiaohua">
@@ -1872,7 +895,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/08/15/wordpress博客迁移入hexo方法/" class="post-title-link" itemprop="url">wordpress博客迁移入hexo方法</a>
+                <a href="/2019/02/28/二值图像距离图生成算法/" class="post-title-link" itemprop="url">二值图像距离图生成算法</a>
               
             
           </h1>
@@ -1897,7 +920,7 @@
                 
               
 
-              <time title="创建时间：2015-08-15 21:43:58 / 修改时间：21:48:54" itemprop="dateCreated datePublished" datetime="2015-08-15T21:43:58+08:00">2015-08-15</time>
+              <time title="创建时间：2019-02-28 12:31:21 / 修改时间：12:34:25" itemprop="dateCreated datePublished" datetime="2019-02-28T12:31:21+08:00">2019-02-28</time>
             
 
             
@@ -1919,7 +942,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
 
                 
                 
@@ -1938,8 +961,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/08/15/wordpress博客迁移入hexo方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/15/wordpress博客迁移入hexo方法/" itemprop="commentCount"></span>
+                <a href="/2019/02/28/二值图像距离图生成算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/二值图像距离图生成算法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1968,219 +991,1085 @@
 
       
         
-          
-            <p>##导出文章<br>登录wordpress管理控制台，选择工具-&gt;导出xml文件</p>
-<p>##安装插件<br>安装WordPress migrator插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-migrator-wordpress --save</span><br></pre></td></tr></table></figure></p>
-<p>##hexo生成<br>运行hexo命令，生成post文章<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo migrate wordpress <span class="built_in">source</span></span><br></pre></td></tr></table></figure></p>
-<p>##have fun</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/04/hadoop环境配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/08/04/hadoop环境配置/" class="post-title-link" itemprop="url">hadoop环境配置</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-08-04 22:55:58" itemprop="dateCreated datePublished" datetime="2015-08-04T22:55:58+08:00">2015-08-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-06 21:59:44" itemprop="dateModified" datetime="2015-08-06T21:59:44+08:00">2015-08-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/08/04/hadoop环境配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/04/hadoop环境配置/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>##Hadoop启动模式<br>Hadoop集群有三种启动模式： </p>
+          <h3 id="算法主要步骤"><a href="#算法主要步骤" class="headerlink" title="算法主要步骤"></a>算法主要步骤</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><ul>
+<li>将图像分为内部点和非内部点（内部点本身为1且4领域皆为1）</li>
+<li>初始化距离图像，内部点值为INF，非内部点为0</li>
+</ul>
+<h4 id="更新距离"><a href="#更新距离" class="headerlink" title="更新距离"></a>更新距离</h4><p><img src="/image/20180428101426564.png" alt="这里写图片描述"></p>
 <ul>
-<li>单机模式：默认情况下运行为一个单独机器上的独立Java进程，主要用于调试环境</li>
-<li>伪分布模式：在单个机器上模拟成分布式多节点环境，每一个Hadoop守护进程都作为一个独立的Java进程运行</li>
-<li>完全分布式模式：真实的生产环境，搭建在完全分布式的集群环境</li>
+<li><p>由上到下，由左至右迭代计算，伪代码如下:</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def forward_conv(<span class="built_in">image</span>):</span><br><span class="line">	<span class="keyword">for</span> i in range(hight):</span><br><span class="line">		<span class="keyword">for</span> j in range(<span class="built_in">width</span>):</span><br><span class="line">			<span class="keyword">for</span> pixel in Neighbour:</span><br><span class="line">				<span class="built_in">dist</span> = template[pixel]+<span class="built_in">dist</span>[pixel]</span><br><span class="line">			find the minimun <span class="built_in">dist</span></span><br><span class="line">			<span class="built_in">dist</span>[i][j] = <span class="built_in">min</span>(<span class="built_in">dist</span>[i][j],<span class="built_in">dist</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后向更新距离图</p>
+</li>
 </ul>
-<p>##用户及用户组<br> 需要先添加用来运行Hadoop进程的用户组hadoop及用户hadoop。</p>
-<ol>
-<li><p>添加用户及用户组，创建用户hadoop</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo adduser hadoop</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加sudo权限，将hadoop用户添加进sudo用户组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo usermod -G sudo hadoop</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2015/08/04/hadoop环境配置/#more" rel="contents">
+              <a class="btn" href="/2019/02/28/二值图像距离图生成算法/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
           
           <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/Qt部署qwindows-dll错误问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/Qt部署qwindows-dll错误问题/" class="post-title-link" itemprop="url">Qt部署qwindows.dll错误问题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:30:41 / 修改时间：12:31:00" itemprop="dateCreated datePublished" datetime="2019-02-28T12:30:41+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/Qt部署qwindows-dll错误问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/Qt部署qwindows-dll错误问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This application failed <span class="built_in">to</span> <span class="built_in">start</span> because <span class="keyword">it</span> could <span class="keyword">not</span> find <span class="keyword">or</span> <span class="built_in">load</span> <span class="keyword">the</span> Qt <span class="built_in">platform</span> plugin <span class="string">"windows"</span>.</span><br></pre></td></tr></table></figure>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>1.使用depends.exe查看添加必要的dll<br>2.添加这两个dll（depends程序并未指明）<br>libGLESv2.dll<br>libEGL.dll<br>3.添加icudt.dll或者qt目录下ic*.dll的三个dll</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] <a href="https://stackoverflow.com/questions/18368826/deploying-qt-c-application-from-visual-studio-qwindows-dll-error/18377863#18377863" target="_blank" rel="noopener">https://stackoverflow.com/questions/18368826/deploying-qt-c-application-from-visual-studio-qwindows-dll-error/18377863#18377863</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/invalid-comparator问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/invalid-comparator问题/" class="post-title-link" itemprop="url">invalid-comparator问题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:30:14 / 修改时间：12:30:25" itemprop="dateCreated datePublished" datetime="2019-02-28T12:30:14+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/invalid-comparator问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/invalid-comparator问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>std::set使用自定义key时，需要指定comparator，具体做法如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmpByStringLength</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; a, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; b)</span> <span class="keyword">const</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a.length() &lt; b.length();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="built_in">std</span>::<span class="built_in">string</span>, cmpByStringLength&gt; myMap;</span><br></pre></td></tr></table></figure></p>
+<p>使用时，正常插入没问题，查找时遇到invalid comparator问题。<br>原因是comparator不符合规定。</p>
+<p>comparator需要时strict weak ordering，需要注意的是，<strong>comparator(x,x)必须返回false</strong>。</p>
+<p>参考：<br>[1].<a href="https://stackoverflow.com/questions/9648100/using-own-comparator-operator-for-map-giving-error-in-case-if-key-not-found" target="_blank" rel="noopener">https://stackoverflow.com/questions/9648100/using-own-comparator-operator-for-map-giving-error-in-case-if-key-not-found</a><br>[2].<a href="https://stackoverflow.com/questions/32263560/errorinvalid-comparator-when-sorting-using-custom-comparison-function" target="_blank" rel="noopener">https://stackoverflow.com/questions/32263560/errorinvalid-comparator-when-sorting-using-custom-comparison-function</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtkPolydata中取点的坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/vtkPolydata中取点的坑/" class="post-title-link" itemprop="url">vtkPolydata中取点的坑</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:29:25 / 修改时间：12:29:54" itemprop="dateCreated datePublished" datetime="2019-02-28T12:29:25+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/vtkPolydata中取点的坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtkPolydata中取点的坑/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">for (int i = <span class="number">0</span>; i &lt; lines-&gt;GetNumberOfCells(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 获取一条centerline</span></span><br><span class="line">	vtkIdType nbCellPoints;</span><br><span class="line">	vtkIdType* points;</span><br><span class="line">	lines-&gt;GetNextCell(nbCellPoints, points);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 迭代该条centerline,获取小线段</span></span><br><span class="line">	for (int j = <span class="number">0</span>; j &lt; nbCellPoints<span class="number">-1</span>; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		vtkIdType pid1 = points[j];</span><br><span class="line">		vtkIdType pid2 = points[j + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">		double* p1 = polydata-&gt;GetPoints()-&gt;GetPoint(pid1);</span><br><span class="line">		double* p2 = polydata-&gt;GetPoints()-&gt;GetPoint(pid1);</span><br><span class="line"></span><br><span class="line">		cout &lt;&lt; <span class="string">"P1 : "</span> &lt;&lt; pid1 &lt;&lt; <span class="string">" "</span> &lt;&lt; p1[<span class="number">0</span>] / spacing[<span class="number">0</span>] &lt;&lt; <span class="string">","</span> &lt;&lt; p1[<span class="number">1</span>] / spacing[<span class="number">1</span>] &lt;&lt; <span class="string">","</span> &lt;&lt; p1[<span class="number">2</span>] / spacing[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="string">"P2 : "</span> &lt;&lt; pid2 &lt;&lt; <span class="string">" "</span> &lt;&lt; p2[<span class="number">0</span>] / spacing[<span class="number">0</span>] &lt;&lt; <span class="string">","</span> &lt;&lt; p2[<span class="number">1</span>] / spacing[<span class="number">1</span>] &lt;&lt; <span class="string">","</span> &lt;&lt; p2[<span class="number">2</span>] / spacing[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">P1 : 131 111,177,121</span><br><span class="line">P2 : 130 111,177,121</span><br><span class="line">P1 : 130 112,178,120</span><br><span class="line">P2 : 129 112,178,120</span><br><span class="line">P1 : 129 112,178,119</span><br><span class="line">P2 : 128 112,178,119</span><br><span class="line">P1 : 128 112,177,118</span><br><span class="line">P2 : 127 112,177,118</span><br><span class="line">P1 : 127 112,176,117</span><br><span class="line">P2 : 126 112,176,117</span><br><span class="line">P1 : 126 111,175,116</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>发现每次输出P1跟P2坐标相同，好久没发现问题所在。追踪到源码，发现这么一段warning，细想一下，这样设计业很好理解。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Description:</span></span><br><span class="line"><span class="comment">// Return a pointer to a double point x[3] for a specific id.</span></span><br><span class="line"><span class="comment">// WARNING: Just don't use this error-prone method, the returned pointer</span></span><br><span class="line"><span class="comment">// and its values are only valid as long as another method invocation is not</span></span><br><span class="line"><span class="comment">// performed. Prefer GetPoint() with the return value in argument.</span></span><br><span class="line"><span class="keyword">double</span> *GetPoint(vtkIdType <span class="keyword">id</span>) &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;Data-&gt;GetTuple(<span class="keyword">id</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Description:</span></span><br><span class="line"><span class="comment">// Copy point components into user provided array v[3] for specified</span></span><br><span class="line"><span class="comment">// id.</span></span><br><span class="line"><span class="keyword">void</span> GetPoint(vtkIdType <span class="keyword">id</span>, <span class="keyword">double</span> x[<span class="number">3</span>]) &#123; <span class="keyword">this</span>-&gt;Data-&gt;GetTuple(<span class="keyword">id</span>,x); &#125;</span><br></pre></td></tr></table></figure></p>
+<p>更新程序使用<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double p1[<span class="number">3</span>];</span><br><span class="line">double p2[<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="title">polydata</span>-&gt;</span>G<span class="function"><span class="title">etPoints</span>()-&gt;</span>GetPoint(pid1, p1);</span><br><span class="line"><span class="function"><span class="title">polydata</span>-&gt;</span>G<span class="function"><span class="title">etPoints</span>()-&gt;</span>GetPoint(pid2, p2);</span><br></pre></td></tr></table></figure></p>
+<p>目标达成。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/ITK-spacing的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/ITK-spacing的问题/" class="post-title-link" itemprop="url">ITK spacing的问题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:28:48 / 修改时间：12:29:06" itemprop="dateCreated datePublished" datetime="2019-02-28T12:28:48+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/ITK-spacing的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/ITK-spacing的问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">double spacing[<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="title">spacing</span>[0] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetSpacing()[<span class="number">0</span>];</span><br><span class="line"><span class="function"><span class="title">spacing</span>[1] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetSpacing()[<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="title">spacing</span>[2] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetSpacing()[<span class="number">2</span>];</span><br><span class="line">int dims[<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="title">dims</span>[0] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetBufferedRegion().GetSize()[<span class="number">0</span>];</span><br><span class="line"><span class="function"><span class="title">dims</span>[1] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetBufferedRegion().GetSize()[<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="title">dims</span>[2] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetBufferedRegion().GetSize()[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">typedef itk::JoinSeriesImageFilter&lt;Image2DType, InputImageType&gt; JoinSeriesFilterType;</span><br><span class="line">JoinSeriesFilterType::Pointer joinFilter = JoinSeriesFilterType::New();</span><br><span class="line"><span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; dims[<span class="number">2</span>]; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 提取</span></span><br><span class="line">	Image2DType::Pointer slice = GetSlice(i, output);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">joinFilter</span>-&gt;</span>SetInput(i, slice);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">joinFilter</span>-&gt;</span>Update();</span><br></pre></td></tr></table></figure>
+<p>以上代码会导致reader-&gt;GetOutput()和joinFilter-&gt;GetOutput()数据的spacing信息不一致。</p>
+<p>JoinSeriesImageFilter会将z轴方向的spacing固定为1。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtk设置actor颜色问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/vtk设置actor颜色问题/" class="post-title-link" itemprop="url">vtk设置actor颜色问题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:28:08 / 修改时间：12:28:24" itemprop="dateCreated datePublished" datetime="2019-02-28T12:28:08+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/vtk设置actor颜色问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtk设置actor颜色问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>设置颜色<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">vessel_actors</span>-&gt;</span>G<span class="function"><span class="title">etProperty</span>()-&gt;</span>SetColor(<span class="number">0.75</span>, <span class="number">0.75</span>, <span class="number">0.75</span>);</span><br></pre></td></tr></table></figure></p>
+<p> 此时，会显示蓝色<br>需要设置对应的mapper<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">vessel_mappers</span>-&gt;</span>ScalarVisibilityOff();</span><br></pre></td></tr></table></figure></p>
+<p>参考：<br><a href="http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html" target="_blank" rel="noopener">http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtk处理外部事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/vtk处理外部事件/" class="post-title-link" itemprop="url">vtk处理外部事件</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:26:50 / 修改时间：12:27:40" itemprop="dateCreated datePublished" datetime="2019-02-28T12:26:50+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/vtk处理外部事件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtk处理外部事件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Command方式<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommandSubclass</span> :</span> <span class="keyword">public</span> vtkCommand</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	vtkTypeMacro(CommandSubclass , vtkCommand);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">static</span> CommandSubclass *<span class="title">New</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> CommandSubclass ;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Execute</span><span class="params">(vtkObject *caller, <span class="keyword">unsigned</span> <span class="keyword">long</span> eventId,<span class="keyword">void</span> *callData)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">			<span class="comment">// 过滤按键信息</span></span><br><span class="line">		<span class="keyword">if</span> (eventId == vtkCommand::KeyPressEvent)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 过滤ctrl</span></span><br><span class="line">			vtkRenderWindowInteractor* interactor =</span><br><span class="line">				<span class="keyword">dynamic_cast</span>&lt;vtkRenderWindowInteractor*&gt;(caller);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span> (interactor-&gt;GetControlKey())</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">std</span>::<span class="built_in">string</span> key = interactor-&gt;GetKeySym();</span><br><span class="line">				<span class="keyword">if</span>(key == <span class="string">"a"</span>)</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="string">"ctrl + a"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>InteractorStyle方式<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MouseInteractorStyleDoubleClick</span> :</span> <span class="keyword">public</span> vtkInteractorStyleTrackballCamera</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">// 先是interactor style进行处理</span></span><br><span class="line">	<span class="comment">// 再是Command进行捕获处理</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> MouseInteractorStyleDoubleClick* <span class="title">New</span><span class="params">()</span></span>;</span><br><span class="line">	vtkTypeMacro(MouseInteractorStyleDoubleClick, vtkInteractorStyleTrackballCamera);</span><br><span class="line"></span><br><span class="line">	MouseInteractorStyleDoubleClick() : NumberOfClicks(<span class="number">0</span>), ResetPixelDistance(<span class="number">5</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;PreviousPosition[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">this</span>-&gt;PreviousPosition[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//http://blog.sina.com.cn/s/blog_5e3a1bbb0100esv3.html</span></span><br><span class="line">	<span class="comment">// keydown跟keypress区别</span></span><br><span class="line">	<span class="comment">//virtual void OnKeyPress()</span></span><br><span class="line">	<span class="comment">//&#123;</span></span><br><span class="line">	<span class="comment">//	//// Get the keypress</span></span><br><span class="line">	<span class="comment">//	//vtkRenderWindowInteractor *rwi = this-&gt;Interactor;</span></span><br><span class="line">	<span class="comment">//	//std::string key = rwi-&gt;GetKeySym();</span></span><br><span class="line">	<span class="comment">//	//if (rwi-&gt;GetControlKey())</span></span><br><span class="line">	<span class="comment">//	//&#123;</span></span><br><span class="line">	<span class="comment">//	//	// ctrl+ a</span></span><br><span class="line">	<span class="comment">//	//	if (key == "a")</span></span><br><span class="line">	<span class="comment">//	//	&#123;</span></span><br><span class="line">	<span class="comment">//	//		std::cout &lt;&lt; "Ctrl + a" &lt;&lt; std::endl;</span></span><br><span class="line">	<span class="comment">//	//	&#125;</span></span><br><span class="line">	<span class="comment">//	//	//rwi-&gt;get</span></span><br><span class="line">	<span class="comment">//	//&#125;</span></span><br><span class="line">	<span class="comment">//	//vtkInteractorStyleTrackballCamera::OnKeyPress();</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">OnLeftButtonUp</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		vtkRenderWindowInteractor *rwi = <span class="keyword">this</span>-&gt;Interactor;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"left mouse"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> (rwi-&gt;GetControlKey())</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Ctrl + left mouse"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		vtkInteractorStyleTrackballCamera::OnLeftButtonUp();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> NumberOfClicks;</span><br><span class="line">	<span class="keyword">int</span> PreviousPosition[<span class="number">2</span>];</span><br><span class="line">	<span class="keyword">int</span> ResetPixelDistance;</span><br><span class="line">&#125;;</span><br><span class="line">vtkStandardNewMacro(MouseInteractorStyleDoubleClick);</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -2224,7 +2113,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2268,7 +2157,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">91</span>
+                    <span class="site-state-item-count">104</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2496,7 +2385,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">71</span>
+                      
+                    
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
