@@ -468,7 +468,7 @@
 <h4 id="更新距离"><a href="#更新距离" class="headerlink" title="更新距离"></a>更新距离</h4><p><img src="/image/20180428101426564.png" alt="这里写图片描述"></p>
 <ul>
 <li><p>由上到下，由左至右迭代计算，伪代码如下:</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def forward_conv(<span class="built_in">image</span>):</span><br><span class="line">	<span class="keyword">for</span> i in range(hight):</span><br><span class="line">		<span class="keyword">for</span> j in range(<span class="built_in">width</span>):</span><br><span class="line">			<span class="keyword">for</span> pixel in Neighbour:</span><br><span class="line">				<span class="built_in">dist</span> = template[pixel]+<span class="built_in">dist</span>[pixel]</span><br><span class="line">			find the minimun <span class="built_in">dist</span></span><br><span class="line">			<span class="built_in">dist</span>[i][j] = <span class="built_in">min</span>(<span class="built_in">dist</span>[i][j],<span class="built_in">dist</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def forward_conv(image):</span><br><span class="line">	for i in range(hight):</span><br><span class="line">		for j in range(width):</span><br><span class="line">			for pixel in Neighbour:</span><br><span class="line">				dist = template[pixel]+dist[pixel]</span><br><span class="line">			find the minimun dist</span><br><span class="line">			dist[i][j] = min(dist[i][j],dist)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>后向更新距离图</p>
 </li>
@@ -605,7 +605,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">104</span>
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -340,6 +340,202 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/轮廓追踪算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/轮廓追踪算法/" class="post-title-link" itemprop="url">轮廓追踪算法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:57:51 / 修改时间：13:04:50" itemprop="dateCreated datePublished" datetime="2019-02-28T12:57:51+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/轮廓追踪算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/轮廓追踪算法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-Contour-Tracing-Algorithms"><a href="#1-Contour-Tracing-Algorithms" class="headerlink" title="1. Contour Tracing Algorithms"></a>1. Contour Tracing Algorithms</h3><ul>
+<li>Square Tracing Algorithm </li>
+<li>Moore-Neighbor Tracing</li>
+<li>Radial Sweep </li>
+<li>Theo Pavlidis’ Algorithm</li>
+</ul>
+<h3 id="2-Square-Tracing-Algorithm"><a href="#2-Square-Tracing-Algorithm" class="headerlink" title="2. Square Tracing Algorithm"></a>2. Square Tracing Algorithm</h3><ul>
+<li>扫描得到起始点</li>
+<li>当前为黑色点，左转</li>
+<li>当前点位白色点，右转</li>
+<li><p>循环直到回到起始点</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">注意：左转和右转是针对当前循环的位置</span><br><span class="line">-------------</span><br><span class="line">|   | 1 |   |</span><br><span class="line">-------------</span><br><span class="line">| 2 | x | 0 |</span><br><span class="line">-------------</span><br><span class="line">|   | 3 |   |</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">如果当前点位置为x，前向点位置为0时：</span><br><span class="line">    left = 3; right = 1</span><br><span class="line">    </span><br><span class="line">如果当前点位置为x，前向点位置为3时：</span><br><span class="line">    left = 2; right = 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无法追踪斜线，改进：终止条件改为访问起始点多次</p>
+</li>
+<li>通过4邻域而非8领域追踪边界</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/28/轮廓追踪算法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/Catch2单元测试框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -637,7 +833,7 @@
 
       
         
-          <p>vtk多个窗口进行交互，每个窗口需要有单独的vtkRenderWindowInteractor。<br>在render的时候，执行vtkRenderWindowInteractor::Start之后，主线程会被阻塞。<br>所以以下方式进行渲染是错误的。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void Render(int <span class="built_in">i</span>)</span><br><span class="line">&#123;</span><br><span class="line">....</span><br><span class="line">interactor-&gt;Start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>;<span class="built_in">i</span>&lt;N;<span class="built_in">i</span>++)</span><br><span class="line">&#123;</span><br><span class="line">Render(<span class="built_in">i</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <p>vtk多个窗口进行交互，每个窗口需要有单独的vtkRenderWindowInteractor。<br>在render的时候，执行vtkRenderWindowInteractor::Start之后，主线程会被阻塞。<br>所以以下方式进行渲染是错误的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void Render(int i)</span><br><span class="line">&#123;</span><br><span class="line">....</span><br><span class="line">interactor-&gt;Start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(int i=0;i&lt;N;i++)</span><br><span class="line">&#123;</span><br><span class="line">Render(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -998,7 +1194,7 @@
 <h4 id="更新距离"><a href="#更新距离" class="headerlink" title="更新距离"></a>更新距离</h4><p><img src="/image/20180428101426564.png" alt="这里写图片描述"></p>
 <ul>
 <li><p>由上到下，由左至右迭代计算，伪代码如下:</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def forward_conv(<span class="built_in">image</span>):</span><br><span class="line">	<span class="keyword">for</span> i in range(hight):</span><br><span class="line">		<span class="keyword">for</span> j in range(<span class="built_in">width</span>):</span><br><span class="line">			<span class="keyword">for</span> pixel in Neighbour:</span><br><span class="line">				<span class="built_in">dist</span> = template[pixel]+<span class="built_in">dist</span>[pixel]</span><br><span class="line">			find the minimun <span class="built_in">dist</span></span><br><span class="line">			<span class="built_in">dist</span>[i][j] = <span class="built_in">min</span>(<span class="built_in">dist</span>[i][j],<span class="built_in">dist</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def forward_conv(image):</span><br><span class="line">	for i in range(hight):</span><br><span class="line">		for j in range(width):</span><br><span class="line">			for pixel in Neighbour:</span><br><span class="line">				dist = template[pixel]+dist[pixel]</span><br><span class="line">			find the minimun dist</span><br><span class="line">			dist[i][j] = min(dist[i][j],dist)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>后向更新距离图</p>
 </li>
@@ -1183,7 +1379,7 @@
       
         
           
-            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This application failed <span class="built_in">to</span> <span class="built_in">start</span> because <span class="keyword">it</span> could <span class="keyword">not</span> find <span class="keyword">or</span> <span class="built_in">load</span> <span class="keyword">the</span> Qt <span class="built_in">platform</span> plugin <span class="string">"windows"</span>.</span><br></pre></td></tr></table></figure>
+            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This application failed to start because it could not find or load the Qt platform plugin &quot;windows&quot;.</span><br></pre></td></tr></table></figure>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>1.使用depends.exe查看添加必要的dll<br>2.添加这两个dll（depends程序并未指明）<br>libGLESv2.dll<br>libEGL.dll<br>3.添加icudt.dll或者qt目录下ic*.dll的三个dll</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] <a href="https://stackoverflow.com/questions/18368826/deploying-qt-c-application-from-visual-studio-qwindows-dll-error/18377863#18377863" target="_blank" rel="noopener">https://stackoverflow.com/questions/18368826/deploying-qt-c-application-from-visual-studio-qwindows-dll-error/18377863#18377863</a></p>
 
@@ -1359,7 +1555,7 @@
       
         
           
-            <p>std::set使用自定义key时，需要指定comparator，具体做法如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmpByStringLength</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; a, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; b)</span> <span class="keyword">const</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a.length() &lt; b.length();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="built_in">std</span>::<span class="built_in">string</span>, cmpByStringLength&gt; myMap;</span><br></pre></td></tr></table></figure></p>
+            <p>std::set使用自定义key时，需要指定comparator，具体做法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct cmpByStringLength </span><br><span class="line">&#123;</span><br><span class="line">    bool operator()(const std::string&amp; a, const std::string&amp; b) const </span><br><span class="line">    &#123;</span><br><span class="line">        return a.length() &lt; b.length();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// ...</span><br><span class="line">std::map&lt;std::string, std::string, cmpByStringLength&gt; myMap;</span><br></pre></td></tr></table></figure></p>
 <p>使用时，正常插入没问题，查找时遇到invalid comparator问题。<br>原因是comparator不符合规定。</p>
 <p>comparator需要时strict weak ordering，需要注意的是，<strong>comparator(x,x)必须返回false</strong>。</p>
 <p>参考：<br>[1].<a href="https://stackoverflow.com/questions/9648100/using-own-comparator-operator-for-map-giving-error-in-case-if-key-not-found" target="_blank" rel="noopener">https://stackoverflow.com/questions/9648100/using-own-comparator-operator-for-map-giving-error-in-case-if-key-not-found</a><br>[2].<a href="https://stackoverflow.com/questions/32263560/errorinvalid-comparator-when-sorting-using-custom-comparison-function" target="_blank" rel="noopener">https://stackoverflow.com/questions/32263560/errorinvalid-comparator-when-sorting-using-custom-comparison-function</a></p>
@@ -1536,10 +1732,10 @@
       
         
           
-            <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">for (int i = <span class="number">0</span>; i &lt; lines-&gt;GetNumberOfCells(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 获取一条centerline</span></span><br><span class="line">	vtkIdType nbCellPoints;</span><br><span class="line">	vtkIdType* points;</span><br><span class="line">	lines-&gt;GetNextCell(nbCellPoints, points);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 迭代该条centerline,获取小线段</span></span><br><span class="line">	for (int j = <span class="number">0</span>; j &lt; nbCellPoints<span class="number">-1</span>; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		vtkIdType pid1 = points[j];</span><br><span class="line">		vtkIdType pid2 = points[j + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">		double* p1 = polydata-&gt;GetPoints()-&gt;GetPoint(pid1);</span><br><span class="line">		double* p2 = polydata-&gt;GetPoints()-&gt;GetPoint(pid1);</span><br><span class="line"></span><br><span class="line">		cout &lt;&lt; <span class="string">"P1 : "</span> &lt;&lt; pid1 &lt;&lt; <span class="string">" "</span> &lt;&lt; p1[<span class="number">0</span>] / spacing[<span class="number">0</span>] &lt;&lt; <span class="string">","</span> &lt;&lt; p1[<span class="number">1</span>] / spacing[<span class="number">1</span>] &lt;&lt; <span class="string">","</span> &lt;&lt; p1[<span class="number">2</span>] / spacing[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="string">"P2 : "</span> &lt;&lt; pid2 &lt;&lt; <span class="string">" "</span> &lt;&lt; p2[<span class="number">0</span>] / spacing[<span class="number">0</span>] &lt;&lt; <span class="string">","</span> &lt;&lt; p2[<span class="number">1</span>] / spacing[<span class="number">1</span>] &lt;&lt; <span class="string">","</span> &lt;&lt; p2[<span class="number">2</span>] / spacing[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">P1 : 131 111,177,121</span><br><span class="line">P2 : 130 111,177,121</span><br><span class="line">P1 : 130 112,178,120</span><br><span class="line">P2 : 129 112,178,120</span><br><span class="line">P1 : 129 112,178,119</span><br><span class="line">P2 : 128 112,178,119</span><br><span class="line">P1 : 128 112,177,118</span><br><span class="line">P2 : 127 112,177,118</span><br><span class="line">P1 : 127 112,176,117</span><br><span class="line">P2 : 126 112,176,117</span><br><span class="line">P1 : 126 111,175,116</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>发现每次输出P1跟P2坐标相同，好久没发现问题所在。追踪到源码，发现这么一段warning，细想一下，这样设计业很好理解。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Description:</span></span><br><span class="line"><span class="comment">// Return a pointer to a double point x[3] for a specific id.</span></span><br><span class="line"><span class="comment">// WARNING: Just don't use this error-prone method, the returned pointer</span></span><br><span class="line"><span class="comment">// and its values are only valid as long as another method invocation is not</span></span><br><span class="line"><span class="comment">// performed. Prefer GetPoint() with the return value in argument.</span></span><br><span class="line"><span class="keyword">double</span> *GetPoint(vtkIdType <span class="keyword">id</span>) &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;Data-&gt;GetTuple(<span class="keyword">id</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Description:</span></span><br><span class="line"><span class="comment">// Copy point components into user provided array v[3] for specified</span></span><br><span class="line"><span class="comment">// id.</span></span><br><span class="line"><span class="keyword">void</span> GetPoint(vtkIdType <span class="keyword">id</span>, <span class="keyword">double</span> x[<span class="number">3</span>]) &#123; <span class="keyword">this</span>-&gt;Data-&gt;GetTuple(<span class="keyword">id</span>,x); &#125;</span><br></pre></td></tr></table></figure></p>
-<p>更新程序使用<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double p1[<span class="number">3</span>];</span><br><span class="line">double p2[<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="title">polydata</span>-&gt;</span>G<span class="function"><span class="title">etPoints</span>()-&gt;</span>GetPoint(pid1, p1);</span><br><span class="line"><span class="function"><span class="title">polydata</span>-&gt;</span>G<span class="function"><span class="title">etPoints</span>()-&gt;</span>GetPoint(pid2, p2);</span><br></pre></td></tr></table></figure></p>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; lines-&gt;GetNumberOfCells(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	// 获取一条centerline</span><br><span class="line">	vtkIdType nbCellPoints;</span><br><span class="line">	vtkIdType* points;</span><br><span class="line">	lines-&gt;GetNextCell(nbCellPoints, points);</span><br><span class="line"></span><br><span class="line">	// 迭代该条centerline,获取小线段</span><br><span class="line">	for (int j = 0; j &lt; nbCellPoints-1; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		vtkIdType pid1 = points[j];</span><br><span class="line">		vtkIdType pid2 = points[j + 1];</span><br><span class="line"></span><br><span class="line">		double* p1 = polydata-&gt;GetPoints()-&gt;GetPoint(pid1);</span><br><span class="line">		double* p2 = polydata-&gt;GetPoints()-&gt;GetPoint(pid1);</span><br><span class="line"></span><br><span class="line">		cout &lt;&lt; &quot;P1 : &quot; &lt;&lt; pid1 &lt;&lt; &quot; &quot; &lt;&lt; p1[0] / spacing[0] &lt;&lt; &quot;,&quot; &lt;&lt; p1[1] / spacing[1] &lt;&lt; &quot;,&quot; &lt;&lt; p1[2] / spacing[2] &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; &quot;P2 : &quot; &lt;&lt; pid2 &lt;&lt; &quot; &quot; &lt;&lt; p2[0] / spacing[0] &lt;&lt; &quot;,&quot; &lt;&lt; p2[1] / spacing[1] &lt;&lt; &quot;,&quot; &lt;&lt; p2[2] / spacing[2] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">P1 : 131 111,177,121</span><br><span class="line">P2 : 130 111,177,121</span><br><span class="line">P1 : 130 112,178,120</span><br><span class="line">P2 : 129 112,178,120</span><br><span class="line">P1 : 129 112,178,119</span><br><span class="line">P2 : 128 112,178,119</span><br><span class="line">P1 : 128 112,177,118</span><br><span class="line">P2 : 127 112,177,118</span><br><span class="line">P1 : 127 112,176,117</span><br><span class="line">P2 : 126 112,176,117</span><br><span class="line">P1 : 126 111,175,116</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>发现每次输出P1跟P2坐标相同，好久没发现问题所在。追踪到源码，发现这么一段warning，细想一下，这样设计业很好理解。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Description:</span><br><span class="line">// Return a pointer to a double point x[3] for a specific id.</span><br><span class="line">// WARNING: Just don&apos;t use this error-prone method, the returned pointer</span><br><span class="line">// and its values are only valid as long as another method invocation is not</span><br><span class="line">// performed. Prefer GetPoint() with the return value in argument.</span><br><span class="line">double *GetPoint(vtkIdType id) &#123; return this-&gt;Data-&gt;GetTuple(id); &#125;</span><br><span class="line"></span><br><span class="line">// Description:</span><br><span class="line">// Copy point components into user provided array v[3] for specified</span><br><span class="line">// id.</span><br><span class="line">void GetPoint(vtkIdType id, double x[3]) &#123; this-&gt;Data-&gt;GetTuple(id,x); &#125;</span><br></pre></td></tr></table></figure></p>
+<p>更新程序使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double p1[3];</span><br><span class="line">double p2[3];</span><br><span class="line">polydata-&gt;GetPoints()-&gt;GetPoint(pid1, p1);</span><br><span class="line">polydata-&gt;GetPoints()-&gt;GetPoint(pid2, p2);</span><br></pre></td></tr></table></figure></p>
 <p>目标达成。</p>
 
           
@@ -1714,7 +1910,7 @@
       
         
           
-            <figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">double spacing[<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="title">spacing</span>[0] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetSpacing()[<span class="number">0</span>];</span><br><span class="line"><span class="function"><span class="title">spacing</span>[1] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetSpacing()[<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="title">spacing</span>[2] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetSpacing()[<span class="number">2</span>];</span><br><span class="line">int dims[<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="title">dims</span>[0] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetBufferedRegion().GetSize()[<span class="number">0</span>];</span><br><span class="line"><span class="function"><span class="title">dims</span>[1] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetBufferedRegion().GetSize()[<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="title">dims</span>[2] = reader-&gt;</span>G<span class="function"><span class="title">etOutput</span>()-&gt;</span>GetBufferedRegion().GetSize()[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">typedef itk::JoinSeriesImageFilter&lt;Image2DType, InputImageType&gt; JoinSeriesFilterType;</span><br><span class="line">JoinSeriesFilterType::Pointer joinFilter = JoinSeriesFilterType::New();</span><br><span class="line"><span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; dims[<span class="number">2</span>]; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 提取</span></span><br><span class="line">	Image2DType::Pointer slice = GetSlice(i, output);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">joinFilter</span>-&gt;</span>SetInput(i, slice);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">joinFilter</span>-&gt;</span>Update();</span><br></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">double spacing[3];</span><br><span class="line">spacing[0] = reader-&gt;GetOutput()-&gt;GetSpacing()[0];</span><br><span class="line">spacing[1] = reader-&gt;GetOutput()-&gt;GetSpacing()[1];</span><br><span class="line">spacing[2] = reader-&gt;GetOutput()-&gt;GetSpacing()[2];</span><br><span class="line">int dims[3];</span><br><span class="line">dims[0] = reader-&gt;GetOutput()-&gt;GetBufferedRegion().GetSize()[0];</span><br><span class="line">dims[1] = reader-&gt;GetOutput()-&gt;GetBufferedRegion().GetSize()[1];</span><br><span class="line">dims[2] = reader-&gt;GetOutput()-&gt;GetBufferedRegion().GetSize()[2];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">typedef itk::JoinSeriesImageFilter&lt;Image2DType, InputImageType&gt; JoinSeriesFilterType;</span><br><span class="line">JoinSeriesFilterType::Pointer joinFilter = JoinSeriesFilterType::New();</span><br><span class="line">for (int i = 0; i &lt; dims[2]; i++)</span><br><span class="line">&#123;</span><br><span class="line">	// 提取</span><br><span class="line">	Image2DType::Pointer slice = GetSlice(i, output);</span><br><span class="line"></span><br><span class="line">	joinFilter-&gt;SetInput(i, slice);</span><br><span class="line">&#125;</span><br><span class="line">joinFilter-&gt;Update();</span><br></pre></td></tr></table></figure>
 <p>以上代码会导致reader-&gt;GetOutput()和joinFilter-&gt;GetOutput()数据的spacing信息不一致。</p>
 <p>JoinSeriesImageFilter会将z轴方向的spacing固定为1。</p>
 
@@ -1890,184 +2086,9 @@
       
         
           
-            <p>设置颜色<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">vessel_actors</span>-&gt;</span>G<span class="function"><span class="title">etProperty</span>()-&gt;</span>SetColor(<span class="number">0.75</span>, <span class="number">0.75</span>, <span class="number">0.75</span>);</span><br></pre></td></tr></table></figure></p>
-<p> 此时，会显示蓝色<br>需要设置对应的mapper<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">vessel_mappers</span>-&gt;</span>ScalarVisibilityOff();</span><br></pre></td></tr></table></figure></p>
+            <p>设置颜色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vessel_actors-&gt;GetProperty()-&gt;SetColor(0.75, 0.75, 0.75);</span><br></pre></td></tr></table></figure></p>
+<p> 此时，会显示蓝色<br>需要设置对应的mapper<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vessel_mappers-&gt;ScalarVisibilityOff();</span><br></pre></td></tr></table></figure></p>
 <p>参考：<br><a href="http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html" target="_blank" rel="noopener">http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtk处理外部事件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/28/vtk处理外部事件/" class="post-title-link" itemprop="url">vtk处理外部事件</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-28 12:26:50 / 修改时间：12:27:40" itemprop="dateCreated datePublished" datetime="2019-02-28T12:26:50+08:00">2019-02-28</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/02/28/vtk处理外部事件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtk处理外部事件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Command方式<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommandSubclass</span> :</span> <span class="keyword">public</span> vtkCommand</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	vtkTypeMacro(CommandSubclass , vtkCommand);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">static</span> CommandSubclass *<span class="title">New</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> CommandSubclass ;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Execute</span><span class="params">(vtkObject *caller, <span class="keyword">unsigned</span> <span class="keyword">long</span> eventId,<span class="keyword">void</span> *callData)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">			<span class="comment">// 过滤按键信息</span></span><br><span class="line">		<span class="keyword">if</span> (eventId == vtkCommand::KeyPressEvent)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 过滤ctrl</span></span><br><span class="line">			vtkRenderWindowInteractor* interactor =</span><br><span class="line">				<span class="keyword">dynamic_cast</span>&lt;vtkRenderWindowInteractor*&gt;(caller);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span> (interactor-&gt;GetControlKey())</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">std</span>::<span class="built_in">string</span> key = interactor-&gt;GetKeySym();</span><br><span class="line">				<span class="keyword">if</span>(key == <span class="string">"a"</span>)</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="string">"ctrl + a"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>InteractorStyle方式<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MouseInteractorStyleDoubleClick</span> :</span> <span class="keyword">public</span> vtkInteractorStyleTrackballCamera</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">// 先是interactor style进行处理</span></span><br><span class="line">	<span class="comment">// 再是Command进行捕获处理</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> MouseInteractorStyleDoubleClick* <span class="title">New</span><span class="params">()</span></span>;</span><br><span class="line">	vtkTypeMacro(MouseInteractorStyleDoubleClick, vtkInteractorStyleTrackballCamera);</span><br><span class="line"></span><br><span class="line">	MouseInteractorStyleDoubleClick() : NumberOfClicks(<span class="number">0</span>), ResetPixelDistance(<span class="number">5</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;PreviousPosition[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">this</span>-&gt;PreviousPosition[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//http://blog.sina.com.cn/s/blog_5e3a1bbb0100esv3.html</span></span><br><span class="line">	<span class="comment">// keydown跟keypress区别</span></span><br><span class="line">	<span class="comment">//virtual void OnKeyPress()</span></span><br><span class="line">	<span class="comment">//&#123;</span></span><br><span class="line">	<span class="comment">//	//// Get the keypress</span></span><br><span class="line">	<span class="comment">//	//vtkRenderWindowInteractor *rwi = this-&gt;Interactor;</span></span><br><span class="line">	<span class="comment">//	//std::string key = rwi-&gt;GetKeySym();</span></span><br><span class="line">	<span class="comment">//	//if (rwi-&gt;GetControlKey())</span></span><br><span class="line">	<span class="comment">//	//&#123;</span></span><br><span class="line">	<span class="comment">//	//	// ctrl+ a</span></span><br><span class="line">	<span class="comment">//	//	if (key == "a")</span></span><br><span class="line">	<span class="comment">//	//	&#123;</span></span><br><span class="line">	<span class="comment">//	//		std::cout &lt;&lt; "Ctrl + a" &lt;&lt; std::endl;</span></span><br><span class="line">	<span class="comment">//	//	&#125;</span></span><br><span class="line">	<span class="comment">//	//	//rwi-&gt;get</span></span><br><span class="line">	<span class="comment">//	//&#125;</span></span><br><span class="line">	<span class="comment">//	//vtkInteractorStyleTrackballCamera::OnKeyPress();</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">OnLeftButtonUp</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		vtkRenderWindowInteractor *rwi = <span class="keyword">this</span>-&gt;Interactor;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"left mouse"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> (rwi-&gt;GetControlKey())</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Ctrl + left mouse"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		vtkInteractorStyleTrackballCamera::OnLeftButtonUp();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> NumberOfClicks;</span><br><span class="line">	<span class="keyword">int</span> PreviousPosition[<span class="number">2</span>];</span><br><span class="line">	<span class="keyword">int</span> ResetPixelDistance;</span><br><span class="line">&#125;;</span><br><span class="line">vtkStandardNewMacro(MouseInteractorStyleDoubleClick);</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -2157,7 +2178,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">104</span>
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
