@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Numpy包数据处理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. Numpy包导入1&amp;gt;&amp;gt;&amp;gt; import numpy as np 2. 生成矩阵 zeros 0矩阵 ones  1矩阵 identity 单位矩阵 eye 对角矩阵 random 随机矩阵 empty 依据内存生成矩阵  1234567891011121314151617181920212223242526&amp;gt;&amp;gt;&amp;gt; a = np.array([1, 2, 3">
+<meta name="keywords" content="cpp,data science,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numpy包数据处理">
+<meta property="og:url" content="http://yoursite.com/2015/11/26/Numpy包数据处理/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. Numpy包导入1&amp;gt;&amp;gt;&amp;gt; import numpy as np 2. 生成矩阵 zeros 0矩阵 ones  1矩阵 identity 单位矩阵 eye 对角矩阵 random 随机矩阵 empty 依据内存生成矩阵  1234567891011121314151617181920212223242526&amp;gt;&amp;gt;&amp;gt; a = np.array([1, 2, 3">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2015-11-26T13:24:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Numpy包数据处理">
+<meta name="twitter:description" content="1. Numpy包导入1&amp;gt;&amp;gt;&amp;gt; import numpy as np 2. 生成矩阵 zeros 0矩阵 ones  1矩阵 identity 单位矩阵 eye 对角矩阵 random 随机矩阵 empty 依据内存生成矩阵  1234567891011121314151617181920212223242526&amp;gt;&amp;gt;&amp;gt; a = np.array([1, 2, 3">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Numpy包数据处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/26/Numpy包数据处理/" class="article-date">
+  <time datetime="2015-11-26T13:13:05.000Z" itemprop="datePublished">2015-11-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/data-science/">data science</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Numpy包数据处理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Numpy包导入"><a href="#1-Numpy包导入" class="headerlink" title="1. Numpy包导入"></a>1. Numpy包导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h3 id="2-生成矩阵"><a href="#2-生成矩阵" class="headerlink" title="2. 生成矩阵"></a>2. 生成矩阵</h3><ul>
+<li>zeros 0矩阵</li>
+<li>ones  1矩阵</li>
+<li>identity 单位矩阵</li>
+<li>eye 对角矩阵</li>
+<li>random 随机矩阵</li>
+<li>empty 依据内存生成矩阵</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> a</span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.zeros(<span class="number">5</span>)</span><br><span class="line">array([ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.ones(shape=(<span class="number">3</span>,<span class="number">4</span>),dtype=np.int32)</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]], dtype=int32)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.identity(<span class="number">3</span>) </span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.eye(<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> np.random.rand(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">[[ <span class="number">0.40974346</span>  <span class="number">0.09968249</span>  <span class="number">0.32264537</span>  <span class="number">0.78815716</span>]</span><br><span class="line"> [ <span class="number">0.52959935</span>  <span class="number">0.74650259</span>  <span class="number">0.36604339</span>  <span class="number">0.80450681</span>]</span><br><span class="line"> [ <span class="number">0.07308854</span>  <span class="number">0.83747867</span>  <span class="number">0.18952243</span>  <span class="number">0.03182399</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.empty(shape=(<span class="number">3</span>,<span class="number">3</span>),dtype=np.int16)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> x</span><br><span class="line">[[  <span class="number">6088</span>   <span class="number">5994</span>  <span class="number">32645</span>]</span><br><span class="line"> [     <span class="number">0</span> <span class="number">-16048</span>    <span class="number">630</span>]</span><br><span class="line"> [     <span class="number">0</span>      <span class="number">0</span>     <span class="number">32</span>]]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="3-矩阵特征"><a href="#3-矩阵特征" class="headerlink" title="3. 矩阵特征"></a>3. 矩阵特征</h3><ul>
+<li>X.flags     存储情况信息</li>
+<li>X.shape   (行数、列数)</li>
+<li>X.ndim    维数</li>
+<li>X.size      数组中元素的数量（x*y）</li>
+<li>X.itemsize     数组中的数据项的所占内存空间大小</li>
+<li>X.dtype   数据类型</li>
+<li>X.T          如果X是矩阵，发挥的是X的转置矩阵</li>
+<li>X.trace()  计算X的迹</li>
+<li>det    行列式</li>
+<li>eig     特征值和特征向量</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = np.array([[<span class="number">0</span>,<span class="number">2</span>,<span class="number">4</span>],[<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> b</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.flags</span><br><span class="line">  C_CONTIGUOUS : <span class="literal">True</span></span><br><span class="line">  F_CONTIGUOUS : <span class="literal">False</span></span><br><span class="line">  OWNDATA : <span class="literal">True</span></span><br><span class="line">  WRITEABLE : <span class="literal">True</span></span><br><span class="line">  ALIGNED : <span class="literal">True</span></span><br><span class="line">  UPDATEIFCOPY : <span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.shape</span><br><span class="line">(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.ndim</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.size</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.itemsize</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.dtype</span><br><span class="line">dtype(<span class="string">'int64'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.T</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">       [<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.trace()</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line">array([[ <span class="number">0.76028676</span>,  <span class="number">0.26199634</span>,  <span class="number">0.8378446</span> ],</span><br><span class="line">       [ <span class="number">0.07305935</span>,  <span class="number">0.9685931</span> ,  <span class="number">0.25006689</span>],</span><br><span class="line">       [ <span class="number">0.39322084</span>,  <span class="number">0.90543664</span>,  <span class="number">0.11268395</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.linalg.det(s)</span><br><span class="line"><span class="number">-0.32924369300392159</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.linalg.eig(s)</span><br><span class="line">(array([<span class="number">-0.31667895</span>,  <span class="number">0.72581365</span>,  <span class="number">1.4324291</span> ]), array([[ <span class="number">0.59088385</span>, <span class="number">-0.93187254</span>, <span class="number">-0.77379983</span>],</span><br><span class="line">       [ <span class="number">0.1215846</span> ,  <span class="number">0.35540744</span>, <span class="number">-0.39068828</span>],</span><br><span class="line">       [<span class="number">-0.79754213</span>, <span class="number">-0.07279501</span>, <span class="number">-0.49859452</span>]]))</span><br></pre></td></tr></table></figure>
+<h3 id="4-矩阵运算"><a href="#4-矩阵运算" class="headerlink" title="4. 矩阵运算"></a>4. 矩阵运算</h3><p>注意：矩阵乘法使用dot运算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = array( [<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>] )</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = arange( <span class="number">4</span> )</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = a-b</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line">array([<span class="number">20</span>, <span class="number">29</span>, <span class="number">38</span>, <span class="number">47</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b**<span class="number">2</span></span><br><span class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span>*sin(a)</span><br><span class="line">array([ <span class="number">9.12945251</span>, <span class="number">-9.88031624</span>,  <span class="number">7.4511316</span> , <span class="number">-2.62374854</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a&lt;<span class="number">35</span></span><br><span class="line">array([<span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">False</span>, <span class="literal">False</span>], dtype=bool)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A = array( [[<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line"><span class="meta">... </span>            [<span class="number">0</span>,<span class="number">1</span>]] )</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B = array( [[<span class="number">2</span>,<span class="number">0</span>],</span><br><span class="line"><span class="meta">... </span>            [<span class="number">3</span>,<span class="number">4</span>]] )</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A*B                         <span class="comment"># 元素乘积</span></span><br><span class="line">array([[<span class="number">2</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">4</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dot(A,B)                    <span class="comment"># 矩阵乘法</span></span><br><span class="line">array([[<span class="number">5</span>, <span class="number">4</span>],</span><br><span class="line">       [<span class="number">3</span>, <span class="number">4</span>]])</span><br></pre></td></tr></table></figure>
+<h3 id="5-通用操作"><a href="#5-通用操作" class="headerlink" title="5. 通用操作"></a>5. 通用操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.random.rand(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = np.random.rand(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[ <span class="number">0.86752326</span>,  <span class="number">0.83817954</span>,  <span class="number">0.70940074</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">array([[ <span class="number">0.59104081</span>,  <span class="number">0.71738646</span>,  <span class="number">0.48867363</span>],</span><br><span class="line">       [ <span class="number">0.92321008</span>,  <span class="number">0.57634452</span>,  <span class="number">0.36543018</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b[<span class="number">0</span>]     <span class="comment"># 取0行元素</span></span><br><span class="line">array([ <span class="number">0.45238927</span>,  <span class="number">0.42093218</span>,  <span class="number">0.28423796</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b[:,<span class="number">0</span>]   <span class="comment"># 取0列元素</span></span><br><span class="line">array([ <span class="number">0.45238927</span>,  <span class="number">0.39131834</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.random.rand(<span class="number">10</span>,<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">array([[ <span class="number">0.61574666</span>],</span><br><span class="line">       [ <span class="number">0.35264373</span>],</span><br><span class="line">       [ <span class="number">0.03036087</span>],</span><br><span class="line">       [ <span class="number">0.50497023</span>],</span><br><span class="line">       [ <span class="number">0.9401023</span> ],</span><br><span class="line">       [ <span class="number">0.84207028</span>],</span><br><span class="line">       [ <span class="number">0.28167327</span>],</span><br><span class="line">       [ <span class="number">0.23913086</span>],</span><br><span class="line">       [ <span class="number">0.72833365</span>],</span><br><span class="line">       [ <span class="number">0.38438902</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x[<span class="number">2</span>:<span class="number">5</span>]   <span class="comment"># 取2到5行</span></span><br><span class="line">array([[ <span class="number">0.03036087</span>],</span><br><span class="line">       [ <span class="number">0.50497023</span>],</span><br><span class="line">       [ <span class="number">0.9401023</span> ]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">array([[<span class="number">392828856</span>,     <span class="number">32645</span>, <span class="number">392828856</span>,     <span class="number">32645</span>,         <span class="number">0</span>],</span><br><span class="line">       [        <span class="number">0</span>,        <span class="number">24</span>,         <span class="number">0</span>,         <span class="number">0</span>,        <span class="number">27</span>],</span><br><span class="line">       [        <span class="number">0</span>,         <span class="number">0</span>,       <span class="number">160</span>,         <span class="number">0</span>,       <span class="number">160</span>],</span><br><span class="line">       [        <span class="number">0</span>,         <span class="number">0</span>,         <span class="number">0</span>,         <span class="number">0</span>,         <span class="number">0</span>],</span><br><span class="line">       [        <span class="number">0</span>,         <span class="number">0</span>,         <span class="number">0</span>,         <span class="number">0</span>,         <span class="number">0</span>]], dtype=int32)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y[<span class="number">1</span>:<span class="number">4</span>,<span class="number">1</span>:<span class="number">4</span>]    <span class="comment"># 1～4行，1～4列元素</span></span><br><span class="line">array([[ <span class="number">24</span>,   <span class="number">0</span>,   <span class="number">0</span>],</span><br><span class="line">       [  <span class="number">0</span>, <span class="number">160</span>,   <span class="number">0</span>],</span><br><span class="line">       [  <span class="number">0</span>,   <span class="number">0</span>,   <span class="number">0</span>]], dtype=int32)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n.sum()</span><br><span class="line"><span class="number">5.6976490969576563</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n.mean()</span><br><span class="line"><span class="number">0.47480409141313801</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n.sum(axis=<span class="number">0</span>)</span><br><span class="line">array([ <span class="number">2.05174571</span>,  <span class="number">1.64697796</span>,  <span class="number">1.47652237</span>,  <span class="number">0.52240306</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="6-矩阵重构操作"><a href="#6-矩阵重构操作" class="headerlink" title="6. 矩阵重构操作"></a>6. 矩阵重构操作</h3><ul>
+<li>vstack</li>
+<li>hstack</li>
+<li>reshape</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.random.rand(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = np.random.rand(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[ <span class="number">0.93525054</span>,  <span class="number">0.69674357</span>,  <span class="number">0.58304333</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">array([[ <span class="number">0.69230576</span>,  <span class="number">0.98160659</span>,  <span class="number">0.82468763</span>],</span><br><span class="line">       [ <span class="number">0.71006004</span>,  <span class="number">0.21784347</span>,  <span class="number">0.8019069</span> ]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.concatenate([a,a])</span><br><span class="line">array([[ <span class="number">0.93525054</span>,  <span class="number">0.69674357</span>,  <span class="number">0.58304333</span>],</span><br><span class="line">       [ <span class="number">0.93525054</span>,  <span class="number">0.69674357</span>,  <span class="number">0.58304333</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.vstack([a,b])</span><br><span class="line">array([[ <span class="number">0.93525054</span>,  <span class="number">0.69674357</span>,  <span class="number">0.58304333</span>],</span><br><span class="line">       [ <span class="number">0.69230576</span>,  <span class="number">0.98160659</span>,  <span class="number">0.82468763</span>],</span><br><span class="line">       [ <span class="number">0.71006004</span>,  <span class="number">0.21784347</span>,  <span class="number">0.8019069</span> ]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.hstack([b,b])</span><br><span class="line">array([[ <span class="number">0.69230576</span>,  <span class="number">0.98160659</span>,  <span class="number">0.82468763</span>,  <span class="number">0.69230576</span>,  <span class="number">0.98160659</span>,</span><br><span class="line">         <span class="number">0.82468763</span>],</span><br><span class="line">       [ <span class="number">0.71006004</span>,  <span class="number">0.21784347</span>,  <span class="number">0.8019069</span> ,  <span class="number">0.71006004</span>,  <span class="number">0.21784347</span>,</span><br><span class="line">         <span class="number">0.8019069</span> ]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.shape</span><br><span class="line">(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.reshape(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">array([[ <span class="number">0.93525054</span>],</span><br><span class="line">       [ <span class="number">0.69674357</span>],</span><br><span class="line">       [ <span class="number">0.58304333</span>]])</span><br></pre></td></tr></table></figure>
+<h3 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h3><p>[1] <a href="http://nbviewer.ipython.org/github/donnemartin/data-science-ipython-otebooks/blob/master/numpy/numpy.ipynb" target="_blank" rel="noopener">http://nbviewer.ipython.org/github/donnemartin/data-science-ipython-otebooks/blob/master/numpy/numpy.ipynb</a><br>[2] <a href="http://www.xuebuyuan.com/1910480.html" target="_blank" rel="noopener">http://www.xuebuyuan.com/1910480.html</a><br>[3] <a href="http://www.tuicool.com/articles/r2yyei" target="_blank" rel="noopener">http://www.tuicool.com/articles/r2yyei</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/26/Numpy包数据处理/" data-id="cjsnzpcpu000vz8h83n05u9ky" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-science/">data science</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/17/Titan连接Hbase后端/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Titan连接Hbase后端
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/13/笔试练习（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">笔试练习（二）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ANNs/">ANNs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Big-Data/">Big Data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language-Study/">Language Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Photography/">Photography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/">c/cpp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/cmake/">cmake</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp/">cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data-science/">data science</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/design-pattern/">design pattern</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/itk/">itk</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/itk/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poem/">poem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vtk/">vtk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perceptron/">Perceptron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photography/">Photography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cv/">cv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-struct/">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/">design pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dll/">dll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/">event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interactor/">interactor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itk/">itk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lib/">lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nltk/">nltk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/observer/">observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/">pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poem/">poem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pygame/">pygame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sae/">sae</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setuptools/">setuptools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/signals/">signals</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slots/">slots</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite3/">sqlite3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/titan/">titan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/to-do-list/">to-do list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vtk/">vtk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win/">win</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wxPython/">wxPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Cpp/" style="font-size: 12px;">Cpp</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/Neural-Networks/" style="font-size: 12px;">Neural Networks</a> <a href="/tags/Perceptron/" style="font-size: 12px;">Perceptron</a> <a href="/tags/Photography/" style="font-size: 10px;">Photography</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/algorithms/" style="font-size: 10px;">algorithms</a> <a href="/tags/big-data/" style="font-size: 10px;">big data</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/callback/" style="font-size: 10px;">callback</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/cpp/" style="font-size: 18px;">cpp</a> <a href="/tags/cv/" style="font-size: 12px;">cv</a> <a href="/tags/data-science/" style="font-size: 12px;">data science</a> <a href="/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/event/" style="font-size: 10px;">event</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interactor/" style="font-size: 10px;">interactor</a> <a href="/tags/itk/" style="font-size: 16px;">itk</a> <a href="/tags/lib/" style="font-size: 10px;">lib</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine learning</a> <a href="/tags/matlab/" style="font-size: 12px;">matlab</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/nltk/" style="font-size: 12px;">nltk</a> <a href="/tags/observer/" style="font-size: 10px;">observer</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/poem/" style="font-size: 14px;">poem</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qt/" style="font-size: 16px;">qt</a> <a href="/tags/sae/" style="font-size: 10px;">sae</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/setuptools/" style="font-size: 10px;">setuptools</a> <a href="/tags/signals/" style="font-size: 10px;">signals</a> <a href="/tags/slots/" style="font-size: 10px;">slots</a> <a href="/tags/smartpointer/" style="font-size: 10px;">smartpointer</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlite3/" style="font-size: 10px;">sqlite3</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/titan/" style="font-size: 10px;">titan</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to-do list</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a> <a href="/tags/ubuntu/" style="font-size: 12px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 12px;">ui</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vs2010/" style="font-size: 12px;">vs2010</a> <a href="/tags/vtk/" style="font-size: 18px;">vtk</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/win/" style="font-size: 10px;">win</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/wxPython/" style="font-size: 10px;">wxPython</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

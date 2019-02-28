@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>CMake范例 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="## 基础### 设置cmake变量">
+<meta name="keywords" content="cmake">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMake范例">
+<meta property="og:url" content="http://yoursite.com/2013/12/19/cmake-e8-8c-83-e4-be-8b/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="## 基础### 设置cmake变量">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CMake范例">
+<meta name="twitter:description" content="## 基础### 设置cmake变量">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-cmake-e8-8c-83-e4-be-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/19/cmake-e8-8c-83-e4-be-8b/" class="article-date">
+  <time datetime="2013-12-19T11:05:58.000Z" itemprop="datePublished">2013-12-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/cmake/">cmake</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CMake范例
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div><!--StartFragment--><br><br>## <span id="Basics" class="mw-headline"><span style="color: #ff0000;">基础</span></span><br><br>### 设置cmake变量<br><br><a id="more"></a><br><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>SET(VARIABLE VALUE)</div><br></div><br></div><br></div>
+
+<h3 id="查看cmake变量"><a href="#查看cmake变量" class="headerlink" title="查看cmake变量"></a><span id="View_a_CMake_variable" class="mw-headline">查看cmake变量</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>MESSAGE(<span style="color: #ff00bf;">“CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}”</span>)</div><br></div><br></div><br></div>
+
+<h3 id="查看系统环境变量"><a href="#查看系统环境变量" class="headerlink" title="查看系统环境变量"></a><span id="View_a_system_variable" class="mw-headline">查看系统环境变量</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>MESSAGE(<span style="color: #ff00bf;">“$ENV{PATH}”</span>)</div><br></div><br></div><br></div>
+
+<h3 id="检查是否是win32系统"><a href="#检查是否是win32系统" class="headerlink" title="检查是否是win32系统"></a><span id="Check_operating_system" class="mw-headline">检查是否是win32系统</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>IF(WIN32)<br>…<span style="color: #0000ff;"><strong>do</strong></span> something…<br><br>ELSE(WIN32)<br>…<span style="color: #0000ff;"><strong>do</strong></span> something <span style="color: #0000ff;"><strong>else</strong></span>…<br><br>ENDIF(WIN32)</div><br></div><br></div><br></div>
+
+<h3 id="检查是否是Linux系统"><a href="#检查是否是Linux系统" class="headerlink" title="检查是否是Linux系统"></a><span id="Check_operating_system_2" class="mw-headline">检查是否是Linux系统</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>IF(CMAKE_SYSTEM_NAME STREQUAL Linux)</div><br></div><br></div><br></div>
+
+<h3 id="检查环境变量是否设置"><a href="#检查环境变量是否设置" class="headerlink" title="检查环境变量是否设置"></a><span id="Check_if_environment_variable_is_set" class="mw-headline">检查环境变量是否设置</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>IF(DEFINED ENV{FOO_HOME})<br>message(<span style="color: #ff00bf;">“…using Foo found in $ENV{FOO_HOME}”</span>)<br>ELSE()<br>message(<span style="color: #ff00bf;">“FOO_HOME is not defined.  You must tell CMake where to find Foo”</span>)<br># exit early<br><span style="color: #0000ff;"><strong>return</strong></span>()<br>ENDIF()</div><br></div><br></div><br></div>
+
+<h2 id="表"><a href="#表" class="headerlink" title="表"></a><span id="Lists" class="mw-headline"><span style="color: #ff0000;">表</span></span></h2><h3 id="检查表中是否包含某值"><a href="#检查表中是否包含某值" class="headerlink" title="检查表中是否包含某值"></a><span id="Check_if_a_list_contains_a_value" class="mw-headline">检查表中是否包含某值</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="background-color: window; font-size: 12px;">list(FIND VTK_MODULES_ENABLED “vtkFiltersParallel” HasMyModule)</span></div><br><div><br><div></div><br><div>IF(HasMyModule EQUAL -1)</div><br><div>  message(FATAL_ERROR “You must build VTK with more modules.”)</div><br><div>ENDIF()</div><br></div><br></div><br></div><br></div><br><!--StartFragment--><br><div></div><br><!--EndFragment--><br><br>## <span id="Outputs" class="mw-headline"><span style="color: #ff0000;">输出</span></span><br><br>### <span id="Message" class="mw-headline">消息</span><br><br><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>MESSAGE(<span style="color: #ff00bf;">“Hello world”</span>)</div><br></div><br></div><br></div>
+
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a><span id="Output_a_Variable" class="mw-headline">变量</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>message(<span style="color: #ff00bf;">“VTK Using Boost? ${VTK_USE_BOOST}”</span>)</div><br></div><br></div><br></div>
+
+<h3 id="出错信息"><a href="#出错信息" class="headerlink" title="出错信息"></a>出错信息</h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>MESSAGE(FATAL_ERROR <span style="color: #ff00bf;">“An error occured.”</span>)</div><br></div><br></div><br></div><br><!--StartFragment--><br><div></div><br><!--EndFragment--><br><br>## <span style="color: #ff0000; font-size: 1.4em;"><span style="font-size: 13.5pt;" data-wiz-span="data-wiz-span">IF条件语句</span></span><br><br><div><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>if</strong></span> (<span style="color: #333399;">!</span>VTK_USE_BOOST)<br>MESSAGE(SEND_ERROR <span style="color: #ff00bf;">“VTK must be built with VTK_USE_BOOST=ON.”</span>)<br><span style="color: #0000ff;"><strong>endif</strong></span> ()</div><br></div><br></div>
+
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a><span id="Logical_Operators" class="mw-headline"><span style="color: #ff0000;">逻辑运算符</span></span></h2><p><span style="font-size: 1.3em; font-weight: bold;">AND</span></p>
+<div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><code>&lt;span style=&quot;color: #0000ff;&quot;&gt;**if**&lt;/span&gt;(A AND B)</code></div><br></div>
+
+<h3 id="OR"><a href="#OR" class="headerlink" title="OR"></a><span id="OR" class="mw-headline">OR</span></h3><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><code>&lt;span style=&quot;color: #0000ff;&quot;&gt;**if**&lt;/span&gt;(A OR B)</code></div><br></div>
+
+<h3 id="NOT"><a href="#NOT" class="headerlink" title="NOT"></a><span id="NOT" class="mw-headline">NOT</span></h3><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><code>&lt;span style=&quot;color: #0000ff;&quot;&gt;**if**&lt;/span&gt;(NOT A)</code></div><br></div>
+
+<h3 id="Compound"><a href="#Compound" class="headerlink" title="Compound"></a><span id="Compound" class="mw-headline">Compound</span></h3><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><code>&lt;span style=&quot;color: #0000ff;&quot;&gt;**if**&lt;/span&gt;(NOT(A AND B))</code></div><br></div><br><!--StartFragment--><br><div></div><br><!--EndFragment--><br><br>## <span id="Finding_Packages" class="mw-headline"><span style="color: #ff0000;">查找软件包</span></span><br><br>大型软件包都包含.cmake文件，可以直接使用类似：<br><br><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>FIND_PACKAGE(Eigen3)</div><br></div><br></div><br></div>
+
+<h3 id="指定查找-cmake文件位置"><a href="#指定查找-cmake文件位置" class="headerlink" title="指定查找.cmake文件位置"></a><span id="Specifying_where_to_look_for_.cmake_files" class="mw-headline">指定查找.cmake文件位置</span></h3><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><code>set(CMAKE_MODULE_PATH &lt;span style=&quot;color: #ff00bf;&quot;&gt;&quot;${CMAKE_SOURCE_DIR}/&quot;&lt;/span&gt; ${CMAKE_MODULE_PATH})</code></div><br></div>
+
+<h3 id="检查是否找到软件包"><a href="#检查是否找到软件包" class="headerlink" title="检查是否找到软件包"></a><span id="Checking_if_a_package_was_found" class="mw-headline">检查是否找到软件包</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>FIND_PACKAGE(Eigen3)<br><span style="color: #0000ff;"><strong>if</strong></span>(EIGEN3_FOUND)<br>… <span style="color: #0000ff;"><strong>do</strong></span> something …<br><span style="color: #0000ff;"><strong>endif</strong></span>(EIGEN3_FOUND)</div><br></div><br></div><br></div>
+
+<h2 id="抑制警告"><a href="#抑制警告" class="headerlink" title="抑制警告"></a><span id="Suppress_warnings" class="mw-headline">抑制警告</span></h2><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>FIND_PACKAGE(Eigen3 QUIET)</div><br></div><br></div><br><div><span class="sy0" style="color: #197d8b;"><br></span></div><br></div><br></div>
+
+<h2 id="取消版本警告"><a href="#取消版本警告" class="headerlink" title="取消版本警告"></a><span id="Fix_Mininum_Version_Error.2FWarning" class="mw-headline"><span style="color: #ff0000;">取消版本警告</span></span></h2><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>cmake_minimum_required(VERSION <span style="color: #6e00aa;">2</span>.<span style="color: #6e00aa;">6</span>.<span style="color: #6e00aa;">0</span> FATAL_ERROR)</div><br></div><br></div><br></div>
+
+<h2 id="查找目录中的CMakeList-txt"><a href="#查找目录中的CMakeList-txt" class="headerlink" title="查找目录中的CMakeList.txt"></a><span id="Look_in_the_directory_that_the_CMakeLists.txt_file_is_for_header_and_implementation_files" class="mw-headline"><span style="color: #ff0000;">查找目录中的CMakeList.txt</span></span></h2><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})</div><br></div><br></div><br></div>
+
+<p>或者</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})</div><br></div><br></div><br></div><br><!--StartFragment--><br><div></div><br><!--EndFragment--><br><br>## <span id="Set_Link_Directories" class="mw-headline"><span style="color: #ff0000;">设置链接目录</span></span><br><br>如果你包含的链接库没有.cmake文件，可以使用如下方式包含：<br><br><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>find_library(OPENSSL_LIB ssl $ENV{OPENSSL_LIB_PATH})</div><br></div><br></div><br></div>
+
+<p>如果环境变量包含了OPENSSL_LIB_PATH，直接使用</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>target_link_libraries(mytarget ${OPENSSL_LIB})</div><br></div><br></div><br></div>
+
+<p>如果没有设置环境变量，通过cmake gui设置。</p>
+<h2 id="设置包含目录"><a href="#设置包含目录" class="headerlink" title="设置包含目录"></a><span id="Set_Include_Directories" class="mw-headline"><span style="color: #ff0000;">设置包含目录</span></span></h2><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><code>INCLUDE_DIRECTORIES(&lt;span style=&quot;color: #333399;&quot;&gt;/&lt;/span&gt;some&lt;span style=&quot;color: #333399;&quot;&gt;/&lt;/span&gt;directory)</code></div><br></div><br><!--StartFragment--><br><div></div><br><!--EndFragment--><br><br>## <span id="View_the_directories_that_are_set" class="mw-headline"><span style="color: #ff0000;">查看设置目录</span></span><br><br><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>get_property(inc_dirs DIRECTORY PROPERTY INCLUDE_DIRECTORIES)<br>message(<span style="color: #ff00bf;">“inc_dirs = ${inc_dirs}”</span>)</div><br></div><br></div><br><div><span class="sy0" style="color: #197d8b;"><br></span></div><br></div><br></div>
+
+<h2 id="自动化配置和生成"><a href="#自动化配置和生成" class="headerlink" title="自动化配置和生成"></a><span id="Automate_configure_and_generate" class="mw-headline"><span style="color: #ff0000;">自动化配置和生成</span></span></h2><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><code>cmake &lt;span style=&quot;color: #333399;&quot;&gt;-&lt;/span&gt;DCMAKE_BUILD_TYPE&lt;span style=&quot;color: #333399;&quot;&gt;=&lt;/span&gt;Debug &lt;span style=&quot;color: #333399;&quot;&gt;-&lt;/span&gt;DCMAKE_INSTALL_PREFIX&lt;span style=&quot;color: #333399;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #333399;&quot;&gt;/&lt;/span&gt;usr&lt;span style=&quot;color: #333399;&quot;&gt;/&lt;/span&gt;mylocation ..&lt;span style=&quot;color: #333399;&quot;&gt;/&lt;/span&gt;</code></div><br></div><br><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"></div>
+
+<h2 id="编译器设置"><a href="#编译器设置" class="headerlink" title="编译器设置"></a><span id="Compiler_options" class="mw-headline"><span style="color: #ff0000;">编译器设置</span></span></h2><h3 id="设置标识"><a href="#设置标识" class="headerlink" title="设置标识"></a><span id="Set_a_cmake_flag" class="mw-headline">设置标识</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>ccmake ..<span style="color: #333399;">/</span>..<span style="color: #333399;">/</span>src<span style="color: #333399;">/</span>boost <span style="color: #333399;">-</span>DCMAKE_IS_EXPERIMENTAL<span style="color: #333399;">=</span>YES_I_KNOW</div><br></div><br></div><br></div>
+
+<h3 id="设置预处理标识"><a href="#设置预处理标识" class="headerlink" title="设置预处理标识"></a><span id="Set_a_cpp_flag.2Fpreprocessor_definition" class="mw-headline">设置预处理标识</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>SET(CMAKE_CXX_FLAGS <span style="color: #ff00bf;">“${CMAKE_CXX_FLAGS} -D__WXGTK__”</span>)</div><br></div><br></div><br></div>
+
+<h3 id="强制使用g"><a href="#强制使用g" class="headerlink" title="强制使用g++"></a><span id="Force_g.2B.2B" class="mw-headline">强制使用g++</span></h3><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><code>set(MySources main.c anotherFile.c)add_executable(SpinRecognize ${MySource})set_source_files_properties(${MySources} PROPERTIES LANGUAGE CXX)</code></div><br></div>
+
+<h3 id="设置目标"><a href="#设置目标" class="headerlink" title="设置目标"></a>设置目标</h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>set_target_properties(<br>myexe_target<br>PROPERTIES COMPILE_FLAGS<br><span style="color: #ff00bf;">“-Wall”</span>)</div><br></div><br></div><br><div><span class="sy0" style="color: #197d8b;"><br></span></div><br></div><br></div>
+
+<h2 id="设置默认生成类型"><a href="#设置默认生成类型" class="headerlink" title="设置默认生成类型"></a><span id="Set_the_default_build_type" class="mw-headline"><span style="color: #ff0000;">设置默认生成类型</span></span></h2><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>SET(CMAKE_BUILD_TYPE Debug CACHE STRING <span style="color: #ff00bf;">“default to debug”</span> FORCE)</div><br></div><br></div><br><div><span class="sy0" style="color: #197d8b;"><br></span></div><br></div><br></div>
+
+<h2 id="自定义类型"><a href="#自定义类型" class="headerlink" title="自定义类型"></a><span id="Custom_variable" class="mw-headline"><span style="color: #ff0000;">自定义类型</span></span></h2><p><span style="font-size: 1.3em; font-weight: bold;">String</span></p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>SET(BUILD_PARAVIEW_PLUGIN ON CACHE STRING <span style="color: #ff00bf;">“Build Paraview plugin?”</span> FORCE)</div><br></div><br></div><br></div>
+
+<h3 id="Bool"><a href="#Bool" class="headerlink" title="Bool"></a><span id="Bool" class="mw-headline">Bool</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>SET(DAI_WITH_BP ON CACHE BOOL <span style="color: #ff00bf;">“Belief Propagation”</span> FORCE)</div><br></div><br></div><br></div>
+
+<h4 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a><span id="Comparison" class="mw-headline">Comparison</span></h4><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>if</strong></span>(DAI_WITH_BP EQUALS ON)</div><br><div>#<span style="color: #0000ff;"><strong>do</strong></span> something</div><br><div>endif(DAI_WITH_BP EQUALS ON)</div><br></div><br></div><br></div>
+
+<p>或者</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>if</strong></span>(DAI_WITH_BP)</div><br><div>#<span style="color: #0000ff;"><strong>do</strong></span> something</div><br><div>endif(DAI_WITH_BP)</div><br></div><br></div><br></div>
+
+<h2 id="链接到特定库"><a href="#链接到特定库" class="headerlink" title="链接到特定库"></a><span style="color: #ff0000; font-size: 1.4em; font-weight: bold;">链接到特定库</span></h2><h3 id="ITK"><a href="#ITK" class="headerlink" title="ITK"></a><span id="ITK" class="mw-headline">ITK</span></h3><p>ITK目录为：</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="text source-text" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>export ITK_DIR<span style="color: #333399;">=</span><span style="color: #333399;">/</span>home<span style="color: #333399;">/</span>doriad<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span>ITK</div><br></div><br></div><br></div>
+
+<p>CMakeLists.txt写为：</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>FIND_PACKAGE(ITK REQUIRED)</div><br><div>INCLUDE(${ITK_USE_FILE})</div><br><div></div><br><div>ADD_EXECUTABLE(CastImageFilter CastImageFilter.cxx)</div><br><div>TARGET_LINK_LIBRARIES(CastImageFilter</div><br><div>vtkHybrid</div><br><div>ITKIO ITKBasicFilters ITKCommon</div><br><div>)</div><br></div><br></div><br></div>
+
+<h3 id="VXL"><a href="#VXL" class="headerlink" title="VXL"></a><span id="VXL" class="mw-headline">VXL</span></h3><p>环境变量：</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="text source-text" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>export VXLBIN<span style="color: #333399;">=</span><span style="color: #ff00bf;">“/home/doriad/bin/vxl”</span></div><br></div><br></div><br></div>
+
+<p>Then in the CMakeLists.txt use:</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>FIND_PACKAGE(VXL REQUIRED)</div><br><div>INCLUDE(${VXL_CMAKE_DIR}/UseVXL.cmake)</div><br></div><br></div><br></div>
+
+<h3 id="VTK"><a href="#VTK" class="headerlink" title="VTK"></a><span id="VTK" class="mw-headline">VTK</span></h3><p>Add the path to your environment:</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="text source-text" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>export VTK_DIR<span style="color: #333399;">=</span><span style="color: #ff00bf;">“/home/doriad/bin/VTK”</span></div><br></div><br></div><br></div>
+
+<p>Then in the CMakeLists.txt use:</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>FIND_PACKAGE(VTK REQUIRED)</div><br><div>INCLUDE(${VTK_USE_FILE})</div><br></div><br></div><br></div>
+
+<h3 id="Boost"><a href="#Boost" class="headerlink" title="Boost"></a><span id="Boost" class="mw-headline">Boost</span></h3><p>假设生成为 ./bjam –prefix=/home/doriad/bin install</p>
+<p>需要先修改 .bashrc:</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="text source-text" style="line-height: normal; font-family: monospace;"><br><div>export BOOST_ROOT=”/home/doriad/bin”</div><br></div><br></div>
+
+<p>再写cmakelist.txt</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>SET(Boost_USE_MULTITHREAD ON) #set a flag</div><br><div>FIND_PACKAGE(Boost)</div><br><div>INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})</div><br><div>LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})</div><br></div><br></div><br></div>
+
+<h3 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a><span id="OpenCV" class="mw-headline">OpenCV</span></h3><p>Add to the environment:</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="text source-text" style="line-height: normal; font-family: monospace;"><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>export OpenCV_DIR<span style="color: #333399;">=</span><span style="color: #333399;">/</span>home<span style="color: #333399;">/</span>doriad<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span>OpenCV</div><br></div><br></div><br></div>
+
+<p>Then in the CMakeLists.txt use:</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><!--StartFragment--><br><div><br><div style="background-color: window; border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>FIND_PACKAGE(OpenCV REQUIRED )<br>INCLUDE_DIRECTORIES( ${OPENCV_INCLUDE_DIR} )<br><br>ADD_EXECUTABLE(Scalar Scalar.cxx)<br>TARGET_LINK_LIBRARIES(Scalar ${OpenCV_LIBS})</div><br></div><br></div><br><!--EndFragment--><br><br></div><br></div>
+
+<h3 id="Get-Help-Using-a-Library"><a href="#Get-Help-Using-a-Library" class="headerlink" title="Get Help Using a Library"></a><span id="Get_Help_Using_a_Library" class="mw-headline">Get Help Using a Library</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div>cmake –help-module FindBoost</div><br></div><br></div>
+
+<h3 id="Add-new-libraries-to-CMake"><a href="#Add-new-libraries-to-CMake" class="headerlink" title="Add new libraries to CMake"></a><span id="Add_new_libraries_to_CMake" class="mw-headline">Add new libraries to CMake</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div>/usr/share/cmake/Modules/FindOpenGL.cmake|</div><br></div><br></div>
+
+<h2 id="Dependency-Graph"><a href="#Dependency-Graph" class="headerlink" title="Dependency Graph"></a><span id="Dependency_Graph" class="mw-headline">Dependency Graph</span></h2><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><br><div>ccmake ../src/Program/ –graphviz=test.graph</div><br><div>dotty test.graph</div><br></div><br></div><br></div>
+
+<h2 id="CTest"><a href="#CTest" class="headerlink" title="CTest"></a><span id="CTest" class="mw-headline">CTest</span></h2><h3 id="Run-a-specific-test-by-number"><a href="#Run-a-specific-test-by-number" class="headerlink" title="Run a specific test by number"></a><span id="Run_a_specific_test_by_number" class="mw-headline">Run a specific test by number</span></h3><p>e.g. Test 622</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div>ctest -I 622,622</div><br></div><br></div>
+
+<h3 id="Run-a-range-of-tests"><a href="#Run-a-range-of-tests" class="headerlink" title="Run a range of tests"></a><span id="Run_a_range_of_tests" class="mw-headline">Run a range of tests</span></h3><p>e.g. Test 622 to 625</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div>ctest -I 622,625</div><br></div><br></div>
+
+<h3 id="Run-a-test-by-name"><a href="#Run-a-test-by-name" class="headerlink" title="Run a test by name"></a><span id="Run_a_test_by_name" class="mw-headline">Run a test by name</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div>ctest -R <span class="st0" style="color: #912f11;">“itkTransformPoint*”</span>|</div><br></div><br></div>
+
+<h3 id="Show-verbose-output-of-a-test"><a href="#Show-verbose-output-of-a-test" class="headerlink" title="Show verbose output of a test"></a><span id="Show_verbose_output_of_a_test" class="mw-headline">Show verbose output of a test</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div>ctest -V -R <span class="st0" style="color: #912f11;">“itkTransformPoint*”</span>|</div><br></div><br></div>
+
+<h3 id="Create-a-Test"><a href="#Create-a-Test" class="headerlink" title="Create a Test"></a><span id="Create_a_Test" class="mw-headline">Create a Test</span></h3><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><span class="kw1" style="color: #1f3f81;">cmake_minimum_required</span><span class="sy0" style="color: #197d8b;">(</span><span class="kw3" style="color: #077807;">VERSION</span> 2.6<span class="sy0" style="color: #197d8b;">)</span> <span class="kw1" style="color: #1f3f81;">project</span><span class="sy0" style="color: #197d8b;">(</span>simple<span class="sy0" style="color: #197d8b;">)</span><span class="kw1" style="color: #1f3f81;">ENABLE_TESTING</span><span class="sy0" style="color: #197d8b;">()</span> <span class="kw1" style="color: #1f3f81;">add_executable</span><span class="sy0" style="color: #197d8b;">(</span>simple simple.cpp<span class="sy0" style="color: #197d8b;">)</span><span class="kw1" style="color: #1f3f81;">add_test</span><span class="sy0" style="color: #197d8b;">(</span>SimpleTest simple<span class="sy0" style="color: #197d8b;">)</span></div><br></div><br></div>
+
+<h2 id="Link-to-a-library"><a href="#Link-to-a-library" class="headerlink" title="Link to a library"></a><span id="Link_to_a_library" class="mw-headline">Link to a library</span></h2><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><span class="kw1" style="color: #1f3f81;">ADD_EXECUTABLE</span><span class="sy0" style="color: #197d8b;">(</span>ColoredLines ColoredLines.cpp<span class="sy0" style="color: #197d8b;">)</span><span class="kw1" style="color: #1f3f81;">TARGET_LINK_LIBRARIES</span><span class="sy0" style="color: #197d8b;">(</span>ColoredLines vtkHybrid<span class="sy0" style="color: #197d8b;">)</span></div><br></div><br></div>
+
+<h2 id="Create-a-library"><a href="#Create-a-library" class="headerlink" title="Create a library"></a><span id="Create_a_library" class="mw-headline">Create a library</span></h2><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><span class="kw1" style="color: #1f3f81;">add_library</span><span class="sy0" style="color: #197d8b;">(</span>MatlabLibrary ./MatlabDll/LidarK.cpp<span class="sy0" style="color: #197d8b;">)</span></div><br></div><br></div>
+
+<h2 id="Installing-executables"><a href="#Installing-executables" class="headerlink" title="Installing executables"></a><span id="Installing_executables" class="mw-headline">Installing executables</span></h2><p>Once your project is built, you can use the ‘install’ make target to copy the executables to the directory specified by CMAKE_INSTALL_PREFIX.</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><span class="kw1" style="color: #1f3f81;">add_executable</span><span class="sy0" style="color: #197d8b;">(</span>test test.cxx<span class="sy0" style="color: #197d8b;">)</span><span class="kw1" style="color: #1f3f81;">install</span><span class="sy0" style="color: #197d8b;">(</span>TARGETS test RUNTIME DESTINATION <span class="re0" style="color: #b08000;">${CMAKE_INSTALL_PREFIX}</span><span class="sy0" style="color: #197d8b;">)</span></div><br></div><br></div>
+
+<p>If you get an error like:</p>
+<div><br><div>error while loading shared libraries: I get</div><br><div>libwx_gtk2u_core-2.9.so.1: cannot open shared object file: No such file or directory</div><br></div>
+
+<p>you should add:</p>
+<div>SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)</div>
+
+<p>to your CMakeLists.txt file.</p>
+<h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a><span id="Utilities" class="mw-headline">Utilities</span></h2><h3 id="Add-non-compiled-files-to-a-project"><a href="#Add-non-compiled-files-to-a-project" class="headerlink" title="Add non-compiled files to a project"></a><span id="Add_non-compiled_files_to_a_project" class="mw-headline">Add non-compiled files to a project</span></h3><p>This allows files that are not compiled to be added to a project (Qt Creator, for example) while keeping them logically separated from files that are compiled (in the normal add_executable command):</p>
+<div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><span class="kw1" style="color: #1f3f81;">add_custom_target</span><span class="sy0" style="color: #197d8b;">(</span><br><div>MyProjectSources SOURCES</div><br><div>MyProject.h</div><br><span class="sy0" style="color: #197d8b;">)</span><br><br></div><br></div><br></div>
+
+<h2 id="Recursively-add-subdirectories-to-INCLUDE-DIRECTORIES"><a href="#Recursively-add-subdirectories-to-INCLUDE-DIRECTORIES" class="headerlink" title="Recursively add subdirectories to INCLUDE_DIRECTORIES"></a><span id="Recursively_add_subdirectories_to_INCLUDE_DIRECTORIES" class="mw-headline">Recursively add subdirectories to INCLUDE_DIRECTORIES</span></h2><div class="mw-geshi" style="font-family: sans-serif; font-size: 13.333333969116211px; line-height: 20px; background-color: #ffffff;" dir="ltr"><br><div class="cmake source-cmake" style="line-height: normal; font-family: monospace;"><br><div><span class="kw1" style="color: #1f3f81;">MACRO</span><span class="sy0" style="color: #197d8b;">(</span>HEADER_DIRECTORIES return_list<span class="sy0" style="color: #197d8b;">)</span> <span class="kw1" style="color: #1f3f81;">FILE</span><span class="sy0" style="color: #197d8b;">(</span>GLOB_RECURSE new_list *.h<span class="sy0" style="color: #197d8b;">)</span> <span class="kw1" style="color: #1f3f81;">SET</span><span class="sy0" style="color: #197d8b;">(</span>dir_list <span class="st0" style="color: #912f11;">“”</span><span class="sy0" style="color: #197d8b;">)</span> <span class="kw1" style="color: #1f3f81;">FOREACH</span><span class="sy0" style="color: #197d8b;">(</span>file_path <span class="re0" style="color: #b08000;">${new_list}</span><span class="sy0" style="color: #197d8b;">)</span> <span class="kw1" style="color: #1f3f81;">GET_FILENAME_COMPONENT</span><span class="sy0" style="color: #197d8b;">(</span>dir_path <span class="re0" style="color: #b08000;">${file_path}</span> <span class="kw3" style="color: #077807;">PATH</span><span class="sy0" style="color: #197d8b;">)</span> <span class="kw1" style="color: #1f3f81;">SET</span><span class="sy0" style="color: #197d8b;">(</span>dir_list <span class="re0" style="color: #b08000;">${dir_list}</span> <span class="re0" style="color: #b08000;">${dir_path}</span><span class="sy0" style="color: #197d8b;">)</span> <span class="kw1" style="color: #1f3f81;">ENDFOREACH</span><span class="sy0" style="color: #197d8b;">()</span> <span class="kw1" style="color: #1f3f81;">LIST</span><span class="sy0" style="color: #197d8b;">(</span><span class="kw3" style="color: #077807;">REMOVE_DUPLICATES</span> dir_list<span class="sy0" style="color: #197d8b;">)</span> <span class="kw1" style="color: #1f3f81;">SET</span><span class="sy0" style="color: #197d8b;">(</span><span class="re0" style="color: #b08000;">${return_list}</span> <span class="re0" style="color: #b08000;">${dir_list}</span><span class="sy0" style="color: #197d8b;">)</span><span class="kw1" style="color: #1f3f81;">ENDMACRO</span><span class="sy0" style="color: #197d8b;">()</span></div><br><div style="color: gray;"><small>来源： &lt;<a href="http://www.vtk.org/Wiki/CMake/Examples" target="_blank" rel="noopener">http://www.vtk.org/Wiki/CMake/Examples</a><small>&gt;</small></small></div><br><small><small> </small></small><br><br></div><br></div><br><!--EndFragment--><br><br></div><br><div></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/19/cmake-e8-8c-83-e4-be-8b/" data-id="cjsnzpd6f00btz8h8jpetj4jc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/">cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ITK读写ImageFileReaderException问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/12/17/itk-e6-96-87-e4-bb-b6-e6-a0-bc-e5-bc-8f-e5-92-8c-e5-83-8f-e7-b4-a0-e7-b1-bb-e5-9e-8b-e5-af-b9-e5-ba-94-e5-85-b3-e7-b3-bb/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ITK文件格式和像素类型对应关系</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ANNs/">ANNs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Big-Data/">Big Data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language-Study/">Language Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Photography/">Photography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/">c/cpp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/cmake/">cmake</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp/">cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data-science/">data science</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/design-pattern/">design pattern</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/itk/">itk</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/itk/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poem/">poem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vtk/">vtk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perceptron/">Perceptron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photography/">Photography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cv/">cv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-struct/">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/">design pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dll/">dll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/">event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interactor/">interactor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itk/">itk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lib/">lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nltk/">nltk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/observer/">observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/">pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poem/">poem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pygame/">pygame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sae/">sae</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setuptools/">setuptools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/signals/">signals</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slots/">slots</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite3/">sqlite3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/titan/">titan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/to-do-list/">to-do list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vtk/">vtk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win/">win</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wxPython/">wxPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Cpp/" style="font-size: 12px;">Cpp</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/Neural-Networks/" style="font-size: 12px;">Neural Networks</a> <a href="/tags/Perceptron/" style="font-size: 12px;">Perceptron</a> <a href="/tags/Photography/" style="font-size: 10px;">Photography</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/algorithms/" style="font-size: 10px;">algorithms</a> <a href="/tags/big-data/" style="font-size: 10px;">big data</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/callback/" style="font-size: 10px;">callback</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/cpp/" style="font-size: 18px;">cpp</a> <a href="/tags/cv/" style="font-size: 12px;">cv</a> <a href="/tags/data-science/" style="font-size: 12px;">data science</a> <a href="/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/event/" style="font-size: 10px;">event</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interactor/" style="font-size: 10px;">interactor</a> <a href="/tags/itk/" style="font-size: 16px;">itk</a> <a href="/tags/lib/" style="font-size: 10px;">lib</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine learning</a> <a href="/tags/matlab/" style="font-size: 12px;">matlab</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/nltk/" style="font-size: 12px;">nltk</a> <a href="/tags/observer/" style="font-size: 10px;">observer</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/poem/" style="font-size: 14px;">poem</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qt/" style="font-size: 16px;">qt</a> <a href="/tags/sae/" style="font-size: 10px;">sae</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/setuptools/" style="font-size: 10px;">setuptools</a> <a href="/tags/signals/" style="font-size: 10px;">signals</a> <a href="/tags/slots/" style="font-size: 10px;">slots</a> <a href="/tags/smartpointer/" style="font-size: 10px;">smartpointer</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlite3/" style="font-size: 10px;">sqlite3</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/titan/" style="font-size: 10px;">titan</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to-do list</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a> <a href="/tags/ubuntu/" style="font-size: 12px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 12px;">ui</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vs2010/" style="font-size: 12px;">vs2010</a> <a href="/tags/vtk/" style="font-size: 18px;">vtk</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/win/" style="font-size: 10px;">win</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/wxPython/" style="font-size: 10px;">wxPython</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

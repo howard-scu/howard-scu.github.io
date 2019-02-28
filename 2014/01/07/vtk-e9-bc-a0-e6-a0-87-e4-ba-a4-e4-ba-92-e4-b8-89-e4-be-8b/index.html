@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>vtk鼠标交互三例 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="例一：显示Dicom序列，通过鼠标滚轮切换，并能显示操作提示。&amp;lt;div style=&amp;quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &amp;#39;Courier New&amp;#39;; font-size: 12px;&amp;quot;&amp;gt;&amp;lt;!--mo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vtk鼠标交互三例">
+<meta property="og:url" content="http://yoursite.com/2014/01/07/vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="例一：显示Dicom序列，通过鼠标滚轮切换，并能显示操作提示。&amp;lt;div style=&amp;quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &amp;#39;Courier New&amp;#39;; font-size: 12px;&amp;quot;&amp;gt;&amp;lt;!--mo">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_ad8eb3a0ec7af9eb9189cc2b97ad6c68.jpg">
+<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_da48a6cd930350afb522d595ef030a4a.jpg">
+<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_NXSNN1DJ5KE3CTSGWWB9D0.jpg">
+<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_HOVX@PKCY07_YB4QXNSMRW.jpg">
+<meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vtk鼠标交互三例">
+<meta name="twitter:description" content="例一：显示Dicom序列，通过鼠标滚轮切换，并能显示操作提示。&amp;lt;div style=&amp;quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &amp;#39;Courier New&amp;#39;; font-size: 12px;&amp;quot;&amp;gt;&amp;lt;!--mo">
+<meta name="twitter:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_ad8eb3a0ec7af9eb9189cc2b97ad6c68.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/01/07/vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b/" class="article-date">
+  <time datetime="2014-01-07T14:27:06.000Z" itemprop="datePublished">2014-01-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vtk/">vtk</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vtk鼠标交互三例
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div>例一：</div><div>显示Dicom序列，通过鼠标滚轮切换，并能显示操作提示。</div><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_ad8eb3a0ec7af9eb9189cc2b97ad6c68.jpg" alt></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;!--more--&gt;&lt;div&gt;&lt;font color=&quot;#008000&quot;&gt;//&lt;/font&gt;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;This&amp;nbsp;example&amp;nbsp;demonstrates&amp;nbsp;how&amp;nbsp;to&amp;nbsp;read&amp;nbsp;a&amp;nbsp;series&amp;nbsp;of&amp;nbsp;dicom&amp;nbsp;images&lt;/font&gt;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;and&amp;nbsp;how&amp;nbsp;to&amp;nbsp;scroll&amp;nbsp;with&amp;nbsp;the&amp;nbsp;mousewheel&amp;nbsp;or&amp;nbsp;the&amp;nbsp;up/down&amp;nbsp;keys&lt;/font&gt;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;through&amp;nbsp;all&amp;nbsp;slices&lt;/font&gt;
+&lt;font color=&quot;#008000&quot;&gt;//&lt;/font&gt;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;some&amp;nbsp;standard&amp;nbsp;vtk&amp;nbsp;headers&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkSmartPointer.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkObjectFactory.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindow.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindowInteractor.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderer.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;headers&amp;nbsp;needed&amp;nbsp;for&amp;nbsp;this&amp;nbsp;example&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageViewer2.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkDICOMImageReader.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkInteractorStyleImage.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor2D.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextProperty.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextMapper.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;needed&amp;nbsp;to&amp;nbsp;easily&amp;nbsp;convert&amp;nbsp;int&amp;nbsp;to&amp;nbsp;std::string&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;sstream&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+&amp;nbsp;
+&amp;nbsp;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;helper&amp;nbsp;class&amp;nbsp;to&amp;nbsp;format&amp;nbsp;slice&amp;nbsp;status&amp;nbsp;message&lt;/font&gt;
+&lt;font color=&quot;#0000FF&quot;&gt;**class**&lt;/font&gt;&amp;nbsp;StatusMessage&amp;nbsp;{
+&lt;font color=&quot;#0000FF&quot;&gt;**public**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**static**&lt;/font&gt;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;string&amp;nbsp;Format(&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;slice,&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;maxSlice)&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;stringstream&amp;nbsp;tmp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;tmp&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;Slice&amp;nbsp;Number&amp;nbsp;&amp;nbsp;&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;+&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;/&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;maxSlice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;+&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;&amp;nbsp;tmp.str();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+};
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;Define&amp;nbsp;own&amp;nbsp;interaction&amp;nbsp;style&lt;/font&gt;
+&lt;font color=&quot;#0000FF&quot;&gt;**class**&lt;/font&gt;&amp;nbsp;myVtkInteractorStyleImage&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**public**&lt;/font&gt;&amp;nbsp;vtkInteractorStyleImage
+{
+&lt;font color=&quot;#0000FF&quot;&gt;**public**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**static**&lt;/font&gt;&amp;nbsp;myVtkInteractorStyleImage&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkTypeMacro(myVtkInteractorStyleImage,&amp;nbsp;vtkInteractorStyleImage);
+&amp;nbsp;
+&lt;font color=&quot;#0000FF&quot;&gt;**protected**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImageViewer2&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;_ImageViewer;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkTextMapper&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;_StatusMapper;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;_Slice;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;_MinSlice;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;_MaxSlice;
+&amp;nbsp;
+&lt;font color=&quot;#0000FF&quot;&gt;**public**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;SetImageViewer(vtkImageViewer2&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;imageViewer)&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_ImageViewer&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;imageViewer;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_MinSlice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetSliceMin();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_MaxSlice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetSliceMax();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_Slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;_MinSlice;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;Slicer:&amp;nbsp;Min&amp;nbsp;=&amp;nbsp;&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;_MinSlice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;,&amp;nbsp;Max&amp;nbsp;=&amp;nbsp;&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;_MaxSlice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;endl;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;SetStatusMapper(vtkTextMapper&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;statusMapper)&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_StatusMapper&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;statusMapper;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;
+&amp;nbsp;
+&lt;font color=&quot;#0000FF&quot;&gt;**protected**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;MoveSliceForward()&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;(_Slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;&amp;nbsp;_MaxSlice)&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_Slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;+=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;MoveSliceForward::Slice&amp;nbsp;=&amp;nbsp;&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;_Slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;endl;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_ImageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetSlice(_Slice);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;string&amp;nbsp;msg&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;StatusMessage&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;Format(_Slice,&amp;nbsp;_MaxSlice);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_StatusMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(msg.c_str());
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_ImageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Render();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;MoveSliceBackward()&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;(_Slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;_MinSlice)&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_Slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;-=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;MoveSliceBackward::Slice&amp;nbsp;=&amp;nbsp;&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;_Slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;endl;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_ImageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetSlice(_Slice);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;string&amp;nbsp;msg&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;StatusMessage&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;Format(_Slice,&amp;nbsp;_MaxSlice);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_StatusMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(msg.c_str());
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;_ImageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Render();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**virtual**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;OnKeyDown()&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;string&amp;nbsp;key&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetInteractor()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetKeySym();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;(key.compare(&lt;font color=&quot;#FF00BF&quot;&gt;&quot;Up&quot;&lt;/font&gt;)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;==&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;)&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//cout&amp;nbsp;&amp;lt;&amp;lt;&amp;nbsp;&quot;Up&amp;nbsp;arrow&amp;nbsp;key&amp;nbsp;was&amp;nbsp;pressed.&quot;&amp;nbsp;&amp;lt;&amp;lt;&amp;nbsp;endl;&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MoveSliceForward();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**else**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;(key.compare(&lt;font color=&quot;#FF00BF&quot;&gt;&quot;Down&quot;&lt;/font&gt;)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;==&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;)&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//cout&amp;nbsp;&amp;lt;&amp;lt;&amp;nbsp;&quot;Down&amp;nbsp;arrow&amp;nbsp;key&amp;nbsp;was&amp;nbsp;pressed.&quot;&amp;nbsp;&amp;lt;&amp;lt;&amp;nbsp;endl;&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MoveSliceBackward();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;forward&amp;nbsp;event&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkInteractorStyleImage&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;OnKeyDown();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**virtual**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;OnMouseWheelForward()&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//std::cout&amp;nbsp;&amp;lt;&amp;lt;&amp;nbsp;&quot;Scrolled&amp;nbsp;mouse&amp;nbsp;wheel&amp;nbsp;forward.&quot;&amp;nbsp;&amp;lt;&amp;lt;&amp;nbsp;std::endl;&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MoveSliceForward();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;don&#39;t&amp;nbsp;forward&amp;nbsp;events,&amp;nbsp;otherwise&amp;nbsp;the&amp;nbsp;image&amp;nbsp;will&amp;nbsp;be&amp;nbsp;zoomed&amp;nbsp;&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;in&amp;nbsp;case&amp;nbsp;another&amp;nbsp;interactorstyle&amp;nbsp;is&amp;nbsp;used&amp;nbsp;(e.g.&amp;nbsp;trackballstyle,&amp;nbsp;...)&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;vtkInteractorStyleImage::OnMouseWheelForward();&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**virtual**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;OnMouseWheelBackward()&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//std::cout&amp;nbsp;&amp;lt;&amp;lt;&amp;nbsp;&quot;Scrolled&amp;nbsp;mouse&amp;nbsp;wheel&amp;nbsp;backward.&quot;&amp;nbsp;&amp;lt;&amp;lt;&amp;nbsp;std::endl;&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;(_Slice&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;_MinSlice)&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MoveSliceBackward();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;don&#39;t&amp;nbsp;forward&amp;nbsp;events,&amp;nbsp;otherwise&amp;nbsp;the&amp;nbsp;image&amp;nbsp;will&amp;nbsp;be&amp;nbsp;zoomed&amp;nbsp;&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;in&amp;nbsp;case&amp;nbsp;another&amp;nbsp;interactorstyle&amp;nbsp;is&amp;nbsp;used&amp;nbsp;(e.g.&amp;nbsp;trackballstyle,&amp;nbsp;...)&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;vtkInteractorStyleImage::OnMouseWheelBackward();&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+};
+&amp;nbsp;
+vtkStandardNewMacro(myVtkInteractorStyleImage);
+&amp;nbsp;
+&amp;nbsp;
+&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;main(&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;argc,&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**char**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;argv[])
+{
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//std::string&amp;nbsp;folder&amp;nbsp;=&amp;nbsp;argv[1];&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;string&amp;nbsp;folder&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;D:\\yangfeichuan\\2&quot;&lt;/font&gt;;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;Read&amp;nbsp;all&amp;nbsp;the&amp;nbsp;DICOM&amp;nbsp;files&amp;nbsp;in&amp;nbsp;the&amp;nbsp;specified&amp;nbsp;directory.&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkDICOMImageReader&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;reader&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkDICOMImageReader&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;reader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetDirectoryName(folder.c_str());
+&amp;nbsp;&amp;nbsp;&amp;nbsp;reader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Update();
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;Visualize&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageViewer2&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;imageViewer&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageViewer2&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInputConnection(reader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutputPort());
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;slice&amp;nbsp;status&amp;nbsp;message&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextProperty&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;sliceTextProp&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextProperty&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;sliceTextProp&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetFontFamilyToCourier();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;sliceTextProp&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetFontSize(&lt;font color=&quot;#6E00AA&quot;&gt;20&lt;/font&gt;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;sliceTextProp&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetVerticalJustificationToBottom();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;sliceTextProp&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetJustificationToLeft();
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextMapper&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;sliceTextMapper&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextMapper&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;string&amp;nbsp;msg&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;StatusMessage&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;Format(imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetSliceMin(),&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetSliceMax());
+&amp;nbsp;&amp;nbsp;&amp;nbsp;sliceTextMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(msg.c_str());
+&amp;nbsp;&amp;nbsp;&amp;nbsp;sliceTextMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetTextProperty(sliceTextProp);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor2D&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;sliceTextActor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor2D&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;sliceTextActor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetMapper(sliceTextMapper);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;sliceTextActor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetPosition(&lt;font color=&quot;#6E00AA&quot;&gt;15&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;10&lt;/font&gt;);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;usage&amp;nbsp;hint&amp;nbsp;message&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextProperty&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;usageTextProp&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextProperty&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextProp&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetFontFamilyToCourier();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextProp&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetFontSize(&lt;font color=&quot;#6E00AA&quot;&gt;14&lt;/font&gt;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextProp&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetVerticalJustificationToTop();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextProp&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetJustificationToLeft();
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextMapper&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;usageTextMapper&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkTextMapper&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&lt;font color=&quot;#FF00BF&quot;&gt;&quot;-&amp;nbsp;Slice&amp;nbsp;with&amp;nbsp;mouse&amp;nbsp;wheel\n&amp;nbsp;&amp;nbsp;or&amp;nbsp;Up/Down-Key\n-&amp;nbsp;Zoom&amp;nbsp;with&amp;nbsp;pressed&amp;nbsp;right\n&amp;nbsp;&amp;nbsp;mouse&amp;nbsp;button&amp;nbsp;while&amp;nbsp;dragging&quot;&lt;/font&gt;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetTextProperty(usageTextProp);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor2D&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;usageTextActor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor2D&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextActor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetMapper(usageTextMapper);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextActor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetPositionCoordinate()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetCoordinateSystemToNormalizedDisplay();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;usageTextActor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetPositionCoordinate()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetValue(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;05&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;95&lt;/font&gt;);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;create&amp;nbsp;an&amp;nbsp;interactor&amp;nbsp;with&amp;nbsp;our&amp;nbsp;own&amp;nbsp;style&amp;nbsp;(inherit&amp;nbsp;from&amp;nbsp;vtkInteractorStyleImage)&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;in&amp;nbsp;order&amp;nbsp;to&amp;nbsp;catch&amp;nbsp;mousewheel&amp;nbsp;and&amp;nbsp;key&amp;nbsp;events&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;renderWindowInteractor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;myVtkInteractorStyleImage&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;myInteractorStyle&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;myVtkInteractorStyleImage&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;make&amp;nbsp;imageviewer2&amp;nbsp;and&amp;nbsp;sliceTextMapper&amp;nbsp;visible&amp;nbsp;to&amp;nbsp;our&amp;nbsp;interactorstyle&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;slice&amp;nbsp;status&amp;nbsp;message&amp;nbsp;updates&amp;nbsp;when&amp;nbsp;scrolling&amp;nbsp;through&amp;nbsp;the&amp;nbsp;slices&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;myInteractorStyle&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetImageViewer(imageViewer);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;myInteractorStyle&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetStatusMapper(sliceTextMapper);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetupInteractor(renderWindowInteractor);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;make&amp;nbsp;the&amp;nbsp;interactor&amp;nbsp;use&amp;nbsp;our&amp;nbsp;own&amp;nbsp;interactorstyle&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;cause&amp;nbsp;SetupInteractor()&amp;nbsp;is&amp;nbsp;defining&amp;nbsp;it&#39;s&amp;nbsp;own&amp;nbsp;default&amp;nbsp;interatorstyle&amp;nbsp;&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;this&amp;nbsp;must&amp;nbsp;be&amp;nbsp;called&amp;nbsp;after&amp;nbsp;SetupInteractor()&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;renderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInteractorStyle(myInteractorStyle);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;add&amp;nbsp;slice&amp;nbsp;status&amp;nbsp;message&amp;nbsp;and&amp;nbsp;usage&amp;nbsp;hint&amp;nbsp;message&amp;nbsp;to&amp;nbsp;the&amp;nbsp;renderer&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetRenderer()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddActor2D(sliceTextActor);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetRenderer()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddActor2D(usageTextActor);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;initialize&amp;nbsp;rendering&amp;nbsp;and&amp;nbsp;interaction&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//imageViewer-&amp;gt;GetRenderWindow()-&amp;gt;SetSize(400,&amp;nbsp;300);&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//imageViewer-&amp;gt;GetRenderer()-&amp;gt;SetBackground(0.2,&amp;nbsp;0.3,&amp;nbsp;0.4);&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Render();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetRenderer()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;ResetCamera();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;imageViewer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Render();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;renderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Start();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;&amp;nbsp;EXIT_SUCCESS;
+}&lt;/div&gt;&lt;/div&gt;</code></div></div><div><br></div><div><div><br></div><div>例二：</div></div><div>vtk取坐标点事件，窗口左下为坐标原点，但非世界坐标原点。</div><div><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_da48a6cd930350afb522d595ef030a4a.jpg" alt>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_NXSNN1DJ5KE3CTSGWWB9D0.jpg" alt></div></div><div><br></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindow.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindowInteractor.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderer.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkSphereSource.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkPolyDataMapper.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkSmartPointer.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkPointPicker.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkCamera.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkInteractorStyleTrackballCamera.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkObjectFactory.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkCoordinate.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRendererCollection.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
+&amp;nbsp;
+&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;Define&amp;nbsp;interaction&amp;nbsp;style&lt;/font&gt;
+&lt;font color=&quot;#0000FF&quot;&gt;**class**&lt;/font&gt;&amp;nbsp;MouseInteractorStyle3&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**public**&lt;/font&gt;&amp;nbsp;vtkInteractorStyleTrackballCamera
+{
+&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**public**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**static**&lt;/font&gt;&amp;nbsp;MouseInteractorStyle3&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;New();
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**virtual**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;OnLeftButtonDown()&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;Pressed&amp;nbsp;left&amp;nbsp;mouse&amp;nbsp;button.&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;endl;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;x&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Interactor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetEventPosition()[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;];
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;y&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Interactor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetEventPosition()[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;];
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;(x,y)&amp;nbsp;=&amp;nbsp;(&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;x&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;,&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;y&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;)&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;endl;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkCoordinate&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;coordinate&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkCoordinate&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;coordinate&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetCoordinateSystemToDisplay();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;coordinate&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetValue(x,y,&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;This&amp;nbsp;doesn&#39;t&amp;nbsp;produce&amp;nbsp;the&amp;nbsp;right&amp;nbsp;value&amp;nbsp;if&amp;nbsp;the&amp;nbsp;sphere&amp;nbsp;is&amp;nbsp;zoomed&amp;nbsp;in???&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**double**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;world&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;coordinate&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetComputedWorldValue(&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Interactor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetRenderWindow()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetRenderers()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetFirstRenderer());
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;World&amp;nbsp;coordinate:&amp;nbsp;&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;world[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;]&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;,&amp;nbsp;&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;world[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;,&amp;nbsp;&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;world[&lt;font color=&quot;#6E00AA&quot;&gt;2&lt;/font&gt;]&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;std&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;endl;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;Forward&amp;nbsp;events&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkInteractorStyleTrackballCamera&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;OnLeftButtonDown();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;
+};
+&amp;nbsp;
+vtkStandardNewMacro(MouseInteractorStyle3);
+&amp;nbsp;
+&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;main(&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**char**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;[])
+{
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkSphereSource&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;sphereSource&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkSphereSource&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;sphereSource&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetCenter(&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;);
+&amp;nbsp;&amp;nbsp;sphereSource&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetRadius(&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;);
+&amp;nbsp;&amp;nbsp;sphereSource&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Update();
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkPolyDataMapper&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;mapper&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkPolyDataMapper&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;mapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInputConnection(sphereSource&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutputPort());
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;actor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkActor&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;actor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetMapper(mapper);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderer&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;renderer&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderer&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;renderer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetBackground(&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;,&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;,&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;);&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;Background&amp;nbsp;color&amp;nbsp;white&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;renderer&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddActor(actor);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindow&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;renderWindow&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindow&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;renderWindow&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddRenderer(renderer);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;renderWindowInteractor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkRenderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;renderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetRenderWindow&amp;nbsp;(&amp;nbsp;renderWindow&amp;nbsp;);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;MouseInteractorStyle3&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;style&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;MouseInteractorStyle3&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;renderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInteractorStyle(&amp;nbsp;style&amp;nbsp;);
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;renderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Initialize();
+&amp;nbsp;&amp;nbsp;renderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Start();
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;&amp;nbsp;&amp;nbsp;EXIT_SUCCESS&amp;nbsp;;
+}
+&lt;/div&gt;&lt;/div&gt;</code></div></div><div><br></div><div><div>例三：</div><div>单个renderwindow中添加多个render,生成冠状面，矢状面，横断面等四视图。</div></div><div><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-dba777faf79c359dba7237c21485c07f_HOVX@PKCY07_YB4QXNSMRW.jpg" alt></div></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkDICOMImageReader.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkOutlineFilter.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkPolyDataMapper.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkActor.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkRenderer.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkRenderWindow.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkRenderWindowInteractor.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkImagePlaneWidget.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkCellPicker.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkProperty.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkImageMapToColors.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkImageActor.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkCamera.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkCommand.h&quot;&lt;/font&gt;
+#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;vtkJPEGReader.h&quot;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#ff00bf&quot;&gt;
+&lt;/font&gt;&lt;font color=&quot;#0000FF&quot;&gt;**class**&lt;/font&gt;&amp;nbsp;vtkWidgetWindowLevelCallback&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**public**&lt;/font&gt;&amp;nbsp;vtkCommand
+{
+&lt;font color=&quot;#0000FF&quot;&gt;**public**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**static**&lt;/font&gt;&amp;nbsp;vtkWidgetWindowLevelCallback&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;New()
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**new**&lt;/font&gt;&amp;nbsp;vtkWidgetWindowLevelCallback;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;Execute(&amp;nbsp;vtkObject&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;caller,&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**unsigned**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**long**&lt;/font&gt;&amp;nbsp;vtkNotUsed(&amp;nbsp;event&amp;nbsp;),
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**void**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;callData&amp;nbsp;)
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImagePlaneWidget&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;self&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**reinterpret_cast**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;&amp;nbsp;vtkImagePlaneWidget&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;(&amp;nbsp;caller&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;(&lt;font color=&quot;#333399&quot;&gt;!&lt;/font&gt;self)&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**double**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;wl&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**static_cast**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#0000FF&quot;&gt;**double**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;(&amp;nbsp;callData&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;&amp;nbsp;(&amp;nbsp;self&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;==&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetX&amp;nbsp;)
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetWindowLevel(wl[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],wl[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetWindowLevel(wl[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],wl[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**else**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;(&amp;nbsp;self&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;==&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetY&amp;nbsp;)
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetWindowLevel(wl[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],wl[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetWindowLevel(wl[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],wl[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**else**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**if**&lt;/font&gt;&amp;nbsp;(self&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;==&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetZ)
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetWindowLevel(wl[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],wl[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**this**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetWindowLevel(wl[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],wl[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkWidgetWindowLevelCallback()&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;WidgetX(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;),&amp;nbsp;WidgetY(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;),&amp;nbsp;WidgetZ&amp;nbsp;(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;)&amp;nbsp;{}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImagePlaneWidget&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;WidgetX;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImagePlaneWidget&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;WidgetY;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImagePlaneWidget&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;WidgetZ;
+};
+&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;main()
+{
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkDICOMImageReader&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;DicomReader&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkDICOMImageReader&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DicomReader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetDataByteOrderToLittleEndian();&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DicomReader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetDirectoryName(&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;D:\\yangfeichuan\\2&quot;&lt;/font&gt;&amp;nbsp;);&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DicomReader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Update();&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkOutlineFilter&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;DicomOutline&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkOutlineFilter&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DicomOutline&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInputConnection(&amp;nbsp;DicomReader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutputPort()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkPolyDataMapper&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;DicomMapper&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkPolyDataMapper&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DicomMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInputConnection(&amp;nbsp;DicomOutline&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutputPort()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkActor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;DicomActor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkActor&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DicomActor&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetMapper(&amp;nbsp;DicomMapper&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkRenderWindow&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;renWin&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkRenderWindow&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkRenderer&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;ren&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkRenderer&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkRenderer&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;ren1&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkRenderer&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkRenderer&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;ren2&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkRenderer&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkRenderer&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;ren3&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkRenderer&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkRenderWindowInteractor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;iren&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkRenderWindowInteractor&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renWin&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddRenderer(&amp;nbsp;ren1&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renWin&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddRenderer(&amp;nbsp;ren2&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renWin&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddRenderer(&amp;nbsp;ren3&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renWin&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddRenderer(&amp;nbsp;ren&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;iren&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetRenderWindow(&amp;nbsp;renWin&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren-&amp;gt;AddActor(&amp;nbsp;DicomActor&amp;nbsp;);&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkCellPicker&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;picker&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkCellPicker&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;picker&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetTolerance(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;005&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImagePlaneWidget&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;planeWidgetX&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImagePlaneWidget&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInteractor(&amp;nbsp;iren&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetKeyPressActivationValue(&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&#39;x&#39;&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetPicker(&amp;nbsp;picker&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;RestrictPlaneToVolumeOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetPlaneProperty()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetColor(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;DisplayTextOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//planeWidgetX-&amp;gt;TextureInterpolateOn();&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;TextureInterpolateOff();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetResliceInterpolateToLinear();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;(vtkDataSet&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)DicomReader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetPlaneOrientationToXAxes();&lt;font color=&quot;#008000&quot;&gt;//??&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetSliceIndex(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;255&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetTexturePlaneProperty()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetOpacity(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;On();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImagePlaneWidget&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;planeWidgetY&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImagePlaneWidget&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInteractor(&amp;nbsp;iren&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetKeyPressActivationValue(&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&#39;y&#39;&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetPicker(&amp;nbsp;picker&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;RestrictPlaneToVolumeOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetPlaneProperty()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetColor(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;DisplayTextOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;TextureInterpolateOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetResliceInterpolateToLinear();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;(vtkDataSet&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)DicomReader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetPlaneOrientationToYAxes();&lt;font color=&quot;#008000&quot;&gt;//??&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetSliceIndex(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;255&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;On();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImagePlaneWidget&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;planeWidgetZ&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImagePlaneWidget&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInteractor(&amp;nbsp;iren&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;DisplayTextOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;RestrictPlaneToVolumeOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetKeyPressActivationValue(&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&#39;z&#39;&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetPicker(&amp;nbsp;picker&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetPlaneProperty()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetColor(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;TextureInterpolateOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetResliceInterpolateToLinear();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;(vtkDataSet&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)DicomReader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetPlaneOrientationToZAxes();&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//?á¨￠????&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetSliceIndex(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;150&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;On();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;/*&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImagePlaneWidget&amp;nbsp;*planeWidgetZ&amp;nbsp;=&amp;nbsp;vtkImagePlaneWidget::New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;SetInteractor(&amp;nbsp;iren&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;SetKeyPressActivationValue(&amp;nbsp;&#39;z&#39;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;DisplayTextOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;SetPicker(&amp;nbsp;picker&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;GetPlaneProperty()-&amp;gt;SetColor(&amp;nbsp;1.0,&amp;nbsp;0.0,&amp;nbsp;0.0&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;TextureInterpolateOn();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;SetResliceInterpolateToCubic();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;SetInput(&amp;nbsp;(vtkDataSet*)DicomReader-&amp;gt;GetOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;SetPlaneOrientationToZAxes();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;SetSliceIndex(&amp;nbsp;183&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;planeWidgetZ-&amp;gt;On();*/&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkWidgetWindowLevelCallback&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;cbk&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkWidgetWindowLevelCallback&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cbk&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetX&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;planeWidgetX;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cbk&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetY&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;planeWidgetY;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cbk&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;WidgetZ&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;planeWidgetZ;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cbk&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Delete();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImageMapToColors&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;colorMap1&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImageMapToColors&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;PassAlphaToOutputOff();&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//use&amp;nbsp;in&amp;nbsp;RGBA&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetActiveComponent(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetOutputFormatToLuminance();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;(vtkDataSet&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetResliceOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetLookupTable(&amp;nbsp;(vtkScalarsToColors&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetLookupTable()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImageActor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;imageActor1&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImageActor&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;imageActor1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;PickableOff();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;imageActor1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;colorMap1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImageMapToColors&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;colorMap2&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImageMapToColors&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;PassAlphaToOutputOff();&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetActiveComponent(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;for&amp;nbsp;muti-component&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetOutputFormatToLuminance();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;(vtkDataSet&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)planeWidgetY&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetResliceOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetLookupTable(&amp;nbsp;(vtkScalarsToColors&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetLookupTable()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImageActor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&amp;nbsp;imageActor2&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImageActor&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;imageActor2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;PickableOff();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;imageActor2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;colorMap2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImageMapToColors&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;colorMap3&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImageMapToColors&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;PassAlphaToOutputOff();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetActiveComponent(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetOutputFormatToLuminance();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;(vtkDataSet&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)planeWidgetZ&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetResliceOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;colorMap3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetLookupTable(&amp;nbsp;(vtkScalarsToColors&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;)planeWidgetX&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetLookupTable());
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//colorMap3-&amp;gt;SetLookupTable(planeWidgetX-&amp;gt;GetLookupTable());&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkImageActor&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;imageActor3&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;vtkImageActor&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;imageActor3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;PickableOff();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;imageActor3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(&amp;nbsp;colorMap3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddActor(&amp;nbsp;DicomActor&amp;nbsp;);&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//outline&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddActor(&amp;nbsp;imageActor1&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddActor(&amp;nbsp;imageActor2&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;AddActor(&amp;nbsp;imageActor3&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;OK&lt;/font&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetBackground(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;3&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;3&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;6&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetBackground(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetBackground(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetBackground(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renWin&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetSize(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;600&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;400&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetViewport(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetViewport(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren2&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetViewport(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ren3&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetViewport(&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;5&lt;/font&gt;&amp;nbsp;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;iren&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Initialize();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;iren&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Start();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renWin&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Render();
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;;
+}
+&lt;/div&gt;&lt;/div&gt;</code></div></div><div><br></div><div><br></div>
+
+<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/01/07/vtk-e9-bc-a0-e6-a0-87-e4-ba-a4-e4-ba-92-e4-b8-89-e4-be-8b/" data-id="cjsnzpd7900byz8h8qjwfowpt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          机器学习经典论文/survey合集
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/01/01/2014-e8-ae-a1-e5-88-92/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2014计划（想到再加）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ANNs/">ANNs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Big-Data/">Big Data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language-Study/">Language Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Photography/">Photography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/big-data/">big data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/">c/cpp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-cpp/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/cmake/">cmake</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp/">cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/data-science/">data science</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/design-pattern/">design pattern</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/itk/">itk</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/itk/vtk/">vtk</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poem/">poem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/qt/">qt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vtk/">vtk</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perceptron/">Perceptron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photography/">Photography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-data/">big data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cv/">cv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-struct/">data struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/">design pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dll/">dll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/">english</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/">error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event/">event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exception/">exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/g/">g++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interactor/">interactor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/itk/">itk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lib/">lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab/">matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nltk/">nltk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/observer/">observer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/">pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poem/">poem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pygame/">pygame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sae/">sae</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scrapy/">scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setuptools/">setuptools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/signals/">signals</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slots/">slots</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smartpointer/">smartpointer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite3/">sqlite3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/template/">template</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/titan/">titan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/to-do-list/">to-do list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs2010/">vs2010</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vtk/">vtk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win/">win</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wxPython/">wxPython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Cpp/" style="font-size: 12px;">Cpp</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/Neural-Networks/" style="font-size: 12px;">Neural Networks</a> <a href="/tags/Perceptron/" style="font-size: 12px;">Perceptron</a> <a href="/tags/Photography/" style="font-size: 10px;">Photography</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/algorithms/" style="font-size: 10px;">algorithms</a> <a href="/tags/big-data/" style="font-size: 10px;">big data</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/callback/" style="font-size: 10px;">callback</a> <a href="/tags/cmake/" style="font-size: 10px;">cmake</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/cpp/" style="font-size: 18px;">cpp</a> <a href="/tags/cv/" style="font-size: 12px;">cv</a> <a href="/tags/data-science/" style="font-size: 12px;">data science</a> <a href="/tags/data-struct/" style="font-size: 10px;">data struct</a> <a href="/tags/design-pattern/" style="font-size: 10px;">design pattern</a> <a href="/tags/dll/" style="font-size: 10px;">dll</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/event/" style="font-size: 10px;">event</a> <a href="/tags/exception/" style="font-size: 10px;">exception</a> <a href="/tags/g/" style="font-size: 10px;">g++</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interactor/" style="font-size: 10px;">interactor</a> <a href="/tags/itk/" style="font-size: 16px;">itk</a> <a href="/tags/lib/" style="font-size: 10px;">lib</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine learning</a> <a href="/tags/matlab/" style="font-size: 12px;">matlab</a> <a href="/tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/nltk/" style="font-size: 12px;">nltk</a> <a href="/tags/observer/" style="font-size: 10px;">observer</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/poem/" style="font-size: 14px;">poem</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qt/" style="font-size: 16px;">qt</a> <a href="/tags/sae/" style="font-size: 10px;">sae</a> <a href="/tags/scrapy/" style="font-size: 10px;">scrapy</a> <a href="/tags/setuptools/" style="font-size: 10px;">setuptools</a> <a href="/tags/signals/" style="font-size: 10px;">signals</a> <a href="/tags/slots/" style="font-size: 10px;">slots</a> <a href="/tags/smartpointer/" style="font-size: 10px;">smartpointer</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlite3/" style="font-size: 10px;">sqlite3</a> <a href="/tags/template/" style="font-size: 10px;">template</a> <a href="/tags/titan/" style="font-size: 10px;">titan</a> <a href="/tags/to-do-list/" style="font-size: 10px;">to-do list</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a> <a href="/tags/ubuntu/" style="font-size: 12px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 12px;">ui</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vs2010/" style="font-size: 12px;">vs2010</a> <a href="/tags/vtk/" style="font-size: 18px;">vtk</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/win/" style="font-size: 10px;">win</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/wxPython/" style="font-size: 10px;">wxPython</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/matplotlib基础/">matplotlib基础</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/NLTK安装教程/">NLTK安装教程</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/NLTK命名实体识别/">NLTK命名实体识别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/17/Titan连接Hbase后端/">Titan连接Hbase后端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
