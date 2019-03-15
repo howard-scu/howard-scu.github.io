@@ -338,6 +338,378 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/05/07/e7-bc-96-e8-af-91x64-e7-89-88-e6-9c-acqt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/05/07/e7-bc-96-e8-af-91x64-e7-89-88-e6-9c-acqt/" class="post-title-link" itemprop="url">编译x64版本QT</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-05-07 21:10:10" itemprop="dateCreated datePublished" datetime="2014-05-07T21:10:10+08:00">2014-05-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2014/05/07/e7-bc-96-e8-af-91x64-e7-89-88-e6-9c-acqt/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/05/07/e7-bc-96-e8-af-91x64-e7-89-88-e6-9c-acqt/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>由于ITK处理的时候内存问题，项目由32位平台转到64位平台。需要重新编译QT、VTK、ITK，中间遇到些许问题，记录下来。编译顺序有讲究，因为VTK会依赖一些QT包，所以我们需要先编译QT。</p>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">1、安装</span><span style="font-size: 10.5pt; line-height: 1.5;">Perl（我也不确定是否真实需要）；</span></div><br><div>2、下载并解压QT源码（假设解压目录为C:\qt\src）</div><br><div>3、设置环境变量</div><br>&gt; <div><span style="font-size: 10.5pt; line-height: 1.5;">QTDIR=</span><span style="font-size: 10.5pt; line-height: 1.5;">C:\qt\src</span></div><br>&gt;<br>&gt; <div>QMAKESPEC=win32-msvc2010</div><br><div>4、将目录添加到PATH</div><br><div><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">   </span><span style="font-size: 10.5pt; line-height: 1.5;">%QTDIR%\bin</span></div><br><div>5、下载Jom并解压（假设路径为C:\qt）</div><br><div>6、启动VS2010 x64命令后提示，切换到工作目录，随后nmake</div><br>&gt; <div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br>&gt;<br>&gt; <div>configure <span style="color: #333399;">-</span>debug<span style="color: #333399;">-</span><span style="color: #333399;">and</span><span style="color: #333399;">-</span>release <span style="color: #333399;">-</span>opensource <span style="color: #333399;">-</span>platform win32<span style="color: #333399;">-</span>msvc2010<br>&gt;<br>&gt; ..\jom.exe <span style="color: #333399;">-</span>j N<span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">—-</span><span style="line-height: 1.5;">其中N为CPU核心数</span></div><br>&gt;<br>&gt; </div><br><div><span style="color: #ff0000;"><strong>注意：</strong></span></div><br><div>上面的方法是参照1法进行的，不能正确编译，会遇到两个问题：</div><br><div><span style="background-color: #ffffff; color: #333333; font-family: Arial; font-size: 10.5pt; line-height: 26px;"><strong>1.NMAKE : fatal error U1077: “cd”: 返回代码“0x2”的错误</strong></span></div><br><div><span style="background-color: #ffffff; color: #333333; font-family: Arial; font-size: 10.5pt; line-height: 26px;"><strong>解决方法是：</strong></span></div><br><div><span style="color: #333333; font-family: Arial;">将</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">DefaultLocalizationStrategy.cpp</span>中</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>return</strong></span> WEB_UI_STRING(<span style="color: #ff00bf;">“Look Up “&lt;selection&gt;””</span>, <span style="color: #ff00bf;">“Look Up context menu item with selected word”</span>).replace(<span style="color: #ff00bf;">“&lt;selection&gt;”</span>, truncatedStringForLookupMenuItem(selectedString));</div><br></div><br></div><br><div>改为</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>return</strong></span> WEB_UI_STRING(<span style="color: #ff00bf;">“Look Up \”&lt;selection&gt;\””</span>, <span style="color: #ff00bf;">“Look Up context menu item with selected word”</span>).replace(<span style="color: #ff00bf;">“&lt;selection&gt;”</span>, truncatedStringForLookupMenuItem(selectedString));</div><br></div><br></div><br><div><strong><span style="background-color: #ffffff; color: #333333; font-family: Arial; line-height: 26px; font-size: 10.5pt;">2.无法正确生成</span><span style="font-size: 10.5pt; line-height: 1.5;">QtWebKit4.dll链接库</span></strong></div><br><div><span style="color: #333333; font-family: Arial; line-height: 26px; background-color: #ffffff;"><strong>解决方法是：</strong></span></div><br><div>将<span style="font-size: 10.5pt; line-height: 1.5;">WebCore.pro中的</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">QMAKE_HOST.arch</span></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">改为</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">QMAKE_TARGET.arch</span></span></div><br><div></div><br><div></div><br><div></div><br><div>参考资料：</div><br><div>【1】<a href="http://www.holoborodko.com/pavel/2011/02/01/how-to-compile-qt-4-7-with-visual-studio-2010/" target="_blank" rel="noopener">http://www.holoborodko.com/pavel/2011/02/01/how-to-compile-qt-4-7-with-visual-studio-2010/</a></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">【2】</span><a href="http://stackoverflow.com/questions/9543753/how-to-compile-qt-for-64-bit-windows-from-a-32-bit-environment-with-visual-c-2?rq=1" target="_blank" rel="noopener">http://stackoverflow.com/questions/9543753/how-to-compile-qt-for-64-bit-windows-from-a-32-bit-environment-with-visual-c-2?rq=1</a></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">【3】</span><a href="http://blog.csdn.net/lzrocking/article/details/7925051" target="_blank" rel="noopener">http://blog.csdn.net/lzrocking/article/details/7925051</a></div><br><div></div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c-e5-ad-a6-e4-b9-a0-e5-92-8c-e8-ae-ad-e7-bb-83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c-e5-ad-a6-e4-b9-a0-e5-92-8c-e8-ae-ad-e7-bb-83/" class="post-title-link" itemprop="url">感知器神经网络学习和训练</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-05-06 23:15:02" itemprop="dateCreated datePublished" datetime="2014-05-06T23:15:02+08:00">2014-05-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ANNs/" itemprop="url" rel="index"><span itemprop="name">ANNs</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c-e5-ad-a6-e4-b9-a0-e5-92-8c-e8-ae-ad-e7-bb-83/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c-e5-ad-a6-e4-b9-a0-e5-92-8c-e8-ae-ad-e7-bb-83/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>感知器学习规则：</p>
+<div><br><div>训练感知器，对每一个输入向量做出响应，输出0或1。当解存在时，该学习规则被证明是能在有限时间内收敛到某个解的。</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>b <span style="color: #333399;">=</span> b <span style="color: #333399;">+</span> [ T <span style="color: #333399;">-</span> A ]<br>W(i) <span style="color: #333399;">=</span> W(i) <span style="color: #333399;">+</span> [ T <span style="color: #333399;">-</span> A ] <span style="color: #333399;">*</span> P(i)</div><br></div><br></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">式中， W 是权值向量, P输入向量, T是期望输出, A 是实际输出, b是偏置。</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #333399;">&gt;&gt;</span> net <span style="color: #333399;">=</span> newp([<span style="color: #333399;">-</span><span style="color: #6e00aa;">1</span> <span style="color: #6e00aa;">1</span>;<span style="color: #333399;">-</span><span style="color: #6e00aa;">1</span> <span style="color: #6e00aa;">1</span>],<span style="color: #6e00aa;">1</span>);<br><span style="color: #333399;">&gt;&gt;</span> P <span style="color: #333399;">=</span> [<span style="color: #333399;">-</span><span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">5</span> <span style="color: #333399;">-</span><span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">5</span> <span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">5</span> <span style="color: #333399;">-</span><span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">1</span>;<span style="color: #333399;">-</span><span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">5</span> <span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">5</span> <span style="color: #333399;">-</span><span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">5</span> <span style="color: #6e00aa;">1</span>];<br><span style="color: #333399;">&gt;&gt;</span> T <span style="color: #333399;">=</span> [<span style="color: #6e00aa;">1</span> <span style="color: #6e00aa;">1</span> <span style="color: #6e00aa;">0</span> <span style="color: #6e00aa;">0</span>];<br><span style="color: #333399;">&gt;&gt;</span> plotpv(P,T);<span style="font-family: Courier New;">    </span><span style="font-family: Courier New;">    </span><span style="font-family: Courier New;">    </span><span style="font-family: Courier New;">    </span><span style="font-family: Courier New;">    </span><span style="font-family: Courier New;">    %</span><span style="font-family: Courier New;">    画出PT坐标</span><br><span style="color: #333399;">&gt;&gt;</span> plotpc(net.IW{<span style="color: #6e00aa;">1</span>},net.b{<span style="color: #6e00aa;">1</span>});<span style="font-family: Courier New;">    </span><span style="font-family: Courier New;">    </span><span style="font-family: Courier New;"> %</span><span style="font-family: Courier New;">    画出线</span></div><br><div><span style="color: #333399;">&gt;&gt;</span> net.adaptParam.passes <span style="color: #333399;">=</span> <span style="color: #6e00aa;">3</span>;<span style="font-family: Courier New;">    </span><span style="font-family: Courier New;">    </span><span style="font-family: Courier New;">  %</span><span style="font-family: Courier New;">    修正3次通过</span><br><span style="color: #333399;">&gt;&gt;</span> net <span style="color: #333399;">=</span> adapt(net,P,T);<br><span style="color: #333399;">&gt;&gt;</span> hold on<br><span style="color: #333399;">&gt;&gt;</span> plotpc(net.IW{<span style="color: #6e00aa;">1</span>},net.b{<span style="color: #6e00aa;">1</span>});<br><span style="color: #333399;">&gt;&gt;</span> plotpv(P,T);<br><span style="color: #333399;">&gt;&gt;</span> p <span style="color: #333399;">=</span> [<span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">7</span>; <span style="color: #6e00aa;">1</span>.<span style="color: #6e00aa;">2</span>];<br><span style="color: #333399;">&gt;&gt;</span> a <span style="color: #333399;">=</span> sim(net ,p);<br><span style="color: #333399;">&gt;&gt;</span> plotpv(p,a)<br><span style="color: #333399;">&gt;&gt;</span> hold on;<br><span style="color: #333399;">&gt;&gt;</span> plotpv(P,T);<br><span style="color: #333399;">&gt;&gt;</span> plotpc(net.IW{<span style="color: #6e00aa;">1</span>},net.b{<span style="color: #6e00aa;">1</span>});<br><span style="color: #333399;">&gt;&gt;</span> hold off;</div><br></div><br></div><br><div>训练结果能够正确分类：</div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/05/wpid-06c8adb0313076e053593b127090ef3e_72851328.png" alt></div><br><div><br></div><br></div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1830,391 +2202,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/17/vtk-e4-b8-adgetoutput-e5-92-8cgetoutputport-e5-8c-ba-e5-88-ab/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/01/17/vtk-e4-b8-adgetoutput-e5-92-8cgetoutputport-e5-8c-ba-e5-88-ab/" class="post-title-link" itemprop="url">VTK中GetOutput()和GetOutputPort()区别</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-01-17 05:43:13" itemprop="dateCreated datePublished" datetime="2014-01-17T05:43:13+08:00">2014-01-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2014/01/17/vtk-e4-b8-adgetoutput-e5-92-8cgetoutputport-e5-8c-ba-e5-88-ab/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/01/17/vtk-e4-b8-adgetoutput-e5-92-8cgetoutputport-e5-8c-ba-e5-88-ab/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><span style="font-family: 微软雅黑;">VTK的数据流采用流水线(pipeline)作业方式。但是在接口的时候有两种数据格式一种是使用</span><span style="font-family: 微软雅黑;">GetOutput()，另外一种是使用GetOutputPort()</span></p>
-<div><span style="font-family: 微软雅黑;">这两种输出有什么分别呢？</span></div><br><div><span style="font-family: 微软雅黑;"><strong>举例说明：</strong></span></div><br><div><span style="font-family: 微软雅黑;">vtkDICOMImageReader对象拥有方法</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutput()和</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。</span></div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkDICOMImageReader__inherit__graph1.png" alt="Inheritance graph"></div><br><div>在<span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm中</span><span style="font-size: 10.5pt; line-height: 1.5;">GetOutput()如下定义：</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>vtkImageData<span style="color: #333399;"><em></em></span> GetOutput();</div><br></div><br></div><br><div>可知输出格式是<span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageData</span></span><span style="font-size: 10.5pt; line-height: 1.5;">类型；</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div>另外<span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutputPort()在类</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkImageAlgorithm中定义如下：</span></div><br><div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>vtkAlgorithmOutput<span style="color: #333399;"></span> GetOutputPort()</div><br><div>{<br><span style="color: #0000ff;"><strong>return</strong></span> <span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetOutputPort(<span style="color: #6e00aa;">0</span>);</div><br><div>}</div><br></div><br></div><br></div><br><div>可知输出格式是<span style="color: #ff0000;">vtkAlgorithmOutput</span><span style="font-size: 10.5pt; line-height: 1.5;">类型</span></div><br><div></div><br><div>而<span style="font-family: 微软雅黑;">vtkAlgorithm</span><span style="font-family: 微软雅黑;">和vtkImageAlgorithm类的关系如下：</span><br><div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkImageAlgorithm__coll__graph1.png" alt="Collaboration graph"></div><br></div><br></div><br><div><span style="font-family: 微软雅黑;">vtkImageAlgorithm是继承了</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm的；</span></div><br><div></div><br><div><span style="font-family: 微软雅黑;">再看看</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkImageData的解释：</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">vtkImageData是</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkDataSet</span><span style="font-size: 10.5pt; line-height: 1.5;">具体实现</span><span style="font-size: 10.5pt; line-height: 1.5;">一个数据对象。vtkImageData可以表示一个拓扑或者几何点阵的几何数据结构。</span></div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkImageData__inherit__graph1.png" alt="Inheritance graph"></div><br><div><br><div><span style="font-family: 微软雅黑;"><br></span></div><br><div><span style="font-family: 微软雅黑;">看看</span>vtkAlgorithmOutput<span style="font-size: 10.5pt; line-height: 1.5;">的解释：</span></div><br><div>vtkAlgorithmOutput是由<span style="font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm的</span><span style="font-size: 10.5pt; line-height: 1.5;">GetOutputPort方法</span><span style="font-size: 10.5pt; line-height: 1.5;">返回的是一个代理对象。经常被传递给另一个</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm类的</span><span style="font-size: 10.5pt; line-height: 1.5;">SetInputConnection或者</span><span style="font-size: 10.5pt; line-height: 1.5;">AddInputConnection或者</span><span style="font-size: 10.5pt; line-height: 1.5;">RemoveInputConnection方法，以建立通道连接。</span></div><br></div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkAlgorithmOutput__inherit__graph1.png" alt="Inheritance graph"></div><br><div></div><br><div></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">参考】：</span></div><br><div><span style="font-family: 微软雅黑;">[1]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkImageData.html" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkImageData.html</a> </span></div><br><div>[2]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithm.html#a278ce83f371e6a398cf46f4600108d3e" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithm.html#a278ce83f371e6a398cf46f4600108d3e</a></div><br><div>[3]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkImageAlgorithm.html" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkImageAlgorithm.html</a></div><br><div>[4]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkDataObject.html" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkDataObject.html</a></div><br><div>[5]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithmOutput.html" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithmOutput.html</a></div><br><div>[6]<a href="http://www.vislab.cn/bbs/archiver/?tid-2656.html" target="_blank" rel="noopener">http://www.vislab.cn/bbs/archiver/?tid-2656.html</a></div><br><div>[7]<a href="http://vtk.1045678.n5.nabble.com/difference-between-GetOutputPort-and-GetOutput-td1250681.html" target="_blank" rel="noopener">http://vtk.1045678.n5.nabble.com/difference-between-GetOutputPort-and-GetOutput-td1250681.html</a></div><br><div>[8]<a href="http://www.vislab.cn/bbs/archiver/?tid-97.html" target="_blank" rel="noopener">http://www.vislab.cn/bbs/archiver/?tid-97.html</a></div><br><div></div><br><div></div>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/" class="post-title-link" itemprop="url">ITK与VTK对象的互相转化</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-01-17 03:59:49" itemprop="dateCreated datePublished" datetime="2014-01-17T03:59:49+08:00">2014-01-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/itk/" itemprop="url" rel="index"><span itemprop="name">itk</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/itk/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处理。最后，ImageFileWriter将处理的图像数据结果保存，或输人给图形显示系统(如VTK)，进行数据可视化。</span></div><br><div><span style="font-family: 微软雅黑;"> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKliucheng1.jpg" alt></span></div><br><div><span style="font-family: 微软雅黑;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">VTK是C++语言开发的、公开源码的、面向对象的数据可视化软件开发包，并不单纯用于医学图像数据的可视化。VTK支持跨平台的编译，可以应用于Windows,Linux等系统。VTK支持包括数量、向量、张量、结构和测定体积等方法一系列可视化算法，VTK还支持包括建模。</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">VTK的数据流同样采用流水线作业方式，如图2所示。</span></div><br><div><span style="font-family: 微软雅黑;"> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_VTKliucheng1.jpg" alt></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkSource为整个可视化流的开始，比如读取、生成数据等。vtkFilte对输入源数据进行各种处理，与ITK的Fileter类似。原始数据经过各种Filte:的处理后，再由vtkMappe:转换(或映射)成可供其它算法模块直接使用的数据形式，比如为几何数据。vtkActor类用来描述绘制场景中一个实体，即绘制场景的某个角色(Actor)。通过SetMapper()方法，可以将几何数据的属性传递给Actor，再由vtkRenderer类将处理后的数据结果显示出来。</span></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">由于ITK和VTK的数据流都是采用流水线作业形式，比较方便地利用类库本身提供的类型转换类来实现，如图3所示。通过ITKtoVTKImageFilter类操作将ITK和VTK的图像数据连接了起来，VTK负责图像数据的显示，而ITK负责图像的处理，其中VTK的Image Viewe:是一个很方便实现的图像显示类，它在内部管理着vtkImageWindow, vtkRenderer, vtkActor2D和vtkImageMapper等图象类，实现图像查看、显示和可视化功能。</span></div><br><div><span style="font-family: 微软雅黑;"><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKtoVTK1.jpg" alt></span></div><br><div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2014/01/17/itk-e4-b8-8evtk-e5-af-b9-e8-b1-a1-e7-9a-84-e4-ba-92-e7-9b-b8-e8-bd-ac-e5-8c-96/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </span></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </div></div></article>
-
-
-    
   </section>
 
   
@@ -2263,7 +2250,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">105</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2336,7 +2323,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2493,7 +2482,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">72</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">75</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

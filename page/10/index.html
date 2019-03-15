@@ -338,6 +338,433 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/" class="post-title-link" itemprop="url">智能指针有一个让人困惑的地方：当你创建一个智能指针类型的对象</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-11-29 19:04:27" itemprop="dateCreated datePublished" datetime="2013-11-29T19:04:27+08:00">2013-11-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/" itemprop="url" rel="index"><span itemprop="name">c/cpp</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>智能指针有一个让人困惑的地方：当你创建一个智能指针类型的对象，然后改变它的指向，这时引用计数就会出错。</strong>例如：</p>
+<p>vtkSmartPointer&lt;vtkImageData&gt;imageData = vtkSmartPointer&lt;vtkImageData&gt;::New();</p>
+<p>imageData= Reader-&gt;GetOutput();</p>
+<p>上面两行代码里，我们首先创建一个imageData，并给他分配好了内存，接着我们又把imageData指向Reader的输出，而不是一直指向我们创建的那块内存。对于这种情况，我们只要简单地调用：</p>
+<p>vtkImageData*imageData = Reader-&gt;GetOutput();</p>
+<p><strong>这里没有必要使用智能指针，因为我们没有实际创建任何新的对象。</strong></p>
+<p>综上所述，可以看出引用计数和智能指针是息息相关的，它们主要都是用于内存管理。使用智能指针可以免去很多手动删除变量的烦恼，所以在本教程里，我们从一开始都使用智能指针来创建VTK对象。如果你想了解更多关于引用计数和智能指针的内容，可以参考C++的经典著作《<a style="color: #6a3906;" name="OLE_LINK7"></a><a style="color: #6a3906;" name="OLE_LINK6"></a>More Effective C++》这本书。</p>
+<div style="color: gray;"><small>来源： &lt;<a href="http://blog.csdn.net/www_doling_net/article/details/8540242" target="_blank" rel="noopener">http://blog.csdn.net/www_doling_net/article/details/8540242</a><small>&gt;</small></small></div><br><small><small> </small></small><br><div></div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/09/29/invictus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/09/29/invictus/" class="post-title-link" itemprop="url">Invictus</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-09-29 20:24:01" itemprop="dateCreated datePublished" datetime="2013-09-29T20:24:01+08:00">2013-09-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/poem/" itemprop="url" rel="index"><span itemprop="name">poem</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2013/09/29/invictus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/09/29/invictus/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<div><em><span style="font-family: 'Times New Roman'; font-size: small;">—-by William Ernest Henley</span></em></div>
+
+<div></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Out of the night that covers me,</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Black as the pit from pole to pole,</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I thank whatever gods may be</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">For my unconquerable soul.</span></em></div>
+
+<div></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">In the fell clutch of circumstance</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I have not winced nor cried aloud.</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Under the bludgeonings of chance</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">My head is bloody, but unbowed.</span></em></div>
+
+<div></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Beyond this place of wrath and tears</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Looms but the Horror of the shade,</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">And yet the menace of the years</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Finds and shall find me unafraid.</span></em></div>
+
+<div></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">It matters not how strait the gate,</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">How charged with punishments the scroll,</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I am the master of my fate:</span></em></div>
+
+<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I am the captain of my soul.</span></em></div>
+</blockquote>
+<div></div><br><div></div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/09/29/e4-b8-89-e7-99-be-e5-85-ad-e5-8d-81-e4-ba-94-e9-87-8c-e8-b7-af/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1854,514 +2281,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/30/python-e5-ae-89-e8-a3-85-e7-ac-ac-e4-b8-89-e6-96-b9-e5-8c-85-e6-97-b6setuptools-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2013/07/30/python-e5-ae-89-e8-a3-85-e7-ac-ac-e4-b8-89-e6-96-b9-e5-8c-85-e6-97-b6setuptools-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/" class="post-title-link" itemprop="url">python安装第三方包时setuptools错误解决方法 </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2013-07-30 20:17:01" itemprop="dateCreated datePublished" datetime="2013-07-30T20:17:01+08:00">2013-07-30</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2013/07/30/python-e5-ae-89-e8-a3-85-e7-ac-ac-e4-b8-89-e6-96-b9-e5-8c-85-e6-97-b6setuptools-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/07/30/python-e5-ae-89-e8-a3-85-e7-ac-ac-e4-b8-89-e6-96-b9-e5-8c-85-e6-97-b6setuptools-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>安装openpyxl遇到下面的错误：</p>
-<pre class="brush:powershell">ImportError: No module named setuptools</pre>
-此种情况只要安装下setuptools模块即可
-1.官方下载[https://pypi.python.org/pypi/setuptools/0.9.8](https://pypi.python.org/pypi/setuptools/0.9.8)
-2.安装模块
-<pre class="brush:powershell">C:\setuptools-0.9.8&gt;python setup.py install</pre>
-3.继续安装openpyxl能够顺利进行
-<pre class="brush:powershell">C:\openpyxl-1.6.2&gt;python setup.py install
-running install
-running bdist_egg</pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/28/c-e8-b0-83-e7-94-a8sqlite3-e6-95-b0-e6-8d-ae-e5-ba-93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2013/07/28/c-e8-b0-83-e7-94-a8sqlite3-e6-95-b0-e6-8d-ae-e5-ba-93/" class="post-title-link" itemprop="url">c++调用sqlite3数据库</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2013-07-28 16:24:50" itemprop="dateCreated datePublished" datetime="2013-07-28T16:24:50+08:00">2013-07-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/" itemprop="url" rel="index"><span itemprop="name">c/cpp</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2013/07/28/c-e8-b0-83-e7-94-a8sqlite3-e6-95-b0-e6-8d-ae-e5-ba-93/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/07/28/c-e8-b0-83-e7-94-a8sqlite3-e6-95-b0-e6-8d-ae-e5-ba-93/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre class="brush:cpp">#include "stdio.h"
-#include "stdlib.h"
-extern "C"
-{
-#include "sqlite3.h"
-};
-
-int open_database(sqlite3** db,char* dbName);
-int close_database(sqlite3* db);
-int query(void* para,int n_column,char** column_value,char **column_name);
-
-int main()
-{
-    char* errmsg=NULL;
-    sqlite3* db;
-    open_database(&amp;db,"C:\\test.db");
-    int ret = sqlite3_exec(db, "select * from stu;" ,query, NULL, &amp;errmsg );
-    close_database(db);
-
-    system("pause");
-    return 0;
-}
-int open_database(sqlite3** db,char* dbName)
-{
-    int result;
-    char * errmsg = NULL;
-    result = sqlite3_open(dbName,db );
-    if( result != SQLITE_OK )
-    {
-        // 数据库打开失败
-        printf("打开数据库【%s】失败\n",dbName);
-        return 0;
-    }
-    printf("打开数据库【%s】成功\n",dbName);
-    return 1;
-}
-
-int query_nn(sqlite3** db,char* sql)
-{
-    char** dbResult;
-    int nRow,nColumn;
-    int index;
-    int result;
-    char* errmsg = NULL;
-    //
-    result = sqlite3_get_table(*db,sql,&amp;dbResult,&amp;nRow,&amp;nColumn,&amp;errmsg );
-    if( SQLITE_OK == result )
-    {
-        // 查询成功
-        index = nColumn; // 前面说过 dbResult 前面第一行数据是字段名称，从 nColumn 索引开始才是真正的数据
-        printf( "查到 %d 条记录 \n " , nRow );
-        for(int i = 0; i &lt; nRow ; i++ )
-        {
-            printf( "第 %d 条记录 \n " , i+1 );
-            for(int j = 0 ; j &lt; nColumn; j++ )
-            {
-                printf( "字段名 :%s &gt; 字段值 :%s\n " , dbResult[j], dbResult [index] );
-                ++index; // dbResult 的字段值是连续的 ， 从第 0 索引到第 nColumn - 1 索引都是字段名称 ， 从第nColumn 索引开始 ， 后面都是字段值 ， 它把一个二维的表 （ 传统的行列表示法 ） 用一个扁平的形式来表示
-            }
-            printf( "-------\n " );
-        }
-    }
-    //printf( "!!!错误码 :%d ，错误原因 :%s\n ", result, errmsg );
-    // 到这里 ， 不论数据库查询是否成功 ， 都释放 char** 查询结果 ， 使用 sqlite 提供的功能来释放
-    sqlite3_free_table( dbResult );
-    return 1;
-}
-
-int close_database(sqlite3* db)
-{
-    int result;
-    char * errmsg = NULL;
-    result = sqlite3_close(db);
-    if( result != SQLITE_OK )
-    {
-        // 数据库打开失败
-        printf("关闭数据库失败\n");
-        return 0;
-    }
-    printf("关闭数据库成功\n");
-    return 1;
-}
-int query(void* para,int n_column,char** column_value,char **column_name)
-{
-    //para是你在sqlite3_exec里传入的void*参数
-    //n_column是这一条记录有多少个字段
-    //char** column_value是个关键值，查出来的数据都保存在这里(实际上是个 1 维数组)
-    //char** column_name跟 column_value 是对应的，表示这个字段的字段名称
-    int i;
-    printf("记录包含 %d 个字段\n", n_column );
-    for(i = 0 ; i &lt; n_column; i++ )
-    {
-        printf("字段名 :%s &gt; 字段值 :%s\n" , column_name[i], column_value[i] );
-    }
-    printf("-------------------------------\n ");
-    return 0;
-}
-
-/*
-//创建一个测试表，表名叫stu
-result = sqlite3_exec( db, "create table stu( id integer primary key autoincrement, name varchar(10),age integer);" , NULL, NULL, &amp;errmsg );
-if(result != SQLITE_OK )
-{
-printf( "创建表失败，错误码 :%d，错误原因 :%s\n" , result, errmsg );
-}
-
-// 插入一些记录
-result = sqlite3_exec( db, "insert into stu(name,age) values ('Alex',18);" , 0, 0, &amp;errmsg );
-if(result != SQLITE_OK )
-{
-printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n " , result, errmsg );
-}
-result = sqlite3_exec( db, "insert into stu(name,age) values ('Bob',19);" , 0, 0, &amp;errmsg );
-if(result != SQLITE_OK )
-{
-printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n ", result, errmsg );
-}
-result = sqlite3_exec( db, "insert into stu(name,age) values ('Cindy',20);", 0, 0, &amp;errmsg);
-if(result != SQLITE_OK )
-{
-printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n " , result, errmsg );
-}
-// 开始查询数据库
-//result = sqlite3_exec( db, "select * from stu;" , LoadMyInfo, NULL, &amp;errmsg );
-
-*/</pre>
-
-<p>查询结果输出到文件：</p>
-<p>sqlite&gt; .output ‘result’                                        // 指定导出文件<br>sqlite&gt; select <em> from class;                                 // 查询数据，输出到文件<br>sqlite&gt; .read ‘result’                                           // 查看到处的文件数据<br>sqlite&gt; .output stdout                                        // 重新设置输出终端<br>sqlite&gt; select </em> from class;                                 // 查询数据，可在终端看到数据</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2410,7 +2329,7 @@ printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n " , result, er
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">105</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2483,7 +2402,9 @@ printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n " , result, er
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2640,7 +2561,13 @@ printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n " , result, er
                     
                       
                     
-                    <span class="site-state-item-count">72</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">75</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
