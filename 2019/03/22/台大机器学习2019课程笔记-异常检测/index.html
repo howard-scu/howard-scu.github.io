@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://yoursite.com/image/1553223413995.png">
 <meta property="og:image" content="http://yoursite.com/image/1553224071690.png">
 <meta property="og:image" content="http://yoursite.com/image/1553224129089.png">
-<meta property="og:updated_time" content="2019-03-22T03:47:14.806Z">
+<meta property="og:updated_time" content="2019-03-22T04:00:33.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="台大机器学习2019课程笔记-异常检测">
 <meta name="twitter:description" content="问题定义 给定一组训练数据{$x^{1}$,$x^{2}$,…,$x^{N}$} 找到判断输入数据是否与训练数据相似的一个映射关系 x与训练集相似，输出正常；否则输出异常 不同的目的使用不同的方法来定义相似性  什么是异常？ 应用 欺诈检测[1][2] 网络入侵侦测[3] 癌症检测[4]  二值分类方法： 给定正常数据{$x^{1}$,$x^{2}$,…,$x^{N}$}=&amp;gt;class 1">
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2019-03-22 11:35:58 / 修改时间：11:47:14" itemprop="dateCreated datePublished" datetime="2019-03-22T11:35:58+08:00">2019-03-22</time>
+              <time title="创建时间：2019-03-22 11:35:58 / 修改时间：12:00:33" itemprop="dateCreated datePublished" datetime="2019-03-22T11:35:58+08:00">2019-03-22</time>
             
 
             
@@ -1197,6 +1197,60 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
+  
+
 
   
 
