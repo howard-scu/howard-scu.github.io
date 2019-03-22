@@ -338,6 +338,210 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/台大机器学习2019课程笔记-异常检测/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/22/台大机器学习2019课程笔记-异常检测/" class="post-title-link" itemprop="url">台大机器学习2019课程笔记-异常检测</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-22 11:35:58 / 修改时间：11:47:14" itemprop="dateCreated datePublished" datetime="2019-03-22T11:35:58+08:00">2019-03-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/03/22/台大机器学习2019课程笔记-异常检测/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/22/台大机器学习2019课程笔记-异常检测/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h4><ul>
+<li>给定一组训练数据{$x^{1}$,$x^{2}$,…,$x^{N}$}</li>
+<li>找到判断输入数据是否与训练数据相似的一个映射关系</li>
+<li>x与训练集相似，输出正常；否则输出异常</li>
+<li>不同的目的使用不同的方法来定义相似性<br><img src="/image/1553220589446.png" alt="Alt text"></li>
+</ul>
+<h4 id="什么是异常？"><a href="#什么是异常？" class="headerlink" title="什么是异常？"></a>什么是异常？</h4><p><img src="/image/1553220557670.png" alt="Alt text"></p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><ul>
+<li>欺诈检测[1][2]</li>
+<li>网络入侵侦测[3]</li>
+<li>癌症检测[4]</li>
+</ul>
+<h4 id="二值分类"><a href="#二值分类" class="headerlink" title="二值分类"></a>二值分类</h4><h5 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h5><ul>
+<li>给定正常数据{$x^{1}$,$x^{2}$,…,$x^{N}$}<code>=&gt;</code>class 1</li>
+<li>给定异常数据{$\widetilde{x}^1$,$\widetilde{x}^2$,…,$\widetilde{x}^N$}<code>=&gt;</code>class 2</li>
+<li>训练一个二值分类器</li>
+</ul>
+<h5 id="困难："><a href="#困难：" class="headerlink" title="困难："></a>困难：</h5><ul>
+<li>难以定义异常类，例如：$x$表示宝可梦，但是$\widetilde{x}$可以为任何东西</li>
+<li>异常的情况难以收集</li>
+</ul>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li>有标记数据<code>=&gt;</code>使用分类器分类</li>
+<li>没有标记数据<br><img src="/image/1553220523528.png" alt="Alt text"></li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/22/台大机器学习2019课程笔记-异常检测/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/提升效率的10个pandas技巧/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1974,184 +2178,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtkPolydata中取点的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/28/vtkPolydata中取点的坑/" class="post-title-link" itemprop="url">vtkPolydata中取点的坑</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-28 12:29:25 / 修改时间：12:29:54" itemprop="dateCreated datePublished" datetime="2019-02-28T12:29:25+08:00">2019-02-28</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/02/28/vtkPolydata中取点的坑/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtkPolydata中取点的坑/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; lines-&gt;GetNumberOfCells(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	// 获取一条centerline</span><br><span class="line">	vtkIdType nbCellPoints;</span><br><span class="line">	vtkIdType* points;</span><br><span class="line">	lines-&gt;GetNextCell(nbCellPoints, points);</span><br><span class="line"></span><br><span class="line">	// 迭代该条centerline,获取小线段</span><br><span class="line">	for (int j = 0; j &lt; nbCellPoints-1; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		vtkIdType pid1 = points[j];</span><br><span class="line">		vtkIdType pid2 = points[j + 1];</span><br><span class="line"></span><br><span class="line">		double* p1 = polydata-&gt;GetPoints()-&gt;GetPoint(pid1);</span><br><span class="line">		double* p2 = polydata-&gt;GetPoints()-&gt;GetPoint(pid1);</span><br><span class="line"></span><br><span class="line">		cout &lt;&lt; &quot;P1 : &quot; &lt;&lt; pid1 &lt;&lt; &quot; &quot; &lt;&lt; p1[0] / spacing[0] &lt;&lt; &quot;,&quot; &lt;&lt; p1[1] / spacing[1] &lt;&lt; &quot;,&quot; &lt;&lt; p1[2] / spacing[2] &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; &quot;P2 : &quot; &lt;&lt; pid2 &lt;&lt; &quot; &quot; &lt;&lt; p2[0] / spacing[0] &lt;&lt; &quot;,&quot; &lt;&lt; p2[1] / spacing[1] &lt;&lt; &quot;,&quot; &lt;&lt; p2[2] / spacing[2] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">P1 : 131 111,177,121</span><br><span class="line">P2 : 130 111,177,121</span><br><span class="line">P1 : 130 112,178,120</span><br><span class="line">P2 : 129 112,178,120</span><br><span class="line">P1 : 129 112,178,119</span><br><span class="line">P2 : 128 112,178,119</span><br><span class="line">P1 : 128 112,177,118</span><br><span class="line">P2 : 127 112,177,118</span><br><span class="line">P1 : 127 112,176,117</span><br><span class="line">P2 : 126 112,176,117</span><br><span class="line">P1 : 126 111,175,116</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>发现每次输出P1跟P2坐标相同，好久没发现问题所在。追踪到源码，发现这么一段warning，细想一下，这样设计业很好理解。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Description:</span><br><span class="line">// Return a pointer to a double point x[3] for a specific id.</span><br><span class="line">// WARNING: Just don&apos;t use this error-prone method, the returned pointer</span><br><span class="line">// and its values are only valid as long as another method invocation is not</span><br><span class="line">// performed. Prefer GetPoint() with the return value in argument.</span><br><span class="line">double *GetPoint(vtkIdType id) &#123; return this-&gt;Data-&gt;GetTuple(id); &#125;</span><br><span class="line"></span><br><span class="line">// Description:</span><br><span class="line">// Copy point components into user provided array v[3] for specified</span><br><span class="line">// id.</span><br><span class="line">void GetPoint(vtkIdType id, double x[3]) &#123; this-&gt;Data-&gt;GetTuple(id,x); &#125;</span><br></pre></td></tr></table></figure></p>
-<p>更新程序使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double p1[3];</span><br><span class="line">double p2[3];</span><br><span class="line">polydata-&gt;GetPoints()-&gt;GetPoint(pid1, p1);</span><br><span class="line">polydata-&gt;GetPoints()-&gt;GetPoint(pid2, p2);</span><br></pre></td></tr></table></figure></p>
-<p>目标达成。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2200,7 +2226,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">107</span>
+                    <span class="site-state-item-count">108</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2438,7 +2464,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">75</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
