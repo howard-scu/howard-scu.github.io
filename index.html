@@ -338,6 +338,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/台大机器学习2019课程笔记-对抗攻击/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/26/台大机器学习2019课程笔记-对抗攻击/" class="post-title-link" itemprop="url">台大机器学习2019课程笔记-对抗攻击</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-26 13:48:10 / 修改时间：15:50:25" itemprop="dateCreated datePublished" datetime="2019-03-26T13:48:10+08:00">2019-03-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/03/26/台大机器学习2019课程笔记-对抗攻击/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/26/台大机器学习2019课程笔记-对抗攻击/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h4><ul>
+<li>学习算法需要在现实世界中应用</li>
+<li>对于噪声应具有鲁棒性</li>
+<li>能够应付恶意攻击</li>
+<li>应用诸如垃圾邮件分类、恶意软件检测、网络入侵检测等</li>
+</ul>
+<h4 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h4><p>1.如何做？</p>
+<ul>
+<li>$x$<code>-&gt;</code>Network<code>-&gt;</code>class a</li>
+<li>$x+\delta x$<code>-&gt;</code>Network<code>-&gt;</code>class b</li>
+</ul>
+<p>2.攻击损失函数<br><img src="/image/1553569112804.png" alt="Alt text"></p>
+<ul>
+<li><strong>训练</strong>：$L_{train}(\theta)=C(y^{0},y^{true})$ <code>=&gt;</code> $x$固定不变，调整$\theta$</li>
+<li><strong>无目标攻击</strong>：$L({x}’)=-C({y}’,y^{true})$ <code>=&gt;</code> $\theta$固定不变，调整$x$</li>
+<li><strong>有目标攻击</strong>：$L({x}’)=-C({y}’,y^{true})+C({y}’,y^{false})$</li>
+<li><strong>距离约束</strong>：$d(x^{0},{x}’)\leqslant \varepsilon $ <code>=&gt;</code> 保证攻击不被发现</li>
+</ul>
+<p>3.约束</p>
+<ul>
+<li><strong>L2-norm</strong><br>$$d(x^0,{x}’)=||x^0-{x}’||_2=(\delta x_1)^2+(\delta x_2)^2+…+(\delta x_n)^2$$</li>
+<li><strong>L-infinity</strong><br>$$d(x^0,{x}’)=||x^0-{x}’||<em>\infty=\max \left { \delta x</em>{1},\delta x_{2},…,\delta x_{n} \right }$$</li>
+<li>具体采用何种距离约束取决于不同的任务。就视觉系统来说，L-infinity更好。</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/26/台大机器学习2019课程笔记-对抗攻击/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/台大机器学习2019课程笔记-异常检测/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2014,183 +2217,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/invalid-comparator问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/28/invalid-comparator问题/" class="post-title-link" itemprop="url">invalid-comparator问题</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-28 12:30:14 / 修改时间：12:30:25" itemprop="dateCreated datePublished" datetime="2019-02-28T12:30:14+08:00">2019-02-28</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/02/28/invalid-comparator问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/invalid-comparator问题/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>std::set使用自定义key时，需要指定comparator，具体做法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct cmpByStringLength </span><br><span class="line">&#123;</span><br><span class="line">    bool operator()(const std::string&amp; a, const std::string&amp; b) const </span><br><span class="line">    &#123;</span><br><span class="line">        return a.length() &lt; b.length();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// ...</span><br><span class="line">std::map&lt;std::string, std::string, cmpByStringLength&gt; myMap;</span><br></pre></td></tr></table></figure></p>
-<p>使用时，正常插入没问题，查找时遇到invalid comparator问题。<br>原因是comparator不符合规定。</p>
-<p>comparator需要时strict weak ordering，需要注意的是，<strong>comparator(x,x)必须返回false</strong>。</p>
-<p>参考：<br>[1].<a href="https://stackoverflow.com/questions/9648100/using-own-comparator-operator-for-map-giving-error-in-case-if-key-not-found" target="_blank" rel="noopener">https://stackoverflow.com/questions/9648100/using-own-comparator-operator-for-map-giving-error-in-case-if-key-not-found</a><br>[2].<a href="https://stackoverflow.com/questions/32263560/errorinvalid-comparator-when-sorting-using-custom-comparison-function" target="_blank" rel="noopener">https://stackoverflow.com/questions/32263560/errorinvalid-comparator-when-sorting-using-custom-comparison-function</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2239,7 +2265,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">109</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2481,7 +2507,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">77</span>
+                      
+                    
+                    <span class="site-state-item-count">78</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -338,6 +338,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/07/Scrapy运行Import-Error解决方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/07/07/Scrapy运行Import-Error解决方法/" class="post-title-link" itemprop="url">Scrapy运行Import Error解决方法</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-07-07 21:31:58 / 修改时间：21:42:32" itemprop="dateCreated datePublished" datetime="2015-07-07T21:31:58+08:00">2015-07-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/07/07/Scrapy运行Import-Error解决方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/07/Scrapy运行Import-Error解决方法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Scrapy安装"><a href="#Scrapy安装" class="headerlink" title="Scrapy安装"></a>Scrapy安装</h2><p>所有依赖使用easy_install安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">easy_install Twisted</span><br><span class="line">easy_install Zope.Interface</span><br><span class="line">easy_install w3lib</span><br><span class="line">easy_install pyOpenSSL</span><br><span class="line">easy_install libxml2</span><br><span class="line">easy_install Scrapy</span><br></pre></td></tr></table></figure></p>
+<p>如果libxml2没有安装成功可以使用下面的地址进行安装<br>下载地址：<a href="http://users.skynet.be/sbi/libxml-python/binaries/libxml2-python-2.7.7.win32-py2.7.exe" target="_blank" rel="noopener">http://users.skynet.be/sbi/libxml-python/binaries/libxml2-python-2.7.7.win32-py2.7.exe</a></p>
+<h2 id="scrapy-Import-Error"><a href="#scrapy-Import-Error" class="headerlink" title="scrapy Import Error"></a>scrapy Import Error</h2><p>解决的办法是把下面三个文件复制到C:\python27\Lib\site-packages\win32\目录下</p>
+<ul>
+<li>pythoncom27.dll</li>
+<li>pythoncomloader27.dll</li>
+<li>pywintype.dll</li>
+</ul>
+<h2 id="运行tutorial"><a href="#运行tutorial" class="headerlink" title="运行tutorial"></a>运行tutorial</h2><p>详见参考3</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>【1】<a href="http://www.cnblogs.com/txw1958/archive/2012/07/12/scrapy_installation_introduce.html" target="_blank" rel="noopener">http://www.cnblogs.com/txw1958/archive/2012/07/12/scrapy_installation_introduce.html</a><br>【2】<a href="http://stackoverflow.com/questions/23529348/scrapy-import-error-scrapy-core-downloader-handlers-s3-s3downloadhandler" target="_blank" rel="noopener">http://stackoverflow.com/questions/23529348/scrapy-import-error-scrapy-core-downloader-handlers-s3-s3downloadhandler</a><br>【3】<a href="http://scrapy-chs.readthedocs.org/zh_CN/latest/intro/tutorial.html" target="_blank" rel="noopener">http://scrapy-chs.readthedocs.org/zh_CN/latest/intro/tutorial.html</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/02/值得学习的Cpp开源项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1967,214 +2150,6 @@ cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/29/cc-e8-bf-94-e5-9b-9e-e5-86-85-e9-83-a8-e9-9d-99-e6-80-81-e6-88-90-e5-91-98-e7-9a-84-e9-99-b7-e9-98-b1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/04/29/cc-e8-bf-94-e5-9b-9e-e5-86-85-e9-83-a8-e9-9d-99-e6-80-81-e6-88-90-e5-91-98-e7-9a-84-e9-99-b7-e9-98-b1/" class="post-title-link" itemprop="url">C/C++返回内部静态成员的陷阱</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-04-29 03:50:39" itemprop="dateCreated datePublished" datetime="2015-04-29T03:50:39+08:00">2015-04-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/04/29/cc-e8-bf-94-e5-9b-9e-e5-86-85-e9-83-a8-e9-9d-99-e6-80-81-e6-88-90-e5-91-98-e7-9a-84-e9-99-b7-e9-98-b1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/29/cc-e8-bf-94-e5-9b-9e-e5-86-85-e9-83-a8-e9-9d-99-e6-80-81-e6-88-90-e5-91-98-e7-9a-84-e9-99-b7-e9-98-b1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <div><div>char*inet_ntoa(structin_addrin);</div><div>将一个IP转换成一个互联网标准点分格式的字符串。</div><div>如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。</div></div><div><br></div><div>这里返回的值是static型，所以对于1语句是覆盖了src的地址</div><div><br></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;iostream&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
-#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;Winsock2.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
-&lt;font color=&quot;#0000FF&quot;&gt;**using**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**namespace**&lt;/font&gt;&amp;nbsp;std;
-&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;main()
-{
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**struct**&lt;/font&gt;&amp;nbsp;in_addr&amp;nbsp;src,&amp;nbsp;des;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src.s_addr&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;3776385196&lt;/font&gt;;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//对应于172.16.23.225&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;des.s_addr&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1678184620&lt;/font&gt;;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//对应于172.16.7.100&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;src\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(src)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;endl
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;des\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(des)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;src\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(src)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;des\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(des)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;system(&lt;font color=&quot;#FF00BF&quot;&gt;&quot;pause&quot;&lt;/font&gt;);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;;
-}&lt;/div&gt;&lt;/div&gt;</code></div><div></div></div><div><br></div><div>运行结果</div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;src &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
-des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
-
-src &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
-des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;7&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;100&lt;/font&gt;
-请按任意键继续. . .&lt;/div&gt;&lt;/div&gt;</code></div>
-
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2223,7 +2198,7 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">109</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2465,7 +2440,9 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
                     
                       
                     
-                    <span class="site-state-item-count">77</span>
+                      
+                    
+                    <span class="site-state-item-count">78</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

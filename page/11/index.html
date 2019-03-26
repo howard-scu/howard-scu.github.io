@@ -338,6 +338,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/08/01/tiny-bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/08/01/tiny-bug/" class="post-title-link" itemprop="url">tiny bug</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-08-01 16:58:11" itemprop="dateCreated datePublished" datetime="2013-08-01T16:58:11+08:00">2013-08-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2013/08/01/tiny-bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/08/01/tiny-bug/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>写csv的时候随便起了个名字，然后贴代码，出现下面的错误：</p>
+<p><pre class="brush:plain">Traceback (most recent call last):<br>  File “D:\workspace\PyTest\csvTest\csv.py”, line 1, in &lt;module&gt;<br>    import csv<br>  File “D:\workspace\PyTest\csvTest\csv.py”, line 3, in &lt;module&gt;<br>    writer = csv.writer(file(‘your.csv’, ‘wb’))<br>AttributeError: ‘module’ object has no attribute ‘writer’</pre><br>显然是import问题，可是csv模块是python本身集成的。google之，原来是文件名的问题。<br>随手把文件名起了csv.py，所以成了自身import自身<br><a href="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/08/QQ截图20130801165616.png" target="_blank" rel="noopener"><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/08/QQ截图20130801165616.png" alt title="QQ截图20130801165616"></a></p>
+<p>参考：<a href="http://www.daniweb.com/software-development/python/threads/425633/pythoncsv-module-object-has-no-attribute-writer" target="_blank" rel="noopener">http://www.daniweb.com/software-development/python/threads/425633/pythoncsv-module-object-has-no-attribute-writer</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/31/python-e4-b8-ad-e7-9a-84-e9-99-a4-e6-b3-95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2047,7 +2235,7 @@ result_message: The area is:</pre>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">109</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2289,7 +2477,9 @@ result_message: The area is:</pre>
                     
                       
                     
-                    <span class="site-state-item-count">77</span>
+                      
+                    
+                    <span class="site-state-item-count">78</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2515,6 +2705,8 @@ result_message: The area is:</pre>
 
   
   
+    
+      
     
       
     

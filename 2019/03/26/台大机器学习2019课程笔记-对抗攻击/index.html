@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="动机 学习算法需要在现实世界中应用 对于噪声应具有鲁棒性 能够应付恶意攻击 应用诸如垃圾邮件分类、恶意软件检测、网络入侵检测等  攻击1.如何做？  $x$-&amp;gt;Network-&amp;gt;class a $x+\delta x$-&amp;gt;Network-&amp;gt;class b  2.攻击损失函数  训练：$L_{train}(\theta)=C(y^{0},y^{true})$ =&amp;gt; $x">
+<meta name="keywords" content="machine learning,attack,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="台大机器学习2019课程笔记-对抗攻击">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/台大机器学习2019课程笔记-对抗攻击/index.html">
+<meta property="og:site_name" content="Code Planet">
+<meta property="og:description" content="动机 学习算法需要在现实世界中应用 对于噪声应具有鲁棒性 能够应付恶意攻击 应用诸如垃圾邮件分类、恶意软件检测、网络入侵检测等  攻击1.如何做？  $x$-&amp;gt;Network-&amp;gt;class a $x+\delta x$-&amp;gt;Network-&amp;gt;class b  2.攻击损失函数  训练：$L_{train}(\theta)=C(y^{0},y^{true})$ =&amp;gt; $x">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/image/1553569112804.png">
+<meta property="og:image" content="http://yoursite.com/image/1553575293528.png">
+<meta property="og:image" content="http://yoursite.com/image/1553575539270.png">
+<meta property="og:image" content="http://yoursite.com/image/1553575720376.png">
+<meta property="og:image" content="http://yoursite.com/image/1553575872971.png">
+<meta property="og:image" content="http://yoursite.com/image/1553575923870.png">
+<meta property="og:image" content="http://yoursite.com/image/1553576880723.png">
+<meta property="og:image" content="http://yoursite.com/image/1553577708472.png">
+<meta property="og:image" content="http://yoursite.com/image/1553577848821.png">
+<meta property="og:image" content="http://yoursite.com/image/1553578788236.png">
+<meta property="og:image" content="http://yoursite.com/image/1553578972453.png">
+<meta property="og:image" content="http://yoursite.com/image/1553579087992.png">
+<meta property="og:image" content="http://yoursite.com/image/1553579124343.png">
+<meta property="og:updated_time" content="2019-03-26T07:50:25.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="台大机器学习2019课程笔记-对抗攻击">
+<meta name="twitter:description" content="动机 学习算法需要在现实世界中应用 对于噪声应具有鲁棒性 能够应付恶意攻击 应用诸如垃圾邮件分类、恶意软件检测、网络入侵检测等  攻击1.如何做？  $x$-&amp;gt;Network-&amp;gt;class a $x+\delta x$-&amp;gt;Network-&amp;gt;class b  2.攻击损失函数  训练：$L_{train}(\theta)=C(y^{0},y^{true})$ =&amp;gt; $x">
+<meta name="twitter:image" content="http://yoursite.com/image/1553569112804.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/台大机器学习2019课程笔记-对抗攻击/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>台大机器学习2019课程笔记-对抗攻击 | Code Planet</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Code Planet</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">为了发现更大的世界</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/台大机器学习2019课程笔记-对抗攻击/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">台大机器学习2019课程笔记-对抗攻击
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-26 13:48:10 / 修改时间：15:50:25" itemprop="dateCreated datePublished" datetime="2019-03-26T13:48:10+08:00">2019-03-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/03/26/台大机器学习2019课程笔记-对抗攻击/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/26/台大机器学习2019课程笔记-对抗攻击/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h4><ul>
+<li>学习算法需要在现实世界中应用</li>
+<li>对于噪声应具有鲁棒性</li>
+<li>能够应付恶意攻击</li>
+<li>应用诸如垃圾邮件分类、恶意软件检测、网络入侵检测等</li>
+</ul>
+<h4 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h4><p>1.如何做？</p>
+<ul>
+<li>$x$<code>-&gt;</code>Network<code>-&gt;</code>class a</li>
+<li>$x+\delta x$<code>-&gt;</code>Network<code>-&gt;</code>class b</li>
+</ul>
+<p>2.攻击损失函数<br><img src="/image/1553569112804.png" alt="Alt text"></p>
+<ul>
+<li><strong>训练</strong>：$L_{train}(\theta)=C(y^{0},y^{true})$ <code>=&gt;</code> $x$固定不变，调整$\theta$</li>
+<li><strong>无目标攻击</strong>：$L({x}’)=-C({y}’,y^{true})$ <code>=&gt;</code> $\theta$固定不变，调整$x$</li>
+<li><strong>有目标攻击</strong>：$L({x}’)=-C({y}’,y^{true})+C({y}’,y^{false})$</li>
+<li><strong>距离约束</strong>：$d(x^{0},{x}’)\leqslant \varepsilon $ <code>=&gt;</code> 保证攻击不被发现</li>
+</ul>
+<p>3.约束</p>
+<ul>
+<li><strong>L2-norm</strong><br>$$d(x^0,{x}’)=||x^0-{x}’||_2=(\delta x_1)^2+(\delta x_2)^2+…+(\delta x_n)^2$$</li>
+<li><strong>L-infinity</strong><br>$$d(x^0,{x}’)=||x^0-{x}’||<em>\infty=\max \left { \delta x</em>{1},\delta x_{2},…,\delta x_{n} \right }$$</li>
+<li>具体采用何种距离约束取决于不同的任务。就视觉系统来说，L-infinity更好。</li>
+</ul>
+<a id="more"></a>
+<p>4.如何攻击</p>
+<ul>
+<li>跟训练神经网络类似，只不过这里不是训练网络参数$\theta$，而是训练输入数据$x$</li>
+<li>目标函数：$x^{*}=arg \underset{d(x^{0},{x}’)\leqslant \varepsilon}{min} L({x}’)$</li>
+<li>梯度下降<br><img src="/image/1553575293528.png" alt="Alt text"><br><img src="/image/1553575539270.png" alt="Alt text"></li>
+</ul>
+<p>5.example</p>
+<ul>
+<li>原图加噪声，猫还是猫<br><img src="/image/1553575720376.png" alt="Alt text"></li>
+<li>原图加攻击<br><img src="/image/1553575872971.png" alt="Alt text"></li>
+<li>$x^{0}$是原图，理解为超平面上的一个点。在随机方向上前进一段距离，还是猫，只不过种类不同。在特定方向上前进一段距离，就变成键盘了。<br><img src="/image/1553575923870.png" alt="Alt text"></li>
+</ul>
+<p>6.攻击方法</p>
+<ul>
+<li>FGSM (<a href="https://arxiv.org/abs/1412.6572" target="_blank" rel="noopener">https://arxiv.org/abs/1412.6572</a>)</li>
+<li>Basic iterative method (<a href="https://arxiv.org/abs/1607.02533" target="_blank" rel="noopener">https://arxiv.org/abs/1607.02533</a>)</li>
+<li>L-BFGS (<a href="https://arxiv.org/abs/1312.6199" target="_blank" rel="noopener">https://arxiv.org/abs/1312.6199</a>)</li>
+<li>Deepfool (<a href="https://arxiv.org/abs/1511.04599" target="_blank" rel="noopener">https://arxiv.org/abs/1511.04599</a>)</li>
+<li>JSMA (<a href="https://arxiv.org/abs/1511.07528" target="_blank" rel="noopener">https://arxiv.org/abs/1511.07528</a>)</li>
+<li>C&amp;W (<a href="https://arxiv.org/abs/1608.04644" target="_blank" rel="noopener">https://arxiv.org/abs/1608.04644</a>)</li>
+<li>Elastic net attack (<a href="https://arxiv.org/abs/1709.04114" target="_blank" rel="noopener">https://arxiv.org/abs/1709.04114</a>)</li>
+<li>Spatially Transformed (<a href="https://arxiv.org/abs/1801.02612" target="_blank" rel="noopener">https://arxiv.org/abs/1801.02612</a>)</li>
+<li>One Pixel Attack (<a href="https://arxiv.org/abs/1710.08864" target="_blank" rel="noopener">https://arxiv.org/abs/1710.08864</a>)</li>
+</ul>
+<p>7.FGSM</p>
+<ul>
+<li>计算各维上的偏导</li>
+<li>一次更新，只取1或-1</li>
+<li>可以理解为使用较大的学习率，得到$x^1$，然后$d&gt;\epsilon$，再使用距离$x^1$ 最近的点$x^*$代替<br><img src="/image/1553576880723.png" alt="Alt text"></li>
+</ul>
+<p>8.黑盒 vs 白盒</p>
+<ul>
+<li>前面的攻击，我们需要知道参数$\theta$，来找最优的$x^*$，称为<strong>白盒攻击</strong></li>
+<li>黑盒攻击：<ul>
+<li>如果有训练数据，则可以训练代理网络，使用代理网络生成攻击目标</li>
+<li>通过目标网络收集输入/输出组合<br><img src="/image/1553577708472.png" alt="Alt text"></li>
+</ul>
+</li>
+<li>可以通过a网络生成的攻击目标，通常用来攻击b网络也是有效的<br><img src="/image/1553577848821.png" alt="Alt text"></li>
+</ul>
+<p>9.more</p>
+<ul>
+<li>通用对抗攻击：<a href="https://arxiv.org/abs/1610.08401" target="_blank" rel="noopener">https://arxiv.org/abs/1610.08401</a></li>
+<li>Adversarial Reprogramming：Gamaleldin F. Elsayed, Ian Goodfellow, Jascha Sohl-Dickstein, “Adversarial<br>Reprogramming of Neural Networks”, ICLR, 2019</li>
+<li>现实中的攻击[1][2][3]</li>
+<li>针对音频的攻击[4][5]</li>
+<li>文本攻击[6]</li>
+</ul>
+<h4 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h4><p>1.防御</p>
+<ul>
+<li>对抗攻击无法使用正规化，dropout或者模型集成来防御</li>
+<li>两种防御方式：<ul>
+<li>被动防御：不修改模型，找到攻击图像（异常检测的特殊情形）</li>
+<li>主动防御：训练一个具有对抗攻击鲁棒性的模型</li>
+</ul>
+</li>
+</ul>
+<p>2.被动防御</p>
+<ul>
+<li>针对输入图像加filter<br><img src="/image/1553578788236.png" alt="Alt text"></li>
+<li>Feature Squeeze[7]<br><img src="/image/1553578972453.png" alt="Alt text"></li>
+<li>Randomization at Inference Phase[8]<br><img src="/image/1553579087992.png" alt="Alt text"></li>
+</ul>
+<p>3.主动防御<br><img src="/image/1553579124343.png" alt="Alt text"></p>
+<h4 id="learn-more"><a href="#learn-more" class="headerlink" title="learn more"></a>learn more</h4><ul>
+<li>Reference<ul>
+<li><a href="https://adversarial-ml-tutorial.org/" target="_blank" rel="noopener">https://adversarial-ml-tutorial.org/</a> (Zico Kolter and Aleksander Madry)</li>
+</ul>
+</li>
+<li>Adversarial Attack Toolbox:<ul>
+<li><a href="https://github.com/bethgelab/foolbox" target="_blank" rel="noopener">https://github.com/bethgelab/foolbox</a></li>
+<li><a href="https://github.com/IBM/adversarial-robustness-toolbox" target="_blank" rel="noopener">https://github.com/IBM/adversarial-robustness-toolbox</a></li>
+<li><a href="https://github.com/tensorflow/cleverhans" target="_blank" rel="noopener">https://github.com/tensorflow/cleverhans</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>[1].<a href="https://www.youtube.com/watch?v=zQ_uMenoBCk&amp;feature=youtu.be" target="_blank" rel="noopener">https://www.youtube.com/watch?v=zQ_uMenoBCk&amp;feature=youtu.be</a><br>[2].<a href="https://www.cs.cmu.edu/~sbhagava/papers/face-rec-ccs16.pdf" target="_blank" rel="noopener">https://www.cs.cmu.edu/~sbhagava/papers/face-rec-ccs16.pdf</a><br>[3].<a href="https://arxiv.org/abs/1707.08945" target="_blank" rel="noopener">https://arxiv.org/abs/1707.08945</a><br>[4].<a href="https://nicholas.carlini.com/code/audio_adversarial_examples/" target="_blank" rel="noopener">https://nicholas.carlini.com/code/audio_adversarial_examples/</a><br>[5].<a href="https://adversarial-attacks.net/" target="_blank" rel="noopener">https://adversarial-attacks.net/</a><br>[6].<a href="https://arxiv.org/pdf/1707.07328.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1707.07328.pdf</a><br>[7].<a href="https://arxiv.org/abs/1704.01155" target="_blank" rel="noopener">https://arxiv.org/abs/1704.01155</a></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/image/20190228134126.jpg" alt="Lu Xiaohua 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
+          
+            <a href="/tags/attack/" rel="tag"># attack</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/22/台大机器学习2019课程笔记-异常检测/" rel="next" title="台大机器学习2019课程笔记-异常检测">
+                <i class="fa fa-chevron-left"></i> 台大机器学习2019课程笔记-异常检测
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/image/avatar.png" alt="Lu Xiaohua">
+            
+              <p class="site-author-name" itemprop="name">Lu Xiaohua</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">78</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/howard-scu" title="GitHub &rarr; https://github.com/howard-scu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:luxiaohua@outlook.com" title="E-Mail &rarr; mailto:luxiaohua@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#动机"><span class="nav-number">1.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#攻击"><span class="nav-number">2.</span> <span class="nav-text">攻击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#防御"><span class="nav-number">3.</span> <span class="nav-text">防御</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#learn-more"><span class="nav-number">4.</span> <span class="nav-text">learn more</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用"><span class="nav-number">5.</span> <span class="nav-text">引用</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lu Xiaohua</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+  
+  <script id="dsq-count-scr" src="https://luxiaohua.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2019/03/26/台大机器学习2019课程笔记-对抗攻击/";
+    this.page.identifier = "2019/03/26/台大机器学习2019课程笔记-对抗攻击/";
+    this.page.title = '台大机器学习2019课程笔记-对抗攻击';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://luxiaohua.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
