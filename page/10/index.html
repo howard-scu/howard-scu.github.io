@@ -338,6 +338,202 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/" class="post-title-link" itemprop="url">Qt ui设置centralwidget布局</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-12-10 00:27:46" itemprop="dateCreated datePublished" datetime="2013-12-10T00:27:46+08:00">2013-12-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图：</span>&lt;/span&gt;<img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23595182.png" alt></span></p>
+<p><pre><span style="font-family: 微软雅黑; font-size: 12pt; line-height: 1.5;">**解决方法：**</span></pre><br><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">1.使用文本编辑器打开ui界面</span>&lt;/span&gt;</span></p>
+<p><pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话：</span></pre></p>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #333399;">&lt;</span>layout class<span style="color: #333399;">=</span><span style="color: #ff00bf;">"QGridLayout"</span> name<span style="color: #333399;">=</span><span style="color: #ff00bf;">"gridLayout"</span><span style="color: #333399;">/</span><span style="color: #333399;">&gt;</span></div>
+</div>
+<pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;" data-wiz-span="data-wiz-span">其中</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;" data-wiz-span="data-wiz-span">QGridLayout</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">可以写成水平、垂直其他风格。</span></pre>
+![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23902223.png)
+<pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">3.保存后，再使用界面编辑器打开ui，centralWidget被成功设置了对应的布局了。可以自动适应屏幕大小。</span></pre>
+<pre><span style="font-size: 10.5pt; line-height: 1.5; font-family: 微软雅黑;">_来源：http://klqulei23.blog.163.com/blog/static/132315337201391844235992/_</span></pre>
+<div></div>
+<div></div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/03/qt-e4-b8-ad-e7-88-b6-e7-aa-97-e5-8f-a3-e5-a4-84-e7-90-86-e5-ad-90-e7-aa-97-e5-8f-a3-e4-ba-8b-e4-bb-b6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -467,7 +663,74 @@
       
         
           
-            <div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。</span></div><br><div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">2）子窗口的按钮slot函数中emit这个signal。</span></div><br><div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">3）在父窗口中把子窗口的这个signal连到自己的响应slot。</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #008000;">// 子窗口</span><br><span style="color: #0000ff;"><strong>class</strong></span> ChildWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> QWidget<br>{<br>Q_OBJECT<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br>ChildWindow(QWidget<span style="color: #333399;"><em></em></span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)<br><span style="color: #333399;">:</span>QWidget(p)<br>{<br>QVBoxLayout<span style="color: #333399;"></span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QVBoxLayout(<span style="color: #0000ff;"><strong>this</strong></span>);<br>QPushButton<span style="color: #333399;"><em></em></span> btn <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QPushButton(<span style="color: #ff00bf;">“btn”</span>, <span style="color: #0000ff;"><strong>this</strong></span>);<br>l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(btn);connect(btn, SIGNAL(clicked()), SLOT(ClickedBtn());<br>}signals<span style="color: #333399;">:</span><br><span style="color: #ff0000;"><strong>    // 这个信号是发给父窗口的。<br>void ChildWindowEvent();</strong></span><br><span style="color: #0000ff;"><strong>protected</strong></span> slots<span style="color: #333399;">:</span><br><br><span style="color: #008000;">// 点击子窗口中按钮的slot</span><br><span style="color: #ff0000;"><strong>        void ClickedBtn()<br>{<br>// 触发子窗口的信号给父窗口接收。<br>emit ChildWindowEvent();<br>}</strong></span><br>}<br><br></div><br></div><br></div><br><div></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #008000;">// 父窗口</span><br><span style="color: #0000ff;"><strong>class</strong></span> ParentWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> QWidget<br>{<br>Q_OBJECT<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br>ParentWindow(QWidget<span style="color: #333399;"></span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)<br><span style="color: #333399;">:</span>QWidget(p)<br>{<br>QVBoxLayout<span style="color: #333399;"><em></em></span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QVBoxLayout(<span style="color: #0000ff;"><strong>this</strong></span>);<br>w <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> ChildWindow(<span style="color: #0000ff;"><strong>this</strong></span>);<br>l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(w);<span style="color: #ff0000;"><strong>        // 把子窗口的信号连接到父窗口来。<br>connect(w, SIGNAL(ChildWindowEvent()), SLOT(ChildWindowEventSlot());</strong></span><br>}<span style="color: #0000ff;"><strong>protected</strong></span><span style="color: #333399;">:</span><br><br>ChildWindow<span style="color: #333399;"></span> w;<br><br><span style="color: #0000ff;"><strong>protected</strong></span> slots<span style="color: #333399;">:</span><br><br><span style="color: #008000;">// 父窗口用于接收子窗口信号的slot。</span><br><span style="color: #ff0000;"><strong>        void ChildWindowEventSlot()<br>{<br>//子窗口的按钮被点击了。<br>}</strong></span><br>}<br><br></div><br></div><br></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">来源：<a href="http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY" target="_blank" rel="noopener">http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY</a>_</span></div><br><div></div><br><div></div>
+            <div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。</span></div>
+<div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">2）子窗口的按钮slot函数中emit这个signal。</span></div>
+<div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">3）在父窗口中把子窗口的这个signal连到自己的响应slot。</span></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #008000;">// 子窗口</span>
+<span style="color: #0000ff;">**class**</span> ChildWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> QWidget
+{
+Q_OBJECT
+<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
+ChildWindow(QWidget<span style="color: #333399;">*</span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)
+<span style="color: #333399;">:</span>QWidget(p)
+{
+QVBoxLayout<span style="color: #333399;">*</span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> QVBoxLayout(<span style="color: #0000ff;">**this**</span>);
+QPushButton<span style="color: #333399;">*</span> btn <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> QPushButton(<span style="color: #ff00bf;">"btn"</span>, <span style="color: #0000ff;">**this**</span>);
+l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(btn);connect(btn, SIGNAL(clicked()), SLOT(ClickedBtn());
+}signals<span style="color: #333399;">:</span>
+<span style="color: #ff0000;">**    // 这个信号是发给父窗口的。
+void ChildWindowEvent();**</span>
+<span style="color: #0000ff;">**protected**</span> slots<span style="color: #333399;">:</span>
+
+<span style="color: #008000;">// 点击子窗口中按钮的slot</span>
+<span style="color: #ff0000;">**        void ClickedBtn()
+{
+// 触发子窗口的信号给父窗口接收。
+emit ChildWindowEvent();
+}**</span>
+}
+
+</div>
+</div>
+</div>
+<div></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #008000;">// 父窗口</span>
+<span style="color: #0000ff;">**class**</span> ParentWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> QWidget
+{
+Q_OBJECT
+<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
+ParentWindow(QWidget<span style="color: #333399;">*</span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)
+<span style="color: #333399;">:</span>QWidget(p)
+{
+QVBoxLayout<span style="color: #333399;">*</span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> QVBoxLayout(<span style="color: #0000ff;">**this**</span>);
+w <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> ChildWindow(<span style="color: #0000ff;">**this**</span>);
+l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(w);<span style="color: #ff0000;">**        // 把子窗口的信号连接到父窗口来。
+connect(w, SIGNAL(ChildWindowEvent()), SLOT(ChildWindowEventSlot());**</span>
+}<span style="color: #0000ff;">**protected**</span><span style="color: #333399;">:</span>
+
+ChildWindow<span style="color: #333399;">*</span> w;
+
+<span style="color: #0000ff;">**protected**</span> slots<span style="color: #333399;">:</span>
+
+<span style="color: #008000;">// 父窗口用于接收子窗口信号的slot。</span>
+<span style="color: #ff0000;">**        void ChildWindowEventSlot()
+{
+//子窗口的按钮被点击了。
+}**</span>
+}
+
+</div>
+</div>
+</div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">
+</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">来源：http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY_</span></div>
+<div></div>
+<div></div>
           
         
       
@@ -657,584 +920,588 @@
 <p><tr class="odd" style="margin: 0px; padding: 0px; border-left-width: 1px; border-left-style: solid; border-left-color: #e6e6e6; background-color: #e6e6e6; color: #66666e;" valign="top"></tr></p>
 <p><th class="tblConst" style="margin: 0px; padding: 5px 15px 5px 10px; vertical-align: top; font-weight: inherit; font-style: inherit; border-left-width: 1px; border-left-style: solid; border-left-color: #e6e6e6;">Constant</th></p>
 <p><th class="tblval" style="margin: 0px; padding: 5px 15px 5px 10px; vertical-align: top; font-weight: inherit; font-style: inherit; border-left-width: 1px; border-left-style: solid; border-left-color: #e6e6e6;">Value</th></p>
-<p><th class="tbldscr" style="margin: 0px; padding: 5px 15px 5px 10px; vertical-align: top; font-weight: inherit; font-style: inherit; border-left-width: 1px; border-left-style: solid; border-left-color: #e6e6e6;">Description</th><br></p>
+<p><th class="tbldscr" style="margin: 0px; padding: 5px 15px 5px 10px; vertical-align: top; font-weight: inherit; font-style: inherit; border-left-width: 1px; border-left-style: solid; border-left-color: #e6e6e6;">Description</th><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::None</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">0</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Not an event.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Not an event.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ActionAdded</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">114</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A new action has been added (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qactionevent.html" target="_blank" rel="noopener">QActionEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A new action has been added ([QActionEvent](http://qt-project.org/doc/qt-5.1/qtgui/qactionevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ActionChanged</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">113</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An action has been changed (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qactionevent.html" target="_blank" rel="noopener">QActionEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An action has been changed ([QActionEvent](http://qt-project.org/doc/qt-5.1/qtgui/qactionevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ActionRemoved</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">115</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An action has been removed (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qactionevent.html" target="_blank" rel="noopener">QActionEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An action has been removed ([QActionEvent](http://qt-project.org/doc/qt-5.1/qtgui/qactionevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ActivationChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">99</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A widget’s top-level window activation state has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A widget's top-level window activation state has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ApplicationActivate</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">121</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">This enum has been deprecated. Use ApplicationStateChange instead.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">This enum has been deprecated. Use ApplicationStateChange instead.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ApplicationActivated</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">ApplicationActivate</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">This enum has been deprecated. Use ApplicationStateChange instead.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">This enum has been deprecated. Use ApplicationStateChange instead.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ApplicationDeactivate</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">122</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">This enum has been deprecated. Use ApplicationStateChange instead.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">This enum has been deprecated. Use ApplicationStateChange instead.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ApplicationFontChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">36</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The default application font has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The default application font has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ApplicationLayoutDirectionChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">37</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The default application layout direction has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The default application layout direction has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ApplicationPaletteChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">38</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The default application palette has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The default application palette has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ApplicationStateChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">214</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The state of the application has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The state of the application has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ApplicationWindowIconChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">35</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The application’s icon has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The application's icon has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ChildAdded</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">68</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An object gets a child (<a href="http://qt-project.org/doc/qt-5.1/qtcore/qchildevent.html" target="_blank" rel="noopener">QChildEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An object gets a child ([QChildEvent](http://qt-project.org/doc/qt-5.1/qtcore/qchildevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ChildPolished</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">69</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A widget child gets polished (<a href="http://qt-project.org/doc/qt-5.1/qtcore/qchildevent.html" target="_blank" rel="noopener">QChildEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A widget child gets polished ([QChildEvent](http://qt-project.org/doc/qt-5.1/qtcore/qchildevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ChildRemoved</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">71</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An object loses a child (<a href="http://qt-project.org/doc/qt-5.1/qtcore/qchildevent.html" target="_blank" rel="noopener">QChildEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An object loses a child ([QChildEvent](http://qt-project.org/doc/qt-5.1/qtcore/qchildevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Clipboard</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">40</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The clipboard contents have changed (QClipboardEvent).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The clipboard contents have changed (QClipboardEvent).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Close</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">19</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was closed (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qcloseevent.html" target="_blank" rel="noopener">QCloseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was closed ([QCloseEvent](http://qt-project.org/doc/qt-5.1/qtgui/qcloseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::CloseSoftwareInputPanel</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">200</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A widget wants to close the software input panel (SIP).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A widget wants to close the software input panel (SIP).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ContentsRectChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">178</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The margins of the widget’s content rect changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The margins of the widget's content rect changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ContextMenu</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">82</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Context popup menu (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qcontextmenuevent.html" target="_blank" rel="noopener">QContextMenuEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Context popup menu ([QContextMenuEvent](http://qt-project.org/doc/qt-5.1/qtgui/qcontextmenuevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::CursorChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">183</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget’s cursor has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget's cursor has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::DeferredDelete</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">52</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The object will be deleted after it has cleaned up (QDeferredDeleteEvent).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The object will be deleted after it has cleaned up (QDeferredDeleteEvent).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::DragEnter</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">60</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The cursor enters a widget during a drag and drop operation (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qdragenterevent.html" target="_blank" rel="noopener">QDragEnterEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The cursor enters a widget during a drag and drop operation ([QDragEnterEvent](http://qt-project.org/doc/qt-5.1/qtgui/qdragenterevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::DragLeave</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">62</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The cursor leaves a widget during a drag and drop operation (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qdragleaveevent.html" target="_blank" rel="noopener">QDragLeaveEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The cursor leaves a widget during a drag and drop operation ([QDragLeaveEvent](http://qt-project.org/doc/qt-5.1/qtgui/qdragleaveevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::DragMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">61</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A drag and drop operation is in progress (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qdragmoveevent.html" target="_blank" rel="noopener">QDragMoveEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A drag and drop operation is in progress ([QDragMoveEvent](http://qt-project.org/doc/qt-5.1/qtgui/qdragmoveevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Drop</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">63</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A drag and drop operation is completed (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qdropevent.html" target="_blank" rel="noopener">QDropEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A drag and drop operation is completed ([QDropEvent](http://qt-project.org/doc/qt-5.1/qtgui/qdropevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::DynamicPropertyChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">170</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A dynamic property was added, changed, or removed from the object.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A dynamic property was added, changed, or removed from the object.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::EnabledChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">98</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget’s enabled state has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget's enabled state has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Enter</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">10</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse enters widget’s boundaries (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qenterevent.html" target="_blank" rel="noopener">QEnterEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse enters widget's boundaries ([QEnterEvent](http://qt-project.org/doc/qt-5.1/qtgui/qenterevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::EnterEditFocus</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">150</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An editor widget gains focus for editing. QT_KEYPAD_NAVIGATION must be defined.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An editor widget gains focus for editing. QT_KEYPAD_NAVIGATION must be defined.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::EnterWhatsThisMode</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">124</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Send to toplevel widgets when the application enters “What’s This?” mode.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Send to toplevel widgets when the application enters "What's This?" mode.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Expose</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">206</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Sent to a window when its on-screen contents are invalidated and need to be flushed from the backing store.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Sent to a window when its on-screen contents are invalidated and need to be flushed from the backing store.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::FileOpen</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">116</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">File open request (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qfileopenevent.html" target="_blank" rel="noopener">QFileOpenEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">File open request ([QFileOpenEvent](http://qt-project.org/doc/qt-5.1/qtgui/qfileopenevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::FocusIn</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">8</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget or Window gains keyboard focus (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qfocusevent.html" target="_blank" rel="noopener">QFocusEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget or Window gains keyboard focus ([QFocusEvent](http://qt-project.org/doc/qt-5.1/qtgui/qfocusevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::FocusOut</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">9</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget or Window loses keyboard focus (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qfocusevent.html" target="_blank" rel="noopener">QFocusEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget or Window loses keyboard focus ([QFocusEvent](http://qt-project.org/doc/qt-5.1/qtgui/qfocusevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::FocusAboutToChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">23</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget or Window focus is about to change (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qfocusevent.html" target="_blank" rel="noopener">QFocusEvent</a>)</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget or Window focus is about to change ([QFocusEvent](http://qt-project.org/doc/qt-5.1/qtgui/qfocusevent.html))</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::FontChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">97</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget’s font has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget's font has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Gesture</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">198</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A gesture was triggered (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgestureevent.html" target="_blank" rel="noopener">QGestureEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A gesture was triggered ([QGestureEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgestureevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GestureOverride</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">202</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A gesture override was triggered (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgestureevent.html" target="_blank" rel="noopener">QGestureEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A gesture override was triggered ([QGestureEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgestureevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GrabKeyboard</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">188</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Item gains keyboard grab (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsitem.html" target="_blank" rel="noopener">QGraphicsItem</a> only).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Item gains keyboard grab ([QGraphicsItem](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsitem.html) only).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GrabMouse</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">186</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Item gains mouse grab (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsitem.html" target="_blank" rel="noopener">QGraphicsItem</a> only).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Item gains mouse grab ([QGraphicsItem](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsitem.html) only).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneContextMenu</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">159</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Context popup menu over a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenecontextmenuevent.html" target="_blank" rel="noopener">QGraphicsSceneContextMenuEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Context popup menu over a graphics scene ([QGraphicsSceneContextMenuEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenecontextmenuevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneDragEnter</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">164</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The cursor enters a graphics scene during a drag and drop operation (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenedragdropevent.html" target="_blank" rel="noopener">QGraphicsSceneDragDropEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The cursor enters a graphics scene during a drag and drop operation ([QGraphicsSceneDragDropEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenedragdropevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneDragLeave</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">166</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The cursor leaves a graphics scene during a drag and drop operation (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenedragdropevent.html" target="_blank" rel="noopener">QGraphicsSceneDragDropEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The cursor leaves a graphics scene during a drag and drop operation ([QGraphicsSceneDragDropEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenedragdropevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneDragMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">165</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A drag and drop operation is in progress over a scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenedragdropevent.html" target="_blank" rel="noopener">QGraphicsSceneDragDropEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A drag and drop operation is in progress over a scene ([QGraphicsSceneDragDropEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenedragdropevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneDrop</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">167</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A drag and drop operation is completed over a scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenedragdropevent.html" target="_blank" rel="noopener">QGraphicsSceneDragDropEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A drag and drop operation is completed over a scene ([QGraphicsSceneDragDropEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenedragdropevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneHelp</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">163</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The user requests help for a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qhelpevent.html" target="_blank" rel="noopener">QHelpEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The user requests help for a graphics scene ([QHelpEvent](http://qt-project.org/doc/qt-5.1/qtgui/qhelpevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneHoverEnter</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">160</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor enters a hover item in a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenehoverevent.html" target="_blank" rel="noopener">QGraphicsSceneHoverEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor enters a hover item in a graphics scene ([QGraphicsSceneHoverEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenehoverevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneHoverLeave</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">162</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor leaves a hover item in a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenehoverevent.html" target="_blank" rel="noopener">QGraphicsSceneHoverEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor leaves a hover item in a graphics scene ([QGraphicsSceneHoverEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenehoverevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneHoverMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">161</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor moves inside a hover item in a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenehoverevent.html" target="_blank" rel="noopener">QGraphicsSceneHoverEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor moves inside a hover item in a graphics scene ([QGraphicsSceneHoverEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenehoverevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneMouseDoubleClick</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">158</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse press again (double click) in a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemouseevent.html" target="_blank" rel="noopener">QGraphicsSceneMouseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse press again (double click) in a graphics scene ([QGraphicsSceneMouseEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemouseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneMouseMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">155</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Move mouse in a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemouseevent.html" target="_blank" rel="noopener">QGraphicsSceneMouseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Move mouse in a graphics scene ([QGraphicsSceneMouseEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemouseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneMousePress</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">156</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse press in a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemouseevent.html" target="_blank" rel="noopener">QGraphicsSceneMouseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse press in a graphics scene ([QGraphicsSceneMouseEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemouseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneMouseRelease</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">157</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse release in a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemouseevent.html" target="_blank" rel="noopener">QGraphicsSceneMouseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse release in a graphics scene ([QGraphicsSceneMouseEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemouseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">182</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was moved (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemoveevent.html" target="_blank" rel="noopener">QGraphicsSceneMoveEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was moved ([QGraphicsSceneMoveEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenemoveevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneResize</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">181</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was resized (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicssceneresizeevent.html" target="_blank" rel="noopener">QGraphicsSceneResizeEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was resized ([QGraphicsSceneResizeEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicssceneresizeevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::GraphicsSceneWheel</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">168</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse wheel rolled in a graphics scene (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenewheelevent.html" target="_blank" rel="noopener">QGraphicsSceneWheelEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse wheel rolled in a graphics scene ([QGraphicsSceneWheelEvent](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsscenewheelevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Hide</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">18</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was hidden (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qhideevent.html" target="_blank" rel="noopener">QHideEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was hidden ([QHideEvent](http://qt-project.org/doc/qt-5.1/qtgui/qhideevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::HideToParent</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">27</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A child widget has been hidden.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A child widget has been hidden.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::HoverEnter</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">127</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor enters a hover widget (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qhoverevent.html" target="_blank" rel="noopener">QHoverEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor enters a hover widget ([QHoverEvent](http://qt-project.org/doc/qt-5.1/qtgui/qhoverevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::HoverLeave</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">128</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor leaves a hover widget (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qhoverevent.html" target="_blank" rel="noopener">QHoverEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor leaves a hover widget ([QHoverEvent](http://qt-project.org/doc/qt-5.1/qtgui/qhoverevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::HoverMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">129</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor moves inside a hover widget (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qhoverevent.html" target="_blank" rel="noopener">QHoverEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse cursor moves inside a hover widget ([QHoverEvent](http://qt-project.org/doc/qt-5.1/qtgui/qhoverevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::IconDrag</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">96</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The main icon of a window has been dragged away (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qicondragevent.html" target="_blank" rel="noopener">QIconDragEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The main icon of a window has been dragged away ([QIconDragEvent](http://qt-project.org/doc/qt-5.1/qtgui/qicondragevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::IconTextChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">101</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget’s icon text has been changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget's icon text has been changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::InputMethod</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">83</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An input method is being used (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qinputmethodevent.html" target="_blank" rel="noopener">QInputMethodEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An input method is being used ([QInputMethodEvent](http://qt-project.org/doc/qt-5.1/qtgui/qinputmethodevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::InputMethodQuery</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">207</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A input method query event (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qinputmethodqueryevent.html" target="_blank" rel="noopener">QInputMethodQueryEvent</a>)</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A input method query event ([QInputMethodQueryEvent](http://qt-project.org/doc/qt-5.1/qtgui/qinputmethodqueryevent.html))</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::KeyboardLayoutChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">169</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The keyboard layout has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The keyboard layout has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::KeyPress</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">6</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Key press (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qkeyevent.html" target="_blank" rel="noopener">QKeyEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Key press ([QKeyEvent](http://qt-project.org/doc/qt-5.1/qtgui/qkeyevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::KeyRelease</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">7</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Key release (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qkeyevent.html" target="_blank" rel="noopener">QKeyEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Key release ([QKeyEvent](http://qt-project.org/doc/qt-5.1/qtgui/qkeyevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::LanguageChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">89</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The application translation changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The application translation changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::LayoutDirectionChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">90</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The direction of layouts changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The direction of layouts changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::LayoutRequest</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">76</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget layout needs to be redone.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget layout needs to be redone.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Leave</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">11</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse leaves widget’s boundaries.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse leaves widget's boundaries.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::LeaveEditFocus</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">151</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An editor widget loses focus for editing. QT_KEYPAD_NAVIGATION must be defined.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An editor widget loses focus for editing. QT_KEYPAD_NAVIGATION must be defined.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::LeaveWhatsThisMode</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">125</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Send to toplevel widgets when the application leaves “What’s This?” mode.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Send to toplevel widgets when the application leaves "What's This?" mode.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::LocaleChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">88</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The system locale has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The system locale has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::NonClientAreaMouseButtonDblClick</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">176</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A mouse double click occurred outside the client area.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A mouse double click occurred outside the client area.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::NonClientAreaMouseButtonPress</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">174</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A mouse button press occurred outside the client area.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A mouse button press occurred outside the client area.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::NonClientAreaMouseButtonRelease</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">175</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A mouse button release occurred outside the client area.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A mouse button release occurred outside the client area.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::NonClientAreaMouseMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">173</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A mouse move occurred outside the client area.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A mouse move occurred outside the client area.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::MacSizeChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">177</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The user changed his widget sizes (Mac OS X only).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The user changed his widget sizes (Mac OS X only).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::MetaCall</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">43</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An asynchronous method invocation via<a href="http://qt-project.org/doc/qt-5.1/qtcore/qmetaobject.html#invokeMethod" target="_blank" rel="noopener">QMetaObject::invokeMethod</a>().</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">An asynchronous method invocation via[QMetaObject::invokeMethod](http://qt-project.org/doc/qt-5.1/qtcore/qmetaobject.html#invokeMethod)().</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ModifiedChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">102</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widgets modification state has been changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widgets modification state has been changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::MouseButtonDblClick</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">4</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse press again (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qmouseevent.html" target="_blank" rel="noopener">QMouseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse press again ([QMouseEvent](http://qt-project.org/doc/qt-5.1/qtgui/qmouseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::MouseButtonPress</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">2</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse press (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qmouseevent.html" target="_blank" rel="noopener">QMouseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse press ([QMouseEvent](http://qt-project.org/doc/qt-5.1/qtgui/qmouseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::MouseButtonRelease</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">3</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse release (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qmouseevent.html" target="_blank" rel="noopener">QMouseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse release ([QMouseEvent](http://qt-project.org/doc/qt-5.1/qtgui/qmouseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::MouseMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">5</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse move (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qmouseevent.html" target="_blank" rel="noopener">QMouseEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse move ([QMouseEvent](http://qt-project.org/doc/qt-5.1/qtgui/qmouseevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::MouseTrackingChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">109</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse tracking state has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The mouse tracking state has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Move</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">13</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget’s position changed (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qmoveevent.html" target="_blank" rel="noopener">QMoveEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget's position changed ([QMoveEvent](http://qt-project.org/doc/qt-5.1/qtgui/qmoveevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::OrientationChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">208</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The screens orientation has changes (QScreenOrientationChangeEvent)</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The screens orientation has changes (QScreenOrientationChangeEvent)</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Paint</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">12</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Screen update necessary (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qpaintevent.html" target="_blank" rel="noopener">QPaintEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Screen update necessary ([QPaintEvent](http://qt-project.org/doc/qt-5.1/qtgui/qpaintevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::PaletteChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">39</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Palette of the widget changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Palette of the widget changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ParentAboutToChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">131</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget parent is about to change.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget parent is about to change.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ParentChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">21</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget parent has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget parent has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::PlatformPanel</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">212</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A platform specific panel has been requested.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A platform specific panel has been requested.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Polish</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">75</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget is polished.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget is polished.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::PolishRequest</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">74</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should be polished.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should be polished.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::QueryWhatsThis</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">123</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should accept the event if it has “What’s This?” help.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should accept the event if it has "What's This?" help.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::RequestSoftwareInputPanel</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">199</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A widget wants to open a software input panel (SIP).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A widget wants to open a software input panel (SIP).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Resize</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">14</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget’s size changed (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qresizeevent.html" target="_blank" rel="noopener">QResizeEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget's size changed ([QResizeEvent](http://qt-project.org/doc/qt-5.1/qtgui/qresizeevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ScrollPrepare</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">204</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The object needs to fill in its geometry information (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qscrollprepareevent.html" target="_blank" rel="noopener">QScrollPrepareEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The object needs to fill in its geometry information ([QScrollPrepareEvent](http://qt-project.org/doc/qt-5.1/qtgui/qscrollprepareevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Scroll</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">205</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The object needs to scroll to the supplied position (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qscrollevent.html" target="_blank" rel="noopener">QScrollEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The object needs to scroll to the supplied position ([QScrollEvent](http://qt-project.org/doc/qt-5.1/qtgui/qscrollevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Shortcut</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">117</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Key press in child for shortcut key handling (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qshortcutevent.html" target="_blank" rel="noopener">QShortcutEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Key press in child for shortcut key handling ([QShortcutEvent](http://qt-project.org/doc/qt-5.1/qtgui/qshortcutevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ShortcutOverride</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">51</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Key press in child, for overriding shortcut key handling (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qkeyevent.html" target="_blank" rel="noopener">QKeyEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Key press in child, for overriding shortcut key handling ([QKeyEvent](http://qt-project.org/doc/qt-5.1/qtgui/qkeyevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Show</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">17</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was shown on screen (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qshowevent.html" target="_blank" rel="noopener">QShowEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget was shown on screen ([QShowEvent](http://qt-project.org/doc/qt-5.1/qtgui/qshowevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ShowToParent</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">26</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A child widget has been shown.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A child widget has been shown.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::SockAct</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">50</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Socket activated, used to implement<a href="http://qt-project.org/doc/qt-5.1/qtcore/qsocketnotifier.html" target="_blank" rel="noopener">QSocketNotifier</a>.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Socket activated, used to implement[QSocketNotifier](http://qt-project.org/doc/qt-5.1/qtcore/qsocketnotifier.html).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::StateMachineSignal</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">192</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A signal delivered to a state machine (<a href="http://qt-project.org/doc/qt-5.1/qtcore/qstatemachine-signalevent.html" target="_blank" rel="noopener">QStateMachine::SignalEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A signal delivered to a state machine ([QStateMachine::SignalEvent](http://qt-project.org/doc/qt-5.1/qtcore/qstatemachine-signalevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::StateMachineWrapped</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">193</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The event is a wrapper for, i.e., contains, another event (<a href="http://qt-project.org/doc/qt-5.1/qtcore/qstatemachine-wrappedevent.html" target="_blank" rel="noopener">QStateMachine::WrappedEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The event is a wrapper for, i.e., contains, another event ([QStateMachine::WrappedEvent](http://qt-project.org/doc/qt-5.1/qtcore/qstatemachine-wrappedevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::StatusTip</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">112</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A status tip is requested (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qstatustipevent.html" target="_blank" rel="noopener">QStatusTipEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A status tip is requested ([QStatusTipEvent](http://qt-project.org/doc/qt-5.1/qtgui/qstatustipevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::StyleChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">100</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget’s style has been changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Widget's style has been changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TabletMove</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">87</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet move (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html" target="_blank" rel="noopener">QTabletEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet move ([QTabletEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TabletPress</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">92</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet press (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html" target="_blank" rel="noopener">QTabletEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet press ([QTabletEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TabletRelease</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">93</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet release (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html" target="_blank" rel="noopener">QTabletEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet release ([QTabletEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::OkRequest</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">94</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Ok button in decoration pressed. Supported only for Windows CE.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Ok button in decoration pressed. Supported only for Windows CE.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TabletEnterProximity</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">171</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet enter proximity event (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html" target="_blank" rel="noopener">QTabletEvent</a>), sent to <a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qapplication.html" target="_blank" rel="noopener">QApplication</a>.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet enter proximity event ([QTabletEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html)), sent to [QApplication](http://qt-project.org/doc/qt-5.1/qtwidgets/qapplication.html).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TabletLeaveProximity</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">172</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet leave proximity event (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html" target="_blank" rel="noopener">QTabletEvent</a>), sent to <a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qapplication.html" target="_blank" rel="noopener">QApplication</a>.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Wacom tablet leave proximity event ([QTabletEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtabletevent.html)), sent to [QApplication](http://qt-project.org/doc/qt-5.1/qtwidgets/qapplication.html).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ThreadChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">22</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The object is moved to another thread. This is the last event sent to this object in the previous thread. See <a href="http://qt-project.org/doc/qt-5.1/qtcore/qobject.html#moveToThread" target="_blank" rel="noopener">QObject::moveToThread</a>().</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The object is moved to another thread. This is the last event sent to this object in the previous thread. See [QObject::moveToThread](http://qt-project.org/doc/qt-5.1/qtcore/qobject.html#moveToThread)().</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Timer</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">1</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Regular timer events (<a href="http://qt-project.org/doc/qt-5.1/qtcore/qtimerevent.html" target="_blank" rel="noopener">QTimerEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Regular timer events ([QTimerEvent](http://qt-project.org/doc/qt-5.1/qtcore/qtimerevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ToolBarChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">120</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The toolbar button is toggled on Mac OS X.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The toolbar button is toggled on Mac OS X.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ToolTip</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">110</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A tooltip was requested (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qhelpevent.html" target="_blank" rel="noopener">QHelpEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A tooltip was requested ([QHelpEvent](http://qt-project.org/doc/qt-5.1/qtgui/qhelpevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ToolTipChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">184</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget’s tooltip has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget's tooltip has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TouchBegin</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">194</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Beginning of a sequence of touch-screen or track-pad events (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtouchevent.html" target="_blank" rel="noopener">QTouchEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Beginning of a sequence of touch-screen or track-pad events ([QTouchEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtouchevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TouchCancel</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">209</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Cancellation of touch-event sequence (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtouchevent.html" target="_blank" rel="noopener">QTouchEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Cancellation of touch-event sequence ([QTouchEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtouchevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TouchEnd</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">196</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">End of touch-event sequence (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtouchevent.html" target="_blank" rel="noopener">QTouchEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">End of touch-event sequence ([QTouchEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtouchevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::TouchUpdate</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">195</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Touch-screen event (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qtouchevent.html" target="_blank" rel="noopener">QTouchEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Touch-screen event ([QTouchEvent](http://qt-project.org/doc/qt-5.1/qtgui/qtouchevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::UngrabKeyboard</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">189</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Item loses keyboard grab (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsitem.html" target="_blank" rel="noopener">QGraphicsItem</a> only).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Item loses keyboard grab ([QGraphicsItem](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsitem.html) only).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::UngrabMouse</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">187</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Item loses mouse grab (<a href="http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsitem.html" target="_blank" rel="noopener">QGraphicsItem</a> only).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Item loses mouse grab ([QGraphicsItem](http://qt-project.org/doc/qt-5.1/qtwidgets/qgraphicsitem.html) only).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::UpdateLater</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">78</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should be queued to be repainted at a later time.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should be queued to be repainted at a later time.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::UpdateRequest</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">77</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should be repainted.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should be repainted.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WhatsThis</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">111</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should reveal “What’s This?” help (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qhelpevent.html" target="_blank" rel="noopener">QHelpEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget should reveal "What's This?" help ([QHelpEvent](http://qt-project.org/doc/qt-5.1/qtgui/qhelpevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WhatsThisClicked</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">118</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A link in a widget’s “What’s This?” help was clicked.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A link in a widget's "What's This?" help was clicked.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::Wheel</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">31</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse wheel rolled (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qwheelevent.html" target="_blank" rel="noopener">QWheelEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Mouse wheel rolled ([QWheelEvent](http://qt-project.org/doc/qt-5.1/qtgui/qwheelevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WinEventAct</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">132</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A Windows-specific activation event has occurred.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">A Windows-specific activation event has occurred.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WindowActivate</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">24</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Window was activated.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Window was activated.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WindowBlocked</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">103</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window is blocked by a modal dialog.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window is blocked by a modal dialog.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WindowDeactivate</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">25</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Window was deactivated.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">Window was deactivated.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WindowIconChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">34</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window’s icon has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window's icon has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WindowStateChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">105</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The <a href="http://qt-project.org/doc/qt-5.1/qtgui/qwindow.html#windowState" target="_blank" rel="noopener">window’s state</a> (minimized, maximized or full-screen) has changed (<a href="http://qt-project.org/doc/qt-5.1/qtgui/qwindowstatechangeevent.html" target="_blank" rel="noopener">QWindowStateChangeEvent</a>).</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The [window's state](http://qt-project.org/doc/qt-5.1/qtgui/qwindow.html#windowState) (minimized, maximized or full-screen) has changed ([QWindowStateChangeEvent](http://qt-project.org/doc/qt-5.1/qtgui/qwindowstatechangeevent.html)).</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WindowTitleChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">33</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window title has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window title has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WindowUnblocked</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">104</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window is unblocked after a modal dialog exited.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window is unblocked after a modal dialog exited.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::WinIdChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">203</tt></td></p>
-<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window system identifer for this native widget has changed.</td><br></p>
+<p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The window system identifer for this native widget has changed.</td><br>&lt;/tr&gt;</p>
 <p><tr style="margin: 0px; padding: 0px;"></tr></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">QEvent::ZOrderChange</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;"><tt style="margin: 0px; padding: 0px; font-family: 'Open Sans', sans-serif !important; word-spacing: 5px; vertical-align: top;">126</tt></td></p>
 <p><td class="topAlign" style="margin: 0px; padding: 3px 10px; vertical-align: top;">The widget’s z-order has changed. This event is never sent to top level windows.</td></p>
-<div style="color: gray;"><span style="color: #000000; font-size: 11px; line-height: 19px;"> </span></div><br><br><br><br><div></div>
+<div style="color: gray;"><span style="color: #000000; font-size: 11px; line-height: 19px;"> </span></div>
+
+
+
+<div></div>
           
         
       
@@ -1432,8 +1699,10 @@
 <p>上面两行代码里，我们首先创建一个imageData，并给他分配好了内存，接着我们又把imageData指向Reader的输出，而不是一直指向我们创建的那块内存。对于这种情况，我们只要简单地调用：</p>
 <p>vtkImageData*imageData = Reader-&gt;GetOutput();</p>
 <p><strong>这里没有必要使用智能指针，因为我们没有实际创建任何新的对象。</strong></p>
-<p>综上所述，可以看出引用计数和智能指针是息息相关的，它们主要都是用于内存管理。使用智能指针可以免去很多手动删除变量的烦恼，所以在本教程里，我们从一开始都使用智能指针来创建VTK对象。如果你想了解更多关于引用计数和智能指针的内容，可以参考C++的经典著作《<a style="color: #6a3906;" name="OLE_LINK7"></a><a style="color: #6a3906;" name="OLE_LINK6"></a>More Effective C++》这本书。</p>
-<div style="color: gray;"><small>来源： &lt;<a href="http://blog.csdn.net/www_doling_net/article/details/8540242" target="_blank" rel="noopener">http://blog.csdn.net/www_doling_net/article/details/8540242</a><small>&gt;</small></small></div><br><small><small> </small></small><br><div></div>
+<p>综上所述，可以看出引用计数和智能指针是息息相关的，它们主要都是用于内存管理。使用智能指针可以免去很多手动删除变量的烦恼，所以在本教程里，我们从一开始都使用智能指针来创建VTK对象。如果你想了解更多关于引用计数和智能指针的内容，可以参考C++的经典著作《<a style="color: #6a3906;" name="OLE_LINK7">&lt;/a&gt;<a style="color: #6a3906;" name="OLE_LINK6"></a>More Effective C++》这本书。</a></p>
+<div style="color: gray;"><small>来源： &lt;[http://blog.csdn.net/www_doling_net/article/details/8540242](http://blog.csdn.net/www_doling_net/article/details/8540242)<small>&gt;</small></small></div>
+<small><small> </small></small>
+<div></div>
           
         
       
@@ -1619,49 +1888,50 @@
         
           
             <blockquote>
-<div><em><span style="font-family: 'Times New Roman'; font-size: small;">—-by William Ernest Henley</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: small;">----by William Ernest Henley</span>_</div>
 
 <div></div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Out of the night that covers me,</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">Out of the night that covers me,</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Black as the pit from pole to pole,</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">Black as the pit from pole to pole,</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I thank whatever gods may be</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">I thank whatever gods may be</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">For my unconquerable soul.</span></em></div>
-
-<div></div>
-
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">In the fell clutch of circumstance</span></em></div>
-
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I have not winced nor cried aloud.</span></em></div>
-
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Under the bludgeonings of chance</span></em></div>
-
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">My head is bloody, but unbowed.</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">For my unconquerable soul.</span>_</div>
 
 <div></div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Beyond this place of wrath and tears</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">In the fell clutch of circumstance</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Looms but the Horror of the shade,</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">I have not winced nor cried aloud.</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">And yet the menace of the years</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">Under the bludgeonings of chance</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">Finds and shall find me unafraid.</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">My head is bloody, but unbowed.</span>_</div>
 
 <div></div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">It matters not how strait the gate,</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">Beyond this place of wrath and tears</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">How charged with punishments the scroll,</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">Looms but the Horror of the shade,</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I am the master of my fate:</span></em></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">And yet the menace of the years</span>_</div>
 
-<div><em><span style="font-family: 'Times New Roman'; font-size: medium;">I am the captain of my soul.</span></em></div>
-</blockquote>
-<div></div><br><div></div>
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">Finds and shall find me unafraid.</span>_</div>
+
+<div></div>
+
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">It matters not how strait the gate,</span>_</div>
+
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">How charged with punishments the scroll,</span>_</div>
+
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">I am the master of my fate:</span>_</div>
+
+<div>_<span style="font-family: 'Times New Roman'; font-size: medium;">I am the captain of my soul.</span>_</div>
+<div></div>
+<div></div></blockquote>
+
           
         
       
@@ -1846,7 +2116,7 @@
       
         
           
-            <p>今天在知乎上看到这个问题—-<a href="http://www.zhihu.com/question/20621878/answer/15678261?utm_source=weibo&amp;utm_medium=weibo_share&amp;utm_content=share_answer&amp;utm_campaign=share_button" target="_blank" rel="noopener">什么样的美打动过你</a>？被@<a href="http://www.zhihu.com/people/gao-shan-liu-jiong" target="_blank" rel="noopener">高山流囧</a>回答中的这个The Earthrise图片戳中。</p>
+            <p>今天在知乎上看到这个问题——<a href="http://www.zhihu.com/question/20621878/answer/15678261?utm_source=weibo&amp;utm_medium=weibo_share&amp;utm_content=share_answer&amp;utm_campaign=share_button" target="_blank" rel="noopener">什么样的美打动过你</a>？被@<a href="http://www.zhihu.com/people/gao-shan-liu-jiong" target="_blank" rel="noopener">高山流囧</a>回答中的这个The Earthrise图片戳中。</p>
 <p><img src="http://p1.zhimg.com/40/01/4001ee096603656e0947ebdcfffacc9c_r.jpg" alt title="the earthrise"></p>
 
           
@@ -2032,7 +2302,16 @@
 
       
         
-          <div id="home" class="hui-d-custom"><br><div id="body" class="hui-d3 hui-t5"><br><div class="hui-main"><br><div class="hui-b"><br><div id="topics"><br><div class="post"><br><div class="postBody"><br><div id="cnblogs_post_body"><br><br><strong>在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？</strong><br><br>
+          <div id="home" class="hui-d-custom">
+<div id="body" class="hui-d3 hui-t5">
+<div class="hui-main">
+<div class="hui-b">
+<div id="topics">
+<div class="post">
+<div class="postBody">
+<div id="cnblogs_post_body">
+
+**在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？**
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2224,7 +2503,7 @@
 
       
         
-          <div><font size="3">1.下载：<strong>vtk-5.10.1.zip</strong>源程序<strong>vtkdata-5.10.1.zip</strong> 数据（vtk相关安装程序下载：<a href="http://vtk.org）**cmake-2.8.2-win32-x86.zip**（cmake程序下载：[http://www.cmake.org/HTML/Index.html](http://www.cmake.org/HTML/Index.html)）" target="_blank" rel="noopener">http://vtk.org）**cmake-2.8.2-win32-x86.zip**（cmake程序下载：[http://www.cmake.org/HTML/Index.html](http://www.cmake.org/HTML/Index.html)）</a></font></div>
+          <div><font size="3">1.下载：**vtk-5.10.1.zip**源程序**vtkdata-5.10.1.zip** 数据（vtk相关安装程序下载：http://vtk.org）**cmake-2.8.2-win32-x86.zip**（cmake程序下载：[http://www.cmake.org/HTML/Index.html](http://www.cmake.org/HTML/Index.html)）</font></div>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2416,7 +2695,7 @@
 
       
         
-          <div><span style="widows: 2; text-transform: none; text-indent: 0px; letter-spacing: normal; display: inline !important; font: bold 18px/30px 'Helvetica Neue', Helvetica, Arial, sans-serif; white-space: normal; orphans: 2; float: none; color: #222222; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;">1.如何做到流畅阅读英文资料和听懂国外公开课？</span></div><br>
+          <div><span style="widows: 2; text-transform: none; text-indent: 0px; letter-spacing: normal; display: inline !important; font: bold 18px/30px 'Helvetica Neue', Helvetica, Arial, sans-serif; white-space: normal; orphans: 2; float: none; color: #222222; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;">1.如何做到流畅阅读英文资料和听懂国外公开课？</span></div>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2608,203 +2887,11 @@
 
       
         
-          <div><font size="2">1.下载，安装wxPython。注意应该选择与本机上python相同的版本。</font></div><div><font size="2">地址：</font><a href="http://www.wxpython.org/download.php#stable" target="_blank" rel="noopener"><font size="2">http://www.wxpython.org/download.php#stable</font></a></div>
+          <div><font size="2">1.下载，安装wxPython。注意应该选择与本机上python相同的版本。</font></div><div><font size="2">地址：</font>[<font size="2">http://www.wxpython.org/download.php#stable</font>](http://www.wxpython.org/download.php#stable)</div>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/2013/09/21/wxpython-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/09/20/e3-80-8a-e7-9b-b8-e4-bf-a1-e6-9c-aa-e6-9d-a5-e3-80-8b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2013/09/20/e3-80-8a-e7-9b-b8-e4-bf-a1-e6-9c-aa-e6-9d-a5-e3-80-8b/" class="post-title-link" itemprop="url">《相信未来》</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2013-09-20 06:58:56" itemprop="dateCreated datePublished" datetime="2013-09-20T06:58:56+08:00">2013-09-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/poem/" itemprop="url" rel="index"><span itemprop="name">poem</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2013/09/20/e3-80-8a-e7-9b-b8-e4-bf-a1-e6-9c-aa-e6-9d-a5-e3-80-8b/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/09/20/e3-80-8a-e7-9b-b8-e4-bf-a1-e6-9c-aa-e6-9d-a5-e3-80-8b/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <div><span style="font-family: 楷体;">—-食指</span></div><br><div><span style="font-family: 楷体;">当蜘蛛网无情地查封了我的炉台 </span></div><br><div><span style="font-family: 楷体;">当灰烬的余烟叹息着贫困的悲哀 </span></div><br><div><span style="font-family: 楷体;">我依然固执地铺平失望的灰烬 </span></div><br><div><span style="font-family: 楷体;">用美丽的雪花写下：相信未来 </span></div><br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2013/09/20/e3-80-8a-e7-9b-b8-e4-bf-a1-e6-9c-aa-e6-9d-a5-e3-80-8b/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2897,7 +2984,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3141,7 +3228,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

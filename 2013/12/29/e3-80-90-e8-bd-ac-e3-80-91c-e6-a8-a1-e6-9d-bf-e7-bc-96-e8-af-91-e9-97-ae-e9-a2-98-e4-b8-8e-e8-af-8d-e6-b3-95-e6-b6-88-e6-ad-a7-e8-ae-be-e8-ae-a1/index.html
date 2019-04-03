@@ -468,81 +468,115 @@
 
       
         <p>在编译理论中，通常将编译过程抽象为5个主要阶段：词法分析(Lexical Analysis)，语法分析(Parsing)，语义分析(Semantic Analysis)，优化(Optimization)，代码生成(Code Generation)。这5个阶段类似Unix管道模型，上一个阶段的输出作为下一个阶段的输入。其中，词法分析是根据输入源代码文本流，分割出词，识别类别，产生词法元素(Token)流，如：</p>
-<div><br><div id="highlighter_793902"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td><br><div>1</div></td><br><td><br><div><br><div><code>int</code> <code>a = 10;</code></div><br></div></td><br></tr><br></tbody><br></table><br></div><br></div><br>经过词法分析会得到[(Type, “int”), (Identifier, “a”), (AssignOperator, “=”), (IntLiteral, 10)]，在后续的语法分析阶段，就会根据这些词法元素匹配相应的语法规则。在我学习编译原理时，教科书中对于词法分析的介绍主要是基于正则表达式的，言下之意就是普通语言的词法规则是可以通过正则表达式描述的。比如，C语言的变量名规则是“包含字母、数字或下划线，并且以字母或下划线开头”，这就可以用正则表达式<code>[a-zA-Z_][a-zA-Z0-9_]*</code>表达。但是，在实践中我发现不管是主流语言，还是自己设计的DSL都大量存在不能简单通过正则表达式进行词法分析的例子。来看C++98的模版例子：<br><div><br><div id="highlighter_750615"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td><br><div>1</div></td><br><td><br><div><br><div><code>map&amp;lt;`</code>int<code>, vector&amp;lt;</code>int<code>&amp;gt;&amp;gt;`&lt;/div&gt;
-&lt;/div&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-上面这段代码会被C++98编译器中报语法错误，原因在于它把“&amp;gt;&amp;gt;”识别成了位右移运算符而不是两个模版右括号，在C++98中必须在两个括号中间加空格，写成
+<div>
+<div id="highlighter_793902">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>1</div></td>
+<td>
+<div>
+<div>`int` `a = 10;`</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+经过词法分析会得到[(Type, "int"), (Identifier, "a"), (AssignOperator, "="), (IntLiteral, 10)]，在后续的语法分析阶段，就会根据这些词法元素匹配相应的语法规则。在我学习编译原理时，教科书中对于词法分析的介绍主要是基于正则表达式的，言下之意就是普通语言的词法规则是可以通过正则表达式描述的。比如，C语言的变量名规则是“包含字母、数字或下划线，并且以字母或下划线开头”，这就可以用正则表达式`[a-zA-Z_][a-zA-Z0-9_]*`表达。但是，在实践中我发现不管是主流语言，还是自己设计的DSL都大量存在不能简单通过正则表达式进行词法分析的例子。来看C++98的模版例子：
+<div>
+<div id="highlighter_750615">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>1</div></td>
+<td>
+<div>
+<div>`map&lt;``int``, vector&lt;``int``&gt;&gt;`</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+上面这段代码会被C++98编译器中报语法错误，原因在于它把“&gt;&gt;”识别成了位右移运算符而不是两个模版右括号，在C++98中必须在两个括号中间加空格，写成
 
-&amp;nbsp;
-&lt;div&gt;
-&lt;div id=&quot;highlighter_165222&quot;&gt;
-&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;div&gt;1&lt;/div&gt;&lt;/td&gt;
-&lt;td&gt;
-&lt;div&gt;
-&lt;div&gt;`map&amp;lt;</code>int<code>, vector&amp;lt;</code>int<code>&amp;gt; &amp;gt;`&lt;/div&gt;
-&lt;/div&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&nbsp;
+<div>
+<div id="highlighter_165222">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>1</div></td>
+<td>
+<div>
+<div>`map&lt;``int``, vector&lt;``int``&gt; &gt;`</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 除此了C++模版，据我所知，经典的FORTRAN语言的语法规则更是大量存在词法歧义。
 
-![](http://pieces365.duapp.com/wp-includes/js/tinymce/plugins/wordpress/img/trans.gif &quot;更多...&quot;)
+![](http://pieces365.duapp.com/wp-includes/js/tinymce/plugins/wordpress/img/trans.gif "更多...")
 
-我认为从本质上讲，这类问题的根源在于词法分析的依据只是简单的词法规则，并不具备所有的语法信息，而词法歧义必须提升一层在语法规则中消除。所以，在我自己设计一些DSL的时候干脆就把词法分析和语法分析合二为一了，相当于让语法分析在字符层次上去进行，而不是经典的词法元素层次上，这就是所谓的[Scannerless Parsing](http://en.wikipedia.org/wiki/Scannerless_parsing &quot;Scannerless Parsing&quot;)。采用这种方法的例子并不少见，TeX, Wiki, Makefile和Perl 6等语言的语法分析器都属此类。
+我认为从本质上讲，这类问题的根源在于词法分析的依据只是简单的词法规则，并不具备所有的语法信息，而词法歧义必须提升一层在语法规则中消除。所以，在我自己设计一些DSL的时候干脆就把词法分析和语法分析合二为一了，相当于让语法分析在字符层次上去进行，而不是经典的词法元素层次上，这就是所谓的[Scannerless Parsing](http://en.wikipedia.org/wiki/Scannerless_parsing "Scannerless Parsing")。采用这种方法的例子并不少见，TeX, Wiki, Makefile和Perl 6等语言的语法分析器都属此类。
 
-Scannerless Parsing方法弥补了词法规则无法消歧的问题，但是同时也破坏了词法和语法分析简单清晰的管道结构，总体上增加了实现和理解的复杂度。另外，像C++这样大型的语言，如果开始是有词法分析的，稍微碰到一个歧义就整个转成Scannerless Parsing未免也显得太夸张了。这个问题困扰了我很久，直到最近才找到了一个满意的解决方案。还是以上面”&amp;gt;&amp;gt;”为例，我们知道现在C++11已经允许不加空格了，那么C++11编译器是如何处理这个词法歧义的呢？答案是：词法分析阶段既然分析不好”&amp;gt;&amp;gt;”，干脆就不分析了，直接把”&amp;gt;” “&amp;gt;”交给语法分析器来分析，其他没有词法歧义的照旧。当我知道这个方案的时候不由得感叹：妙！理论上，词法分析是可以什么也不做的，全部把字符一一交给语法分析器也没有问题，所以，干脆让词法分析只做有把握的部分，解决不了的交给语法分析器，这样就既保留了管道结构，又解决了词法歧义。
+Scannerless Parsing方法弥补了词法规则无法消歧的问题，但是同时也破坏了词法和语法分析简单清晰的管道结构，总体上增加了实现和理解的复杂度。另外，像C++这样大型的语言，如果开始是有词法分析的，稍微碰到一个歧义就整个转成Scannerless Parsing未免也显得太夸张了。这个问题困扰了我很久，直到最近才找到了一个满意的解决方案。还是以上面”&gt;&gt;”为例，我们知道现在C++11已经允许不加空格了，那么C++11编译器是如何处理这个词法歧义的呢？答案是：词法分析阶段既然分析不好”&gt;&gt;”，干脆就不分析了，直接把”&gt;” “&gt;”交给语法分析器来分析，其他没有词法歧义的照旧。当我知道这个方案的时候不由得感叹：妙！理论上，词法分析是可以什么也不做的，全部把字符一一交给语法分析器也没有问题，所以，干脆让词法分析只做有把握的部分，解决不了的交给语法分析器，这样就既保留了管道结构，又解决了词法歧义。
 
 下面我们再来看看C++11规范关于这个问题的定义：
-&gt; 14.2 Names of template specializations [temp.names] ###
-&gt; 
-&gt; 
-&gt; After name lookup (3.4) finds that a name is a template-name or that an operator-function-id or a literal-operator-id refers to a set of overloaded functions any member of which is a function template if this is followed by a &amp;lt;, the &amp;lt; is always taken as the delimiter of a template-argument-list and never as the less-than operator. When parsing a template-argument-list, the first non-nested &amp;gt; is taken as the ending delimiter rather than a greater-than operator. Similarly, the first non-nested &amp;gt;&amp;gt; is treated as two consecutive but distinct &amp;gt; tokens, the first of which is taken as the end of the template-argument-list and completes the template-id. [ Note: The second &amp;gt; token produced by this replacement rule may terminate an enclosing template-id construct or it may be part of a different construct (e.g. a cast).—end note ]
-可见，在C++11中，词法分析器是把”&amp;gt;&amp;gt;”直接当成两个”&amp;gt;”传给了语法分析器，然后在语法分析中如果匹配了template-argument-lis语法，第一个”&amp;gt;”符号会被直接认为是模版结束符，而不是大于，也不是位移符号。根据这个定义，我构造了一个例子：
-&lt;div&gt;
-&lt;div id=&quot;highlighter_477497&quot;&gt;
-&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;div&gt;1&lt;/div&gt;
-&lt;div&gt;2&lt;/div&gt;
-&lt;div&gt;3&lt;/div&gt;
-&lt;div&gt;4&lt;/div&gt;
-&lt;div&gt;5&lt;/div&gt;&lt;/td&gt;
-&lt;td&gt;
-&lt;div&gt;
-&lt;div&gt;`template</code>&lt;<code></code>int<code></code>N&gt;<code>&lt;/div&gt;
-&lt;div&gt;</code>class<code></code>Foo {<code>&lt;/div&gt;
-&lt;div&gt;</code>};<code>&lt;/div&gt;
-&lt;div&gt;&lt;/div&gt;
-&lt;div&gt;</code>Foo&lt;3&gt;&gt;1&gt; foo;<code>&lt;/div&gt;
-&lt;/div&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-这个例子在C++98中是能正确编译的，”&amp;gt;&amp;gt;”被解释成了位移运算，但是它反而不能在C++11中编译了，因为根据规范第一个”&amp;gt;”被解释成了模版参数结束符。如果要在C++11中编译，需要显式地加上括号：
-&lt;div&gt;
-&lt;div id=&quot;highlighter_961170&quot;&gt;
-&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;div&gt;1&lt;/div&gt;&lt;/td&gt;
-&lt;td&gt;
-&lt;div&gt;
-&lt;div&gt;</code>Foo&lt;(3&gt;&gt;1)&gt; foo;`</div><br></div></td><br></tr><br></tbody><br></table><br>转自酷壳：<a href="http://coolshell.cn/articles/10449.html" target="_blank" rel="noopener">http://coolshell.cn/articles/10449.html</a><br><br></div><br></div>
+> 14.2 Names of template specializations [temp.names] ###
+> 
+> 
+> After name lookup (3.4) finds that a name is a template-name or that an operator-function-id or a literal-operator-id refers to a set of overloaded functions any member of which is a function template if this is followed by a &lt;, the &lt; is always taken as the delimiter of a template-argument-list and never as the less-than operator. When parsing a template-argument-list, the first non-nested &gt; is taken as the ending delimiter rather than a greater-than operator. Similarly, the first non-nested &gt;&gt; is treated as two consecutive but distinct &gt; tokens, the first of which is taken as the end of the template-argument-list and completes the template-id. [ Note: The second &gt; token produced by this replacement rule may terminate an enclosing template-id construct or it may be part of a different construct (e.g. a cast).—end note ]
+可见，在C++11中，词法分析器是把”&gt;&gt;”直接当成两个”&gt;”传给了语法分析器，然后在语法分析中如果匹配了template-argument-lis语法，第一个”&gt;”符号会被直接认为是模版结束符，而不是大于，也不是位移符号。根据这个定义，我构造了一个例子：
+<div>
+<div id="highlighter_477497">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div></td>
+<td>
+<div>
+<div>`template``&lt;``int` `N&gt;`</div>
+<div>`class` `Foo {`</div>
+<div>`};`</div>
+<div></div>
+<div>`Foo&lt;3&gt;&gt;1&gt; foo;`</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+这个例子在C++98中是能正确编译的，”&gt;&gt;”被解释成了位移运算，但是它反而不能在C++11中编译了，因为根据规范第一个”&gt;”被解释成了模版参数结束符。如果要在C++11中编译，需要显式地加上括号：
+<div>
+<div id="highlighter_961170">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>1</div></td>
+<td>
+<div>
+<div>`Foo&lt;(3&gt;&gt;1)&gt; foo;`</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+转自酷壳：http://coolshell.cn/articles/10449.html
+
+</div>
+</div>
       
     </div>
 
@@ -689,7 +723,7 @@ Scannerless Parsing方法弥补了词法规则无法消歧的问题，但是同�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -933,7 +967,9 @@ Scannerless Parsing方法弥补了词法规则无法消歧的问题，但是同�
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="用户层面：itkImageFileReader（读）  itkImageFileWriter（写）内部实现：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象工厂根据用户输入文件类型生成相应的ImageIO对象">
+  <meta name="description" content="**用户层面**：itkImageFileReader（读）  itkImageFileWriter（写） **内部实现**：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象工厂根据用户输入文件类型生成相应的ImageIO对象">
 <meta name="keywords" content="itk,exception">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ITK读写ImageFileReaderException问题">
 <meta property="og:url" content="http://yoursite.com/2013/12/20/itk-e8-af-bb-e5-86-99imagefilereaderexception-e9-97-ae-e9-a2-98/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="用户层面：itkImageFileReader（读）  itkImageFileWriter（写）内部实现：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象工厂根据用户输入文件类型生成相应的ImageIO对象">
+<meta property="og:description" content="**用户层面**：itkImageFileReader（读）  itkImageFileWriter（写） **内部实现**：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象工厂根据用户输入文件类型生成相应的ImageIO对象">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ITK读写ImageFileReaderException问题">
-<meta name="twitter:description" content="用户层面：itkImageFileReader（读）  itkImageFileWriter（写）内部实现：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象工厂根据用户输入文件类型生成相应的ImageIO对象">
+<meta name="twitter:description" content="**用户层面**：itkImageFileReader（读）  itkImageFileWriter（写） **内部实现**：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象工厂根据用户输入文件类型生成相应的ImageIO对象">
 
 
 
@@ -467,8 +467,76 @@
       
 
       
-        <div><br><div><strong>用户层面</strong>：itkImageFileReader（读）  itkImageFileWriter（写）</div><br><div><strong>内部实现</strong>：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象<span style="font-size: 10.5pt; line-height: 1.5;">工厂根据用户输入文件类型生成相应的ImageIO对象</span></div><br><a id="more"></a><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><strong>优点</strong></div><br><div><br><br><em>   <span style="font-size: 10.5pt; line-height: 1.5;">使用方便，用户无须关注内部实现细节 </span>
-</em>   <span style="font-size: 10.5pt; line-height: 1.5;">扩展方便，扩展支持新的图像读取而无须修改用户接口，只需添加相应</span><span style="font-size: 10.5pt; line-height: 1.5;">的工厂类和IO类</span><br><div></div><br></div><br></div><br><div>运行下面的代码：</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #ff00bf;">“itkImage.h”</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #ff00bf;">“itkImageFileReader.h”</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #ff00bf;">“itkImageFileWriter.h”</span><br><span style="color: #0000ff;"><strong>int</strong></span> main(<span style="color: #0000ff;"><strong>int</strong></span> argc, <span style="color: #0000ff;"><strong>char</strong></span><span style="color: #333399;">*</span> argv[])<br>{<br><span style="color: #0000ff;"><strong>const</strong></span> <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>int</strong></span> Dimension <span style="color: #333399;">=</span> <span style="color: #6e00aa;">2</span>; <span style="color: #008000;">//定义图像维数</span><br><span style="color: #0000ff;"><strong>typedef</strong></span>  <span style="color: #0000ff;"><strong>unsigned</strong></span> <span style="color: #0000ff;"><strong>char</strong></span>  PixelType; <span style="color: #008000;">//定义像素类型</span><br><span style="color: #0000ff;"><strong>typedef</strong></span>  itk<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Image<span style="color: #333399;">&lt;</span>  PixelType,  Dimension <span style="color: #333399;">&gt;</span>  ImageType; <span style="color: #008000;">//图像类型</span><br><span style="color: #0000ff;"><strong>typedef</strong></span>  itk<span style="color: #333399;">:</span><span style="color: #333399;">:</span>ImageFileReader<span style="color: #333399;">&lt;</span> ImageType  <span style="color: #333399;">&gt;</span> ReaderType;<br><span style="color: #0000ff;"><strong>typedef</strong></span>  itk<span style="color: #333399;">:</span><span style="color: #333399;">:</span>ImageFileWriter<span style="color: #333399;">&lt;</span> ImageType  <span style="color: #333399;">&gt;</span>   WriterType;<br>ReaderType<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Pointer reader <span style="color: #333399;">=</span> ReaderType<span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>reader<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetFileName(<span style="color: #ff00bf;">“d:\1.png”</span>);<br>WriterType<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Pointer writer <span style="color: #333399;">=</span> WriterType<span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();<br>writer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetFileName(<span style="color: #ff00bf;">“d:\11.png”</span>);<br>writer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetInput(reader<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetOutput());<br>writer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update();<br><span style="color: #0000ff;"><strong>return</strong></span> <span style="color: #6e00aa;">0</span>;<br>}</div><br></div><br></div><br><div>运行中出现itk::ImageFileReaderException。</div><br><div>itk example中也有这样不指定读写类型的，可以运行。但是单独使用时，却出现无法识别类型的问题。</div><br><div>出错信息如下：</div><br><div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>ExceptionObject caught<span style="color: #333399;">!</span>itk<span style="color: #333399;">:</span><span style="color: #333399;">:</span>ImageFileReaderException (<span style="color: #6e00aa;">0028F27C</span>)<br>Location<span style="color: #333399;">:</span> <span style="color: #ff00bf;">“void __thiscall itk::ImageFileReader&lt;class itk::Image&lt;unsigned char,2<br>&gt;,class itk::DefaultConvertPixelTraits&lt;unsigned char&gt; &gt;::GenerateOutputInformati<br>on(void)”</span><br>File<span style="color: #333399;">:</span> c<span style="color: #333399;">:</span>\program files (x86)\itk\include\itk<span style="color: #333399;">-</span><span style="color: #6e00aa;">4</span>.<span style="color: #6e00aa;">4</span>\itkimagefilereader.hxx<br>Line<span style="color: #333399;">:</span> <span style="color: #6e00aa;">143</span><br>Description<span style="color: #333399;">:</span>  Could <span style="color: #333399;">not</span> create IO object <span style="color: #0000ff;"><strong>for</strong></span> file d<span style="color: #333399;">:</span>\<span style="color: #6e00aa;">1</span>.png<br>Tried to create one of the following<span style="color: #333399;">:</span><br><span style="color: #ff0000;">  You probably failed to set a file suffix, or<br>set the suffix to an unsupported type.</span><br><br></div><br></div><br></div><br></div><br>只能通过指定图片类型的方式解决，具体原因不明。<br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>  typedef itk::PNGImageIO ImageIOType;</div><br><div>  ImageIOType::Pointer pngIO = ImageIOType::New();</div><br><div></div><br><div>  reader-&gt;SetImageIO(pngIO);</div><br><div>  writer-&gt;SetImageIO(pngIO);</div><br></div><br></div><br><div></div><br><div></div>
+        <div>
+<div>**用户层面**：itkImageFileReader（读）  itkImageFileWriter（写）</div>
+<div>**内部实现**：由内部ImageIO对象具体负责图像文件读写操作，该对象通过对象<span style="font-size: 10.5pt; line-height: 1.5;">工厂根据用户输入文件类型生成相应的ImageIO对象</span></div>
+<a id="more"></a>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">
+</span></div>
+<div>**优点**</div>
+<div>
+
+*   <span style="font-size: 10.5pt; line-height: 1.5;">使用方便，用户无须关注内部实现细节 </span>
+*   <span style="font-size: 10.5pt; line-height: 1.5;">扩展方便，扩展支持新的图像读取而无须修改用户接口，只需添加相应</span><span style="font-size: 10.5pt; line-height: 1.5;">的工厂类和IO类</span>
+<div></div>
+</div>
+</div>
+<div>运行下面的代码：</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"itkImage.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"itkImageFileReader.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"itkImageFileWriter.h"</span>
+<span style="color: #0000ff;">**int**</span> main(<span style="color: #0000ff;">**int**</span> argc, <span style="color: #0000ff;">**char**</span><span style="color: #333399;">*</span> argv[])
+{
+<span style="color: #0000ff;">**const**</span> <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span> Dimension <span style="color: #333399;">=</span> <span style="color: #6e00aa;">2</span>; <span style="color: #008000;">//定义图像维数</span>
+<span style="color: #0000ff;">**typedef**</span>  <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**char**</span>  PixelType; <span style="color: #008000;">//定义像素类型</span>
+<span style="color: #0000ff;">**typedef**</span>  itk<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Image<span style="color: #333399;">&lt;</span>  PixelType,  Dimension <span style="color: #333399;">&gt;</span>  ImageType; <span style="color: #008000;">//图像类型</span>
+<span style="color: #0000ff;">**typedef**</span>  itk<span style="color: #333399;">:</span><span style="color: #333399;">:</span>ImageFileReader<span style="color: #333399;">&lt;</span> ImageType  <span style="color: #333399;">&gt;</span> ReaderType;
+<span style="color: #0000ff;">**typedef**</span>  itk<span style="color: #333399;">:</span><span style="color: #333399;">:</span>ImageFileWriter<span style="color: #333399;">&lt;</span> ImageType  <span style="color: #333399;">&gt;</span>   WriterType;
+ReaderType<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Pointer reader <span style="color: #333399;">=</span> ReaderType<span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+reader<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetFileName(<span style="color: #ff00bf;">"d:\\1.png"</span>);
+WriterType<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Pointer writer <span style="color: #333399;">=</span> WriterType<span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+writer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetFileName(<span style="color: #ff00bf;">"d:\\11.png"</span>);
+writer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetInput(reader<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetOutput());
+writer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update();
+<span style="color: #0000ff;">**return**</span> <span style="color: #6e00aa;">0</span>;
+}</div>
+</div>
+</div>
+<div>运行中出现itk::ImageFileReaderException。</div>
+<div>itk example中也有这样不指定读写类型的，可以运行。但是单独使用时，却出现无法识别类型的问题。</div>
+<div>出错信息如下：</div>
+<div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>ExceptionObject caught<span style="color: #333399;">!</span>itk<span style="color: #333399;">:</span><span style="color: #333399;">:</span>ImageFileReaderException (<span style="color: #6e00aa;">0028F27C</span>)
+Location<span style="color: #333399;">:</span> <span style="color: #ff00bf;">"void __thiscall itk::ImageFileReader&lt;class itk::Image&lt;unsigned char,2
+&gt;,class itk::DefaultConvertPixelTraits&lt;unsigned char&gt; &gt;::GenerateOutputInformati
+on(void)"</span>
+File<span style="color: #333399;">:</span> c<span style="color: #333399;">:</span>\program files (x86)\itk\include\itk<span style="color: #333399;">-</span><span style="color: #6e00aa;">4</span>.<span style="color: #6e00aa;">4</span>\itkimagefilereader.hxx
+Line<span style="color: #333399;">:</span> <span style="color: #6e00aa;">143</span>
+Description<span style="color: #333399;">:</span>  Could <span style="color: #333399;">not</span> create IO object <span style="color: #0000ff;">**for**</span> file d<span style="color: #333399;">:</span>\<span style="color: #6e00aa;">1</span>.png
+Tried to create one of the following<span style="color: #333399;">:</span>
+<span style="color: #ff0000;">  You probably failed to set a file suffix, or
+set the suffix to an unsupported type.</span>
+
+</div>
+</div>
+</div>
+</div>
+只能通过指定图片类型的方式解决，具体原因不明。
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>  typedef itk::PNGImageIO ImageIOType;</div>
+<div>  ImageIOType::Pointer pngIO = ImageIOType::New();</div>
+<div></div>
+<div>  reader-&gt;SetImageIO(pngIO);</div>
+<div>  writer-&gt;SetImageIO(pngIO);</div>
+</div>
+</div>
+<div></div>
+<div></div>
       
     </div>
 
@@ -615,7 +683,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -859,7 +927,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

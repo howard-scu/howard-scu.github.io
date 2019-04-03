@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="参见廖雪峰的python教程http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000&amp;gt;&amp;gt;&amp;gt; def fun(x):return xx&amp;gt;&amp;gt;&amp;gt; def my_">
+  <meta name="description" content="参见廖雪峰的python教程 [http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000](http://www.liaoxuefeng.com/wiki/001374738125095c9">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python高阶函数">
 <meta property="og:url" content="http://yoursite.com/2014/09/20/python-e9-ab-98-e9-98-b6-e5-87-bd-e6-95-b0/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="参见廖雪峰的python教程http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000&amp;gt;&amp;gt;&amp;gt; def fun(x):return xx&amp;gt;&amp;gt;&amp;gt; def my_">
+<meta property="og:description" content="参见廖雪峰的python教程 [http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000](http://www.liaoxuefeng.com/wiki/001374738125095c9">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高阶函数">
-<meta name="twitter:description" content="参见廖雪峰的python教程http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000&amp;gt;&amp;gt;&amp;gt; def fun(x):return xx&amp;gt;&amp;gt;&amp;gt; def my_">
+<meta name="twitter:description" content="参见廖雪峰的python教程 [http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000](http://www.liaoxuefeng.com/wiki/001374738125095c9">
 
 
 
@@ -466,7 +466,38 @@
       
 
       
-        <div>参见廖雪峰的python教程</div><br><div><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000</a></div><br><div></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>&gt;&gt;&gt; def fun(x):</div><br><div>return x<em>x</em></div><br><div></div><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> <span style="color: #0000ff;"><strong>def</strong></span> my_map(f,L)<span style="color: #333399;">:</span><br>newL <span style="color: #333399;">=</span> []<br><span style="color: #0000ff;"><strong>for</strong></span> item <span style="color: #0000ff;"><strong>in</strong></span> L<span style="color: #333399;">:</span><br>newL.append(f(item))<br><span style="color: #008000;">#print item</span><br><span style="color: #008000;">#print L</span><br><span style="color: #0000ff;"><strong>return</strong></span> newL<br><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> my_map(fun,[<span style="color: #6e00aa;">2</span>,<span style="color: #6e00aa;">3</span>])<span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">  #映射关系</span><br>[<span style="color: #6e00aa;">4</span>, <span style="color: #6e00aa;">9</span>]<br><span style="line-height: 1.5; color: #333399;">&gt;&gt;</span><span style="line-height: 1.5; color: #333399;">&gt;</span><span style="line-height: 1.5;"> sum([d </span><span style="line-height: 1.5; color: #0000ff;"><strong>for</strong></span><span style="line-height: 1.5;"> d </span><span style="line-height: 1.5; color: #0000ff;"><strong>in</strong></span><span style="line-height: 1.5; color: #0000ff;"><strong>range</strong></span><span style="line-height: 1.5;">(</span><span style="line-height: 1.5; color: #6e00aa;">101</span><span style="line-height: 1.5;">)])</span><br><span style="color: #6e00aa;">5050</span><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> <span style="color: #0000ff;"><strong>def</strong></span> prod(L)<span style="color: #333399;">:</span><br><span style="color: #0000ff;"><strong>return</strong></span> <span style="color: #0000ff;"><strong>reduce</strong></span>(<span style="color: #0000ff;"><strong>lambda</strong></span> x,y<span style="color: #333399;">:</span>x<span style="color: #333399;"></span>y,L)<span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    #计算阶乘</span><br><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> prod([d <span style="color: #0000ff;"><strong>for</strong></span> d <span style="color: #0000ff;"><strong>in</strong></span> <span style="color: #0000ff;"><strong>range</strong></span>(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">5</span>)])<br><span style="color: #6e00aa;">24</span><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> prod([d <span style="color: #0000ff;"><strong>for</strong></span> d <span style="color: #0000ff;"><strong>in</strong></span> <span style="color: #0000ff;"><strong>range</strong></span>(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">6</span>)])<br><span style="color: #6e00aa;">120</span><br><br></div><br></div><br><div></div><br><div></div>
+        <div>参见廖雪峰的python教程</div>
+<div>[http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000)</div>
+<div></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>&gt;&gt;&gt; def fun(x):</div>
+<div>return x*x</div>
+<div></div>
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> <span style="color: #0000ff;">**def**</span> my_map(f,L)<span style="color: #333399;">:</span>
+newL <span style="color: #333399;">=</span> []
+<span style="color: #0000ff;">**for**</span> item <span style="color: #0000ff;">**in**</span> L<span style="color: #333399;">:</span>
+newL.append(f(item))
+<span style="color: #008000;">#print item</span>
+<span style="color: #008000;">#print L</span>
+<span style="color: #0000ff;">**return**</span> newL
+
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> my_map(fun,[<span style="color: #6e00aa;">2</span>,<span style="color: #6e00aa;">3</span>])<span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">  #映射关系</span>
+[<span style="color: #6e00aa;">4</span>, <span style="color: #6e00aa;">9</span>]
+<span style="line-height: 1.5; color: #333399;">&gt;&gt;</span><span style="line-height: 1.5; color: #333399;">&gt;</span><span style="line-height: 1.5;"> sum([d </span><span style="line-height: 1.5; color: #0000ff;">**for**</span><span style="line-height: 1.5;"> d </span><span style="line-height: 1.5; color: #0000ff;">**in**</span><span style="line-height: 1.5; color: #0000ff;">**range**</span><span style="line-height: 1.5;">(</span><span style="line-height: 1.5; color: #6e00aa;">101</span><span style="line-height: 1.5;">)])</span>
+<span style="color: #6e00aa;">5050</span>
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> <span style="color: #0000ff;">**def**</span> prod(L)<span style="color: #333399;">:</span>
+<span style="color: #0000ff;">**return**</span> <span style="color: #0000ff;">**reduce**</span>(<span style="color: #0000ff;">**lambda**</span> x,y<span style="color: #333399;">:</span>x<span style="color: #333399;">*</span>y,L)<span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    #计算阶乘</span>
+
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> prod([d <span style="color: #0000ff;">**for**</span> d <span style="color: #0000ff;">**in**</span> <span style="color: #0000ff;">**range**</span>(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">5</span>)])
+<span style="color: #6e00aa;">24</span>
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> prod([d <span style="color: #0000ff;">**for**</span> d <span style="color: #0000ff;">**in**</span> <span style="color: #0000ff;">**range**</span>(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">6</span>)])
+<span style="color: #6e00aa;">120</span>
+
+</div>
+</div>
+<div></div>
+<div></div>
       
     </div>
 
@@ -605,7 +636,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -849,7 +880,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

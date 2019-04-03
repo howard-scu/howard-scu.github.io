@@ -102,14 +102,10 @@
 <meta property="og:site_name" content="Code Planet">
 <meta property="og:description" content="ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKliucheng1.jpg">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_VTKliucheng1.jpg">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKtoVTK1.jpg">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ITK与VTK对象的互相转化">
 <meta name="twitter:description" content="ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处">
-<meta name="twitter:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKliucheng1.jpg">
 
 
 
@@ -478,18 +474,214 @@
       
 
       
-        <div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处理。最后，ImageFileWriter将处理的图像数据结果保存，或输人给图形显示系统(如VTK)，进行数据可视化。</span></div><br><div><span style="font-family: 微软雅黑;"> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKliucheng1.jpg" alt></span></div><br><div><span style="font-family: 微软雅黑;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">VTK是C++语言开发的、公开源码的、面向对象的数据可视化软件开发包，并不单纯用于医学图像数据的可视化。VTK支持跨平台的编译，可以应用于Windows,Linux等系统。VTK支持包括数量、向量、张量、结构和测定体积等方法一系列可视化算法，VTK还支持包括建模。</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">VTK的数据流同样采用流水线作业方式，如图2所示。</span></div><br><div><span style="font-family: 微软雅黑;"> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_VTKliucheng1.jpg" alt></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkSource为整个可视化流的开始，比如读取、生成数据等。vtkFilte对输入源数据进行各种处理，与ITK的Fileter类似。原始数据经过各种Filte:的处理后，再由vtkMappe:转换(或映射)成可供其它算法模块直接使用的数据形式，比如为几何数据。vtkActor类用来描述绘制场景中一个实体，即绘制场景的某个角色(Actor)。通过SetMapper()方法，可以将几何数据的属性传递给Actor，再由vtkRenderer类将处理后的数据结果显示出来。</span></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">由于ITK和VTK的数据流都是采用流水线作业形式，比较方便地利用类库本身提供的类型转换类来实现，如图3所示。通过ITKtoVTKImageFilter类操作将ITK和VTK的图像数据连接了起来，VTK负责图像数据的显示，而ITK负责图像的处理，其中VTK的Image Viewe:是一个很方便实现的图像显示类，它在内部管理着vtkImageWindow, vtkRenderer, vtkActor2D和vtkImageMapper等图象类，实现图像查看、显示和可视化功能。</span></div><br><div><span style="font-family: 微软雅黑;"><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKtoVTK1.jpg" alt></span></div><br><div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><a id="more"></a><br></span></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><strong>下面具体解释下ITK对象到VTK对象的两种转换方式：</strong></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5; font-family: 微软雅黑;"><strong>第一种</strong>方式是使用</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;"><strong>itkImageToVTKImageFilter</strong></span>类</span></div><br><div>通过例子来说明：</div><br><div><br><div><br><pre class="brush:cpp">#include “itkImage.h”<br>#include “itkImageFileReader.h”<br>#include “itkImageToVTKImageFilter.h”<br><br>#include “vtkImageViewer.h”<br>#include “vtkRenderWindowInteractor.h”<br><br>int main( int argc, char <strong>argv )<br>{<br>    typedef itk::Image&lt; unsigned short, 2 &gt;             ImageType;<br>    typedef itk::ImageFileReader&lt;ImageType&gt;          ReaderType;<br>    <span style="color: #ff0000;">typedef itk::ImageToVTKImageFilter&lt; ImageType&gt; FilterType;</span><br><br>    ReaderType::Pointer reader = ReaderType::New();<br>    <span style="color: #ff0000;">FilterType::Pointer connector = FilterType::New();</span><br>    reader-&gt;SetFileName( “d:\1.png”);<br>    <span style="color: #ff0000;">connector-&gt;SetInput( reader-&gt;GetOutput() );</span><br><br>    vtkImageViewer <em> viewer = vtkImageViewer::New();<br><br>    vtkRenderWindowInteractor </em> renderWindowInteractor = vtkRenderWindowInteractor::New();<br><br>    viewer-&gt;SetupInteractor( renderWindowInteractor );<br>    viewer-&gt;SetInput(<span style="color: #ff0000;"> connector-&gt;GetOutput()</span> );<br>    viewer-&gt;Render();<br>    viewer-&gt;SetColorWindow( 255 );<br>    viewer-&gt;SetColorLevel( 128 );<br>    renderWindowInteractor-&gt;Start();<br><br>    return 0;<br>}</strong></pre><br></div><br><div></div><br><span style="font-size: 10.5pt; line-height: 1.5;">第二种<strong>方式是使用</strong></span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">itkVTKImageExport <strong></strong></span>/ </span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageImport<strong></strong></span>和</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageExport <strong></strong></span>/ </span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageImport<strong></strong></span></span><span style="font-size: 10.5pt; line-height: 1.5;">类</span><br><br></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">例子如下：</span></div><br><div><br><pre class="brush:cpp">#include “itkCommand.h”<br>#include “itkImage.h”<br>#include “itkVTKImageExport.h”<br>#include “itkVTKImageImport.h”<br>#include “itkCurvatureFlowImageFilter.h”<br>#include “itkCastImageFilter.h”<br>#include “itkRGBPixel.h”<br>#include “itkImageFileReader.h”<br>#include “itkImageFileWriter.h”<br>#include “vtkImageData.h”<br><br>#include “vtkImageImport.h”<br>#include “vtkImageExport.h”<br>#include “vtkImageActor.h”<br>#include “vtkRenderer.h”<br>#include “vtkRenderWindow.h”<br>#include “vtkRenderWindowInteractor.h”<br>#include “vtkInteractorStyleImage.h”<br>#include “itkPNGImageIO.h”<br>/<br><em> This will be setup as a callback for a progress event on an ITK
-</em> filter.<br><em>/<br>struct ProgressDisplay<br>{<br>    ProgressDisplay(itk::ProcessObject</em> process): m_Process(process) {}<br><br>    void Display()<br>    {<br>        float progress = m_Process-&gt;GetProgress()<em>100.0;<br>        std::cout &lt;&lt; “Progress “ &lt;&lt; progress &lt;&lt; “ percent.” &lt;&lt; std::endl;<br>    }<br><br>    itk::ProcessObject::Pointer m_Process;<br>};<br><br>/**
-</em> This function will connect the given itk::VTKImageExport filter to<br><em> the given vtkImageImport filter.
-</em>/<br><span style="color: #ff0000;">template &lt;typename ITK_Exporter, typename VTK_Importer&gt; void ConnectPipelines(ITK_Exporter exporter, VTK_Importer<em> importer) { importer-&gt;SetUpdateInformationCallback(exporter-&gt;GetUpdateInformationCallback()); importer-&gt;SetPipelineModifiedCallback(exporter-&gt;GetPipelineModifiedCallback()); importer-&gt;SetWholeExtentCallback(exporter-&gt;GetWholeExtentCallback()); importer-&gt;SetSpacingCallback(exporter-&gt;GetSpacingCallback()); importer-&gt;SetOriginCallback(exporter-&gt;GetOriginCallback()); importer-&gt;SetScalarTypeCallback(exporter-&gt;GetScalarTypeCallback()); importer-&gt;SetNumberOfComponentsCallback(exporter-&gt;GetNumberOfComponentsCallback()); importer-&gt;SetPropagateUpdateExtentCallback(exporter-&gt;GetPropagateUpdateExtentCallback()); importer-&gt;SetUpdateDataCallback(exporter-&gt;GetUpdateDataCallback()); importer-&gt;SetDataExtentCallback(exporter-&gt;GetDataExtentCallback()); importer-&gt;SetBufferPointerCallback(exporter-&gt;GetBufferPointerCallback()); importer-&gt;SetCallbackUserData(exporter-&gt;GetCallbackUserData()); } </em></span><br>/**
- This function will connect the given vtkImageExport filter to<br><em> the given itk::VTKImageImport filter.
-</em>/<br><span style="color: #ff0000;">template &lt;typename VTK_Exporter, typename ITK_Importer&gt; void ConnectPipelines(VTK_Exporter<em> exporter, ITK_Importer importer) { importer-&gt;SetUpdateInformationCallback(exporter-&gt;GetUpdateInformationCallback()); importer-&gt;SetPipelineModifiedCallback(exporter-&gt;GetPipelineModifiedCallback()); importer-&gt;SetWholeExtentCallback(exporter-&gt;GetWholeExtentCallback()); importer-&gt;SetSpacingCallback(exporter-&gt;GetSpacingCallback()); importer-&gt;SetOriginCallback(exporter-&gt;GetOriginCallback()); importer-&gt;SetScalarTypeCallback(exporter-&gt;GetScalarTypeCallback()); importer-&gt;SetNumberOfComponentsCallback(exporter-&gt;GetNumberOfComponentsCallback()); importer-&gt;SetPropagateUpdateExtentCallback(exporter-&gt;GetPropagateUpdateExtentCallback()); importer-&gt;SetUpdateDataCallback(exporter-&gt;GetUpdateDataCallback()); importer-&gt;SetDataExtentCallback(exporter-&gt;GetDataExtentCallback()); importer-&gt;SetBufferPointerCallback(exporter-&gt;GetBufferPointerCallback()); importer-&gt;SetCallbackUserData(exporter-&gt;GetCallbackUserData()); }</em></span><br><br>/**
- This program implements an example connection between ITK and VTK<br><em> pipelines.  The combined pipeline flows as follows:
-</em><br><em> itkImageFileReader ==&gt; itkVTKImageExport ==&gt;
-</em>    vtkImageImport ==&gt; vtkImageActor<br><em>
-</em> The resulting vtkImageActor is displayed in a vtkRenderWindow.<br><em> Whenever the VTK pipeline executes, information is propagated
-</em> through the ITK pipeline.  If the ITK pipeline is out of date, it<br><em> will re-execute and cause the VTK pipeline to update properly as
-</em> well.<br><em>/<br>int main(int argc, char </em> argv [] )<br>{<br><br>    // Load a color image using ITK and display it with VTK<br><br>    try<br>    {<br>        typedef itk::RGBPixel&lt; unsigned char &gt; PixelType;<br>        typedef itk::Image&lt; PixelType, 2 &gt; ImageType;<br><br>        typedef itk::ImageFileReader&lt; ImageType &gt; ReaderType;<br><br>        ReaderType::Pointer reader  = ReaderType::New();<br>        reader-&gt;SetFileName(“d:\1.png”);<br>        reader-&gt;Update();<br><br><span style="color: #ff0000;"> typedef itk::VTKImageExport&lt; ImageType &gt; ExportFilterType; ExportFilterType::Pointer itkExporter = ExportFilterType::New(); itkExporter-&gt;SetInput( reader-&gt;GetOutput() );</span><br><br>        // Create the vtkImageImport and connect it to the<br>        // itk::VTKImageExport instance.<br>        <span style="color: #ff0000;">vtkImageImport<em> vtkImporter = vtkImageImport::New();</em></span><br>        <span style="color: #ff0000;">ConnectPipelines(itkExporter, vtkImporter);</span><br><br>        // Just for double checking export it from VTK back into ITK<br>        // and save it into a file.<br><span style="color: #ff0000;"> typedef itk::VTKImageImport&lt; ImageType &gt; ImportFilterType; ImportFilterType::Pointer itkImporter = ImportFilterType::New(); vtkImageExport vtkExporter = vtkImageExport::New(); ConnectPipelines(vtkExporter, itkImporter);</span><br><span style="color: #ff0000;"> vtkExporter-&gt;SetInput( vtkImporter-&gt;GetOutput() );</span><br><br>        typedef itk::ImageFileWriter&lt; ImageType &gt; WriterType;<br>        WriterType::Pointer itkWriter = WriterType::New();<br>        <span style="color: #ff0000;">itkWriter-&gt;SetInput( itkImporter-&gt;GetOutput() );</span><br><br>        const char <em> filename = “d:\2.png”;<br>        std::cout &lt;&lt; “Writing file “ &lt;&lt; filename &lt;&lt; std::endl;<br>        itkWriter-&gt;SetFileName( filename );<br><br>        itkWriter-&gt;Update();<br><br>        //————————————————————————<br>        // VTK pipeline.<br>        //————————————————————————<br><br>        // Create a vtkImageActor to help render the image.  Connect it to<br>        // the vtkImporter instance.<br>        vtkImageActor</em> actor = vtkImageActor::New();<br>        <span style="color: #ff0000;">actor-&gt;SetInput(vtkImporter-&gt;GetOutput());</span><br><br>        vtkInteractorStyleImage <em> interactorStyle = vtkInteractorStyleImage::New();<br><br>        // Create a renderer, render window, and render window interactor to<br>        // display the results.<br>        vtkRenderer</em> renderer = vtkRenderer::New();<br>        vtkRenderWindow<em> renWin = vtkRenderWindow::New();<br>        vtkRenderWindowInteractor</em> iren = vtkRenderWindowInteractor::New();<br><br>        renWin-&gt;SetSize(500, 500);<br>        renWin-&gt;AddRenderer(renderer);<br>        iren-&gt;SetRenderWindow(renWin);<br>        iren-&gt;SetInteractorStyle( interactorStyle );<br><br>        // Add the vtkImageActor to the renderer for display.<br>        renderer-&gt;AddActor(actor);<br>        renderer-&gt;SetBackground(0.4392, 0.5020, 0.5647);<br><br>        // Bring up the render window and begin interaction.<br>        renWin-&gt;Render();<br>        iren-&gt;Start();<br><br>        // Release all VTK components<br>        actor-&gt;Delete();<br>        interactorStyle-&gt;Delete();<br>        vtkImporter-&gt;Delete();<br>        vtkExporter-&gt;Delete();<br>        renWin-&gt;Delete();<br>        renderer-&gt;Delete();<br>        iren-&gt;Delete();<br><br>    }<br>    catch( itk::ExceptionObject &amp; e )<br>    {<br>        std::cerr &lt;&lt; “Exception catched !! “ &lt;&lt; e &lt;&lt; std::endl;<br>    }<br><br>    return 0;<br>}</pre><br></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">【参考来源】：</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><a href="http://image.szpt.edu.cn/cn/Article_content.asp?id=311" target="_blank" rel="noopener">http://image.szpt.edu.cn/cn/Article_content.asp?id=311</a></span></div><br></div><br><div></div>
+        <div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">ITK的数据流采用如图1所示流水线(pipeline)作业方式。遵循此方式，所处理的数据来龙去脉清晰明了。在图1中，数据流左边的ImageFile代表待处理的图像文件，而右边ImageFile则代表处理后的图像文件。ImageFileReade:将存贮图像文件读人到内存，形成Image，再调用所希望处理的Fileter算法(比如滤波、分割、配准等具体算法)，将对读人的图像数据进行处理。最后，ImageFileWriter将处理的图像数据结果保存，或输人给图形显示系统(如VTK)，进行数据可视化。</span></div>
+<div><span style="font-family: 微软雅黑;"> ![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKliucheng1.jpg)</span></div>
+<div><span style="font-family: 微软雅黑;">
+</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">VTK是C++语言开发的、公开源码的、面向对象的数据可视化软件开发包，并不单纯用于医学图像数据的可视化。VTK支持跨平台的编译，可以应用于Windows,Linux等系统。VTK支持包括数量、向量、张量、结构和测定体积等方法一系列可视化算法，VTK还支持包括建模。</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">VTK的数据流同样采用流水线作业方式，如图2所示。</span></div>
+<div><span style="font-family: 微软雅黑;"> ![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_VTKliucheng1.jpg)</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkSource为整个可视化流的开始，比如读取、生成数据等。vtkFilte对输入源数据进行各种处理，与ITK的Fileter类似。原始数据经过各种Filte:的处理后，再由vtkMappe:转换(或映射)成可供其它算法模块直接使用的数据形式，比如为几何数据。vtkActor类用来描述绘制场景中一个实体，即绘制场景的某个角色(Actor)。通过SetMapper()方法，可以将几何数据的属性传递给Actor，再由vtkRenderer类将处理后的数据结果显示出来。</span></div>
+<div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">
+</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">由于ITK和VTK的数据流都是采用流水线作业形式，比较方便地利用类库本身提供的类型转换类来实现，如图3所示。通过ITKtoVTKImageFilter类操作将ITK和VTK的图像数据连接了起来，VTK负责图像数据的显示，而ITK负责图像的处理，其中VTK的Image Viewe:是一个很方便实现的图像显示类，它在内部管理着vtkImageWindow, vtkRenderer, vtkActor2D和vtkImageMapper等图象类，实现图像查看、显示和可视化功能。</span></div>
+<div><span style="font-family: 微软雅黑;">![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-6a95d74385b0102f698795abc3ba226b_ITKtoVTK1.jpg)</span></div>
+<div>
+<div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;"><a id="more"></a>
+</span></div>
+<div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">**下面具体解释下ITK对象到VTK对象的两种转换方式：**</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5; font-family: 微软雅黑;">**第一种**方式是使用</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">**itkImageToVTKImageFilter**</span>类</span></div>
+<div>通过例子来说明：</div>
+<div>
+<div>
+<pre class="brush:cpp">#include "itkImage.h"
+#include "itkImageFileReader.h"
+#include "itkImageToVTKImageFilter.h"
+
+#include "vtkImageViewer.h"
+#include "vtkRenderWindowInteractor.h"
+
+int main( int argc, char **argv ) 
+{
+    typedef itk::Image&lt; unsigned short, 2 &gt;             ImageType;
+    typedef itk::ImageFileReader&lt;ImageType&gt;          ReaderType;
+    <span style="color: #ff0000;">typedef itk::ImageToVTKImageFilter&lt; ImageType&gt; FilterType;</span>
+
+    ReaderType::Pointer reader = ReaderType::New();
+    <span style="color: #ff0000;">FilterType::Pointer connector = FilterType::New();</span>
+    reader-&gt;SetFileName( "d:\\1.png");
+    <span style="color: #ff0000;">connector-&gt;SetInput( reader-&gt;GetOutput() );</span>
+
+    vtkImageViewer * viewer = vtkImageViewer::New();
+
+    vtkRenderWindowInteractor * renderWindowInteractor = vtkRenderWindowInteractor::New();
+
+    viewer-&gt;SetupInteractor( renderWindowInteractor );
+    viewer-&gt;SetInput(<span style="color: #ff0000;"> connector-&gt;GetOutput()</span> );
+    viewer-&gt;Render();
+    viewer-&gt;SetColorWindow( 255 );
+    viewer-&gt;SetColorLevel( 128 );
+    renderWindowInteractor-&gt;Start();
+
+    return 0;
+}</pre>
+</div>
+<div></div>
+<span style="font-size: 10.5pt; line-height: 1.5;">**第二种**方式是使用</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">**itkVTKImageExport **</span>/ </span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">**vtkImageImport**</span>和</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">**vtkImageExport **</span>/ </span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">**vtkImageImport**</span></span><span style="font-size: 10.5pt; line-height: 1.5;">类</span>
+
+</div>
+<div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">例子如下：</span></div>
+<div>
+<pre class="brush:cpp">#include "itkCommand.h"
+#include "itkImage.h"
+#include "itkVTKImageExport.h"
+#include "itkVTKImageImport.h"
+#include "itkCurvatureFlowImageFilter.h"
+#include "itkCastImageFilter.h"
+#include "itkRGBPixel.h"
+#include "itkImageFileReader.h"
+#include "itkImageFileWriter.h"
+#include "vtkImageData.h"
+
+#include "vtkImageImport.h"
+#include "vtkImageExport.h"
+#include "vtkImageActor.h"
+#include "vtkRenderer.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkInteractorStyleImage.h" 
+#include "itkPNGImageIO.h"
+/**
+* This will be setup as a callback for a progress event on an ITK
+* filter.
+*/
+struct ProgressDisplay
+{
+    ProgressDisplay(itk::ProcessObject* process): m_Process(process) {}
+
+    void Display()
+    {
+        float progress = m_Process-&gt;GetProgress()*100.0;
+        std::cout &lt;&lt; "Progress " &lt;&lt; progress &lt;&lt; " percent." &lt;&lt; std::endl;
+    }
+
+    itk::ProcessObject::Pointer m_Process;
+};
+
+/**
+* This function will connect the given itk::VTKImageExport filter to
+* the given vtkImageImport filter.
+*/
+<span style="color: #ff0000;">template &lt;typename ITK_Exporter, typename VTK_Importer&gt; void ConnectPipelines(ITK_Exporter exporter, VTK_Importer* importer) { importer-&gt;SetUpdateInformationCallback(exporter-&gt;GetUpdateInformationCallback()); importer-&gt;SetPipelineModifiedCallback(exporter-&gt;GetPipelineModifiedCallback()); importer-&gt;SetWholeExtentCallback(exporter-&gt;GetWholeExtentCallback()); importer-&gt;SetSpacingCallback(exporter-&gt;GetSpacingCallback()); importer-&gt;SetOriginCallback(exporter-&gt;GetOriginCallback()); importer-&gt;SetScalarTypeCallback(exporter-&gt;GetScalarTypeCallback()); importer-&gt;SetNumberOfComponentsCallback(exporter-&gt;GetNumberOfComponentsCallback()); importer-&gt;SetPropagateUpdateExtentCallback(exporter-&gt;GetPropagateUpdateExtentCallback()); importer-&gt;SetUpdateDataCallback(exporter-&gt;GetUpdateDataCallback()); importer-&gt;SetDataExtentCallback(exporter-&gt;GetDataExtentCallback()); importer-&gt;SetBufferPointerCallback(exporter-&gt;GetBufferPointerCallback()); importer-&gt;SetCallbackUserData(exporter-&gt;GetCallbackUserData()); } </span>
+/**
+* This function will connect the given vtkImageExport filter to
+* the given itk::VTKImageImport filter.
+*/
+<span style="color: #ff0000;">template &lt;typename VTK_Exporter, typename ITK_Importer&gt; void ConnectPipelines(VTK_Exporter* exporter, ITK_Importer importer) { importer-&gt;SetUpdateInformationCallback(exporter-&gt;GetUpdateInformationCallback()); importer-&gt;SetPipelineModifiedCallback(exporter-&gt;GetPipelineModifiedCallback()); importer-&gt;SetWholeExtentCallback(exporter-&gt;GetWholeExtentCallback()); importer-&gt;SetSpacingCallback(exporter-&gt;GetSpacingCallback()); importer-&gt;SetOriginCallback(exporter-&gt;GetOriginCallback()); importer-&gt;SetScalarTypeCallback(exporter-&gt;GetScalarTypeCallback()); importer-&gt;SetNumberOfComponentsCallback(exporter-&gt;GetNumberOfComponentsCallback()); importer-&gt;SetPropagateUpdateExtentCallback(exporter-&gt;GetPropagateUpdateExtentCallback()); importer-&gt;SetUpdateDataCallback(exporter-&gt;GetUpdateDataCallback()); importer-&gt;SetDataExtentCallback(exporter-&gt;GetDataExtentCallback()); importer-&gt;SetBufferPointerCallback(exporter-&gt;GetBufferPointerCallback()); importer-&gt;SetCallbackUserData(exporter-&gt;GetCallbackUserData()); }</span>
+
+/**
+* This program implements an example connection between ITK and VTK
+* pipelines.  The combined pipeline flows as follows:
+*
+* itkImageFileReader ==&gt; itkVTKImageExport ==&gt;
+*    vtkImageImport ==&gt; vtkImageActor
+*
+* The resulting vtkImageActor is displayed in a vtkRenderWindow.
+* Whenever the VTK pipeline executes, information is propagated
+* through the ITK pipeline.  If the ITK pipeline is out of date, it
+* will re-execute and cause the VTK pipeline to update properly as
+* well.
+*/
+int main(int argc, char * argv [] )
+{  
+
+    // Load a color image using ITK and display it with VTK
+
+    try
+    {
+        typedef itk::RGBPixel&lt; unsigned char &gt; PixelType;
+        typedef itk::Image&lt; PixelType, 2 &gt; ImageType;
+
+        typedef itk::ImageFileReader&lt; ImageType &gt; ReaderType;
+
+        ReaderType::Pointer reader  = ReaderType::New();
+        reader-&gt;SetFileName("d:\\1.png");
+        reader-&gt;Update();
+
+<span style="color: #ff0000;"> typedef itk::VTKImageExport&lt; ImageType &gt; ExportFilterType; ExportFilterType::Pointer itkExporter = ExportFilterType::New(); itkExporter-&gt;SetInput( reader-&gt;GetOutput() );</span>
+
+        // Create the vtkImageImport and connect it to the
+        // itk::VTKImageExport instance.
+        <span style="color: #ff0000;">vtkImageImport* vtkImporter = vtkImageImport::New();</span>  
+        <span style="color: #ff0000;">ConnectPipelines(itkExporter, vtkImporter);</span>
+
+        // Just for double checking export it from VTK back into ITK 
+        // and save it into a file.
+<span style="color: #ff0000;"> typedef itk::VTKImageImport&lt; ImageType &gt; ImportFilterType; ImportFilterType::Pointer itkImporter = ImportFilterType::New(); vtkImageExport* vtkExporter = vtkImageExport::New(); ConnectPipelines(vtkExporter, itkImporter);</span>
+<span style="color: #ff0000;"> vtkExporter-&gt;SetInput( vtkImporter-&gt;GetOutput() );</span>
+
+        typedef itk::ImageFileWriter&lt; ImageType &gt; WriterType;
+        WriterType::Pointer itkWriter = WriterType::New();
+        <span style="color: #ff0000;">itkWriter-&gt;SetInput( itkImporter-&gt;GetOutput() );</span>
+
+        const char * filename = "d:\\2.png";
+        std::cout &lt;&lt; "Writing file " &lt;&lt; filename &lt;&lt; std::endl;
+        itkWriter-&gt;SetFileName( filename );
+
+        itkWriter-&gt;Update();
+
+        //------------------------------------------------------------------------
+        // VTK pipeline.
+        //------------------------------------------------------------------------
+
+        // Create a vtkImageActor to help render the image.  Connect it to
+        // the vtkImporter instance.
+        vtkImageActor* actor = vtkImageActor::New();
+        <span style="color: #ff0000;">actor-&gt;SetInput(vtkImporter-&gt;GetOutput());</span>
+
+        vtkInteractorStyleImage * interactorStyle = vtkInteractorStyleImage::New();
+
+        // Create a renderer, render window, and render window interactor to
+        // display the results.
+        vtkRenderer* renderer = vtkRenderer::New();
+        vtkRenderWindow* renWin = vtkRenderWindow::New();
+        vtkRenderWindowInteractor* iren = vtkRenderWindowInteractor::New();
+
+        renWin-&gt;SetSize(500, 500);
+        renWin-&gt;AddRenderer(renderer);
+        iren-&gt;SetRenderWindow(renWin);
+        iren-&gt;SetInteractorStyle( interactorStyle );
+
+        // Add the vtkImageActor to the renderer for display.
+        renderer-&gt;AddActor(actor);
+        renderer-&gt;SetBackground(0.4392, 0.5020, 0.5647);
+
+        // Bring up the render window and begin interaction.
+        renWin-&gt;Render();
+        iren-&gt;Start();
+
+        // Release all VTK components
+        actor-&gt;Delete();
+        interactorStyle-&gt;Delete(); 
+        vtkImporter-&gt;Delete();
+        vtkExporter-&gt;Delete();
+        renWin-&gt;Delete();
+        renderer-&gt;Delete();
+        iren-&gt;Delete();
+
+    }
+    catch( itk::ExceptionObject &amp; e )
+    {
+        std::cerr &lt;&lt; "Exception catched !! " &lt;&lt; e &lt;&lt; std::endl;
+    }
+
+    return 0;
+}</pre>
+</div>
+<div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">
+</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">【参考来源】：</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">http://image.szpt.edu.cn/cn/Article_content.asp?id=311</span></div>
+</div>
+<div></div>
       
     </div>
 
@@ -636,7 +828,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -880,7 +1072,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

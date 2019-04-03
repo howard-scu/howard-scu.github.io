@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="char*inet_ntoa(structin_addrin);将一个IP转换成一个互联网标准点分格式的字符串。如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。这里返回的值是static型，所以对于1语句是覆盖了src的地址&amp;lt;div style=&amp;quot;border: 1px solid black; margin-le">
+  <meta name="description" content="char*inet_ntoa(structin_addrin);将一个IP转换成一个互联网标准点分格式的字符串。如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。 这里返回的值是static型，所以对于1语句是覆盖了src的地址 `#**include**&amp;nbsp;&amp;lt;iostream&amp;gt; #**include**&amp;nbs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C&#x2F;C++返回内部静态成员的陷阱">
 <meta property="og:url" content="http://yoursite.com/2015/04/29/cc-e8-bf-94-e5-9b-9e-e5-86-85-e9-83-a8-e9-9d-99-e6-80-81-e6-88-90-e5-91-98-e7-9a-84-e9-99-b7-e9-98-b1/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="char*inet_ntoa(structin_addrin);将一个IP转换成一个互联网标准点分格式的字符串。如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。这里返回的值是static型，所以对于1语句是覆盖了src的地址&amp;lt;div style=&amp;quot;border: 1px solid black; margin-le">
+<meta property="og:description" content="char*inet_ntoa(structin_addrin);将一个IP转换成一个互联网标准点分格式的字符串。如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。 这里返回的值是static型，所以对于1语句是覆盖了src的地址 `#**include**&amp;nbsp;&amp;lt;iostream&amp;gt; #**include**&amp;nbs">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;C++返回内部静态成员的陷阱">
-<meta name="twitter:description" content="char*inet_ntoa(structin_addrin);将一个IP转换成一个互联网标准点分格式的字符串。如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。这里返回的值是static型，所以对于1语句是覆盖了src的地址&amp;lt;div style=&amp;quot;border: 1px solid black; margin-le">
+<meta name="twitter:description" content="char*inet_ntoa(structin_addrin);将一个IP转换成一个互联网标准点分格式的字符串。如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。 这里返回的值是static型，所以对于1语句是覆盖了src的地址 `#**include**&amp;nbsp;&amp;lt;iostream&amp;gt; #**include**&amp;nbs">
 
 
 
@@ -466,30 +466,33 @@
       
 
       
-        <div><div>char*inet_ntoa(structin_addrin);</div><div>将一个IP转换成一个互联网标准点分格式的字符串。</div><div>如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。</div></div><div><br></div><div>这里返回的值是static型，所以对于1语句是覆盖了src的地址</div><div><br></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;iostream&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
-#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;Winsock2.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
-&lt;font color=&quot;#0000FF&quot;&gt;**using**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**namespace**&lt;/font&gt;&amp;nbsp;std;
-&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;main()
+        <div><div>char*inet_ntoa(structin_addrin);</div><div>将一个IP转换成一个互联网标准点分格式的字符串。</div><div>如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。</div></div><div>
+</div><div>这里返回的值是static型，所以对于1语句是覆盖了src的地址</div><div>
+</div><div><div>`<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>#<font color="#0000FF">**include**</font>&nbsp;<font color="#333399">&lt;</font>iostream<font color="#333399">&gt;</font>
+#<font color="#0000FF">**include**</font>&nbsp;<font color="#333399">&lt;</font>Winsock2.h<font color="#333399">&gt;</font>
+<font color="#0000FF">**using**</font>&nbsp;<font color="#0000FF">**namespace**</font>&nbsp;std;
+<font color="#0000FF">**int**</font>&nbsp;main()
 {
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**struct**&lt;/font&gt;&amp;nbsp;in_addr&amp;nbsp;src,&amp;nbsp;des;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src.s_addr&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;3776385196&lt;/font&gt;;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//对应于172.16.23.225&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;des.s_addr&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1678184620&lt;/font&gt;;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//对应于172.16.7.100&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;src\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(src)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;endl
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;des\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(des)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;src\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(src)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;des\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(des)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;system(&lt;font color=&quot;#FF00BF&quot;&gt;&quot;pause&quot;&lt;/font&gt;);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;;
-}&lt;/div&gt;&lt;/div&gt;</code></div><div></div></div><div><br></div><div>运行结果</div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;src &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
-des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**struct**</font>&nbsp;in_addr&nbsp;src,&nbsp;des;
+&nbsp;&nbsp;&nbsp;&nbsp;src.s_addr&nbsp;<font color="#333399">=</font>&nbsp;<font color="#6E00AA">3776385196</font>;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//对应于172.16.23.225</font>
+&nbsp;&nbsp;&nbsp;&nbsp;des.s_addr&nbsp;<font color="#333399">=</font>&nbsp;<font color="#6E00AA">1678184620</font>;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//对应于172.16.7.100</font>
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;<font color="#FF00BF">"src\t"</font>&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;inet_ntoa(src)&nbsp;<font color="#333399">&lt;&lt;</font>endl
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;<font color="#FF00BF">"des\t"</font>&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;inet_ntoa(des)&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;<font color="#FF00BF">"src\t"</font>&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;inet_ntoa(src)&nbsp;<font color="#333399">&lt;&lt;</font>endl;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;<font color="#FF00BF">"des\t"</font>&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;inet_ntoa(des)&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;system(<font color="#FF00BF">"pause"</font>);
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**return**</font>&nbsp;<font color="#6E00AA">0</font>;
+}</div></div>`</div><div></div></div><div>
+</div><div>运行结果</div><div>`<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>src &nbsp; &nbsp; <font color="#6E00AA">172</font>.<font color="#6E00AA">16</font>.<font color="#6E00AA">23</font>.<font color="#6E00AA">225</font>
+des &nbsp; &nbsp; <font color="#6E00AA">172</font>.<font color="#6E00AA">16</font>.<font color="#6E00AA">23</font>.<font color="#6E00AA">225</font>
 
-src &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
-des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;7&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;100&lt;/font&gt;
-请按任意键继续. . .&lt;/div&gt;&lt;/div&gt;</code></div>
+src &nbsp; &nbsp; <font color="#6E00AA">172</font>.<font color="#6E00AA">16</font>.<font color="#6E00AA">23</font>.<font color="#6E00AA">225</font>
+des &nbsp; &nbsp; <font color="#6E00AA">172</font>.<font color="#6E00AA">16</font>.<font color="#6E00AA">7</font>.<font color="#6E00AA">100</font>
+请按任意键继续. . .</div></div>`</div>
 
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
       
     </div>
 
@@ -628,7 +631,7 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -872,7 +875,9 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&amp;nbsp;&amp;nbsp;1.  &amp;lt;span class=&amp;quot;kwd&amp;quot;&amp;gt;select&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;pln">
+  <meta name="description" content="SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&amp;nbsp;&amp;nbsp;  1.  `select isnull(sum(cost),0) from table_name;` 使用isnull()方法进行判断，如isnull(sum(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于SQL语句中SUM函数返回NULL的解决办法">
 <meta property="og:url" content="http://yoursite.com/2015/01/21/e5-85-b3-e4-ba-8esql-e8-af-ad-e5-8f-a5-e4-b8-adsum-e5-87-bd-e6-95-b0-e8-bf-94-e5-9b-9enull-e7-9a-84-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&amp;nbsp;&amp;nbsp;1.  &amp;lt;span class=&amp;quot;kwd&amp;quot;&amp;gt;select&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;pln">
+<meta property="og:description" content="SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&amp;nbsp;&amp;nbsp;  1.  `select isnull(sum(cost),0) from table_name;` 使用isnull()方法进行判断，如isnull(sum(">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于SQL语句中SUM函数返回NULL的解决办法">
-<meta name="twitter:description" content="SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&amp;nbsp;&amp;nbsp;1.  &amp;lt;span class=&amp;quot;kwd&amp;quot;&amp;gt;select&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;pln">
+<meta name="twitter:description" content="SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&amp;nbsp;&amp;nbsp;  1.  `select isnull(sum(cost),0) from table_name;` 使用isnull()方法进行判断，如isnull(sum(">
 
 
 
@@ -466,10 +466,14 @@
       
 
       
-        <div><span style="font-size: 10.5pt; line-height: 1.5;">SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。</span></div><div><span style="font-size: 10.5pt; line-height: 1.5;">但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&nbsp;</span></div><div>&nbsp;</div><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;kwd&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; isnull&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; table_name&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code></pre></div><div><br></div></div><div><font color="#ff0000">使用isnull()方法进行判断，如isnull(sum(cnt),0)，其中0为默认值，如果sum(cnt)的结果为null，则赋值 0；同理此方法可用于某字段，isnull(cnt,0)，这样就可以排除一些值为null的数值型字段了。而如果这样 isnull(sum(isnull(cnt,0)),0)，这样就可保万无一失了。</font></div><div><strong>
-</strong></div><div><strong>注意：</strong><span style="font-size: 10.5pt; line-height: 1.5;">在sqlite中没有isnull函数，而是使用ifnull函数，用法跟isnull一样</span></div><div><font color="#ff0000"><br></font></div><div>&nbsp;</div>
+        <div><span style="font-size: 10.5pt; line-height: 1.5;">SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。</span></div><div><span style="font-size: 10.5pt; line-height: 1.5;">但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&nbsp;</span></div><div>&nbsp;</div><div><div><pre class="prettyprint linenums prettyprinted">
 
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+1.  `<span class="kwd">select</span><span class="pln"> isnull</span><span class="pun">(</span><span class="pln">sum</span><span class="pun">(</span><span class="pln">cost</span><span class="pun">),</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> table_name</span><span class="pun">;</span>`</pre></div><div>
+</div></div><div><font color="#ff0000">使用isnull()方法进行判断，如isnull(sum(cnt),0)，其中0为默认值，如果sum(cnt)的结果为null，则赋值 0；同理此方法可用于某字段，isnull(cnt,0)，这样就可以排除一些值为null的数值型字段了。而如果这样 isnull(sum(isnull(cnt,0)),0)，这样就可保万无一失了。</font></div><div>**
+**</div><div>**注意：**<span style="font-size: 10.5pt; line-height: 1.5;">在sqlite中没有isnull函数，而是使用ifnull函数，用法跟isnull一样</span></div><div><font color="#ff0000">
+</font></div><div>&nbsp;</div>
+
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
       
     </div>
 
@@ -608,7 +612,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -852,7 +856,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

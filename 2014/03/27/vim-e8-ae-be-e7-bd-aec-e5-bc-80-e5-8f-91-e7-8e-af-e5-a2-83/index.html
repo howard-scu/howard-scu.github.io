@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="1**、配置文件的位置** 在目录 /etc/ 下面，有个名为vimrc的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“.**vimrc”。例如，/root目录下，通常已经存在一个.**vimrc文件。2**、设置语法高亮显示1) 打开vimrc，添加以下语句来使得语法高亮显示：syntax on2) 如果此时语法还是没有高">
+  <meta name="description" content="1**、配置文件的位置** 在目录 /etc/ 下面，有个名为**vimrc**的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“**.****vimrc**”。例如，/root目录下，通常已经存在一个**.****vimrc**文件。 ** ** **2****、设置语法高亮显示** 1) 打开vimrc，添加以下语句来使得">
 <meta name="keywords" content="linux,vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim设置c开发环境">
 <meta property="og:url" content="http://yoursite.com/2014/03/27/vim-e8-ae-be-e7-bd-aec-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="1**、配置文件的位置** 在目录 /etc/ 下面，有个名为vimrc的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“.**vimrc”。例如，/root目录下，通常已经存在一个.**vimrc文件。2**、设置语法高亮显示1) 打开vimrc，添加以下语句来使得语法高亮显示：syntax on2) 如果此时语法还是没有高">
+<meta property="og:description" content="1**、配置文件的位置** 在目录 /etc/ 下面，有个名为**vimrc**的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“**.****vimrc**”。例如，/root目录下，通常已经存在一个**.****vimrc**文件。 ** ** **2****、设置语法高亮显示** 1) 打开vimrc，添加以下语句来使得">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim设置c开发环境">
-<meta name="twitter:description" content="1**、配置文件的位置** 在目录 /etc/ 下面，有个名为vimrc的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“.**vimrc”。例如，/root目录下，通常已经存在一个.**vimrc文件。2**、设置语法高亮显示1) 打开vimrc，添加以下语句来使得语法高亮显示：syntax on2) 如果此时语法还是没有高">
+<meta name="twitter:description" content="1**、配置文件的位置** 在目录 /etc/ 下面，有个名为**vimrc**的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“**.****vimrc**”。例如，/root目录下，通常已经存在一个**.****vimrc**文件。 ** ** **2****、设置语法高亮显示** 1) 打开vimrc，添加以下语句来使得">
 
 
 
@@ -468,7 +468,55 @@
 
       
         <p><strong><span style="color: green;">1</span>**</strong><span style="color: green;">、配置文件的位置</span>**</p>
-<div style="text-indent: 21pt;">在目录 /etc/ 下面，有个名为<strong>vimrc</strong>的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“<strong><span style="font-size: 12pt;">.</span>**</strong>vimrc<strong>”。例如，/root目录下，通常已经存在一个</strong><span style="font-size: 12pt;">.</span><strong>**vimrc</strong>文件。</div><br><div><strong><span style="color: green;"><br></span></strong></div><br><div><strong><span style="color: green;">2</span>**</strong><span style="color: green;">、设置语法高亮显示</span><strong></strong></div><br><div style="margin: 0cm 0cm 0pt 21pt; text-indent: 21pt;">1) 打开vimrc，添加以下语句来使得语法高亮显示：</div><br><div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;">syntax on</span></div><br><div style="margin: 0cm 0cm 0pt 21pt; text-indent: 21pt;">2) 如果此时语法还是没有高亮显示，那么在/etc目录下的profile文件中添加以下语句：</div><br><div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;">export TERM=xterm-color</span></div><br><div></div><br><div><span style="color: green;">3</span><strong><strong><span style="color: green;">、设置</span></strong></strong><span style="color: green;">Windows</span><strong><strong><span style="color: green;">风格的</span></strong></strong><span style="color: green;">C/C++</span><strong><strong><span style="color: green;">自动缩进（添加以下</span></strong></strong><span style="color: green;">set</span><strong><strong><span style="color: green;">语句到</span></strong></strong><span style="color: green;">vimrc</span><strong>**<span style="color: green;">中）</span></strong></div><br>&gt; <div>1）设置（软）制表符宽度为4：</div><br>&gt;<br>&gt; &gt; <div><span style="color: red;">set tabstop=4</span></div><br>&gt;<br>&gt; &gt; <div><span style="color: red;"> set softtabstop=4</span></div><br>&gt;<br>&gt; <div>2）设置缩进的空格数为4</div><br>&gt;<br>&gt; <div><span style="color: red;">set shiftwidth=4</span></div><br>&gt;<br>&gt; <div>3）设置自动缩进：即每行的缩进值与上一行相等；使用 noautoindent 取消设置：</div><br>&gt;<br>&gt; <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">set autoindent</span></div><br>&gt;<br>&gt; <div>4）设置使用 C/C++ 语言的自动缩进方式：</div><br>&gt;<br>&gt; <div><span style="color: red;">set cindent</span></div><br>&gt;<br>&gt; <div>5）设置C/C++语言的具体缩进方式（以我的windows风格为例）：</div><br>&gt;<br>&gt; <div><span style="color: red;">set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,&gt;1s,=1s,:1s</span></div><br>&gt;<br>&gt; <div>6）如果想在左侧显示文本的行号，可以用以下语句：</div><br>&gt;<br>&gt; <div><span style="color: red;">set nu</span></div><br>&gt;<br>&gt; <div>7）最后，如果没有下列语句，就加上吧：</div><br>&gt;<br>&gt; <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">if &amp;term==”xterm”</span></div><br>&gt;<br>&gt; <div style="margin: 0cm 0cm 0pt 84pt; text-indent: 21pt;"><span style="color: red;">set t_Co=8</span></div><br>&gt;<br>&gt; <div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;"> set t_Sb=^[[4%dm</span></div><br>&gt;<br>&gt; <div style="margin: 0cm 0cm 0pt 84pt; text-indent: 21pt;"><span style="color: red;">set t_Sf=^[[3%dm</span></div><br>&gt;<br>&gt; <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">endif</span></div><br>&gt;<br>&gt; <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"></div>
+<div style="text-indent: 21pt;">在目录 /etc/ 下面，有个名为**vimrc**的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“**<span style="font-size: 12pt;">.</span>****vimrc**”。例如，/root目录下，通常已经存在一个**<span style="font-size: 12pt;">.</span>****vimrc**文件。</div>
+<div>**<span style="color: green;">
+</span>**</div>
+<div>**<span style="color: green;">2</span>****<span style="color: green;">、设置语法高亮显示</span>**</div>
+<div style="margin: 0cm 0cm 0pt 21pt; text-indent: 21pt;">1) 打开vimrc，添加以下语句来使得语法高亮显示：</div>
+<div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;">syntax on</span></div>
+<div style="margin: 0cm 0cm 0pt 21pt; text-indent: 21pt;">2) 如果此时语法还是没有高亮显示，那么在/etc目录下的profile文件中添加以下语句：</div>
+<div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;">export TERM=xterm-color</span></div>
+<div></div>
+<div>**<span style="color: green;">3</span>****<span style="color: green;">、设置</span>****<span style="color: green;">Windows</span>****<span style="color: green;">风格的</span>****<span style="color: green;">C/C++</span>****<span style="color: green;">自动缩进（添加以下</span>****<span style="color: green;">set</span>****<span style="color: green;">语句到</span>****<span style="color: green;">vimrc</span>****<span style="color: green;">中）</span>**</div>
+> <div>1）设置（软）制表符宽度为4：</div>
+> 
+> > <div><span style="color: red;">set tabstop=4</span></div>
+> 
+> > <div><span style="color: red;"> set softtabstop=4</span></div>
+> 
+> <div>2）设置缩进的空格数为4</div>
+> 
+> <div><span style="color: red;">set shiftwidth=4</span></div>
+> 
+> <div>3）设置自动缩进：即每行的缩进值与上一行相等；使用 noautoindent 取消设置：</div>
+> 
+> <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">set autoindent</span></div>
+> 
+> <div>4）设置使用 C/C++ 语言的自动缩进方式：</div>
+> 
+> <div><span style="color: red;">set cindent</span></div>
+> 
+> <div>5）设置C/C++语言的具体缩进方式（以我的windows风格为例）：</div>
+> 
+> <div><span style="color: red;">set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,&gt;1s,=1s,:1s</span></div>
+> 
+> <div>6）如果想在左侧显示文本的行号，可以用以下语句：</div>
+> 
+> <div><span style="color: red;">set nu</span></div>
+> 
+> <div>7）最后，如果没有下列语句，就加上吧：</div>
+> 
+> <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">if &amp;term=="xterm"</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 84pt; text-indent: 21pt;"><span style="color: red;">set t_Co=8</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;"> set t_Sb=^[[4%dm</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 84pt; text-indent: 21pt;"><span style="color: red;">set t_Sf=^[[3%dm</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">endif</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"></div>
       
     </div>
 
@@ -615,7 +663,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -859,7 +907,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

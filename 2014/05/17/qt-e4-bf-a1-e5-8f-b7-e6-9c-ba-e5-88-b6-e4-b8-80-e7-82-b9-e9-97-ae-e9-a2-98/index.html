@@ -94,19 +94,17 @@
 
 
 
-  <meta name="description" content="QTreeWidget具有以下的信号：void    currentItemChanged(QTreeWidgetItem  current, QTreeWidgetItem  previous)void    itemActivated(QTreeWidgetItem  item, int column)void    itemChanged(QTreeWidgetItem  item, int">
+  <meta name="description" content="**QTreeWidget具有以下的信号：**  void    currentItemChanged(QTreeWidgetItem * current, QTreeWidgetItem * previous) void    itemActivated(QTreeWidgetItem * item, int column) void    itemChanged(QTreeWidgetItem">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt信号机制一点问题">
 <meta property="og:url" content="http://yoursite.com/2014/05/17/qt-e4-bf-a1-e5-8f-b7-e6-9c-ba-e5-88-b6-e4-b8-80-e7-82-b9-e9-97-ae-e9-a2-98/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="QTreeWidget具有以下的信号：void    currentItemChanged(QTreeWidgetItem  current, QTreeWidgetItem  previous)void    itemActivated(QTreeWidgetItem  item, int column)void    itemChanged(QTreeWidgetItem  item, int">
+<meta property="og:description" content="**QTreeWidget具有以下的信号：**  void    currentItemChanged(QTreeWidgetItem * current, QTreeWidgetItem * previous) void    itemActivated(QTreeWidgetItem * item, int column) void    itemChanged(QTreeWidgetItem">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/05/wpid-5b11432c30b8024e30a685c5dc6ca271_79030636.png">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt信号机制一点问题">
-<meta name="twitter:description" content="QTreeWidget具有以下的信号：void    currentItemChanged(QTreeWidgetItem  current, QTreeWidgetItem  previous)void    itemActivated(QTreeWidgetItem  item, int column)void    itemChanged(QTreeWidgetItem  item, int">
-<meta name="twitter:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/05/wpid-5b11432c30b8024e30a685c5dc6ca271_79030636.png">
+<meta name="twitter:description" content="**QTreeWidget具有以下的信号：**  void    currentItemChanged(QTreeWidgetItem * current, QTreeWidgetItem * previous) void    itemActivated(QTreeWidgetItem * item, int column) void    itemChanged(QTreeWidgetItem">
 
 
 
@@ -468,7 +466,47 @@
       
 
       
-        <div><strong>QTreeWidget具有以下的信号：</strong></div><br><div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">void    currentItemChanged(QTreeWidgetItem <em> current, QTreeWidgetItem </em> previous)</span></div><br><div>void    itemActivated(QTreeWidgetItem <em> item, int column)</em></div><br><div>void    itemChanged(QTreeWidgetItem  item, int column)</div><br><div>void    itemClicked(QTreeWidgetItem <em> item, int column)</em></div><br><div>void    itemCollapsed(QTreeWidgetItem  item)</div><br><div>void    itemDoubleClicked(QTreeWidgetItem <em> item, int column)</em></div><br><div>void    itemEntered(QTreeWidgetItem  item, int column)</div><br><div>void    itemExpanded(QTreeWidgetItem <em> item)</em></div><br><div>void    itemPressed(QTreeWidgetItem  item, int column)</div><br><div>void    itemSelectionChanged()</div><br></div><br><div>使用中遇到一些问题</div><br><div></div><br><div>程序中设置</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><br><div><span style="line-height: 1.5;">//定义</span></div><br></div><br><div><span style="color: #0000ff;"><strong>public</strong></span> slots<span style="color: #333399;">:</span><br><span style="color: #0000ff;"><strong>void</strong></span> itemDoubleClicked(QTreeWidgetItem<span style="color: #333399;"><em></em></span>, <span style="color: #0000ff;"><strong>int</strong></span>);</div><br><div></div><br><div>//连接</div><br><div>connect(ui.m_TreeWidget, <span style="color: #0000ff;">SIGNAL</span>(itemDoubleClicked(QTreeWidgetItem  item, int column)), this, <span style="color: #0000ff;">SLOT</span>(itemDoubleClicked(QTreeWidgetItem <em> item, int column)));</em></div><br></div><br></div><br><div>会遇到以下问题</div><br><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/05/wpid-5b11432c30b8024e30a685c5dc6ca271_79030636.png" alt><br><div></div><br><div>Q:明明存在信号为什么没有连接起来？</div><br><div>A:Qt预编译的时候不要使用变量名</div><br><div>只需要把连接改成：</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>connect(ui.m_TreeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem <span style="color: #333399;"></span> item, <span style="color: #0000ff;"><strong>int</strong></span> column)), <span style="color: #0000ff;"><strong>this</strong></span>, SLOT(itemDoubleClicked(QTreeWidgetItem <span style="color: #333399;">*</span>, <span style="color: #0000ff;"><strong>int</strong></span>)));</div><br></div><br></div><br><div>就可以作用了。</div><br><div></div>
+        <div>**QTreeWidget具有以下的信号：**</div>
+<div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">void    currentItemChanged(QTreeWidgetItem * current, QTreeWidgetItem * previous)</span></div>
+<div>void    itemActivated(QTreeWidgetItem * item, int column)</div>
+<div>void    itemChanged(QTreeWidgetItem * item, int column)</div>
+<div>void    itemClicked(QTreeWidgetItem * item, int column)</div>
+<div>void    itemCollapsed(QTreeWidgetItem * item)</div>
+<div>void    itemDoubleClicked(QTreeWidgetItem * item, int column)</div>
+<div>void    itemEntered(QTreeWidgetItem * item, int column)</div>
+<div>void    itemExpanded(QTreeWidgetItem * item)</div>
+<div>void    itemPressed(QTreeWidgetItem * item, int column)</div>
+<div>void    itemSelectionChanged()</div>
+</div>
+<div>使用中遇到一些问题</div>
+<div></div>
+<div>程序中设置</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>
+<div><span style="line-height: 1.5;">//定义</span></div>
+</div>
+<div><span style="color: #0000ff;">**public**</span> slots<span style="color: #333399;">:</span>
+<span style="color: #0000ff;">**void**</span> itemDoubleClicked(QTreeWidgetItem<span style="color: #333399;">*</span>, <span style="color: #0000ff;">**int**</span>);</div>
+<div></div>
+<div>//连接</div>
+<div>connect(ui.m_TreeWidget, <span style="color: #0000ff;">SIGNAL</span>(itemDoubleClicked(QTreeWidgetItem * item, int column)), this, <span style="color: #0000ff;">SLOT</span>(itemDoubleClicked(QTreeWidgetItem * item, int column)));</div>
+</div>
+</div>
+<div>会遇到以下问题</div>
+![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/05/wpid-5b11432c30b8024e30a685c5dc6ca271_79030636.png)
+<div></div>
+<div>Q:明明存在信号为什么没有连接起来？</div>
+<div>A:Qt预编译的时候不要使用变量名</div>
+<div>只需要把连接改成：</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>connect(ui.m_TreeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem <span style="color: #333399;">*</span> item, <span style="color: #0000ff;">**int**</span> column)), <span style="color: #0000ff;">**this**</span>, SLOT(itemDoubleClicked(QTreeWidgetItem <span style="color: #333399;">*</span>, <span style="color: #0000ff;">**int**</span>)));</div>
+</div>
+</div>
+<div>就可以作用了。</div>
+<div></div>
       
     </div>
 
@@ -607,7 +645,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -851,7 +889,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

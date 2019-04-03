@@ -338,6 +338,210 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/台大机器学习2017课程笔记-回归/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/03/台大机器学习2017课程笔记-回归/" class="post-title-link" itemprop="url">台大机器学习2017课程笔记-回归</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-03 09:55:36 / 修改时间：11:39:28" itemprop="dateCreated datePublished" datetime="2019-04-03T09:55:36+08:00">2019-04-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/03/台大机器学习2017课程笔记-回归/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/03/台大机器学习2017课程笔记-回归/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="回归：输出为数值"><a href="#回归：输出为数值" class="headerlink" title="回归：输出为数值"></a>回归：输出为数值</h4><ul>
+<li>股票市场预测<code>=&gt;</code>道琼斯指数</li>
+<li>自动驾驶汽车<code>=&gt;</code>方向盘角度</li>
+<li>推荐系统<code>=&gt;</code>购买可能性</li>
+</ul>
+<h4 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h4><h5 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h5><script type="math/tex; mode=display">y = b + wx</script><h5 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h5><script type="math/tex; mode=display">L(f) = \sum_{i=1}^{n}(\hat{y}^i-f(x^i))^2</script><script type="math/tex; mode=display">L(w,b) = \sum_{i=1}^{n}(\hat{y}^i-(wx^i+b))</script><h5 id="最优化"><a href="#最优化" class="headerlink" title="最优化"></a>最优化</h5><script type="math/tex; mode=display">f^* = arg \underset{f}{\min} L(f)</script><script type="math/tex; mode=display">w^*,b^* =  arg \underset{w,b}{\min} L(w,b)</script><ul>
+<li><strong>梯度下降</strong><br>针对参数$w$，考虑损失函数 $L(w) $<ul>
+<li>1.随机选择初始值$w^0$</li>
+<li>2.计算$\frac{\mathrm{d} L}{\mathrm{d} w}|_{w=w^0}$</li>
+<li>3.更新$w_1\leftarrow w_0-\eta \frac{\mathrm{d} L}{\mathrm{d} w}|_{w=w^0}$<br><img src="/image/1554254239949.png" alt="Alt text"></li>
+</ul>
+</li>
+<li><strong>存在问题</strong>：<ul>
+<li>驻点</li>
+<li>局部最小值<h5 id="模型选择"><a href="#模型选择" class="headerlink" title="模型选择"></a>模型选择</h5></li>
+</ul>
+</li>
+<li><p>过拟合问题<br>  <img src="/image/1554255043233.png" alt="Alt text"><br>  <img src="/image/1554255206147.png" alt="Alt text"></p>
+<ul>
+<li>这5个模型都是线性模型（是否线性模型看w的次数）</li>
+<li>更复杂的模型具有更小的训练误差</li>
+<li>更复杂的模型不一定具有更小的泛化误差（发生过拟合）</li>
+</ul>
+</li>
+<li><p>正则化</p>
+<ul>
+<li>$ L(w,b) = \sum_{n}(\hat{y}^n-(b+\sum w_ix_i))^2  + \lambda  \sum(w_i)^2$</li>
+<li>更小的$w_i$值代表模型更平滑（考虑下面方程，当$x$变化$\delta x$时，$y$变化为$\sum w_i \delta x_i$，当$w$越小时，$y$变化越小）<script type="math/tex; mode=display">y = b + \sum w_i x_i</script><script type="math/tex; mode=display">y +\sum w_i \delta x_i= b + \sum w_i (x_i+\delta x_i)</script></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/台大机器学习2019课程笔记-对抗攻击/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -383,12 +587,24 @@
                 
               
 
-              <time title="创建时间：2019-03-26 13:48:10 / 修改时间：15:50:25" itemprop="dateCreated datePublished" datetime="2019-03-26T13:48:10+08:00">2019-03-26</time>
+              <time title="创建时间：2019-03-26 13:48:10" itemprop="dateCreated datePublished" datetime="2019-03-26T13:48:10+08:00">2019-03-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-03 11:04:54" itemprop="dateModified" datetime="2019-04-03T11:04:54+08:00">2019-04-03</time>
               
             
           </span>
@@ -474,8 +690,8 @@
 </ul>
 <p>3.约束</p>
 <ul>
-<li><strong>L2-norm</strong><br>$$d(x^0,{x}’)=||x^0-{x}’||_2=(\delta x_1)^2+(\delta x_2)^2+…+(\delta x_n)^2$$</li>
-<li><strong>L-infinity</strong><br>$$d(x^0,{x}’)=||x^0-{x}’||<em>\infty=\max \left { \delta x</em>{1},\delta x_{2},…,\delta x_{n} \right }$$</li>
+<li><strong>L2-norm</strong><script type="math/tex; mode=display">d(x^0,{x}')=||x^0-{x}'||_2=(\delta x_1)^2+(\delta x_2)^2+...+(\delta x_n)^2</script></li>
+<li><strong>L-infinity</strong><script type="math/tex; mode=display">d(x^0,{x}')=||x^0-{x}'||_{\infty}=\max \left\{ \delta x_{1},\delta x_{2},...,\delta x_{n} \right\}</script></li>
 <li>具体采用何种距离约束取决于不同的任务。就视觉系统来说，L-infinity更好。</li>
 </ul>
           <!--noindex-->
@@ -2041,182 +2257,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/Qt部署qwindows-dll错误问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/28/Qt部署qwindows-dll错误问题/" class="post-title-link" itemprop="url">Qt部署qwindows.dll错误问题</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-28 12:30:41 / 修改时间：12:31:00" itemprop="dateCreated datePublished" datetime="2019-02-28T12:30:41+08:00">2019-02-28</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/02/28/Qt部署qwindows-dll错误问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/Qt部署qwindows-dll错误问题/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This application failed to start because it could not find or load the Qt platform plugin &quot;windows&quot;.</span><br></pre></td></tr></table></figure>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>1.使用depends.exe查看添加必要的dll<br>2.添加这两个dll（depends程序并未指明）<br>libGLESv2.dll<br>libEGL.dll<br>3.添加icudt.dll或者qt目录下ic*.dll的三个dll</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] <a href="https://stackoverflow.com/questions/18368826/deploying-qt-c-application-from-visual-studio-qwindows-dll-error/18377863#18377863" target="_blank" rel="noopener">https://stackoverflow.com/questions/18368826/deploying-qt-c-application-from-visual-studio-qwindows-dll-error/18377863#18377863</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2265,7 +2305,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2509,7 +2549,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

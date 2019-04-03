@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="1. 下载，直接找官网下载就可以了。我的是qt-win-opensource-4.8.5-vs2010.exe；2. 设置环境变量：我的电脑&amp;gt; 属性&amp;gt; 高级&amp;gt; 环境变量&amp;gt; 用户变量里面设置几个变量:path中增加C:\Qt\4.8.5\bin(如果没有就创建)创建qmakespec值为 win32-msvc2010创建qtdir值为 C:\Qt\4.8.5\最后为了使的你刚">
+  <meta name="description" content="1\. 下载，直接找官网下载就可以了。我的是qt-win-opensource-4.8.5-vs2010.exe；  2\. 设置环境变量： 我的电脑&amp;gt; 属性&amp;gt; 高级&amp;gt; 环境变量&amp;gt; 用户变量里面设置几个变量: path中增加C:\Qt\4.8.5\bin(如果没有就创建) 创建qmakespec值为 win32-msvc2010 创建qtdir值为 C:\Qt\4.8.5\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS2010编译64位版本QT">
 <meta property="og:url" content="http://yoursite.com/2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="1. 下载，直接找官网下载就可以了。我的是qt-win-opensource-4.8.5-vs2010.exe；2. 设置环境变量：我的电脑&amp;gt; 属性&amp;gt; 高级&amp;gt; 环境变量&amp;gt; 用户变量里面设置几个变量:path中增加C:\Qt\4.8.5\bin(如果没有就创建)创建qmakespec值为 win32-msvc2010创建qtdir值为 C:\Qt\4.8.5\最后为了使的你刚">
+<meta property="og:description" content="1\. 下载，直接找官网下载就可以了。我的是qt-win-opensource-4.8.5-vs2010.exe；  2\. 设置环境变量： 我的电脑&amp;gt; 属性&amp;gt; 高级&amp;gt; 环境变量&amp;gt; 用户变量里面设置几个变量: path中增加C:\Qt\4.8.5\bin(如果没有就创建) 创建qmakespec值为 win32-msvc2010 创建qtdir值为 C:\Qt\4.8.5\">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS2010编译64位版本QT">
-<meta name="twitter:description" content="1. 下载，直接找官网下载就可以了。我的是qt-win-opensource-4.8.5-vs2010.exe；2. 设置环境变量：我的电脑&amp;gt; 属性&amp;gt; 高级&amp;gt; 环境变量&amp;gt; 用户变量里面设置几个变量:path中增加C:\Qt\4.8.5\bin(如果没有就创建)创建qmakespec值为 win32-msvc2010创建qtdir值为 C:\Qt\4.8.5\最后为了使的你刚">
+<meta name="twitter:description" content="1\. 下载，直接找官网下载就可以了。我的是qt-win-opensource-4.8.5-vs2010.exe；  2\. 设置环境变量： 我的电脑&amp;gt; 属性&amp;gt; 高级&amp;gt; 环境变量&amp;gt; 用户变量里面设置几个变量: path中增加C:\Qt\4.8.5\bin(如果没有就创建) 创建qmakespec值为 win32-msvc2010 创建qtdir值为 C:\Qt\4.8.5\">
 
 
 
@@ -466,7 +466,27 @@
       
 
       
-        <div><span style="font-size: 10.5pt; line-height: 1.5;">1. 下载，直接找官网下载就可以了。我的是</span>qt-win-opensource-4.8.5-vs2010.exe<span style="font-size: 10.5pt; line-height: 1.5;">；</span></div><br><div></div><br><div>2. 设置环境变量：</div><br><div>我的电脑&gt; 属性&gt; 高级&gt; 环境变量&gt; 用户变量里面设置几个变量:</div><br><div>path中增加C:\Qt\4.8.5\bin(如果没有就创建)</div><br><div>创建qmakespec值为 win32-msvc2010</div><br><div>创建qtdir值为 <span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\</span></div><br><div>最后为了使的你刚才修改的环境变量生效，重启cmd，可以通过c:\&gt; qmake -v来看你使用的qt版本。</div><br><div></div><br><div>3. 点击 开始-&gt;Microsoft Visual Studio 2008-&gt;Visual Studio Tools-&gt;Visual Studio 2008 x64 Win64 Command Prompt</div><br><div>现在开始安装</div><br><div>首先进入你所在的Qt openresource 所在的文件夹</div><br><div>例如：<span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span>&gt;configure -no-stl -no-dsp -vcproj</div><br><div></div><br><div>此时会有一个选项 是选择商业版还是开源版，此处要选择开源版，</div><br><div>只需输入o 然后 回车 此过程时间大概几分钟</div><br><div>接下来就开始</div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span>&gt;nmake</div><br><div></div><br><div>最后这个过程时间较长，需要两三个小时</div>
+        <div><span style="font-size: 10.5pt; line-height: 1.5;">1\. 下载，直接找官网下载就可以了。我的是</span>qt-win-opensource-4.8.5-vs2010.exe<span style="font-size: 10.5pt; line-height: 1.5;">；</span></div>
+<div></div>
+<div>2\. 设置环境变量：</div>
+<div>我的电脑&gt; 属性&gt; 高级&gt; 环境变量&gt; 用户变量里面设置几个变量:</div>
+<div>path中增加C:\Qt\4.8.5\bin(如果没有就创建)</div>
+<div>创建qmakespec值为 win32-msvc2010</div>
+<div>创建qtdir值为 <span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\</span></div>
+<div>最后为了使的你刚才修改的环境变量生效，重启cmd，可以通过c:\&gt; qmake -v来看你使用的qt版本。</div>
+<div></div>
+<div>3\. 点击 开始-&gt;Microsoft Visual Studio 2008-&gt;Visual Studio Tools-&gt;Visual Studio 2008 x64 Win64 Command Prompt</div>
+<div>现在开始安装</div>
+<div>首先进入你所在的Qt openresource 所在的文件夹</div>
+<div>例如：<span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span>&gt;configure -no-stl -no-dsp -vcproj</div>
+<div></div>
+<div>此时会有一个选项 是选择商业版还是开源版，此处要选择开源版，</div>
+<div>只需输入o 然后 回车 此过程时间大概几分钟</div>
+<div>接下来就开始</div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span>&gt;nmake</div>
+<div></div>
+<div>最后这个过程时间较长，需要两三个小时</div>
       
     </div>
 
@@ -605,7 +625,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -849,7 +869,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

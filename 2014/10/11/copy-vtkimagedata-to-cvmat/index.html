@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。废话不多说，上代码&amp;lt;div style=&amp;quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &amp;#39;Courier New&amp;#39;; font-size">
+  <meta name="description" content="opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。废话不多说，上代码 `&amp;nbsp; &amp;nbsp;&amp;nbsp;//convert&amp;nbsp;vtkimagedata&amp;nbsp;to&amp;nbsp;cv::mat &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&amp;lt;vtkImageData&amp;gt;&amp;nbsp;imageDat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Copy vtkImageData to cv::Mat">
 <meta property="og:url" content="http://yoursite.com/2014/10/11/copy-vtkimagedata-to-cvmat/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。废话不多说，上代码&amp;lt;div style=&amp;quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &amp;#39;Courier New&amp;#39;; font-size">
+<meta property="og:description" content="opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。废话不多说，上代码 `&amp;nbsp; &amp;nbsp;&amp;nbsp;//convert&amp;nbsp;vtkimagedata&amp;nbsp;to&amp;nbsp;cv::mat &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&amp;lt;vtkImageData&amp;gt;&amp;nbsp;imageDat">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Copy vtkImageData to cv::Mat">
-<meta name="twitter:description" content="opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。废话不多说，上代码&amp;lt;div style=&amp;quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &amp;#39;Courier New&amp;#39;; font-size">
+<meta name="twitter:description" content="opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。废话不多说，上代码 `&amp;nbsp; &amp;nbsp;&amp;nbsp;//convert&amp;nbsp;vtkimagedata&amp;nbsp;to&amp;nbsp;cv::mat &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&amp;lt;vtkImageData&amp;gt;&amp;nbsp;imageDat">
 
 
 
@@ -466,30 +466,33 @@
       
 
       
-        <div>opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。</div><div>废话不多说，上代码</div><div><br></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//convert&amp;nbsp;vtkimagedata&amp;nbsp;to&amp;nbsp;cv::mat&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageData&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;imageData_1&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;reader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput();
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkExtractVOI&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;extractVOI&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkExtractVOI&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New()&amp;nbsp;;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(imageData_1);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;3&lt;/font&gt;];
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;imageData_1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetDimensions(dims);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;]&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;2&lt;/font&gt;]&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetVOI(&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;],&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;);&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;Set&amp;nbsp;it&amp;nbsp;to&amp;nbsp;z=75&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetScalarTypeToSignedChar();
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cv&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;Mat&amp;nbsp;image(dims[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;],&amp;nbsp;CV_8UC1);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Update();
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**for**&lt;/font&gt;&amp;nbsp;(&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;i&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;;&amp;nbsp;i&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;dims[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;];&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;++&lt;/font&gt;i)&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**for**&lt;/font&gt;&amp;nbsp;(&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;j&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;;&amp;nbsp;j&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;dims[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;];&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;++&lt;/font&gt;j)&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;image.at&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#0000FF&quot;&gt;**unsigned**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**char**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;(cv&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;Point(j,i))&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&lt;font color=&quot;#0000FF&quot;&gt;**static_cast**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#0000FF&quot;&gt;**unsigned**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**char**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;(extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetScalarPointer(i,j,&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;));
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
-&lt;/div&gt;&lt;/div&gt;</code></div></div><div><br></div><div><br></div><div>参考：<a href="http://stackoverflow.com/questions/19891341/copy-vtkimagedata-to-cvmat" target="_blank" rel="noopener">http://stackoverflow.com/questions/19891341/copy-vtkimagedata-to-cvmat</a></div>
+        <div>opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。</div><div>废话不多说，上代码</div><div>
+</div><div><div>`<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>&nbsp; &nbsp;&nbsp;<font color="#008000">//convert&nbsp;vtkimagedata&nbsp;to&nbsp;cv::mat</font>
+&nbsp;&nbsp;&nbsp;&nbsp;vtkSmartPointer<font color="#333399">&lt;</font>vtkImageData<font color="#333399">&gt;</font>&nbsp;imageData_1&nbsp;<font color="#333399">=</font>&nbsp;reader<font color="#333399">-</font><font color="#333399">&gt;</font>GetOutput();
+&nbsp;&nbsp;&nbsp;&nbsp;vtkSmartPointer<font color="#333399">&lt;</font>vtkExtractVOI<font color="#333399">&gt;</font>&nbsp;extractVOI&nbsp;<font color="#333399">=</font>vtkSmartPointer<font color="#333399">&lt;</font>vtkExtractVOI<font color="#333399">&gt;</font><font color="#333399">:</font><font color="#333399">:</font>New()&nbsp;;
+&nbsp;&nbsp;&nbsp;&nbsp;extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>SetInput(imageData_1);
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**int**</font>&nbsp;dims[<font color="#6E00AA">3</font>];
+&nbsp;&nbsp;&nbsp;&nbsp;imageData_1<font color="#333399">-</font><font color="#333399">&gt;</font>GetDimensions(dims);
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;dims[<font color="#6E00AA">0</font>]<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;dims[<font color="#6E00AA">1</font>]<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;dims[<font color="#6E00AA">2</font>]<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>SetVOI(<font color="#6E00AA">0</font>,&nbsp;dims[<font color="#6E00AA">0</font>],&nbsp;<font color="#6E00AA">0</font>,&nbsp;dims[<font color="#6E00AA">1</font>],&nbsp;<font color="#6E00AA">0</font>,&nbsp;<font color="#6E00AA">0</font>);&nbsp;<font color="#008000">//&nbsp;Set&nbsp;it&nbsp;to&nbsp;z=75</font>
+&nbsp;&nbsp;&nbsp;&nbsp;extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>GetOutput()<font color="#333399">-</font><font color="#333399">&gt;</font>SetScalarTypeToSignedChar();
+&nbsp;&nbsp;&nbsp;&nbsp;cv<font color="#333399">:</font><font color="#333399">:</font>Mat&nbsp;image(dims[<font color="#6E00AA">0</font>],&nbsp;dims[<font color="#6E00AA">1</font>],&nbsp;CV_8UC1);
+&nbsp;&nbsp;&nbsp;&nbsp;extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>Update();
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**for**</font>&nbsp;(<font color="#0000FF">**int**</font>&nbsp;i<font color="#333399">=</font><font color="#6E00AA">0</font>;&nbsp;i<font color="#333399">&lt;</font>dims[<font color="#6E00AA">0</font>];&nbsp;<font color="#333399">++</font>i)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**for**</font>&nbsp;(<font color="#0000FF">**int**</font>&nbsp;j<font color="#333399">=</font><font color="#6E00AA">0</font>;&nbsp;j<font color="#333399">&lt;</font>dims[<font color="#6E00AA">1</font>];&nbsp;<font color="#333399">++</font>j)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image.at<font color="#333399">&lt;</font><font color="#0000FF">**unsigned**</font>&nbsp;<font color="#0000FF">**char**</font><font color="#333399">&gt;</font>(cv<font color="#333399">:</font><font color="#333399">:</font>Point(j,i))&nbsp;<font color="#333399">=</font>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#333399">*</font><font color="#0000FF">**static_cast**</font><font color="#333399">&lt;</font><font color="#0000FF">**unsigned**</font>&nbsp;<font color="#0000FF">**char**</font><font color="#333399">*</font><font color="#333399">&gt;</font>(extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>GetOutput()<font color="#333399">-</font><font color="#333399">&gt;</font>GetScalarPointer(i,j,<font color="#6E00AA">0</font>));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</div></div>`</div></div><div>
+</div><div>
+</div><div>参考：http://stackoverflow.com/questions/19891341/copy-vtkimagedata-to-cvmat</div>
 
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
       
     </div>
 
@@ -628,7 +631,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -872,7 +875,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -338,6 +338,238 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/19/linux-e8-bf-9b-e7-a8-8b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/05/19/linux-e8-bf-9b-e7-a8-8b/" class="post-title-link" itemprop="url">linux进程</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-05-19 22:33:45" itemprop="dateCreated datePublished" datetime="2015-05-19T22:33:45+08:00">2015-05-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/05/19/linux-e8-bf-9b-e7-a8-8b/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/19/linux-e8-bf-9b-e7-a8-8b/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span></div>
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdlib.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span>
+
+<span style="color: #0000ff;">**int**</span> main(<span style="color: #0000ff;">**void**</span>)
+{
+printf(<span style="color: #ff00bf;">"%d %d %d\n"</span>,getpid(),      /*进程ID*/</div>
+<div>                            getpgrp(),     /*进程组ID*/</div>
+<div>                            getppid());    /*父进程ID*/</div>
+<div>        printf(<span style="color: #ff00bf;">"%d %d %d %d\n"</span>,getuid(),     /*进程实际用户ID*/</div>
+<div>                               geteuid(),    /*进程有效用户ID*/</div>
+<div>                               getgid(),     /*进程实际组ID*/</div>
+<div>                               getegid());   /*进程有效组ID*/</div>
+<div>}</div>
+</div>
+</div>
+</div>
+<div>输出为：</div>
+<div>
+<div style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New';">
+<div>{ <span style="color: #333399;">~</span> }  » a.exe
+<span style="color: #6e00aa;">5088</span> <span style="color: #6e00aa;">5088</span> <span style="color: #6e00aa;">6020</span>
+<span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">197121</span> <span style="color: #6e00aa;">197121</span>
+{ <span style="color: #333399;">~</span> }  » <span style="color: #0000ff;">**ps**</span>
+PID    PPID    PGID     WINPID   TTY     UID    STIME COMMAND
+<span style="color: #6e00aa;">5740</span>    <span style="color: #6e00aa;">6020</span>    <span style="color: #6e00aa;">5740</span>        <span style="color: #6e00aa;">704</span>  pty0    <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">42</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">50</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span><span style="color: #0000ff;">**ps**</span>
+<span style="color: #6e00aa;">6020</span>    <span style="color: #6e00aa;">4984</span>    <span style="color: #6e00aa;">6020</span>       <span style="color: #6e00aa;">6124</span>  pty0    <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">26</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">10</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span>bash
+<span style="color: #6e00aa;">4984</span>       <span style="color: #6e00aa;">1</span>    <span style="color: #6e00aa;">4984</span>       <span style="color: #6e00aa;">4984</span>  <span style="color: #333399;">?</span>       <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">26</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">09</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span>mintty
+{ <span style="color: #333399;">~</span> }  » id
+uid<span style="color: #333399;">=</span><span style="color: #6e00aa;">197108</span>(Administrator) gid<span style="color: #333399;">=</span><span style="color: #6e00aa;">197121</span>(None) groups<span style="color: #333399;">=</span><span style="color: #6e00aa;">197121</span>(None),<span style="color: #6e00aa;">114</span>(本地帐户和管理员组成员),<span style="color: #6e00aa;">197609</span>(HelpLibraryUpdaters),<span style="color: #6e00aa;">544</span>(Administrators),<span style="color: #6e00aa;">545</span>(Users),<span style="color: #6e00aa;">4</span>(INTERACTIVE),<span style="color: #6e00aa;">66049</span>(控制台登录),<span style="color: #6e00aa;">11</span>(Authenticated Users),<span style="color: #6e00aa;">15</span>(This Organization),<span style="color: #6e00aa;">113</span>(本地帐户),<span style="color: #6e00aa;">4095</span>(CurrentSession),<span style="color: #6e00aa;">66048</span>(LOCAL),<span style="color: #6e00aa;">262154</span>(NTLM Authentication),<span style="color: #6e00aa;">405504</span>(High Mandatory Level)</div>
+</div>
+</div>
+</div>
+<div></div>
+<div>进程号为：<span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">5672</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">  父进程为：</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">6020</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;"> （bash）</span></div>
+<div><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">用户uid:</span><span style="color: #6e00aa; font-family: 'Courier New'; font-size: 12px; line-height: 18px;"> 197108  </span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">用户gid: </span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">197121</span></div>
+<div>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/05/19/linux-e8-bf-9b-e7-a8-8b/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </div></article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/29/cc-e8-bf-94-e5-9b-9e-e5-86-85-e9-83-a8-e9-9d-99-e6-80-81-e6-88-90-e5-91-98-e7-9a-84-e9-99-b7-e9-98-b1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -467,30 +699,33 @@
       
         
           
-            <div><div>char*inet_ntoa(structin_addrin);</div><div>将一个IP转换成一个互联网标准点分格式的字符串。</div><div>如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。</div></div><div><br></div><div>这里返回的值是static型，所以对于1语句是覆盖了src的地址</div><div><br></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;iostream&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
-#&lt;font color=&quot;#0000FF&quot;&gt;**include**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;Winsock2.h&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;
-&lt;font color=&quot;#0000FF&quot;&gt;**using**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**namespace**&lt;/font&gt;&amp;nbsp;std;
-&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;main()
+            <div><div>char*inet_ntoa(structin_addrin);</div><div>将一个IP转换成一个互联网标准点分格式的字符串。</div><div>如果正确，返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）；错误，返回NULL。</div></div><div>
+</div><div>这里返回的值是static型，所以对于1语句是覆盖了src的地址</div><div>
+</div><div><div>`<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>#<font color="#0000FF">**include**</font>&nbsp;<font color="#333399">&lt;</font>iostream<font color="#333399">&gt;</font>
+#<font color="#0000FF">**include**</font>&nbsp;<font color="#333399">&lt;</font>Winsock2.h<font color="#333399">&gt;</font>
+<font color="#0000FF">**using**</font>&nbsp;<font color="#0000FF">**namespace**</font>&nbsp;std;
+<font color="#0000FF">**int**</font>&nbsp;main()
 {
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**struct**&lt;/font&gt;&amp;nbsp;in_addr&amp;nbsp;src,&amp;nbsp;des;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src.s_addr&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;3776385196&lt;/font&gt;;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//对应于172.16.23.225&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;des.s_addr&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;1678184620&lt;/font&gt;;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//对应于172.16.7.100&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;src\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(src)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;endl
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;des\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(des)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;src\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(src)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#FF00BF&quot;&gt;&quot;des\t&quot;&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;inet_ntoa(des)&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;system(&lt;font color=&quot;#FF00BF&quot;&gt;&quot;pause&quot;&lt;/font&gt;);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**return**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;;
-}&lt;/div&gt;&lt;/div&gt;</code></div><div></div></div><div><br></div><div>运行结果</div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;src &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
-des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**struct**</font>&nbsp;in_addr&nbsp;src,&nbsp;des;
+&nbsp;&nbsp;&nbsp;&nbsp;src.s_addr&nbsp;<font color="#333399">=</font>&nbsp;<font color="#6E00AA">3776385196</font>;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//对应于172.16.23.225</font>
+&nbsp;&nbsp;&nbsp;&nbsp;des.s_addr&nbsp;<font color="#333399">=</font>&nbsp;<font color="#6E00AA">1678184620</font>;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//对应于172.16.7.100</font>
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;<font color="#FF00BF">"src\t"</font>&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;inet_ntoa(src)&nbsp;<font color="#333399">&lt;&lt;</font>endl
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;<font color="#FF00BF">"des\t"</font>&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;inet_ntoa(des)&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;<font color="#FF00BF">"src\t"</font>&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;inet_ntoa(src)&nbsp;<font color="#333399">&lt;&lt;</font>endl;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;<font color="#FF00BF">"des\t"</font>&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;inet_ntoa(des)&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;system(<font color="#FF00BF">"pause"</font>);
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**return**</font>&nbsp;<font color="#6E00AA">0</font>;
+}</div></div>`</div><div></div></div><div>
+</div><div>运行结果</div><div>`<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>src &nbsp; &nbsp; <font color="#6E00AA">172</font>.<font color="#6E00AA">16</font>.<font color="#6E00AA">23</font>.<font color="#6E00AA">225</font>
+des &nbsp; &nbsp; <font color="#6E00AA">172</font>.<font color="#6E00AA">16</font>.<font color="#6E00AA">23</font>.<font color="#6E00AA">225</font>
 
-src &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;23&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;225&lt;/font&gt;
-des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;16&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;7&lt;/font&gt;.&lt;font color=&quot;#6E00AA&quot;&gt;100&lt;/font&gt;
-请按任意键继续. . .&lt;/div&gt;&lt;/div&gt;</code></div>
+src &nbsp; &nbsp; <font color="#6E00AA">172</font>.<font color="#6E00AA">16</font>.<font color="#6E00AA">23</font>.<font color="#6E00AA">225</font>
+des &nbsp; &nbsp; <font color="#6E00AA">172</font>.<font color="#6E00AA">16</font>.<font color="#6E00AA">7</font>.<font color="#6E00AA">100</font>
+请按任意键继续. . .</div></div>`</div>
 
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
           
         
       
@@ -674,17 +909,29 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
 
       
         
-          
-            <p>内存分配方式有3种：<div>1.静态存储区分配。static变量，全局变量。</div><div>2.栈分配。局部变量，形参等。</div><div>3.堆分配。动态分配，自己申请。</div><div><br></div><div>先来看一个例子：</div><div></div></p>
-<div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;kwd&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;get_string&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code><br>2.  <code>&lt;span class=&quot;pun&quot;&gt;{&lt;/span&gt;</code><br>3.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;p&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;];&lt;/span&gt;</code><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;//堆内存</font><br>4.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;strcpy&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;);&lt;/span&gt;</code><br>5.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;p&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>6.  <code>&lt;span class=&quot;pun&quot;&gt;}&lt;/span&gt;</code><br>7.  <code>&lt;span class=&quot;pun&quot;&gt;&lt;!--more--&gt;
-&lt;/span&gt;</code><br>8.  <code>&lt;span class=&quot;kwd&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;get_string&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code><br>9.  <code>&lt;span class=&quot;pun&quot;&gt;{&lt;/span&gt;</code><br>10.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;p&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Consolas">&nbsp;&nbsp;//字符串常量存储在静态区</font><br>11.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;p&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>12.  <code>&lt;span class=&quot;pun&quot;&gt;}&lt;/span&gt;</code><br>13.  <code>&lt;span class=&quot;pun&quot;&gt;
-&lt;/span&gt;</code><br>14.  <code>&lt;span class=&quot;kwd&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;get_string&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code><br>15.  <code>&lt;span class=&quot;pun&quot;&gt;{&lt;/span&gt;</code><br>16.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;p&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;//字符串数组，局部变量</font><br>17.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;p&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>18.  <code>&lt;span class=&quot;pun&quot;&gt;}&lt;/span&gt;</code></pre></div><div>上述三个函数，1,2能成功返回，3错误。</div></div><div><br></div><div><br></div>
+          <p>内存分配方式有3种：<div>1.静态存储区分配。static变量，全局变量。</div><div>2.栈分配。局部变量，形参等。</div><div>3.堆分配。动态分配，自己申请。</div><div>
+</div><div>先来看一个例子：</div><div></div></p>
+<div><div><pre class="prettyprint linenums prettyprinted">
 
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+1.  `<span class="kwd">char</span><span class="pun">*</span><span class="pln">&nbsp;get_string</span><span class="pun">()</span>`
+2.  `<span class="pun">{</span>`
+3.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="kwd">char</span><span class="pun">*</span><span class="pln">&nbsp;p&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">new</span><span class="pln">&nbsp;</span><span class="kwd">char</span><span class="pun">[</span><span class="lit">10</span><span class="pun">];</span>`<font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Consolas">&nbsp;&nbsp;&nbsp;&nbsp;//堆内存</font>
+4.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;strcpy</span><span class="pun">(</span><span class="pln">p</span><span class="pun">,</span><span class="str">"hello"</span><span class="pun">);</span>`
+5.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln">&nbsp;p</span><span class="pun">;</span>`
+6.  `<span class="pun">}</span>`
+7.  `<span class="pun">
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/04/10/e4-bb-8e-e4-b8-80-e4-b8-aa-e4-be-8b-e5-ad-90-e6-9d-a5-e4-b8-89-e7-a7-8d-e5-86-85-e5-ad-98-e5-88-86-e9-85-8d-e6-96-b9-e5-bc-8f/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
-    </div>
+    </span></pre></div>
 
     
 
@@ -717,7 +964,7 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
   
   
   
-  </article>
+  </div></div></article>
 
 
     
@@ -864,7 +1111,22 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
 
       
         
-          <div>处理vtk鼠标事件从实现方式上看有两种方式：</div><div>1.通过继承vtk的interactorstyle父类，实现virtual类来达到目的</div><div>代码示例：</div><div><br><br><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;kwd&quot;&gt;//实现interactorstyle类&lt;/span&gt;</code><br>2.  <code>&lt;span class=&quot;kwd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;MyVtkInteractorStyle&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;vtkInteractorStyleTrackballCamera&lt;/span&gt;</code><br>3.  <code>&lt;span class=&quot;pun&quot;&gt;{&lt;/span&gt;</code><br>4.  <code>&lt;span class=&quot;kwd&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;</code><br>5.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;MyVtkInteractorStyle&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;New&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;();&lt;/span&gt;</code><br>6.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkTypeMacro&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;MyVtkInteractorStyle&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;vtkInteractorStyleTrackballCamera&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;);&lt;/span&gt;</code><br>7.  <code>&lt;span class=&quot;pun&quot;&gt;             ...&lt;/span&gt;</code><br>8.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;virtual&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;OnMouseMove&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;();&lt;/span&gt;</code><br>9.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;virtual&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;OnLeftButtonDown&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;();&lt;/span&gt;</code><br>10.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;virtual&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;OnLeftButtonUp&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;();&lt;/span&gt;</code><br>11.  <code>&lt;span class=&quot;pun&quot;&gt;             ...&lt;/span&gt;</code><br>12.  <code>&lt;span class=&quot;pun&quot;&gt;};&lt;/span&gt;</code></pre></div>
+          <div>处理vtk鼠标事件从实现方式上看有两种方式：</div><div>1.通过继承vtk的interactorstyle父类，实现virtual类来达到目的</div><div>代码示例：</div><div>
+
+<div><div><pre class="prettyprint linenums prettyprinted">
+
+1.  `<span class="kwd">//实现interactorstyle类</span>`
+2.  `<span class="kwd">class</span><span class="pln">&nbsp;</span><span class="typ">MyVtkInteractorStyle</span><span class="pln">&nbsp;</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="kwd">public</span><span class="pln">&nbsp;vtkInteractorStyleTrackballCamera</span>`
+3.  `<span class="pun">{</span>`
+4.  `<span class="kwd">public</span><span class="pun">:</span>`
+5.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="kwd">static</span><span class="pln">&nbsp;</span><span class="typ">MyVtkInteractorStyle</span><span class="pln">&nbsp;</span><span class="pun">*</span><span class="typ">New</span><span class="pun">();</span>`
+6.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;vtkTypeMacro</span><span class="pun">(</span><span class="typ">MyVtkInteractorStyle</span><span class="pun">,</span><span class="pln">&nbsp;vtkInteractorStyleTrackballCamera</span><span class="pun">);</span>`
+7.  `<span class="pun">             ...</span>`
+8.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="kwd">virtual</span><span class="pln">&nbsp;</span><span class="kwd">void</span><span class="pln">&nbsp;</span><span class="typ">OnMouseMove</span><span class="pun">();</span>`
+9.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="kwd">virtual</span><span class="pln">&nbsp;</span><span class="kwd">void</span><span class="pln">&nbsp;</span><span class="typ">OnLeftButtonDown</span><span class="pun">();</span>`
+10.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="kwd">virtual</span><span class="pln">&nbsp;</span><span class="kwd">void</span><span class="pln">&nbsp;</span><span class="typ">OnLeftButtonUp</span><span class="pun">();</span>`
+11.  `<span class="pun">             ...</span>`
+12.  `<span class="pun">};</span>`</pre></div>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1056,7 +1318,8 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
 
       
         
-          <div><span style="font-size: 10.5pt; line-height: 1.5;">出行旅游：我们可以有几个策略可以考虑：可以骑自行车，汽车，做火车，飞机。每个策略都可以得到相同的结果，但是它们使用了不同的资源。选择策略的依据是费用，时间，使用工具还有每种方式的方便程度 。</span><br></div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-a043baafeae17dec458e0f1095af6d04_47093040-ee28-4190-aa79-dbb649da36e4.png" alt>
+          <div><span style="font-size: 10.5pt; line-height: 1.5;">出行旅游：我们可以有几个策略可以考虑：可以骑自行车，汽车，做火车，飞机。每个策略都可以得到相同的结果，但是它们使用了不同的资源。选择策略的依据是费用，时间，使用工具还有每种方式的方便程度 。</span>
+</div>![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-a043baafeae17dec458e0f1095af6d04_47093040-ee28-4190-aa79-dbb649da36e4.png)
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1248,9 +1511,14 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
 
       
         
-          <h4 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1.题目描述"></a><span style="font-family: 微软雅黑;">1.题目描述</span></h4><p><span style="font-family: 微软雅黑;"><span style="line-height: 26px; color: #333333; font-size: 14px;"><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">现有红白蓝三个不同颜色的小球，乱序排列在一起，请重新排列这些小球，使得红白蓝三色的同颜色的球在一起。这个问题之所以叫</span></span><span style="line-height: 26px; color: #ff0000; font-size: 14px;"><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">荷兰国旗</span></span><span style="line-height: 26px; color: #333333; font-size: 14px;"><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">，是因为我们可以将红白蓝三色小球想象成条状物，有序排列后正好组成荷兰国旗。</span></span><span style="line-height: 26px; color: #333333; font-size: 14px;"><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">如下图所示：</span></span></span></p>
+          <h4 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1.题目描述"></a><span style="font-family: 微软雅黑;">1.题目描述</span></h4><p><span style="font-family: 微软雅黑;"><span style="line-height: 26px; color: #333333; font-size: 14px;"><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">现有红白蓝三个不同颜色的小球，乱序排列在一起，请重新排列这些小球，使得红白蓝三色的同颜色的球在一起。这个问题之所以叫</span>&lt;/span&gt;<span style="line-height: 26px; color: #ff0000; font-size: 14px;"><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">荷兰国旗</span>&lt;/span&gt;<span style="line-height: 26px; color: #333333; font-size: 14px;"><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">，是因为我们可以将红白蓝三色小球想象成条状物，有序排列后正好组成荷兰国旗。</span>&lt;/span&gt;<span style="line-height: 26px; color: #333333; font-size: 14px;"><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">如下图所示：</span>&lt;/span&gt;&lt;/span&gt;</span></span></span></span></span></p>
 <p><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-1583aaa1a2a9e7f60dc43603810625d0_9e1b5889-488c-4f42-b064-814d5f56305e1.jpg" alt></p>
-<h4 id="2-问题分析："><a href="#2-问题分析：" class="headerlink" title="2.问题分析："></a><span style="font-family: 微软雅黑;">2.问题分析：</span></h4><div><span style="font-family: 微软雅黑;">这个问题我们可以将这个问题视为一个数组排序问题，这个数组分为前部，中部和后部三个部分，每一个元素（红白蓝分别对应0、1、2）必属于其中之一。由于红、白、蓝三色小球数量并不一定相同，所以这个三个区域不一定是等分的，也就是说如果我们将整个区域放在[0,1]的区域里，由于三色小球之间数量的比不同（此处假设1:2:2），可能前部为[0,0.2)，中部为[0.2,0.6)，后部为[0.6,1]。我们的思路如下：将前部和后部各排在数组的前边和后边，中部自然就排好了。具体的：</span></div><br><div><span style="font-family: 微软雅黑;">设置两个标志位begin和end分别指向这个数组的开始和末尾，然后用一个标志位current从头开始进行遍历：</span></div><br><div><span style="font-family: 微软雅黑;">1）若遍历到的位置为0，则说明它一定属于前部，于是就和begin位置进行交换，然后current向前进，begin也向前进（表示前边的已经都排好了）。</span></div><br><div><span style="font-family: 微软雅黑;">2）若遍历到的位置为1，则说明它一定属于中部，根据总思路，中部的我们都不动，然后current向前进。</span></div><br><div><span style="font-family: 微软雅黑;">3）若遍历到的位置为2，则说明它一定属于后部，于是就和end位置进行交换，由于交换完毕后current指向的可能是属于前部的，若此时current前进则会导致该位置不能被交换到前部，所以此时current不前进。而同1），end向后退1。</span></div><br><div>
+<h4 id="2-问题分析："><a href="#2-问题分析：" class="headerlink" title="2.问题分析："></a><span style="font-family: 微软雅黑;">2.问题分析：</span></h4><div><span style="font-family: 微软雅黑;">这个问题我们可以将这个问题视为一个数组排序问题，这个数组分为前部，中部和后部三个部分，每一个元素（红白蓝分别对应0、1、2）必属于其中之一。由于红、白、蓝三色小球数量并不一定相同，所以这个三个区域不一定是等分的，也就是说如果我们将整个区域放在[0,1]的区域里，由于三色小球之间数量的比不同（此处假设1:2:2），可能前部为[0,0.2)，中部为[0.2,0.6)，后部为[0.6,1]。我们的思路如下：将前部和后部各排在数组的前边和后边，中部自然就排好了。具体的：</span></div>
+<div><span style="font-family: 微软雅黑;">设置两个标志位begin和end分别指向这个数组的开始和末尾，然后用一个标志位current从头开始进行遍历：</span></div>
+<div><span style="font-family: 微软雅黑;">1）若遍历到的位置为0，则说明它一定属于前部，于是就和begin位置进行交换，然后current向前进，begin也向前进（表示前边的已经都排好了）。</span></div>
+<div><span style="font-family: 微软雅黑;">2）若遍历到的位置为1，则说明它一定属于中部，根据总思路，中部的我们都不动，然后current向前进。</span></div>
+<div><span style="font-family: 微软雅黑;">3）若遍历到的位置为2，则说明它一定属于后部，于是就和end位置进行交换，由于交换完毕后current指向的可能是属于前部的，若此时current前进则会导致该位置不能被交换到前部，所以此时current不前进。而同1），end向后退1。</span></div>
+<div>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1442,7 +1710,61 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
 
       
         
-          <div style="text-align: center;"><strong>序：搜索区域</strong></div><br><div> <span style="line-height: 1.5; font-size: 10.5pt;">假设有人想从A点移动到一墙之隔的B点，如下图，绿色的是起点A，红色是终点B，蓝色方块是中间的墙。</span></div><br><div> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_52b63ab3-ce45-417b-84fe-3638d0346774.jpg" alt></div><br><div> <span style="line-height: 1.5; font-size: 10.5pt;">[图-1]</span></div><br><div></div><br><div>你首先注意到，搜索区域被我们划分成了方形网格。像这样，简化搜索区域，是寻路的第一步。这一方法把搜索区域简化成了一个二维数组。数组的每一个元素是网格的一个方块，方块被标记为可通过的和不可通过的。路径被描述为从A到B我们经过的方块的集合。一旦路径被找到，我们的人就从一个方格的中心走向另一个，直到到达目的地。</div><br><div></div><br><div>这些中点被称为“节点”。当你阅读其他的寻路资料时，你将经常会看到人们讨论节点。为什么不把他们描述为方格呢？因为有可能你的路径被分割成其他不是方格的结构。他们完全可以是矩形，六角形，或者其他任意形状。节点能够被放置在形状的任意位置－可以在中心，或者沿着边界，或其他什么地方。我们使用这种系统，无论如何，因为它是最简单的。</div><br><div></div><br><div style="text-align: center;"><strong>开始搜索</strong></div><br><div></div><br><div>正如我们处理上图网格的方法，一旦搜索区域被转化为容易处理的节点，下一步就是去引导一次找到最短路径的搜索。在A<em>寻路算法中，我们通过从点A开始，检查相邻方格的方式，向外扩展直到找到目标。</em></div><br><div></div><br><div>我们做如下操作开始搜索：</div><br><div></div><br><div></div><br><div></div><br><div>   1，从点A开始，并且把它作为待处理点存入一个“开启列表”。开启列表就像一张购物清单。尽管现在列表里只有一个元素，但以后就会多起来。你的路径可能会通过它包含的方格，也可能不会。基本上，这是一个待检查方格的列表。</div><br><div></div><br><div>   2，寻找起点周围所有可到达或者可通过的方格，跳过有墙，水，或其他无法通过地形的方格。也把他们加入开启列表。为所有这些方格保存点A作为“父方格”。当我们想描述路径的时候，父方格的资料是十分重要的。后面会解释它的具体用途。</div><br><div></div><br><div>   3，从开启列表中删除点A，把它加入到一个“关闭列表”，列表中保存所有不需要再次检查的方格。在这一点，你应该形成如图的结构。在图中，暗绿色方格是你起始方格的中心。它被用浅蓝色描边，以表示它被加入到关闭列表中了。所有的相邻格现在都在开启列表中，它们被用浅绿色描边。每个方格都有一个灰色指针反指他们的父方格，也就是开始的方格。</div><br><div></div><br><div></div><br><div> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_8c2dec0b-bd6d-4961-9037-47532f839ee6.jpg" alt></div><br><div>[图-2]</div><br><div></div><br><div>接着，我们选择开启列表中的临近方格，大致重复前面的过程，如下。但是，哪个方格是我们要选择的呢？是那个F值最低的。</div><br><div></div><br><div>路径评分</div><br><div></div><br><div>选择路径中经过哪个方格的关键是下面这个等式：F = G + H</div><br><div></div><br><div>这里：</div><br><div></div><br><div>     G = 从起点A，沿着产生的路径，移动到网格上指定方格的移动耗费。</div><br><div></div><br><div>    <em> H = 从网格上那个方格移动到终点B的预估移动耗费。这经常被称为启发式的，可能会让你有点迷惑。这样叫的原因是因为它只是个猜测。我们没办法事先知道路径的长度，因为路上可能存在各种障碍(墙，水，等等)。虽然本文只提供了一种计算H的方法，但是你可以在网上找到很多其他的方法。</em></div><br><div></div><br><div>我们的路径是通过反复遍历开启列表并且选择具有最低F值的方格来生成的。文章将对这个过程做更详细的描述。首先，我们更深入的看看如何计算这个方程。</div><br><div></div><br><div>正如上面所说，G表示沿路径从起点到当前点的移动耗费。在这个例子里，我们令水平或者垂直移动的耗费为，对角线方向耗费为。我们取这些值是因为沿对角线的距离是沿水平或垂直移动耗费的的根号（别怕），或者约.414倍。为了简化，我们用和近似。比例基本正确，同时我们避免了求根运算和小数。这不是只因为我们怕麻烦或者不喜欢数学。使用这样的整数对计算机来说也更快捷。你不就就会发现，如果你不使用这些简化方法，寻路会变得很慢。</div><br><div></div><br><div>既然我们在计算沿特定路径通往某个方格的G值，求值的方法就是取它父节点的G值，然后依照它相对父节点是对角线方向或者直角方向(非对角线)，分别增加和。例子中这个方法的需求会变得更多，因为我们从起点方格以外获取了不止一个方格。</div><br><div></div><br><div>H值可以用不同的方法估算。我们这里使用的方法被称为曼哈顿方法，它计算从当前格到目的格之间水平和垂直的方格的数量总和，忽略对角线方向，然后把结果乘以10。这被称为曼哈顿方法是因为它看起来像计算城市中从一个地方到另外一个地方的街区数，在那里你不能沿对角线方向穿过街区。很重要的一点，我们忽略了一切障碍物。这是对剩余距离的一个估算，而非实际值，这也是这一方法被称为启发式的原因。想知道更多？你可以在这里找到方程和额外的注解。</div><br><div></div><br><div>F的值是G和H的和。第一步搜索的结果可以在下面的图表中看到。F,G和H的评分被写在每个方格里。正如在紧挨起始格右侧的方格所表示的，F被打印在左上角，G在左下角，H则在右下角。</div><br><div></div><br><div> <img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_39ff78ef-a66c-42a4-af1d-668ef146dc6b.jpg" alt></div><br><div></div><br><div>[图-3]</div><br><div></div><br><div>现在我们来看看这些方格。写字母的方格里，G = 10。这是因为它只在水平方向偏离起始格一个格距。紧邻起始格的上方，下方和左边的方格的G值都等于10。对角线方向的G值是14。</div><br><div>
+          <div style="text-align: center;">**序：搜索区域**</div>
+<div> <span style="line-height: 1.5; font-size: 10.5pt;">假设有人想从A点移动到一墙之隔的B点，如下图，绿色的是起点A，红色是终点B，蓝色方块是中间的墙。</span></div>
+<div> ![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_52b63ab3-ce45-417b-84fe-3638d0346774.jpg)</div>
+<div> <span style="line-height: 1.5; font-size: 10.5pt;">[图-1]</span></div>
+<div></div>
+<div>你首先注意到，搜索区域被我们划分成了方形网格。像这样，简化搜索区域，是寻路的第一步。这一方法把搜索区域简化成了一个二维数组。数组的每一个元素是网格的一个方块，方块被标记为可通过的和不可通过的。路径被描述为从A到B我们经过的方块的集合。一旦路径被找到，我们的人就从一个方格的中心走向另一个，直到到达目的地。</div>
+<div></div>
+<div>这些中点被称为“节点”。当你阅读其他的寻路资料时，你将经常会看到人们讨论节点。为什么不把他们描述为方格呢？因为有可能你的路径被分割成其他不是方格的结构。他们完全可以是矩形，六角形，或者其他任意形状。节点能够被放置在形状的任意位置－可以在中心，或者沿着边界，或其他什么地方。我们使用这种系统，无论如何，因为它是最简单的。</div>
+<div></div>
+<div style="text-align: center;">**开始搜索**</div>
+<div></div>
+<div>正如我们处理上图网格的方法，一旦搜索区域被转化为容易处理的节点，下一步就是去引导一次找到最短路径的搜索。在A*寻路算法中，我们通过从点A开始，检查相邻方格的方式，向外扩展直到找到目标。</div>
+<div></div>
+<div>我们做如下操作开始搜索：</div>
+<div></div>
+<div></div>
+<div></div>
+<div>   1，从点A开始，并且把它作为待处理点存入一个“开启列表”。开启列表就像一张购物清单。尽管现在列表里只有一个元素，但以后就会多起来。你的路径可能会通过它包含的方格，也可能不会。基本上，这是一个待检查方格的列表。</div>
+<div></div>
+<div>   2，寻找起点周围所有可到达或者可通过的方格，跳过有墙，水，或其他无法通过地形的方格。也把他们加入开启列表。为所有这些方格保存点A作为“父方格”。当我们想描述路径的时候，父方格的资料是十分重要的。后面会解释它的具体用途。</div>
+<div></div>
+<div>   3，从开启列表中删除点A，把它加入到一个“关闭列表”，列表中保存所有不需要再次检查的方格。在这一点，你应该形成如图的结构。在图中，暗绿色方格是你起始方格的中心。它被用浅蓝色描边，以表示它被加入到关闭列表中了。所有的相邻格现在都在开启列表中，它们被用浅绿色描边。每个方格都有一个灰色指针反指他们的父方格，也就是开始的方格。</div>
+<div></div>
+<div></div>
+<div> ![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_8c2dec0b-bd6d-4961-9037-47532f839ee6.jpg)</div>
+<div>[图-2]</div>
+<div></div>
+<div>接着，我们选择开启列表中的临近方格，大致重复前面的过程，如下。但是，哪个方格是我们要选择的呢？是那个F值最低的。</div>
+<div></div>
+<div>路径评分</div>
+<div></div>
+<div>选择路径中经过哪个方格的关键是下面这个等式：F = G + H</div>
+<div></div>
+<div>这里：</div>
+<div></div>
+<div>    * G = 从起点A，沿着产生的路径，移动到网格上指定方格的移动耗费。</div>
+<div></div>
+<div>    * H = 从网格上那个方格移动到终点B的预估移动耗费。这经常被称为启发式的，可能会让你有点迷惑。这样叫的原因是因为它只是个猜测。我们没办法事先知道路径的长度，因为路上可能存在各种障碍(墙，水，等等)。虽然本文只提供了一种计算H的方法，但是你可以在网上找到很多其他的方法。</div>
+<div></div>
+<div>我们的路径是通过反复遍历开启列表并且选择具有最低F值的方格来生成的。文章将对这个过程做更详细的描述。首先，我们更深入的看看如何计算这个方程。</div>
+<div></div>
+<div>正如上面所说，G表示沿路径从起点到当前点的移动耗费。在这个例子里，我们令水平或者垂直移动的耗费为，对角线方向耗费为。我们取这些值是因为沿对角线的距离是沿水平或垂直移动耗费的的根号（别怕），或者约.414倍。为了简化，我们用和近似。比例基本正确，同时我们避免了求根运算和小数。这不是只因为我们怕麻烦或者不喜欢数学。使用这样的整数对计算机来说也更快捷。你不就就会发现，如果你不使用这些简化方法，寻路会变得很慢。</div>
+<div></div>
+<div>既然我们在计算沿特定路径通往某个方格的G值，求值的方法就是取它父节点的G值，然后依照它相对父节点是对角线方向或者直角方向(非对角线)，分别增加和。例子中这个方法的需求会变得更多，因为我们从起点方格以外获取了不止一个方格。</div>
+<div></div>
+<div>H值可以用不同的方法估算。我们这里使用的方法被称为曼哈顿方法，它计算从当前格到目的格之间水平和垂直的方格的数量总和，忽略对角线方向，然后把结果乘以10。这被称为曼哈顿方法是因为它看起来像计算城市中从一个地方到另外一个地方的街区数，在那里你不能沿对角线方向穿过街区。很重要的一点，我们忽略了一切障碍物。这是对剩余距离的一个估算，而非实际值，这也是这一方法被称为启发式的原因。想知道更多？你可以在这里找到方程和额外的注解。</div>
+<div></div>
+<div>F的值是G和H的和。第一步搜索的结果可以在下面的图表中看到。F,G和H的评分被写在每个方格里。正如在紧挨起始格右侧的方格所表示的，F被打印在左上角，G在左下角，H则在右下角。</div>
+<div></div>
+<div> ![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_39ff78ef-a66c-42a4-af1d-668ef146dc6b.jpg)</div>
+<div></div>
+<div>[图-3]</div>
+<div></div>
+<div>现在我们来看看这些方格。写字母的方格里，G = 10。这是因为它只在水平方向偏离起始格一个格距。紧邻起始格的上方，下方和左边的方格的G值都等于10。对角线方向的G值是14。</div>
+<div>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1635,10 +1957,14 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
       
         
           
-            <div><span style="font-size: 10.5pt; line-height: 1.5;">SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。</span></div><div><span style="font-size: 10.5pt; line-height: 1.5;">但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&nbsp;</span></div><div>&nbsp;</div><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;kwd&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; isnull&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; table_name&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code></pre></div><div><br></div></div><div><font color="#ff0000">使用isnull()方法进行判断，如isnull(sum(cnt),0)，其中0为默认值，如果sum(cnt)的结果为null，则赋值 0；同理此方法可用于某字段，isnull(cnt,0)，这样就可以排除一些值为null的数值型字段了。而如果这样 isnull(sum(isnull(cnt,0)),0)，这样就可保万无一失了。</font></div><div><strong>
-</strong></div><div><strong>注意：</strong><span style="font-size: 10.5pt; line-height: 1.5;">在sqlite中没有isnull函数，而是使用ifnull函数，用法跟isnull一样</span></div><div><font color="#ff0000"><br></font></div><div>&nbsp;</div>
+            <div><span style="font-size: 10.5pt; line-height: 1.5;">SUM是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。</span></div><div><span style="font-size: 10.5pt; line-height: 1.5;">但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理：&nbsp;</span></div><div>&nbsp;</div><div><div><pre class="prettyprint linenums prettyprinted">
 
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+1.  `<span class="kwd">select</span><span class="pln"> isnull</span><span class="pun">(</span><span class="pln">sum</span><span class="pun">(</span><span class="pln">cost</span><span class="pun">),</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> table_name</span><span class="pun">;</span>`</pre></div><div>
+</div></div><div><font color="#ff0000">使用isnull()方法进行判断，如isnull(sum(cnt),0)，其中0为默认值，如果sum(cnt)的结果为null，则赋值 0；同理此方法可用于某字段，isnull(cnt,0)，这样就可以排除一些值为null的数值型字段了。而如果这样 isnull(sum(isnull(cnt,0)),0)，这样就可保万无一失了。</font></div><div>**
+**</div><div>**注意：**<span style="font-size: 10.5pt; line-height: 1.5;">在sqlite中没有isnull函数，而是使用ifnull函数，用法跟isnull一样</span></div><div><font color="#ff0000">
+</font></div><div>&nbsp;</div>
+
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
           
         
       
@@ -1823,9 +2149,55 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
       
         
           
-            <h2 id="cv2-kmeans-nbsp"><a href="#cv2-kmeans-nbsp" class="headerlink" title="cv2.kmeans()&nbsp;"></a><font face="微软雅黑" style="font-weight: normal;"><span style="line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);"><span data-wiz-span="data-wiz-span" style="font-size: 20pt;">cv2.kmeans()</span></span><span style="line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);"><span data-wiz-span="data-wiz-span" style="font-size: 20pt;">&nbsp;</span></span></font></h2><div><div class="section" id="input-parameters" style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: normal; background-color: rgb(255, 255, 255);"><br><br>### Input parameters<a href="http://docs.opencv.org/trunk/doc/py_tutorials/py_ml/py_kmeans/py_kmeans_opencv/py_kmeans_opencv.html#input-parameters" title="Permalink to this headline" target="_blank" rel="noopener"></a><br>&gt; 1.  <strong>samples</strong>&nbsp;: It should be of&nbsp;<strong>np.float32</strong>&nbsp;data type, and each feature should be put in a single column.<br>&gt;<br>&gt; 2.  <strong>nclusters(K)</strong>&nbsp;: Number of clusters required at end<br>&gt;<br>&gt; 3.  <dl class="first docutils" style="margin-bottom: 15px; margin-top: 0px !important;"><dt><strong>criteria</strong>&nbsp;<span class="classifier-delimiter">:</span>&nbsp;<span class="classifier" style="font-style: oblique;">It is the iteration termination criteria. When this criteria is satisfied, algorithm iteration stops. Actually, it should be a tuple of 3 parameters. They are&nbsp;<tt class="docutils literal" style="font-family: Consolas, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace; min-width: 780px; max-width: 1080px; color: rgb(0, 48, 72); padding: 1px;"><span class="pre">(</span>&nbsp;<span class="pre">type,</span>&nbsp;<span class="pre">max_iter,</span>&nbsp;<span class="pre">epsilon</span>&nbsp;<span class="pre">)</span></tt>:</span></dt><dd style="margin-top: 1em; margin-bottom: 1em; margin-left: 30px; line-height: 18.200000762939453px;"><br>&gt;<br>&gt;         <em>   <dl class="first docutils" style="margin-bottom: 15px; margin-top: 0px !important;"><dt>3.a - type of termination criteria&nbsp;<span class="classifier-delimiter">:</span>&nbsp;<span class="classifier" style="font-style: oblique;">It has 3 flags as below:</span></dt><dd style="margin-top: 1em; margin-bottom: 1em; margin-left: 30px; line-height: 18.200000762939453px;"><br>&gt;<br>&gt;         <strong>cv2.TERM_CRITERIA_EPS</strong>&nbsp;- stop the algorithm iteration if specified accuracy,&nbsp;<em>epsilon</em>, is reached.&nbsp;<strong>cv2.TERM_CRITERIA_MAX_ITER</strong>&nbsp;- stop the algorithm after the specified number of iterations,&nbsp;_max_iter_.&nbsp;<strong>cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER</strong>&nbsp;- stop the iteration when any of the above condition is met.<br>&gt; </dd></dl><br>&gt;     </em>   3.b - max_iter - An integer specifying maximum number of iterations.<br>&gt;<br>&gt;         *   3.c - epsilon - Required accuracy</dd></dl><br>&gt; 4.  <strong>attempts</strong>&nbsp;: Flag to specify the number of times the algorithm is executed using different initial labellings. The algorithm returns the labels that yield the best compactness. This compactness is returned as output.<br>&gt;<br>&gt; 5.  <strong>flags</strong>&nbsp;: This flag is used to specify how initial centers are taken. Normally two flags are used for this :<strong>cv2.KMEANS_PP_CENTERS</strong>&nbsp;and&nbsp;<strong>cv2.KMEANS_RANDOM_CENTERS</strong>.</div><div class="section" id="output-parameters" style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: normal; background-color: rgb(255, 255, 255);"><br><br>### Output parameters<a href="http://docs.opencv.org/trunk/doc/py_tutorials/py_ml/py_kmeans/py_kmeans_opencv/py_kmeans_opencv.html#output-parameters" title="Permalink to this headline" target="_blank" rel="noopener"></a><br>&gt; 1.  <strong>compactness</strong>&nbsp;: It is the sum of squared distance from each point to their corresponding centers.<br>&gt; 2.  <strong>labels</strong>&nbsp;: This is the label array (same as ‘code’ in previous article) where each element marked ‘0’, ‘1’…..<br>&gt; 3.  <strong>centers</strong>&nbsp;: This is array of centers of clusters.</div></div><div style="text-align: justify;"><span style="line-height: 18.1875px;"><font face="微软雅黑"><span data-wiz-span="data-wiz-span" style="font-size: 18pt;">示例：</span></font></span></div><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; numpy &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;</code><br>2.  <code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; cv2&lt;/span&gt;</code><br>3.  <code>&lt;span class=&quot;kwd&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; matplotlib &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; pyplot &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;</code><br>4.5.  <code>&lt;span class=&quot;pln&quot;&gt;X &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;))&lt;/span&gt;</code><br>6.  <code>&lt;span class=&quot;pln&quot;&gt;Y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;))&lt;/span&gt;</code><br>7.  <code>&lt;span class=&quot;pln&quot;&gt;Z &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;vstack&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;))&lt;/span&gt;</code><br>8.9.  <code>&lt;span class=&quot;com&quot;&gt;# convert to np.float32&lt;/span&gt;</code><br>10.  <code>&lt;span class=&quot;pln&quot;&gt;Z &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>11.12.  <code>&lt;span class=&quot;com&quot;&gt;# define criteria and apply kmeans()&lt;/span&gt;</code><br>13.  <code>&lt;span class=&quot;pln&quot;&gt;criteria &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cv2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;TERM_CRITERIA_EPS &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; cv2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;TERM_CRITERIA_MAX_ITER&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>14.  <code>&lt;span class=&quot;pln&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cv2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;kmeans&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;criteria&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cv2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;KMEANS_RANDOM_CENTERS&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>15.16.  <code>&lt;span class=&quot;com&quot;&gt;# Now separate the data, Note the flatten()&lt;/span&gt;</code><br>17.  <code>&lt;span class=&quot;pln&quot;&gt;A &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; Z&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ravel&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()==&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;]&lt;/span&gt;</code><br>18.  <code>&lt;span class=&quot;pln&quot;&gt;B &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; Z&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ravel&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()==&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;]&lt;/span&gt;</code><br>19.20.  <code>&lt;span class=&quot;com&quot;&gt;# Plot the data&lt;/span&gt;</code><br>21.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;])&lt;/span&gt;</code><br>22.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;c &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>23.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;s &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;c &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;y&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; marker &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;s&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>24.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;Height&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;Weight&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>25.  <code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code></pre></div><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/01/wpid-d2ab590efc92b80dda0dbf8a3363cb77_f29be1bf-f12c-4f1e-b005-cfaf99fe5156.png" alt><br></div></div><div><span style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);"><br></span></div>
+            <h2 id="cv2-kmeans-lt-span-gt-nbsp-lt-span-gt"><a href="#cv2-kmeans-lt-span-gt-nbsp-lt-span-gt" class="headerlink" title="cv2.kmeans()&lt;/span&gt;&nbsp;&lt;/span&gt;"></a><font face="微软雅黑" style="font-weight: normal;"><span style="line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);"><span data-wiz-span="data-wiz-span" style="font-size: 20pt;">cv2.kmeans()</span>&lt;/span&gt;<span style="line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);"><span data-wiz-span="data-wiz-span" style="font-size: 20pt;">&nbsp;</span>&lt;/span&gt;</span></span></font></h2><div><div class="section" id="input-parameters" style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: normal; background-color: rgb(255, 255, 255);">
 
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+### Input parameters[](http://docs.opencv.org/trunk/doc/py_tutorials/py_ml/py_kmeans/py_kmeans_opencv/py_kmeans_opencv.html#input-parameters "Permalink to this headline")
+> 1.  **samples**&nbsp;: It should be of&nbsp;**np.float32**&nbsp;data type, and each feature should be put in a single column.
+> 
+> 2.  **nclusters(K)**&nbsp;: Number of clusters required at end
+> 
+> 3.  <dl class="first docutils" style="margin-bottom: 15px; margin-top: 0px !important;"><dt>**criteria**&nbsp;<span class="classifier-delimiter">:</span>&nbsp;<span class="classifier" style="font-style: oblique;">It is the iteration termination criteria. When this criteria is satisfied, algorithm iteration stops. Actually, it should be a tuple of 3 parameters. They are&nbsp;<tt class="docutils literal" style="font-family: Consolas, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace; min-width: 780px; max-width: 1080px; color: rgb(0, 48, 72); padding: 1px;"><span class="pre">(</span>&nbsp;<span class="pre">type,</span>&nbsp;<span class="pre">max_iter,</span>&nbsp;<span class="pre">epsilon</span>&nbsp;<span class="pre">)</span></tt>:</span></dt><dd style="margin-top: 1em; margin-bottom: 1em; margin-left: 30px; line-height: 18.200000762939453px;">
+> 
+>         *   <dl class="first docutils" style="margin-bottom: 15px; margin-top: 0px !important;"><dt>3.a - type of termination criteria&nbsp;<span class="classifier-delimiter">:</span>&nbsp;<span class="classifier" style="font-style: oblique;">It has 3 flags as below:</span></dt><dd style="margin-top: 1em; margin-bottom: 1em; margin-left: 30px; line-height: 18.200000762939453px;">
+> 
+>         **cv2.TERM_CRITERIA_EPS**&nbsp;- stop the algorithm iteration if specified accuracy,&nbsp;_epsilon_, is reached.&nbsp;**cv2.TERM_CRITERIA_MAX_ITER**&nbsp;- stop the algorithm after the specified number of iterations,&nbsp;_max_iter_.&nbsp;**cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER**&nbsp;- stop the iteration when any of the above condition is met.
+> </dd></dl>
+>     *   3.b - max_iter - An integer specifying maximum number of iterations.
+> 
+>         *   3.c - epsilon - Required accuracy</dd></dl>
+> 4.  **attempts**&nbsp;: Flag to specify the number of times the algorithm is executed using different initial labellings. The algorithm returns the labels that yield the best compactness. This compactness is returned as output.
+> 
+> 5.  **flags**&nbsp;: This flag is used to specify how initial centers are taken. Normally two flags are used for this :**cv2.KMEANS_PP_CENTERS**&nbsp;and&nbsp;**cv2.KMEANS_RANDOM_CENTERS**.</div><div class="section" id="output-parameters" style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: normal; background-color: rgb(255, 255, 255);">
+
+### Output parameters[](http://docs.opencv.org/trunk/doc/py_tutorials/py_ml/py_kmeans/py_kmeans_opencv/py_kmeans_opencv.html#output-parameters "Permalink to this headline")
+> 1.  **compactness**&nbsp;: It is the sum of squared distance from each point to their corresponding centers.
+> 2.  **labels**&nbsp;: This is the label array (same as ‘code’ in previous article) where each element marked ‘0’, ‘1’.....
+> 3.  **centers**&nbsp;: This is array of centers of clusters.</div></div><div style="text-align: justify;"><span style="line-height: 18.1875px;"><font face="微软雅黑"><span data-wiz-span="data-wiz-span" style="font-size: 18pt;">示例：</span></font></span></div><div><div><pre class="prettyprint linenums prettyprinted">
+
+1.  `<span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np</span>`
+2.  `<span class="kwd">import</span><span class="pln"> cv2</span>`
+3.  `<span class="kwd">from</span><span class="pln"> matplotlib </span><span class="kwd">import</span><span class="pln"> pyplot </span><span class="kwd">as</span><span class="pln"> plt</span>`
+4.5.  `<span class="pln">X </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">random</span><span class="pun">.</span><span class="pln">randint</span><span class="pun">(</span><span class="lit">25</span><span class="pun">,</span><span class="lit">50</span><span class="pun">,(</span><span class="lit">25</span><span class="pun">,</span><span class="lit">2</span><span class="pun">))</span>`
+6.  `<span class="pln">Y </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">random</span><span class="pun">.</span><span class="pln">randint</span><span class="pun">(</span><span class="lit">60</span><span class="pun">,</span><span class="lit">85</span><span class="pun">,(</span><span class="lit">25</span><span class="pun">,</span><span class="lit">2</span><span class="pun">))</span>`
+7.  `<span class="pln">Z </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">vstack</span><span class="pun">((</span><span class="pln">X</span><span class="pun">,</span><span class="pln">Y</span><span class="pun">))</span>`
+8.9.  `<span class="com"># convert to np.float32</span>`
+10.  `<span class="pln">Z </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">float32</span><span class="pun">(</span><span class="pln">Z</span><span class="pun">)</span>`
+11.12.  `<span class="com"># define criteria and apply kmeans()</span>`
+13.  `<span class="pln">criteria </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cv2</span><span class="pun">.</span><span class="pln">TERM_CRITERIA_EPS </span><span class="pun">+</span><span class="pln"> cv2</span><span class="pun">.</span><span class="pln">TERM_CRITERIA_MAX_ITER</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.0</span><span class="pun">)</span>`
+14.  `<span class="pln">ret</span><span class="pun">,</span><span class="pln">label</span><span class="pun">,</span><span class="pln">center</span><span class="pun">=</span><span class="pln">cv2</span><span class="pun">.</span><span class="pln">kmeans</span><span class="pun">(</span><span class="pln">Z</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="kwd">None</span><span class="pun">,</span><span class="pln">criteria</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="pln">cv2</span><span class="pun">.</span><span class="pln">KMEANS_RANDOM_CENTERS</span><span class="pun">)</span>`
+15.16.  `<span class="com"># Now separate the data, Note the flatten()</span>`
+17.  `<span class="pln">A </span><span class="pun">=</span><span class="pln"> Z</span><span class="pun">[</span><span class="pln">label</span><span class="pun">.</span><span class="pln">ravel</span><span class="pun">()==</span><span class="lit">0</span><span class="pun">]</span>`
+18.  `<span class="pln">B </span><span class="pun">=</span><span class="pln"> Z</span><span class="pun">[</span><span class="pln">label</span><span class="pun">.</span><span class="pln">ravel</span><span class="pun">()==</span><span class="lit">1</span><span class="pun">]</span>`
+19.20.  `<span class="com"># Plot the data</span>`
+21.  `<span class="pln">plt</span><span class="pun">.</span><span class="pln">scatter</span><span class="pun">(</span><span class="pln">A</span><span class="pun">[:,</span><span class="lit">0</span><span class="pun">],</span><span class="pln">A</span><span class="pun">[:,</span><span class="lit">1</span><span class="pun">])</span>`
+22.  `<span class="pln">plt</span><span class="pun">.</span><span class="pln">scatter</span><span class="pun">(</span><span class="pln">B</span><span class="pun">[:,</span><span class="lit">0</span><span class="pun">],</span><span class="pln">B</span><span class="pun">[:,</span><span class="lit">1</span><span class="pun">],</span><span class="pln">c </span><span class="pun">=</span><span class="pln"> </span><span class="str">'r'</span><span class="pun">)</span>`
+23.  `<span class="pln">plt</span><span class="pun">.</span><span class="pln">scatter</span><span class="pun">(</span><span class="pln">center</span><span class="pun">[:,</span><span class="lit">0</span><span class="pun">],</span><span class="pln">center</span><span class="pun">[:,</span><span class="lit">1</span><span class="pun">],</span><span class="pln">s </span><span class="pun">=</span><span class="pln"> </span><span class="lit">80</span><span class="pun">,</span><span class="pln">c </span><span class="pun">=</span><span class="pln"> </span><span class="str">'y'</span><span class="pun">,</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> </span><span class="str">'s'</span><span class="pun">)</span>`
+24.  `<span class="pln">plt</span><span class="pun">.</span><span class="pln">xlabel</span><span class="pun">(</span><span class="str">'Height'</span><span class="pun">),</span><span class="pln">plt</span><span class="pun">.</span><span class="pln">ylabel</span><span class="pun">(</span><span class="str">'Weight'</span><span class="pun">)</span>`
+25.  `<span class="pln">plt</span><span class="pun">.</span><span class="pln">show</span><span class="pun">()</span>`</pre></div><div>![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/01/wpid-d2ab590efc92b80dda0dbf8a3363cb77_f29be1bf-f12c-4f1e-b005-cfaf99fe5156.png)
+</div></div><div><span style="font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; line-height: 18.200000762939453px; text-align: justify; background-color: rgb(255, 255, 255);">
+</span></div>
+
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
           
         
       
@@ -2011,217 +2383,75 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
         
           
             <p>1.构建Matrix<div></div></p>
-<div><br><br><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Matrix4f&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;A&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>2.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;</code><br>3.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;</code><br>4.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;</code><br>5.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code></pre></div><div><br></div></div></div><div>2.计算特征值，特征向量</div><div><br><br><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;EigenSolver&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Matrix4f&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;);&lt;/span&gt;</code><br>2.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code><br>3.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;com&quot;&gt;//输ê?出3?矩?阵ó&lt;/span&gt;</code><br>4.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;矩?阵óA:&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;A&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>5.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code><br>6.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;com&quot;&gt;//特ì?征÷值μ&lt;/span&gt;</code><br>7.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;特ì?征÷值μ：￡o&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvalues&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>8.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;com&quot;&gt;//特ì?征÷向ò量á?&lt;/span&gt;</code><br>9.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;特ì?征÷向ò量á?：￡o&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>10.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;The&amp;nbsp;1st&amp;nbsp;eigenvector&amp;nbsp;of&amp;nbsp;the&amp;nbsp;matrix&amp;nbsp;is:&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code><br>11.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;[&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvectors&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;transpose&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;]&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>12.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;The&amp;nbsp;2nd&amp;nbsp;eigenvector&amp;nbsp;of&amp;nbsp;the&amp;nbsp;matrix&amp;nbsp;is:&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code><br>13.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;[&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvectors&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;transpose&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;]&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>14.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;The&amp;nbsp;3rd&amp;nbsp;eigenvector&amp;nbsp;of&amp;nbsp;the&amp;nbsp;matrix&amp;nbsp;is:&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code><br>15.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;[&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvectors&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;transpose&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;]&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>16.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;The&amp;nbsp;4th&amp;nbsp;eigenvector&amp;nbsp;of&amp;nbsp;the&amp;nbsp;matrix&amp;nbsp;is:&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code><br>17.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;[&quot;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvectors&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;transpose&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;]&quot;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code></pre></div><div><br></div><div>3.至此输出的特征值特征向量都为复数形式。通过查看文档了解到Eigen中复数采用的数据结构是std::complex</div></div></div><div><br><br><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp; &amp;nbsp; cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvalues&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;real&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>2.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvalues&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;real&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>3.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvalues&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;real&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code><br>4.  <code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;es&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;eigenvalues&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;real&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;endl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;;&lt;/span&gt;</code></pre></div><div>输出：</div></div></div><div><div><pre class="prettyprint linenums prettyprinted"><br><br>1.  <code>&lt;span class=&quot;pun&quot;&gt;矩阵&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;</code><br>2.  <code>&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;</code><br>3.  <code>&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;</code><br>4.  <code>&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;</code><br>5.  <code>&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;</code><br>6.7.  <code>&lt;span class=&quot;pun&quot;&gt;特征值：&lt;/span&gt;</code><br>8.  <code>&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>9.  <code>&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>10.  <code>&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>11.  <code>&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code><br>12.13.  <code>&lt;span class=&quot;pun&quot;&gt;特征向量：&lt;/span&gt;</code><br>14.  <code>&lt;span class=&quot;typ&quot;&gt;The&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1st&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; eigenvector of the matrix is&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;</code><br>15.  <code>&lt;span class=&quot;pun&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)]&lt;/span&gt;</code><br>16.  <code>&lt;span class=&quot;typ&quot;&gt;The&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2nd&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; eigenvector of the matrix is&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;</code><br>17.  <code>&lt;span class=&quot;pun&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)]&lt;/span&gt;</code><br>18.  <code>&lt;span class=&quot;typ&quot;&gt;The&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;3rd&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; eigenvector of the matrix is&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;</code><br>19.  <code>&lt;span class=&quot;pun&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)]&lt;/span&gt;</code><br>20.  <code>&lt;span class=&quot;typ&quot;&gt;The&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;4th&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; eigenvector of the matrix is&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;</code><br>21.  <code>&lt;span class=&quot;pun&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)]&lt;/span&gt;</code><br>22.23.  <code>&lt;span class=&quot;pun&quot;&gt;提取特征值（实部）&lt;/span&gt;</code><br>24.  <code>&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;</code><br>25.  <code>&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;</code><br>26.  <code>&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;</code><br>27.  <code>&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;</code><br>28.  <code>&lt;span class=&quot;lit&quot;&gt;0.021s&lt;/span&gt;</code><br>29.  <code>&lt;span class=&quot;pun&quot;&gt;请按任意键继续.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;</code></pre></div><div><br></div></div><div><br></div>
+<div>
 
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
-          
-        
-      
-    </div>
+<div><div><pre class="prettyprint linenums prettyprinted">
 
-    
+1.  `<span class="pln">&nbsp; &nbsp; </span><span class="typ">Matrix4f</span><span class="pln">&nbsp;A</span><span class="pun">;</span>`
+2.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span>`
+3.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="lit">0</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span>`
+4.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span>`
+5.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">1</span><span class="pun">;</span>`</pre></div><div>
+</div></div></div><div>2.计算特征值，特征向量</div><div>
 
-    
-    
-    
+<div><div><pre class="prettyprint linenums prettyprinted">
 
-    
+1.  `<span class="pln">&nbsp; &nbsp; </span><span class="typ">EigenSolver</span><span class="pun">&lt;</span><span class="typ">Matrix4f</span><span class="pun">&gt;</span><span class="pln">&nbsp;es</span><span class="pun">(</span><span class="pln">A</span><span class="pun">);</span>`
+2.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span>`
+3.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="com">//输ê?出3?矩?阵ó</span>`
+4.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"矩?阵óA:"</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;A&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`
+5.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span>`
+6.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="com">//特ì?征÷值μ</span>`
+7.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"特ì?征÷值μ：￡o"</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvalues</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`
+8.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="com">//特ì?征÷向ò量á?</span>`
+9.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"特ì?征÷向ò量á?：￡o"</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`
+10.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"The&nbsp;1st&nbsp;eigenvector&nbsp;of&nbsp;the&nbsp;matrix&nbsp;is:"</span><span class="pln">&nbsp;</span>`
+11.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"["</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvectors</span><span class="pun">().</span><span class="pln">col</span><span class="pun">(</span><span class="lit">0</span><span class="pun">).</span><span class="pln">transpose</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;&nbsp;</span><span class="str">"]"</span><span class="pun">&lt;&lt;</span><span class="pln">endl</span><span class="pun">;</span>`
+12.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"The&nbsp;2nd&nbsp;eigenvector&nbsp;of&nbsp;the&nbsp;matrix&nbsp;is:"</span><span class="pln">&nbsp;</span>`
+13.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"["</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvectors</span><span class="pun">().</span><span class="pln">col</span><span class="pun">(</span><span class="lit">1</span><span class="pun">).</span><span class="pln">transpose</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;&nbsp;</span><span class="str">"]"</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`
+14.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"The&nbsp;3rd&nbsp;eigenvector&nbsp;of&nbsp;the&nbsp;matrix&nbsp;is:"</span><span class="pln">&nbsp;</span>`
+15.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"["</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvectors</span><span class="pun">().</span><span class="pln">col</span><span class="pun">(</span><span class="lit">2</span><span class="pun">).</span><span class="pln">transpose</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;&nbsp;</span><span class="str">"]"</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`
+16.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"The&nbsp;4th&nbsp;eigenvector&nbsp;of&nbsp;the&nbsp;matrix&nbsp;is:"</span><span class="pln">&nbsp;</span>`
+17.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;</span><span class="str">"["</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvectors</span><span class="pun">().</span><span class="pln">col</span><span class="pun">(</span><span class="lit">3</span><span class="pun">).</span><span class="pln">transpose</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;&nbsp;</span><span class="str">"]"</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`</pre></div><div>
+</div><div>3.至此输出的特征值特征向量都为复数形式。通过查看文档了解到Eigen中复数采用的数据结构是std::complex</div></div></div><div>
 
-    
-      
-    
-    
+<div><div><pre class="prettyprint linenums prettyprinted">
 
-    
+1.  `<span class="pln">&nbsp; &nbsp; cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvalues</span><span class="pun">()(</span><span class="lit">0</span><span class="pun">).</span><span class="pln">real</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`
+2.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvalues</span><span class="pun">()(</span><span class="lit">1</span><span class="pun">).</span><span class="pln">real</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`
+3.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvalues</span><span class="pun">()(</span><span class="lit">2</span><span class="pun">).</span><span class="pln">real</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`
+4.  `<span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;es</span><span class="pun">.</span><span class="pln">eigenvalues</span><span class="pun">()(</span><span class="lit">3</span><span class="pun">).</span><span class="pln">real</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">&lt;&lt;</span><span class="pln">&nbsp;endl</span><span class="pun">;</span>`</pre></div><div>输出：</div></div></div><div><div><pre class="prettyprint linenums prettyprinted">
 
-    <footer class="post-footer">
-      
+1.  `<span class="pun">矩阵</span><span class="pln">A</span><span class="pun">:</span>`
+2.  `<span class="lit">1</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span>`
+3.  `<span class="lit">0</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span>`
+4.  `<span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0</span>`
+5.  `<span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">1</span>`
+6.7.  `<span class="pun">特征值：</span>`
+8.  `<span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span>`
+9.  `<span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span>`
+10.  `<span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span>`
+11.  `<span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span>`
+12.13.  `<span class="pun">特征向量：</span>`
+14.  `<span class="typ">The</span><span class="pln"> </span><span class="lit">1st</span><span class="pln"> eigenvector of the matrix is</span><span class="pun">:</span>`
+15.  `<span class="pun">[(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)]</span>`
+16.  `<span class="typ">The</span><span class="pln"> </span><span class="lit">2nd</span><span class="pln"> eigenvector of the matrix is</span><span class="pun">:</span>`
+17.  `<span class="pun">[(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)]</span>`
+18.  `<span class="typ">The</span><span class="pln"> </span><span class="lit">3rd</span><span class="pln"> eigenvector of the matrix is</span><span class="pun">:</span>`
+19.  `<span class="pun">[(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)]</span>`
+20.  `<span class="typ">The</span><span class="pln"> </span><span class="lit">4th</span><span class="pln"> eigenvector of the matrix is</span><span class="pun">:</span>`
+21.  `<span class="pun">[(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">)]</span>`
+22.23.  `<span class="pun">提取特征值（实部）</span>`
+24.  `<span class="lit">1</span>`
+25.  `<span class="lit">1</span>`
+26.  `<span class="lit">1</span>`
+27.  `<span class="lit">1</span>`
+28.  `<span class="lit">0.021s</span>`
+29.  `<span class="pun">请按任意键继续.</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="pun">.</span>`</pre></div><div>
+</div></div><div>
+</div>
 
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/10/11/copy-vtkimagedata-to-cvmat/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/10/11/copy-vtkimagedata-to-cvmat/" class="post-title-link" itemprop="url">Copy vtkImageData to cv::Mat</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-10-11 03:11:40" itemprop="dateCreated datePublished" datetime="2014-10-11T03:11:40+08:00">2014-10-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2014/10/11/copy-vtkimagedata-to-cvmat/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/11/copy-vtkimagedata-to-cvmat/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <div>opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。</div><div>废话不多说，上代码</div><div><br></div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//convert&amp;nbsp;vtkimagedata&amp;nbsp;to&amp;nbsp;cv::mat&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageData&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;imageData_1&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;reader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput();
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkExtractVOI&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&amp;nbsp;extractVOI&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkExtractVOI&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New()&amp;nbsp;;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(imageData_1);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;3&lt;/font&gt;];
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;imageData_1&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetDimensions(dims);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;]&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;]&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cout&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;2&lt;/font&gt;]&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&amp;lt;&lt;/font&gt;&amp;nbsp;endl;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetVOI(&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;],&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;,&amp;nbsp;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;);&amp;nbsp;&lt;font color=&quot;#008000&quot;&gt;//&amp;nbsp;Set&amp;nbsp;it&amp;nbsp;to&amp;nbsp;z=75&lt;/font&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetScalarTypeToSignedChar();
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cv&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;Mat&amp;nbsp;image(dims[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;],&amp;nbsp;dims[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;],&amp;nbsp;CV_8UC1);
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;Update();
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**for**&lt;/font&gt;&amp;nbsp;(&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;i&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;;&amp;nbsp;i&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;dims[&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;];&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;++&lt;/font&gt;i)&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**for**&lt;/font&gt;&amp;nbsp;(&lt;font color=&quot;#0000FF&quot;&gt;**int**&lt;/font&gt;&amp;nbsp;j&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;;&amp;nbsp;j&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;dims[&lt;font color=&quot;#6E00AA&quot;&gt;1&lt;/font&gt;];&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;++&lt;/font&gt;j)&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;image.at&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#0000FF&quot;&gt;**unsigned**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**char**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;(cv&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;Point(j,i))&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&lt;font color=&quot;#0000FF&quot;&gt;**static_cast**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#0000FF&quot;&gt;**unsigned**&lt;/font&gt;&amp;nbsp;&lt;font color=&quot;#0000FF&quot;&gt;**char**&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;*&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;(extractVOI&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput()&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetScalarPointer(i,j,&lt;font color=&quot;#6E00AA&quot;&gt;0&lt;/font&gt;));
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}
-&lt;/div&gt;&lt;/div&gt;</code></div></div><div><br></div><div><br></div><div>参考：<a href="http://stackoverflow.com/questions/19891341/copy-vtkimagedata-to-cvmat" target="_blank" rel="noopener">http://stackoverflow.com/questions/19891341/copy-vtkimagedata-to-cvmat</a></div>
-
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
           
         
       
@@ -2310,7 +2540,7 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2554,7 +2784,9 @@ des &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#6E00AA&quot;&gt;172&lt;/font&gt;
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

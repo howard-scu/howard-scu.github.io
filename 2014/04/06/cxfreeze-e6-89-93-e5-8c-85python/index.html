@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="安装过程不赘述 打包命令如下:cxfreeze c:\main.py –target-dir c:\dir –base-name=win32gui注意：1、将exe放到其他机子上运行，弹出“找不到msvcr100.dll“。手动将”msvcr100.dll“拷贝到dist目录下即可。可以写个脚本把这些都包含进去2、要去掉exe里的后面黑色控制台窗口就在前面的命令改成cxfreeze D:\sour">
+  <meta name="description" content="安装过程不赘述  打包命令如下:    cxfreeze c:\main.py --target-dir c:\dir --base-name=win32gui    注意：  1、将exe放到其他机子上运行，弹出“找不到msvcr100.dll“。手动将”msvcr100.dll“拷贝到dist目录下即可。可以写个脚本把这些都包含进去  2、要去掉exe里的后面黑色控制台窗口就在前面的命令改成">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cxfreeze打包Python">
 <meta property="og:url" content="http://yoursite.com/2014/04/06/cxfreeze-e6-89-93-e5-8c-85python/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="安装过程不赘述 打包命令如下:cxfreeze c:\main.py –target-dir c:\dir –base-name=win32gui注意：1、将exe放到其他机子上运行，弹出“找不到msvcr100.dll“。手动将”msvcr100.dll“拷贝到dist目录下即可。可以写个脚本把这些都包含进去2、要去掉exe里的后面黑色控制台窗口就在前面的命令改成cxfreeze D:\sour">
+<meta property="og:description" content="安装过程不赘述  打包命令如下:    cxfreeze c:\main.py --target-dir c:\dir --base-name=win32gui    注意：  1、将exe放到其他机子上运行，弹出“找不到msvcr100.dll“。手动将”msvcr100.dll“拷贝到dist目录下即可。可以写个脚本把这些都包含进去  2、要去掉exe里的后面黑色控制台窗口就在前面的命令改成">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cxfreeze打包Python">
-<meta name="twitter:description" content="安装过程不赘述 打包命令如下:cxfreeze c:\main.py –target-dir c:\dir –base-name=win32gui注意：1、将exe放到其他机子上运行，弹出“找不到msvcr100.dll“。手动将”msvcr100.dll“拷贝到dist目录下即可。可以写个脚本把这些都包含进去2、要去掉exe里的后面黑色控制台窗口就在前面的命令改成cxfreeze D:\sour">
+<meta name="twitter:description" content="安装过程不赘述  打包命令如下:    cxfreeze c:\main.py --target-dir c:\dir --base-name=win32gui    注意：  1、将exe放到其他机子上运行，弹出“找不到msvcr100.dll“。手动将”msvcr100.dll“拷贝到dist目录下即可。可以写个脚本把这些都包含进去  2、要去掉exe里的后面黑色控制台窗口就在前面的命令改成">
 
 
 
@@ -468,7 +468,24 @@
 
       
         <p>安装过程不赘述</p>
-<div></div><br><div>打包命令如下:</div><br><div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>cxfreeze c:\main.py <span style="color: #333399;">–</span>target<span style="color: #333399;">-</span>dir c:\dir <span style="color: #333399;">–</span>base<span style="color: #333399;">-</span>name<span style="color: #333399;">=</span><span style="line-height: 1.5;">win32gui</span></div><br></div><br></div><br><div></div><br><div>注意：</div><br><div></div><br><div>1、将exe放到其他机子上运行，弹出“找不到msvcr100.dll“。手动将”msvcr100.dll“拷贝到dist目录下即可。可以写个脚本把这些都包含进去</div><br><div></div><br><div>2、要去掉exe里的后面黑色控制台窗口就在前面的命令改成</div><br><div></div><br><div>cxfreeze D:\source\game1.0.py(需打包文件路径） –target-dir D:\a（存放exe的目标文件夹路径）–base-name=win32gui</div><br></div><br><div></div>
+<div></div>
+<div>打包命令如下:</div>
+<div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>cxfreeze c:\main.py <span style="color: #333399;">--</span>target<span style="color: #333399;">-</span>dir c:\dir <span style="color: #333399;">--</span>base<span style="color: #333399;">-</span>name<span style="color: #333399;">=</span><span style="line-height: 1.5;">win32gui</span></div>
+</div>
+</div>
+<div></div>
+<div>注意：</div>
+<div></div>
+<div>1、将exe放到其他机子上运行，弹出“找不到msvcr100.dll“。手动将”msvcr100.dll“拷贝到dist目录下即可。可以写个脚本把这些都包含进去</div>
+<div></div>
+<div>2、要去掉exe里的后面黑色控制台窗口就在前面的命令改成</div>
+<div></div>
+<div>cxfreeze D:\source\game1.0.py(需打包文件路径） --target-dir D:\a（存放exe的目标文件夹路径）--base-name=win32gui</div>
+</div>
+<div></div>
       
     </div>
 
@@ -613,7 +630,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -857,7 +874,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

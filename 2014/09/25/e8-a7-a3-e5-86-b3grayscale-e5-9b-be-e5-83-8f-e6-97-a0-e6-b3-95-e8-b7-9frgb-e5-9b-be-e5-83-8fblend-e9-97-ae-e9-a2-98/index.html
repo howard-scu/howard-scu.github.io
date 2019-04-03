@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。当我使用Grayscale图像无法跟RGB图像会遇到error：&amp;lt;div style=&amp;quot;background-color: rgb(0, 0, 0); color: rgb(0, 255, 0); b">
+  <meta name="description" content="当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。当我使用Grayscale图像无法跟RGB图像会遇到error：`ERROR:&amp;nbsp;In&amp;nbsp;..\..\src\Imaging\vtkImageBlend.cxx,&amp;nbsp;line&amp;nbsp;903">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Grayscale图像无法跟RGB图像Blend问题">
 <meta property="og:url" content="http://yoursite.com/2014/09/25/e8-a7-a3-e5-86-b3grayscale-e5-9b-be-e5-83-8f-e6-97-a0-e6-b3-95-e8-b7-9frgb-e5-9b-be-e5-83-8fblend-e9-97-ae-e9-a2-98/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。当我使用Grayscale图像无法跟RGB图像会遇到error：&amp;lt;div style=&amp;quot;background-color: rgb(0, 0, 0); color: rgb(0, 255, 0); b">
+<meta property="og:description" content="当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。当我使用Grayscale图像无法跟RGB图像会遇到error：`ERROR:&amp;nbsp;In&amp;nbsp;..\..\src\Imaging\vtkImageBlend.cxx,&amp;nbsp;line&amp;nbsp;903">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决Grayscale图像无法跟RGB图像Blend问题">
-<meta name="twitter:description" content="当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。当我使用Grayscale图像无法跟RGB图像会遇到error：&amp;lt;div style=&amp;quot;background-color: rgb(0, 0, 0); color: rgb(0, 255, 0); b">
+<meta name="twitter:description" content="当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。当我使用Grayscale图像无法跟RGB图像会遇到error：`ERROR:&amp;nbsp;In&amp;nbsp;..\..\src\Imaging\vtkImageBlend.cxx,&amp;nbsp;line&amp;nbsp;903">
 
 
 
@@ -466,14 +466,15 @@
       
 
       
-        <p>当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。<div>当我使用Grayscale图像无法跟RGB图像会遇到error：</div><div><div><code>&lt;div style=&quot;background-color: rgb(0, 0, 0); color: rgb(0, 255, 0); border: 1px solid rgb(242, 242, 242); margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;ERROR&lt;font color=&quot;#00ff00&quot;&gt;:&lt;/font&gt;&amp;nbsp;In&amp;nbsp;..\..\src\Imaging\vtkImageBlend.cxx,&amp;nbsp;line&amp;nbsp;&lt;font color=&quot;#00ff00&quot;&gt;903&lt;/font&gt;
-vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&lt;/font&gt;)&lt;font color=&quot;#00ff00&quot;&gt;:&lt;/font&gt;&amp;nbsp;input&amp;nbsp;has&amp;nbsp;too&amp;nbsp;many&amp;nbsp;components,&amp;nbsp;can&lt;font color=&quot;#00ff00&quot;&gt;&#39;t&amp;nbsp;blend&amp;nbsp;RGB&amp;nbsp;data&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;into&amp;nbsp;greyscale&amp;nbsp;data&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;</code></div></div><div>解决的思路当然是把灰度图像转换为rgb图像，但是不用映射lookuptable，如果映射了lookuptable，灰色图像将映射到红色至蓝色之间的颜色。</div><div>具体工作代码如下：</div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkScalarsToColors&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt; scalarsToColors &lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp; vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkScalarsToColors&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
-&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp; vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageMapToColors&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt; colorMapper &lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt; vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageMapToColors&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
-&amp;nbsp;&amp;nbsp;&amp;nbsp; colorMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetOutputFormatToRGB();
-&amp;nbsp;&amp;nbsp;&amp;nbsp; colorMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(reader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput());
-&amp;nbsp;&amp;nbsp;&amp;nbsp; colorMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetLookupTable( scalarsToColors );&lt;/div&gt;&lt;/div&gt;</code></div></div><div><br></div><div>参考：<a href="http://vtk.1045678.n5.nabble.com/Convert-grayscale-image-to-rgb-td5727289.html#" target="_blank" rel="noopener">http://vtk.1045678.n5.nabble.com/Convert-grayscale-image-to-rgb-td5727289.html#</a></div></p>
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+        <p>当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。<div>当我使用Grayscale图像无法跟RGB图像会遇到error：</div><div><div>`<div style="background-color: rgb(0, 0, 0); color: rgb(0, 255, 0); border: 1px solid rgb(242, 242, 242); margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>ERROR<font color="#00ff00">:</font>&nbsp;In&nbsp;..\..\src\Imaging\vtkImageBlend.cxx,&nbsp;line&nbsp;<font color="#00ff00">903</font>
+vtkImageBlend&nbsp;(<font color="#00ff00">0000000003B47450</font>)<font color="#00ff00">:</font>&nbsp;input&nbsp;has&nbsp;too&nbsp;many&nbsp;components,&nbsp;can<font color="#00ff00">'t&nbsp;blend&nbsp;RGB&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;into&nbsp;greyscale&nbsp;data</font></div>&lt;/div&gt;<code>&lt;/div&gt;&lt;/div&gt;&lt;div&gt;解决的思路当然是把灰度图像转换为rgb图像，但是不用映射lookuptable，如果映射了lookuptable，灰色图像将映射到红色至蓝色之间的颜色。&lt;/div&gt;&lt;div&gt;具体工作代码如下：&lt;/div&gt;&lt;div&gt;&lt;div&gt;</code><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>&nbsp; &nbsp; vtkSmartPointer<font color="#333399">&lt;</font>vtkScalarsToColors<font color="#333399">&gt;</font> scalarsToColors <font color="#333399">=</font>&nbsp; vtkSmartPointer<font color="#333399">&lt;</font>vtkScalarsToColors<font color="#333399">&gt;</font><font color="#333399">:</font><font color="#333399">:</font>New();
+&nbsp;
+&nbsp;&nbsp;&nbsp; vtkSmartPointer<font color="#333399">&lt;</font>vtkImageMapToColors<font color="#333399">&gt;</font> colorMapper <font color="#333399">=</font> vtkSmartPointer<font color="#333399">&lt;</font>vtkImageMapToColors<font color="#333399">&gt;</font><font color="#333399">:</font><font color="#333399">:</font>New();
+&nbsp;&nbsp;&nbsp; colorMapper<font color="#333399">-</font><font color="#333399">&gt;</font>SetOutputFormatToRGB();
+&nbsp;&nbsp;&nbsp; colorMapper<font color="#333399">-</font><font color="#333399">&gt;</font>SetInput(reader<font color="#333399">-</font><font color="#333399">&gt;</font>GetOutput());
+&nbsp;&nbsp;&nbsp; colorMapper<font color="#333399">-</font><font color="#333399">&gt;</font>SetLookupTable( scalarsToColors );</div>&lt;/div&gt;`&lt;/div&gt;&lt;/div&gt;<div>
+</div><div>参考：http://vtk.1045678.n5.nabble.com/Convert-grayscale-image-to-rgb-td5727289.html#</div></div></div></div></div></p>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
       
     </div>
 
@@ -612,7 +613,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -856,7 +857,9 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

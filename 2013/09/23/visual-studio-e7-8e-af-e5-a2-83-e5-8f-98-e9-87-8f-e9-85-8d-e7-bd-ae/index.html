@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？">
+  <meta name="description" content="**在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？**">
 <meta name="keywords" content="dll,lib,vs2010,配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Visual Studio环境变量配置">
 <meta property="og:url" content="http://yoursite.com/2013/09/23/visual-studio-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e9-85-8d-e7-bd-ae/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？">
+<meta property="og:description" content="**在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？**">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Visual Studio环境变量配置">
-<meta name="twitter:description" content="在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？">
+<meta name="twitter:description" content="**在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？**">
 
 
 
@@ -467,7 +467,44 @@
       
 
       
-        <div id="home" class="hui-d-custom"><br><div id="body" class="hui-d3 hui-t5"><br><div class="hui-main"><br><div class="hui-b"><br><div id="topics"><br><div class="post"><br><div class="postBody"><br><div id="cnblogs_post_body"><br><br><strong>在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？</strong><br><br><a id="more"></a><br><br>总体上来说，有几种方法可以改变 Visual Studio 的环境变量设置：<br><br>1.  直接添加到<a href="http://blog.waterlin.org/articles/setting-emacs-home-directory.html" target="_blank" rel="noopener">系统的 PATH 变量里</a>：这个方法最简单，也最直接，但是坏处是会影响全局的 PATH 设置，尤其是你包含着大量测试用的 dll 时。<br>2.  在 Visual Studio 全局设置里，把 dll 所在目录添加到 PATH 里：通过 Visual Studio 菜单 ==&gt; 工具 ==&gt; 选项 ==&gt; 项目和解决方案 ==&gt; VC++目录，在下拉框里选择”可执行文件”，然后把 dll 所在路径添加进去。<br>3.  直接把所有 dll 拷贝到 Visual Studio 工程目录下，或是拷贝到生成可执行文件的文件夹（默认情况下是 Debug 或 Release 目录）下：这个方法也很简单，但是当你有若干个工程时，你每次更新 SDK 及其 dll 文件，你就要把所有的工程都更新，这个不符合文件唯一性的工程性准则。<br>4.  在调试程序时，让 Visual Studio 帮你切换当前工作目录到 dll 相应的目录下：在 Visual Studio ==&gt; Project ==&gt; Properties ==&gt; Select Configuration ==&gt; Configuration Properties ==&gt; Debugging ==&gt; Working directory 里填上 dll 所在目录，这样当在调试程序时，Visual Studio 会把当前工作目录切换到这个目录下，从而会自动读取本目录下的 dll 文件。<br><br>这个方法的优点很明显，简单！副作用也很明显，在你切换了当前工作目录后，你可能会找不到程序的配置文件，在程序里写的诸如”./config.ini”全部都找不到了；另外，你要把所有的 dll 都放到这个工作目录里，否则一样会提示说找不到 xxx.dll 的问题。<br>5.  最后一个方法，也是我认为最好的一个方法，在 Visual Studio 工程属性里把一个目录临时添加到 PATH 环境变量里：MSDN 上也有类似的介绍：<a href="http://msdn.microsoft.com/en-us/library/ms173406.aspx" target="_blank" rel="noopener">How to: Set Environment Variables for Projects</a>，方法很简单，在 “工程属性” ==&gt; “调试” ==&gt; “环境”里，添加类似如下所示的内容：<br><div>PATH=%PATH%;$(TargetDir)\DLLS</div><br>这样就可以把 $(TargetDir)\DLLS 临时添加到该工程所属的系统 PATH 里。<br><!--EndFragment--><br><br></div><br></div><br></div><br></div><br></div><br></div><br></div><br></div><br><div style="color: gray;"><small><small><span style="font-size: small;"><span style="color: #ff0000;">节选自：</span><a href="http://www.cnblogs.com/waterlin/archive/2011/10/31/2230341.html" target="_blank" rel="noopener"><span style="color: #ff0000;">http://www.cnblogs.com/waterlin/archive/2011/10/31/2230341.html</span></a></span></small></small></div><br><div></div><br>&nbsp;<br><div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+        <div id="home" class="hui-d-custom">
+<div id="body" class="hui-d3 hui-t5">
+<div class="hui-main">
+<div class="hui-b">
+<div id="topics">
+<div class="post">
+<div class="postBody">
+<div id="cnblogs_post_body">
+
+**在开发过程中，究竟怎样来让 Visual Studio 链接这些 lib 及 dll 文件会比较好呢？**
+
+<a id="more"></a>
+
+总体上来说，有几种方法可以改变 Visual Studio 的环境变量设置：
+
+1.  直接添加到[系统的 PATH 变量里](http://blog.waterlin.org/articles/setting-emacs-home-directory.html)：这个方法最简单，也最直接，但是坏处是会影响全局的 PATH 设置，尤其是你包含着大量测试用的 dll 时。
+2.  在 Visual Studio 全局设置里，把 dll 所在目录添加到 PATH 里：通过 Visual Studio 菜单 ==&gt; 工具 ==&gt; 选项 ==&gt; 项目和解决方案 ==&gt; VC++目录，在下拉框里选择"可执行文件"，然后把 dll 所在路径添加进去。
+3.  直接把所有 dll 拷贝到 Visual Studio 工程目录下，或是拷贝到生成可执行文件的文件夹（默认情况下是 Debug 或 Release 目录）下：这个方法也很简单，但是当你有若干个工程时，你每次更新 SDK 及其 dll 文件，你就要把所有的工程都更新，这个不符合文件唯一性的工程性准则。
+4.  在调试程序时，让 Visual Studio 帮你切换当前工作目录到 dll 相应的目录下：在 Visual Studio ==&gt; Project ==&gt; Properties ==&gt; Select Configuration ==&gt; Configuration Properties ==&gt; Debugging ==&gt; Working directory 里填上 dll 所在目录，这样当在调试程序时，Visual Studio 会把当前工作目录切换到这个目录下，从而会自动读取本目录下的 dll 文件。
+
+这个方法的优点很明显，简单！副作用也很明显，在你切换了当前工作目录后，你可能会找不到程序的配置文件，在程序里写的诸如"./config.ini"全部都找不到了；另外，你要把所有的 dll 都放到这个工作目录里，否则一样会提示说找不到 xxx.dll 的问题。
+5.  最后一个方法，也是我认为最好的一个方法，在 Visual Studio 工程属性里把一个目录临时添加到 PATH 环境变量里：MSDN 上也有类似的介绍：[How to: Set Environment Variables for Projects](http://msdn.microsoft.com/en-us/library/ms173406.aspx)，方法很简单，在 "工程属性" ==&gt; "调试" ==&gt; "环境"里，添加类似如下所示的内容：
+<div>PATH=%PATH%;$(TargetDir)\DLLS</div>
+这样就可以把 $(TargetDir)\DLLS 临时添加到该工程所属的系统 PATH 里。
+<!--EndFragment-->
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="color: gray;"><small><small><span style="font-size: small;"><span style="color: #ff0000;">节选自：</span>[<span style="color: #ff0000;">http://www.cnblogs.com/waterlin/archive/2011/10/31/2230341.html</span>](http://www.cnblogs.com/waterlin/archive/2011/10/31/2230341.html)</span></small></small></div>
+<div></div>
+&nbsp;
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
       
     </div>
 
@@ -618,7 +655,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -862,7 +899,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

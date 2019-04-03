@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="由于ITK处理的时候内存问题，项目由32位平台转到64位平台。需要重新编译QT、VTK、ITK，中间遇到些许问题，记录下来。编译顺序有讲究，因为VTK会依赖一些QT包，所以我们需要先编译QT。 1、安装Perl（我也不确定是否真实需要）；2、下载并解压QT源码（假设解压目录为C:\qt\src）3、设置环境变量&amp;gt; QTDIR=C:\qt\src&amp;gt;&amp;gt; QMAKESPEC=win32">
+  <meta name="description" content="由于ITK处理的时候内存问题，项目由32位平台转到64位平台。需要重新编译QT、VTK、ITK，中间遇到些许问题，记录下来。编译顺序有讲究，因为VTK会依赖一些QT包，所以我们需要先编译QT。 1、安装Perl（我也不确定是否真实需要）； 2、下载并解压QT源码（假设解压目录为C:\qt\src） 3、设置环境变量 &amp;gt; QTDIR=C:\qt\src &amp;gt;  &amp;gt; QMAKESPEC=win32-ms">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译x64版本QT">
 <meta property="og:url" content="http://yoursite.com/2014/05/07/e7-bc-96-e8-af-91x64-e7-89-88-e6-9c-acqt/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="由于ITK处理的时候内存问题，项目由32位平台转到64位平台。需要重新编译QT、VTK、ITK，中间遇到些许问题，记录下来。编译顺序有讲究，因为VTK会依赖一些QT包，所以我们需要先编译QT。 1、安装Perl（我也不确定是否真实需要）；2、下载并解压QT源码（假设解压目录为C:\qt\src）3、设置环境变量&amp;gt; QTDIR=C:\qt\src&amp;gt;&amp;gt; QMAKESPEC=win32">
+<meta property="og:description" content="由于ITK处理的时候内存问题，项目由32位平台转到64位平台。需要重新编译QT、VTK、ITK，中间遇到些许问题，记录下来。编译顺序有讲究，因为VTK会依赖一些QT包，所以我们需要先编译QT。 1、安装Perl（我也不确定是否真实需要）； 2、下载并解压QT源码（假设解压目录为C:\qt\src） 3、设置环境变量 &amp;gt; QTDIR=C:\qt\src &amp;gt;  &amp;gt; QMAKESPEC=win32-ms">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译x64版本QT">
-<meta name="twitter:description" content="由于ITK处理的时候内存问题，项目由32位平台转到64位平台。需要重新编译QT、VTK、ITK，中间遇到些许问题，记录下来。编译顺序有讲究，因为VTK会依赖一些QT包，所以我们需要先编译QT。 1、安装Perl（我也不确定是否真实需要）；2、下载并解压QT源码（假设解压目录为C:\qt\src）3、设置环境变量&amp;gt; QTDIR=C:\qt\src&amp;gt;&amp;gt; QMAKESPEC=win32">
+<meta name="twitter:description" content="由于ITK处理的时候内存问题，项目由32位平台转到64位平台。需要重新编译QT、VTK、ITK，中间遇到些许问题，记录下来。编译顺序有讲究，因为VTK会依赖一些QT包，所以我们需要先编译QT。 1、安装Perl（我也不确定是否真实需要）； 2、下载并解压QT源码（假设解压目录为C:\qt\src） 3、设置环境变量 &amp;gt; QTDIR=C:\qt\src &amp;gt;  &amp;gt; QMAKESPEC=win32-ms">
 
 
 
@@ -467,7 +467,53 @@
 
       
         <p>由于ITK处理的时候内存问题，项目由32位平台转到64位平台。需要重新编译QT、VTK、ITK，中间遇到些许问题，记录下来。编译顺序有讲究，因为VTK会依赖一些QT包，所以我们需要先编译QT。</p>
-<div><span style="font-size: 10.5pt; line-height: 1.5;">1、安装</span><span style="font-size: 10.5pt; line-height: 1.5;">Perl（我也不确定是否真实需要）；</span></div><br><div>2、下载并解压QT源码（假设解压目录为C:\qt\src）</div><br><div>3、设置环境变量</div><br>&gt; <div><span style="font-size: 10.5pt; line-height: 1.5;">QTDIR=</span><span style="font-size: 10.5pt; line-height: 1.5;">C:\qt\src</span></div><br>&gt;<br>&gt; <div>QMAKESPEC=win32-msvc2010</div><br><div>4、将目录添加到PATH</div><br><div><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">   </span><span style="font-size: 10.5pt; line-height: 1.5;">%QTDIR%\bin</span></div><br><div>5、下载Jom并解压（假设路径为C:\qt）</div><br><div>6、启动VS2010 x64命令后提示，切换到工作目录，随后nmake</div><br>&gt; <div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br>&gt;<br>&gt; <div>configure <span style="color: #333399;">-</span>debug<span style="color: #333399;">-</span><span style="color: #333399;">and</span><span style="color: #333399;">-</span>release <span style="color: #333399;">-</span>opensource <span style="color: #333399;">-</span>platform win32<span style="color: #333399;">-</span>msvc2010<br>&gt;<br>&gt; ..\jom.exe <span style="color: #333399;">-</span>j N<span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">—-</span><span style="line-height: 1.5;">其中N为CPU核心数</span></div><br>&gt;<br>&gt; </div><br><div><span style="color: #ff0000;"><strong>注意：</strong></span></div><br><div>上面的方法是参照1法进行的，不能正确编译，会遇到两个问题：</div><br><div><span style="background-color: #ffffff; color: #333333; font-family: Arial; font-size: 10.5pt; line-height: 26px;"><strong>1.NMAKE : fatal error U1077: “cd”: 返回代码“0x2”的错误</strong></span></div><br><div><span style="background-color: #ffffff; color: #333333; font-family: Arial; font-size: 10.5pt; line-height: 26px;"><strong>解决方法是：</strong></span></div><br><div><span style="color: #333333; font-family: Arial;">将</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">DefaultLocalizationStrategy.cpp</span>中</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>return</strong></span> WEB_UI_STRING(<span style="color: #ff00bf;">“Look Up “&lt;selection&gt;””</span>, <span style="color: #ff00bf;">“Look Up context menu item with selected word”</span>).replace(<span style="color: #ff00bf;">“&lt;selection&gt;”</span>, truncatedStringForLookupMenuItem(selectedString));</div><br></div><br></div><br><div>改为</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>return</strong></span> WEB_UI_STRING(<span style="color: #ff00bf;">“Look Up \”&lt;selection&gt;\””</span>, <span style="color: #ff00bf;">“Look Up context menu item with selected word”</span>).replace(<span style="color: #ff00bf;">“&lt;selection&gt;”</span>, truncatedStringForLookupMenuItem(selectedString));</div><br></div><br></div><br><div><strong><span style="background-color: #ffffff; color: #333333; font-family: Arial; line-height: 26px; font-size: 10.5pt;">2.无法正确生成</span><span style="font-size: 10.5pt; line-height: 1.5;">QtWebKit4.dll链接库</span></strong></div><br><div><span style="color: #333333; font-family: Arial; line-height: 26px; background-color: #ffffff;"><strong>解决方法是：</strong></span></div><br><div>将<span style="font-size: 10.5pt; line-height: 1.5;">WebCore.pro中的</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">QMAKE_HOST.arch</span></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">改为</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">QMAKE_TARGET.arch</span></span></div><br><div></div><br><div></div><br><div></div><br><div>参考资料：</div><br><div>【1】<a href="http://www.holoborodko.com/pavel/2011/02/01/how-to-compile-qt-4-7-with-visual-studio-2010/" target="_blank" rel="noopener">http://www.holoborodko.com/pavel/2011/02/01/how-to-compile-qt-4-7-with-visual-studio-2010/</a></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">【2】</span><a href="http://stackoverflow.com/questions/9543753/how-to-compile-qt-for-64-bit-windows-from-a-32-bit-environment-with-visual-c-2?rq=1" target="_blank" rel="noopener">http://stackoverflow.com/questions/9543753/how-to-compile-qt-for-64-bit-windows-from-a-32-bit-environment-with-visual-c-2?rq=1</a></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">【3】</span><a href="http://blog.csdn.net/lzrocking/article/details/7925051" target="_blank" rel="noopener">http://blog.csdn.net/lzrocking/article/details/7925051</a></div><br><div></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">1、安装</span><span style="font-size: 10.5pt; line-height: 1.5;">Perl（我也不确定是否真实需要）；</span></div>
+<div>2、下载并解压QT源码（假设解压目录为C:\qt\src）</div>
+<div>3、设置环境变量</div>
+> <div><span style="font-size: 10.5pt; line-height: 1.5;">QTDIR=</span><span style="font-size: 10.5pt; line-height: 1.5;">C:\qt\src</span></div>
+> 
+> <div>QMAKESPEC=win32-msvc2010</div>
+<div>4、将目录添加到PATH</div>
+<div><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">    </span><span style="font-family: 'Microsoft YaHei UI'; font-size: 10.5pt; line-height: 1.5;">   </span><span style="font-size: 10.5pt; line-height: 1.5;">%QTDIR%\bin</span></div>
+<div>5、下载Jom并解压（假设路径为C:\qt）</div>
+<div>6、启动VS2010 x64命令后提示，切换到工作目录，随后nmake</div>
+> <div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+> 
+> <div>configure <span style="color: #333399;">-</span>debug<span style="color: #333399;">-</span><span style="color: #333399;">and</span><span style="color: #333399;">-</span>release <span style="color: #333399;">-</span>opensource <span style="color: #333399;">-</span>platform win32<span style="color: #333399;">-</span>msvc2010
+> 
+> ..\jom.exe <span style="color: #333399;">-</span>j N<span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">    </span><span style="line-height: 1.5;">----</span><span style="line-height: 1.5;">其中N为CPU核心数</span></div>
+> 
+> </div>
+<div><span style="color: #ff0000;">**注意：**</span></div>
+<div>上面的方法是参照1法进行的，不能正确编译，会遇到两个问题：</div>
+<div><span style="background-color: #ffffff; color: #333333; font-family: Arial; font-size: 10.5pt; line-height: 26px;">**1.NMAKE : fatal error U1077: “cd”: 返回代码“0x2”的错误**</span></div>
+<div><span style="background-color: #ffffff; color: #333333; font-family: Arial; font-size: 10.5pt; line-height: 26px;">**解决方法是：**</span></div>
+<div><span style="color: #333333; font-family: Arial;">将</span><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">DefaultLocalizationStrategy.cpp</span>中</span></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #0000ff;">**return**</span> WEB_UI_STRING(<span style="color: #ff00bf;">"Look Up “&lt;selection&gt;”"</span>, <span style="color: #ff00bf;">"Look Up context menu item with selected word"</span>).replace(<span style="color: #ff00bf;">"&lt;selection&gt;"</span>, truncatedStringForLookupMenuItem(selectedString));</div>
+</div>
+</div>
+<div>改为</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #0000ff;">**return**</span> WEB_UI_STRING(<span style="color: #ff00bf;">"Look Up \"&lt;selection&gt;\""</span>, <span style="color: #ff00bf;">"Look Up context menu item with selected word"</span>).replace(<span style="color: #ff00bf;">"&lt;selection&gt;"</span>, truncatedStringForLookupMenuItem(selectedString));</div>
+</div>
+</div>
+<div>**<span style="background-color: #ffffff; color: #333333; font-family: Arial; line-height: 26px; font-size: 10.5pt;">2.无法正确生成</span><span style="font-size: 10.5pt; line-height: 1.5;">QtWebKit4.dll链接库</span>**</div>
+<div><span style="color: #333333; font-family: Arial; line-height: 26px; background-color: #ffffff;">**解决方法是：**</span></div>
+<div>将<span style="font-size: 10.5pt; line-height: 1.5;">WebCore.pro中的</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">QMAKE_HOST.arch</span></span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">改为</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">QMAKE_TARGET.arch</span></span></div>
+<div></div>
+<div></div>
+<div></div>
+<div>参考资料：</div>
+<div>【1】[http://www.holoborodko.com/pavel/2011/02/01/how-to-compile-qt-4-7-with-visual-studio-2010/](http://www.holoborodko.com/pavel/2011/02/01/how-to-compile-qt-4-7-with-visual-studio-2010/)</div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">【2】</span>[http://stackoverflow.com/questions/9543753/how-to-compile-qt-for-64-bit-windows-from-a-32-bit-environment-with-visual-c-2?rq=1](http://stackoverflow.com/questions/9543753/how-to-compile-qt-for-64-bit-windows-from-a-32-bit-environment-with-visual-c-2?rq=1)</div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">【3】</span>[http://blog.csdn.net/lzrocking/article/details/7925051](http://blog.csdn.net/lzrocking/article/details/7925051)</div>
+<div></div>
       
     </div>
 
@@ -606,7 +652,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -850,7 +896,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

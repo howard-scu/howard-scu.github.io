@@ -94,23 +94,18 @@
 
 
 
-  <meta name="description" content="VTK的数据流采用流水线(pipeline)作业方式。但是在接口的时候有两种数据格式一种是使用GetOutput()，另外一种是使用GetOutputPort() 这两种输出有什么分别呢？举例说明：vtkDICOMImageReader对象拥有方法GetOutput()和GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。在vtkAlgorithm中Get">
+  <meta name="description" content="VTK的数据流采用流水线(pipeline)作业方式。但是在接口的时候有两种数据格式一种是使用GetOutput()，另外一种是使用GetOutputPort() 这两种输出有什么分别呢？ **举例说明：** vtkDICOMImageReader对象拥有方法GetOutput()和GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。 ![Inherita">
 <meta name="keywords" content="vtk,data struct,pipeline">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VTK中GetOutput()和GetOutputPort()区别">
 <meta property="og:url" content="http://yoursite.com/2014/01/17/vtk-e4-b8-adgetoutput-e5-92-8cgetoutputport-e5-8c-ba-e5-88-ab/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="VTK的数据流采用流水线(pipeline)作业方式。但是在接口的时候有两种数据格式一种是使用GetOutput()，另外一种是使用GetOutputPort() 这两种输出有什么分别呢？举例说明：vtkDICOMImageReader对象拥有方法GetOutput()和GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。在vtkAlgorithm中Get">
+<meta property="og:description" content="VTK的数据流采用流水线(pipeline)作业方式。但是在接口的时候有两种数据格式一种是使用GetOutput()，另外一种是使用GetOutputPort() 这两种输出有什么分别呢？ **举例说明：** vtkDICOMImageReader对象拥有方法GetOutput()和GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。 ![Inherita">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkDICOMImageReader__inherit__graph1.png">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkImageAlgorithm__coll__graph1.png">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkImageData__inherit__graph1.png">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkAlgorithmOutput__inherit__graph1.png">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VTK中GetOutput()和GetOutputPort()区别">
-<meta name="twitter:description" content="VTK的数据流采用流水线(pipeline)作业方式。但是在接口的时候有两种数据格式一种是使用GetOutput()，另外一种是使用GetOutputPort() 这两种输出有什么分别呢？举例说明：vtkDICOMImageReader对象拥有方法GetOutput()和GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。在vtkAlgorithm中Get">
-<meta name="twitter:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkDICOMImageReader__inherit__graph1.png">
+<meta name="twitter:description" content="VTK的数据流采用流水线(pipeline)作业方式。但是在接口的时候有两种数据格式一种是使用GetOutput()，另外一种是使用GetOutputPort() 这两种输出有什么分别呢？ **举例说明：** vtkDICOMImageReader对象拥有方法GetOutput()和GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。 ![Inherita">
 
 
 
@@ -473,7 +468,62 @@
 
       
         <p><span style="font-family: 微软雅黑;">VTK的数据流采用流水线(pipeline)作业方式。但是在接口的时候有两种数据格式一种是使用</span><span style="font-family: 微软雅黑;">GetOutput()，另外一种是使用GetOutputPort()</span></p>
-<div><span style="font-family: 微软雅黑;">这两种输出有什么分别呢？</span></div><br><div><span style="font-family: 微软雅黑;"><strong>举例说明：</strong></span></div><br><div><span style="font-family: 微软雅黑;">vtkDICOMImageReader对象拥有方法</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutput()和</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。</span></div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkDICOMImageReader__inherit__graph1.png" alt="Inheritance graph"></div><br><div>在<span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm中</span><span style="font-size: 10.5pt; line-height: 1.5;">GetOutput()如下定义：</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>vtkImageData<span style="color: #333399;"><em></em></span> GetOutput();</div><br></div><br></div><br><div>可知输出格式是<span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageData</span></span><span style="font-size: 10.5pt; line-height: 1.5;">类型；</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div>另外<span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutputPort()在类</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkImageAlgorithm中定义如下：</span></div><br><div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>vtkAlgorithmOutput<span style="color: #333399;"></span> GetOutputPort()</div><br><div>{<br><span style="color: #0000ff;"><strong>return</strong></span> <span style="color: #0000ff;"><strong>this</strong></span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetOutputPort(<span style="color: #6e00aa;">0</span>);</div><br><div>}</div><br></div><br></div><br></div><br><div>可知输出格式是<span style="color: #ff0000;">vtkAlgorithmOutput</span><span style="font-size: 10.5pt; line-height: 1.5;">类型</span></div><br><div></div><br><div>而<span style="font-family: 微软雅黑;">vtkAlgorithm</span><span style="font-family: 微软雅黑;">和vtkImageAlgorithm类的关系如下：</span><br><div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkImageAlgorithm__coll__graph1.png" alt="Collaboration graph"></div><br></div><br></div><br><div><span style="font-family: 微软雅黑;">vtkImageAlgorithm是继承了</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm的；</span></div><br><div></div><br><div><span style="font-family: 微软雅黑;">再看看</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkImageData的解释：</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">vtkImageData是</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkDataSet</span><span style="font-size: 10.5pt; line-height: 1.5;">具体实现</span><span style="font-size: 10.5pt; line-height: 1.5;">一个数据对象。vtkImageData可以表示一个拓扑或者几何点阵的几何数据结构。</span></div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkImageData__inherit__graph1.png" alt="Inheritance graph"></div><br><div><br><div><span style="font-family: 微软雅黑;"><br></span></div><br><div><span style="font-family: 微软雅黑;">看看</span>vtkAlgorithmOutput<span style="font-size: 10.5pt; line-height: 1.5;">的解释：</span></div><br><div>vtkAlgorithmOutput是由<span style="font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm的</span><span style="font-size: 10.5pt; line-height: 1.5;">GetOutputPort方法</span><span style="font-size: 10.5pt; line-height: 1.5;">返回的是一个代理对象。经常被传递给另一个</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm类的</span><span style="font-size: 10.5pt; line-height: 1.5;">SetInputConnection或者</span><span style="font-size: 10.5pt; line-height: 1.5;">AddInputConnection或者</span><span style="font-size: 10.5pt; line-height: 1.5;">RemoveInputConnection方法，以建立通道连接。</span></div><br></div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkAlgorithmOutput__inherit__graph1.png" alt="Inheritance graph"></div><br><div></div><br><div></div><br><div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">参考】：</span></div><br><div><span style="font-family: 微软雅黑;">[1]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkImageData.html" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkImageData.html</a> </span></div><br><div>[2]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithm.html#a278ce83f371e6a398cf46f4600108d3e" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithm.html#a278ce83f371e6a398cf46f4600108d3e</a></div><br><div>[3]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkImageAlgorithm.html" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkImageAlgorithm.html</a></div><br><div>[4]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkDataObject.html" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkDataObject.html</a></div><br><div>[5]<a href="http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithmOutput.html" target="_blank" rel="noopener">http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithmOutput.html</a></div><br><div>[6]<a href="http://www.vislab.cn/bbs/archiver/?tid-2656.html" target="_blank" rel="noopener">http://www.vislab.cn/bbs/archiver/?tid-2656.html</a></div><br><div>[7]<a href="http://vtk.1045678.n5.nabble.com/difference-between-GetOutputPort-and-GetOutput-td1250681.html" target="_blank" rel="noopener">http://vtk.1045678.n5.nabble.com/difference-between-GetOutputPort-and-GetOutput-td1250681.html</a></div><br><div>[8]<a href="http://www.vislab.cn/bbs/archiver/?tid-97.html" target="_blank" rel="noopener">http://www.vislab.cn/bbs/archiver/?tid-97.html</a></div><br><div></div><br><div></div>
+<div><span style="font-family: 微软雅黑;">这两种输出有什么分别呢？</span></div>
+<div><span style="font-family: 微软雅黑;">**举例说明：**</span></div>
+<div><span style="font-family: 微软雅黑;">vtkDICOMImageReader对象拥有方法</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutput()和</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutputPort()，它的继承关系如下图。继承了vtkImageAlgorithm。</span></div>
+<div>![Inheritance graph](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkDICOMImageReader__inherit__graph1.png)</div>
+<div>在<span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm中</span><span style="font-size: 10.5pt; line-height: 1.5;">GetOutput()如下定义：</span></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>vtkImageData<span style="color: #333399;">*</span> GetOutput();</div>
+</div>
+</div>
+<div>可知输出格式是<span style="font-size: 10.5pt; line-height: 1.5;"><span style="color: #ff0000;">vtkImageData</span></span><span style="font-size: 10.5pt; line-height: 1.5;">类型；</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">
+</span></div>
+<div>另外<span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">GetOutputPort()在类</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkImageAlgorithm中定义如下：</span></div>
+<div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>vtkAlgorithmOutput<span style="color: #333399;">*</span> GetOutputPort()</div>
+<div>{
+<span style="color: #0000ff;">**return**</span> <span style="color: #0000ff;">**this**</span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetOutputPort(<span style="color: #6e00aa;">0</span>);</div>
+<div>}</div>
+</div>
+</div>
+</div>
+<div>可知输出格式是<span style="color: #ff0000;">vtkAlgorithmOutput</span><span style="font-size: 10.5pt; line-height: 1.5;">类型</span></div>
+<div></div>
+<div>而<span style="font-family: 微软雅黑;">vtkAlgorithm</span><span style="font-family: 微软雅黑;">和vtkImageAlgorithm类的关系如下：</span>
+<div>
+<div>![Collaboration graph](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkImageAlgorithm__coll__graph1.png)</div>
+</div>
+</div>
+<div><span style="font-family: 微软雅黑;">vtkImageAlgorithm是继承了</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm的；</span></div>
+<div></div>
+<div><span style="font-family: 微软雅黑;">再看看</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkImageData的解释：</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">vtkImageData是</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkDataSet</span><span style="font-size: 10.5pt; line-height: 1.5;">具体实现</span><span style="font-size: 10.5pt; line-height: 1.5;">一个数据对象。vtkImageData可以表示一个拓扑或者几何点阵的几何数据结构。</span></div>
+<div>![Inheritance graph](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkImageData__inherit__graph1.png)</div>
+<div>
+<div><span style="font-family: 微软雅黑;">
+</span></div>
+<div><span style="font-family: 微软雅黑;">看看</span>vtkAlgorithmOutput<span style="font-size: 10.5pt; line-height: 1.5;">的解释：</span></div>
+<div>vtkAlgorithmOutput是由<span style="font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm的</span><span style="font-size: 10.5pt; line-height: 1.5;">GetOutputPort方法</span><span style="font-size: 10.5pt; line-height: 1.5;">返回的是一个代理对象。经常被传递给另一个</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkAlgorithm类的</span><span style="font-size: 10.5pt; line-height: 1.5;">SetInputConnection或者</span><span style="font-size: 10.5pt; line-height: 1.5;">AddInputConnection或者</span><span style="font-size: 10.5pt; line-height: 1.5;">RemoveInputConnection方法，以建立通道连接。</span></div>
+</div>
+<div>![Inheritance graph](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-40fa07a338bda1eba9fdde5b65b38eb2_classvtkAlgorithmOutput__inherit__graph1.png)</div>
+<div></div>
+<div></div>
+<div><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">参考】：</span></div>
+<div><span style="font-family: 微软雅黑;">[1][http://www.vtk.org/doc/release/5.10/html/classvtkImageData.html](http://www.vtk.org/doc/release/5.10/html/classvtkImageData.html) </span></div>
+<div>[2][http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithm.html#a278ce83f371e6a398cf46f4600108d3e](http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithm.html#a278ce83f371e6a398cf46f4600108d3e)</div>
+<div>[3][http://www.vtk.org/doc/release/5.10/html/classvtkImageAlgorithm.html](http://www.vtk.org/doc/release/5.10/html/classvtkImageAlgorithm.html)</div>
+<div>[4][http://www.vtk.org/doc/release/5.10/html/classvtkDataObject.html](http://www.vtk.org/doc/release/5.10/html/classvtkDataObject.html)</div>
+<div>[5][http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithmOutput.html](http://www.vtk.org/doc/release/5.10/html/classvtkAlgorithmOutput.html)</div>
+<div>[6][http://www.vislab.cn/bbs/archiver/?tid-2656.html](http://www.vislab.cn/bbs/archiver/?tid-2656.html)</div>
+<div>[7][http://vtk.1045678.n5.nabble.com/difference-between-GetOutputPort-and-GetOutput-td1250681.html](http://vtk.1045678.n5.nabble.com/difference-between-GetOutputPort-and-GetOutput-td1250681.html)</div>
+<div>[8][http://www.vislab.cn/bbs/archiver/?tid-97.html](http://www.vislab.cn/bbs/archiver/?tid-97.html)</div>
+<div></div>
+<div></div>
       
     </div>
 
@@ -622,7 +672,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -866,7 +916,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

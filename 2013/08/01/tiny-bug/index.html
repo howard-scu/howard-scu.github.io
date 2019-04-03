@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="写csv的时候随便起了个名字，然后贴代码，出现下面的错误： Traceback (most recent call last):  File “D:\workspace\PyTest\csvTest\csv.py”, line 1, in &amp;lt;module&amp;gt;    import csv  File “D:\workspace\PyTest\csvTest\csv.py”, line 3,">
+  <meta name="description" content="写csv的时候随便起了个名字，然后贴代码，出现下面的错误： Traceback (most recent call last):   File &quot;D:\workspace\PyTest\csvTest\csv.py&quot;, line 1, in &amp;lt;module&amp;gt;     import csv   File &quot;D:\workspace\PyTest\csvTest\csv.py&quot;, line">
 <meta name="keywords" content="bug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tiny bug">
 <meta property="og:url" content="http://yoursite.com/2013/08/01/tiny-bug/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="写csv的时候随便起了个名字，然后贴代码，出现下面的错误： Traceback (most recent call last):  File “D:\workspace\PyTest\csvTest\csv.py”, line 1, in &amp;lt;module&amp;gt;    import csv  File “D:\workspace\PyTest\csvTest\csv.py”, line 3,">
+<meta property="og:description" content="写csv的时候随便起了个名字，然后贴代码，出现下面的错误： Traceback (most recent call last):   File &quot;D:\workspace\PyTest\csvTest\csv.py&quot;, line 1, in &amp;lt;module&amp;gt;     import csv   File &quot;D:\workspace\PyTest\csvTest\csv.py&quot;, line">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/08/QQ截图20130801165616.png">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tiny bug">
-<meta name="twitter:description" content="写csv的时候随便起了个名字，然后贴代码，出现下面的错误： Traceback (most recent call last):  File “D:\workspace\PyTest\csvTest\csv.py”, line 1, in &amp;lt;module&amp;gt;    import csv  File “D:\workspace\PyTest\csvTest\csv.py”, line 3,">
+<meta name="twitter:description" content="写csv的时候随便起了个名字，然后贴代码，出现下面的错误： Traceback (most recent call last):   File &quot;D:\workspace\PyTest\csvTest\csv.py&quot;, line 1, in &amp;lt;module&amp;gt;     import csv   File &quot;D:\workspace\PyTest\csvTest\csv.py&quot;, line">
 <meta name="twitter:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/08/QQ截图20130801165616.png">
 
 
@@ -470,7 +470,12 @@
 
       
         <p>写csv的时候随便起了个名字，然后贴代码，出现下面的错误：</p>
-<p><pre class="brush:plain">Traceback (most recent call last):<br>  File “D:\workspace\PyTest\csvTest\csv.py”, line 1, in &lt;module&gt;<br>    import csv<br>  File “D:\workspace\PyTest\csvTest\csv.py”, line 3, in &lt;module&gt;<br>    writer = csv.writer(file(‘your.csv’, ‘wb’))<br>AttributeError: ‘module’ object has no attribute ‘writer’</pre><br>显然是import问题，可是csv模块是python本身集成的。google之，原来是文件名的问题。<br>随手把文件名起了csv.py，所以成了自身import自身<br><a href="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/08/QQ截图20130801165616.png" target="_blank" rel="noopener"><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/08/QQ截图20130801165616.png" alt title="QQ截图20130801165616"></a></p>
+<p><pre class="brush:plain">Traceback (most recent call last):
+  File "D:\workspace\PyTest\csvTest\csv.py", line 1, in &lt;module&gt;
+    import csv
+  File "D:\workspace\PyTest\csvTest\csv.py", line 3, in &lt;module&gt;
+    writer = csv.writer(file('your.csv', 'wb'))
+AttributeError: 'module' object has no attribute 'writer'</pre><br>显然是import问题，可是csv模块是python本身集成的。google之，原来是文件名的问题。<br>随手把文件名起了csv.py，所以成了自身import自身<br><a href="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/08/QQ截图20130801165616.png" target="_blank" rel="noopener"><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/08/QQ截图20130801165616.png" alt title="QQ截图20130801165616"></a></p>
 <p>参考：<a href="http://www.daniweb.com/software-development/python/threads/425633/pythoncsv-module-object-has-no-attribute-writer" target="_blank" rel="noopener">http://www.daniweb.com/software-development/python/threads/425633/pythoncsv-module-object-has-no-attribute-writer</a></p>
 
       
@@ -617,7 +622,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -861,7 +866,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

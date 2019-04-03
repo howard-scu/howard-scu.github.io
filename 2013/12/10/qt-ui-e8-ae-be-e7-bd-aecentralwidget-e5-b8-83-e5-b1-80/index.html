@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图： 解决方法：1.使用文本编辑器打开ui界面 2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话： &amp;lt;layout class=“QGridLayout” name=“gridLayo">
+  <meta name="description" content="Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图：&amp;lt;/span&amp;gt; **解决方法：**1.使用文本编辑器打开ui界面&amp;lt;/span&amp;gt; 2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话：  &amp;lt;layout cla">
 <meta name="keywords" content="qt,ui">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt ui设置centralwidget布局">
 <meta property="og:url" content="http://yoursite.com/2013/12/10/qt-ui-e8-ae-be-e7-bd-aecentralwidget-e5-b8-83-e5-b1-80/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图： 解决方法：1.使用文本编辑器打开ui界面 2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话： &amp;lt;layout class=“QGridLayout” name=“gridLayo">
+<meta property="og:description" content="Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图：&amp;lt;/span&amp;gt; **解决方法：**1.使用文本编辑器打开ui界面&amp;lt;/span&amp;gt; 2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话：  &amp;lt;layout cla">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23595182.png">
-<meta property="og:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23902223.png">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt ui设置centralwidget布局">
-<meta name="twitter:description" content="Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图： 解决方法：1.使用文本编辑器打开ui界面 2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话： &amp;lt;layout class=“QGridLayout” name=“gridLayo">
+<meta name="twitter:description" content="Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图：&amp;lt;/span&amp;gt; **解决方法：**1.使用文本编辑器打开ui界面&amp;lt;/span&amp;gt; 2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话：  &amp;lt;layout cla">
 <meta name="twitter:image" content="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23595182.png">
 
 
@@ -470,10 +469,18 @@
       
 
       
-        <p><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图：</span></span><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23595182.png" alt></p>
-<p><pre><span style="font-family: 微软雅黑; font-size: 12pt; line-height: 1.5;"><strong>解决方法：</strong></span></pre><br><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">1.使用文本编辑器打开ui界面</span></span></p>
+        <p><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">Qt的Designer设计窗口的时候，主窗口中的centralWidget不能设置布局，这直接导致不能良好布局，比如实现窗口部件随整个窗口自动缩放等，如下图：</span>&lt;/span&gt;<img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23595182.png" alt></span></p>
+<p><pre><span style="font-family: 微软雅黑; font-size: 12pt; line-height: 1.5;">**解决方法：**</span></pre><br><span style="font-family: 微软雅黑;"><span data-wiz-span="data-wiz-span">1.使用文本编辑器打开ui界面</span>&lt;/span&gt;</span></p>
 <p><pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">2.找到对应的centralWidget，在属性/property与结尾/widget之间加上下面这句话：</span></pre></p>
-<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #333399;">&lt;</span>layout class<span style="color: #333399;">=</span><span style="color: #ff00bf;">“QGridLayout”</span> name<span style="color: #333399;">=</span><span style="color: #ff00bf;">“gridLayout”</span><span style="color: #333399;">/</span><span style="color: #333399;">&gt;</span></div><br></div><br><pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;" data-wiz-span="data-wiz-span">其中</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;" data-wiz-span="data-wiz-span">QGridLayout</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">可以写成水平、垂直其他风格。</span></pre><br><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23902223.png" alt><br><pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">3.保存后，再使用界面编辑器打开ui，centralWidget被成功设置了对应的布局了。可以自动适应屏幕大小。</span></pre><br><pre><span style="font-size: 10.5pt; line-height: 1.5; font-family: 微软雅黑;"><em>来源：<a href="http://klqulei23.blog.163.com/blog/static/132315337201391844235992/" target="_blank" rel="noopener">http://klqulei23.blog.163.com/blog/static/132315337201391844235992/</a></em></span></pre><br><div></div><br><div></div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #333399;">&lt;</span>layout class<span style="color: #333399;">=</span><span style="color: #ff00bf;">"QGridLayout"</span> name<span style="color: #333399;">=</span><span style="color: #ff00bf;">"gridLayout"</span><span style="color: #333399;">/</span><span style="color: #333399;">&gt;</span></div>
+</div>
+<pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;" data-wiz-span="data-wiz-span">其中</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;" data-wiz-span="data-wiz-span">QGridLayout</span><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">可以写成水平、垂直其他风格。</span></pre>
+![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2013/12/wpid-e58d64432b85cd0f976c9308819f92a8_23902223.png)
+<pre><span style="font-family: 微软雅黑; font-size: 10.5pt; line-height: 1.5;">3.保存后，再使用界面编辑器打开ui，centralWidget被成功设置了对应的布局了。可以自动适应屏幕大小。</span></pre>
+<pre><span style="font-size: 10.5pt; line-height: 1.5; font-family: 微软雅黑;">_来源：http://klqulei23.blog.163.com/blog/static/132315337201391844235992/_</span></pre>
+<div></div>
+<div></div>
       
     </div>
 
@@ -620,7 +627,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -864,7 +871,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

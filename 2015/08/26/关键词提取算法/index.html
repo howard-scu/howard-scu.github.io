@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="##TFIDF想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率) ##TextRank">
+  <meta name="description" content="TFIDF想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率) TextRank">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关键词提取算法">
 <meta property="og:url" content="http://yoursite.com/2015/08/26/关键词提取算法/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="##TFIDF想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率) ##TextRank">
+<meta property="og:description" content="TFIDF想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率) TextRank">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-26T14:46:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关键词提取算法">
-<meta name="twitter:description" content="##TFIDF想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率) ##TextRank">
+<meta name="twitter:description" content="TFIDF想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率) TextRank">
 
 
 
@@ -455,9 +455,8 @@
       
 
       
-        <p>##TFIDF<br>想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率)</p>
-<p>##TextRank</p>
-
+        <h2 id="TFIDF"><a href="#TFIDF" class="headerlink" title="TFIDF"></a>TFIDF</h2><p>想要提取文章中最的关键词，最容易想到的就是统计词频。通常在文章中出现最多的词就是文章最中心的词，但我们如果统计一下，会发现其实出现最多的是“的”、“是”等停用词。所以我们需要的关键词应该是在文章中出现多，但是在平常语境下出现少的词（转换思路就是需要让停用词的系数小于文章关键词的系数）。这就引出了TFIDF(文档逆频率)</p>
+<h2 id="TextRank"><a href="#TextRank" class="headerlink" title="TextRank"></a>TextRank</h2>
       
     </div>
 
@@ -584,8 +583,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -602,7 +610,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -846,7 +854,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -897,6 +907,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TFIDF"><span class="nav-number">1.</span> <span class="nav-text">TFIDF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextRank"><span class="nav-number">2.</span> <span class="nav-text">TextRank</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

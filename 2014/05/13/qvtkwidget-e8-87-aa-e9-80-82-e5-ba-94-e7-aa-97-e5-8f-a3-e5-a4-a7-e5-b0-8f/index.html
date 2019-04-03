@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="当我们直接拖拽使用QVTKWidget的时候，程序编译运行，会遇到QVTKWidget无法自适应窗口大小的问题。  解决方法：1.为了让一个widget大小自适应窗口，它需要被置于一个layout当中；2.在UI类的构造中添加下列代码即可实现功能：&amp;gt; &amp;gt;&amp;gt; ui-&amp;gt;setupUi(this);&amp;gt;&amp;gt; setLayout(ui-&amp;gt;verticalLayout_">
+  <meta name="description" content="当我们直接拖拽使用QVTKWidget的时候，程序编译运行，会遇到QVTKWidget无法自适应窗口大小的问题。 ** ** **解决方法：** 1.为了让一个widget大小自适应窗口，它需要被置于一个layout当中； 2.在UI类的构造中添加下列代码即可实现功能： &amp;gt;  &amp;gt;  &amp;gt; ui-&amp;gt;setupUi(**this**); &amp;gt;  &amp;gt; setLayout(ui-&amp;gt;vertical">
 <meta name="keywords" content="qt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QVTKWidget自适应窗口大小">
 <meta property="og:url" content="http://yoursite.com/2014/05/13/qvtkwidget-e8-87-aa-e9-80-82-e5-ba-94-e7-aa-97-e5-8f-a3-e5-a4-a7-e5-b0-8f/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="当我们直接拖拽使用QVTKWidget的时候，程序编译运行，会遇到QVTKWidget无法自适应窗口大小的问题。  解决方法：1.为了让一个widget大小自适应窗口，它需要被置于一个layout当中；2.在UI类的构造中添加下列代码即可实现功能：&amp;gt; &amp;gt;&amp;gt; ui-&amp;gt;setupUi(this);&amp;gt;&amp;gt; setLayout(ui-&amp;gt;verticalLayout_">
+<meta property="og:description" content="当我们直接拖拽使用QVTKWidget的时候，程序编译运行，会遇到QVTKWidget无法自适应窗口大小的问题。 ** ** **解决方法：** 1.为了让一个widget大小自适应窗口，它需要被置于一个layout当中； 2.在UI类的构造中添加下列代码即可实现功能： &amp;gt;  &amp;gt;  &amp;gt; ui-&amp;gt;setupUi(**this**); &amp;gt;  &amp;gt; setLayout(ui-&amp;gt;vertical">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QVTKWidget自适应窗口大小">
-<meta name="twitter:description" content="当我们直接拖拽使用QVTKWidget的时候，程序编译运行，会遇到QVTKWidget无法自适应窗口大小的问题。  解决方法：1.为了让一个widget大小自适应窗口，它需要被置于一个layout当中；2.在UI类的构造中添加下列代码即可实现功能：&amp;gt; &amp;gt;&amp;gt; ui-&amp;gt;setupUi(this);&amp;gt;&amp;gt; setLayout(ui-&amp;gt;verticalLayout_">
+<meta name="twitter:description" content="当我们直接拖拽使用QVTKWidget的时候，程序编译运行，会遇到QVTKWidget无法自适应窗口大小的问题。 ** ** **解决方法：** 1.为了让一个widget大小自适应窗口，它需要被置于一个layout当中； 2.在UI类的构造中添加下列代码即可实现功能： &amp;gt;  &amp;gt;  &amp;gt; ui-&amp;gt;setupUi(**this**); &amp;gt;  &amp;gt; setLayout(ui-&amp;gt;vertical">
 
 
 
@@ -468,8 +468,24 @@
 
       
         <p>当我们直接拖拽使用QVTKWidget的时候，程序编译运行，会遇到QVTKWidget无法自适应窗口大小的问题。</p>
-<div><strong>
-</strong></div><br><div><strong>解决方法：</strong></div><br><div>1.为了让一个widget大小自适应窗口，它需要被置于一个layout当中；</div><br><div>2.在UI类的构造中添加下列代码即可实现功能：</div><br>&gt; <div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br>&gt;<br>&gt; <div>ui<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>setupUi(<span style="color: #0000ff;"><strong>this</strong></span>);<br>&gt;<br>&gt; setLayout(ui<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>verticalLayout_2);</div><br>&gt;<br>&gt; </div><br><div><br><div></div><br><div><strong>参考：</strong></div><br><div><a href="http://codefast.blogspot.com/2009/06/qt-auto-resize-with-qt-designer.html（墙外）" target="_blank" rel="noopener">http://codefast.blogspot.com/2009/06/qt-auto-resize-with-qt-designer.html（墙外）</a></div><br></div><br><div></div>
+<div>**
+**</div>
+<div>**解决方法：**</div>
+<div>1.为了让一个widget大小自适应窗口，它需要被置于一个layout当中；</div>
+<div>2.在UI类的构造中添加下列代码即可实现功能：</div>
+> <div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+> 
+> <div>ui<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>setupUi(<span style="color: #0000ff;">**this**</span>);
+> 
+> setLayout(ui<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>verticalLayout_2);</div>
+> 
+> </div>
+<div>
+<div></div>
+<div>**参考：**</div>
+<div>http://codefast.blogspot.com/2009/06/qt-auto-resize-with-qt-designer.html（墙外）</div>
+</div>
+<div></div>
       
     </div>
 
@@ -614,7 +630,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -858,7 +874,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

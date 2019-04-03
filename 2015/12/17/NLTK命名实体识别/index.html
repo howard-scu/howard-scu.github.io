@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="###引例：NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。123456789101112131415161718192021222324252627In [1]: import nltkIn [2]: tokens">
-<meta name="keywords" content="python,nltk,nlp">
+  <meta name="description" content="引例：NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。123456789101112131415161718192021222324252627In [1]: import nltkIn [2]: tokens = n">
+<meta name="keywords" content="nltk,nlp,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NLTK命名实体识别">
 <meta property="og:url" content="http://yoursite.com/2015/12/17/NLTK命名实体识别/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="###引例：NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。123456789101112131415161718192021222324252627In [1]: import nltkIn [2]: tokens">
+<meta property="og:description" content="引例：NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。123456789101112131415161718192021222324252627In [1]: import nltkIn [2]: tokens = n">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-12-17T06:14:31.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NLTK命名实体识别">
-<meta name="twitter:description" content="###引例：NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。123456789101112131415161718192021222324252627In [1]: import nltkIn [2]: tokens">
+<meta name="twitter:description" content="引例：NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。123456789101112131415161718192021222324252627In [1]: import nltkIn [2]: tokens = n">
 
 
 
@@ -455,7 +455,7 @@
       
 
       
-        <p>###引例：<br>NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。<br>下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> nltk</span><br><span class="line">In [<span class="number">2</span>]: tokens = nltk.word_tokenize(<span class="string">'I am very excited about the next generation of Apple products.'</span>)</span><br><span class="line">In [<span class="number">3</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">4</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[(<span class="string">'I'</span>, <span class="string">'PRP'</span>), (<span class="string">'am'</span>, <span class="string">'VBP'</span>), (<span class="string">'very'</span>, <span class="string">'RB'</span>), (<span class="string">'excited'</span>, <span class="string">'JJ'</span>), (<span class="string">'about'</span>, <span class="string">'IN'</span>), (<span class="string">'the'</span>, <span class="string">'DT'</span>), (<span class="string">'next'</span>, <span class="string">'JJ'</span>), (<span class="string">'generation'</span>, <span class="string">'NN'</span>), (<span class="string">'of'</span>, <span class="string">'IN'</span>), (<span class="string">'Apple'</span>, <span class="string">'NNP'</span>), (<span class="string">'products'</span>, <span class="string">'NNS'</span>), (<span class="string">'.'</span>, <span class="string">'.'</span>)]</span><br><span class="line">In [<span class="number">5</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">6</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S</span><br><span class="line">  I/PRP</span><br><span class="line">  am/VBP</span><br><span class="line">  very/RB</span><br><span class="line">  excited/JJ</span><br><span class="line">  about/IN</span><br><span class="line">  the/DT</span><br><span class="line">  next/JJ</span><br><span class="line">  generation/NN</span><br><span class="line">  of/IN</span><br><span class="line">  (GPE Apple/NNP)</span><br><span class="line">  products/NNS</span><br><span class="line">  ./.)</span><br><span class="line">In [<span class="number">7</span>]: tokens = nltk.word_tokenize(<span class="string">'I bought these Apple products today.'</span>)</span><br><span class="line">In [<span class="number">8</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">9</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[<span class="string">'I'</span>, <span class="string">'bought'</span>, <span class="string">'these'</span>, <span class="string">'Apple'</span>, <span class="string">'products'</span>, <span class="string">'today'</span>, <span class="string">'.'</span>]</span><br><span class="line">In [<span class="number">10</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">11</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S I/PRP bought/VBD these/DT Apple/NNP products/NNS today/NN ./.)</span><br></pre></td></tr></table></figure></p>
+        <h3 id="引例："><a href="#引例：" class="headerlink" title="引例："></a>引例：</h3><p>NLTK中对于很多自然语言处理应用有着开箱即用的api，但是结果往往让人弄不清楚状况。<br>下面的例子使用NLTK进行命名实体的识别。第一例中，Apple成功被识别出来，而第二例并未被识别。究竟是什么原因导致这样的结果，接下来一探究竟。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> nltk</span><br><span class="line">In [<span class="number">2</span>]: tokens = nltk.word_tokenize(<span class="string">'I am very excited about the next generation of Apple products.'</span>)</span><br><span class="line">In [<span class="number">3</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">4</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[(<span class="string">'I'</span>, <span class="string">'PRP'</span>), (<span class="string">'am'</span>, <span class="string">'VBP'</span>), (<span class="string">'very'</span>, <span class="string">'RB'</span>), (<span class="string">'excited'</span>, <span class="string">'JJ'</span>), (<span class="string">'about'</span>, <span class="string">'IN'</span>), (<span class="string">'the'</span>, <span class="string">'DT'</span>), (<span class="string">'next'</span>, <span class="string">'JJ'</span>), (<span class="string">'generation'</span>, <span class="string">'NN'</span>), (<span class="string">'of'</span>, <span class="string">'IN'</span>), (<span class="string">'Apple'</span>, <span class="string">'NNP'</span>), (<span class="string">'products'</span>, <span class="string">'NNS'</span>), (<span class="string">'.'</span>, <span class="string">'.'</span>)]</span><br><span class="line">In [<span class="number">5</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">6</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S</span><br><span class="line">  I/PRP</span><br><span class="line">  am/VBP</span><br><span class="line">  very/RB</span><br><span class="line">  excited/JJ</span><br><span class="line">  about/IN</span><br><span class="line">  the/DT</span><br><span class="line">  next/JJ</span><br><span class="line">  generation/NN</span><br><span class="line">  of/IN</span><br><span class="line">  (GPE Apple/NNP)</span><br><span class="line">  products/NNS</span><br><span class="line">  ./.)</span><br><span class="line">In [<span class="number">7</span>]: tokens = nltk.word_tokenize(<span class="string">'I bought these Apple products today.'</span>)</span><br><span class="line">In [<span class="number">8</span>]: tokens = nltk.pos_tag(tokens)</span><br><span class="line">In [<span class="number">9</span>]: <span class="keyword">print</span> tokens</span><br><span class="line">[<span class="string">'I'</span>, <span class="string">'bought'</span>, <span class="string">'these'</span>, <span class="string">'Apple'</span>, <span class="string">'products'</span>, <span class="string">'today'</span>, <span class="string">'.'</span>]</span><br><span class="line">In [<span class="number">10</span>]: tree = nltk.ne_chunk(tokens)</span><br><span class="line">In [<span class="number">11</span>]: <span class="keyword">print</span> tree</span><br><span class="line">(S I/PRP bought/VBD these/DT Apple/NNP products/NNS today/NN ./.)</span><br></pre></td></tr></table></figure></p>
 <h3 id="最大熵算法"><a href="#最大熵算法" class="headerlink" title="最大熵算法"></a>最大熵算法</h3><p>注意到在上述两个例子Apple这个词被词性标注为NNP（NNP是宾夕法尼亚大学树图资料库II为专有名词，单数）。另外，这两个单词都以大写字母开始。为什么Apple在1例中被标记为GPE（地缘政治实体），而2例未标记？另外，为什么Apple标记为GPE，而不是ORG（组织机构）？</p>
 <p>NLTK的命名实体识别是通过使用的MaxEnt分类器。MaxEnt分类器工作有两个原则：1.总是试图保持均匀分布(即最大化熵)，2.保持其统计概率与经验数据一致。经验数据来源于语料库，通过手动标记，所以大多数标记数据并不是免费的。NLTK不提供其训练命名实体识别器的语料库（训练数据来自ACE（自动内容抽取））。NLTK所提供的是一个pickle文件（在nltk_data/chunkers/目录下），而这个pickle文件，就是训练好的MaxEnt分类器实例。　　 　　<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  maxent_ne_chunker  tree</span><br><span class="line">.</span><br><span class="line">├── english_ace_binary.pickle</span><br><span class="line">├── english_ace_multiclass.pickle</span><br><span class="line">└── PY3</span><br><span class="line">    ├── english_ace_binary.pickle</span><br><span class="line">    └── english_ace_multiclass.pickle</span><br></pre></td></tr></table></figure></p>
 <p>要训练良好的监督学习的算法基于良好的特征。在命名实体识别中，特征可能是这个词是否包含一个大写字母。所以NLTK使用的特征有哪些呢？下面我列出他们：</p>
@@ -541,11 +541,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
-          
             <a href="/tags/nltk/" rel="tag"># nltk</a>
           
             <a href="/tags/nlp/" rel="tag"># nlp</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -648,7 +648,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -892,7 +892,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -954,7 +956,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大熵算法"><span class="nav-number">1.</span> <span class="nav-text">最大熵算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用："><span class="nav-number">2.</span> <span class="nav-text">引用：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引例："><span class="nav-number">1.</span> <span class="nav-text">引例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大熵算法"><span class="nav-number">2.</span> <span class="nav-text">最大熵算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用："><span class="nav-number">3.</span> <span class="nav-text">引用：</span></a></li></ol></div>
             
 
           </div>

@@ -95,7 +95,7 @@
 
 
   <meta name="description" content="智能指针有一个让人困惑的地方：当你创建一个智能指针类型的对象，然后改变它的指向，这时引用计数就会出错。例如： vtkSmartPointer&amp;lt;vtkImageData&amp;gt;imageData = vtkSmartPointer&amp;lt;vtkImageData&amp;gt;::New(); imageData= Reader-&amp;gt;GetOutput(); 上面两行代码里，我们首先创建一个ima">
-<meta name="keywords" content="vtk,smartpointer">
+<meta name="keywords" content="smartpointer,vtk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="智能指针有一个让人困惑的地方：当你创建一个智能指针类型的对象">
 <meta property="og:url" content="http://yoursite.com/2013/11/29/e6-99-ba-e8-83-bd-e6-8c-87-e9-92-88-e6-9c-89-e4-b8-80-e4-b8-aa-e8-ae-a9-e4-ba-ba-e5-9b-b0-e6-83-91-e7-9a-84-e5-9c-b0-e6-96-b9-ef-bc-9a-e5-bd-93-e4-bd-a0-e5-88-9b-e5-bb-ba-e4-b8-80-e4-b8-aa-e6-99-ba/index.html">
@@ -480,8 +480,10 @@
 <p>上面两行代码里，我们首先创建一个imageData，并给他分配好了内存，接着我们又把imageData指向Reader的输出，而不是一直指向我们创建的那块内存。对于这种情况，我们只要简单地调用：</p>
 <p>vtkImageData*imageData = Reader-&gt;GetOutput();</p>
 <p><strong>这里没有必要使用智能指针，因为我们没有实际创建任何新的对象。</strong></p>
-<p>综上所述，可以看出引用计数和智能指针是息息相关的，它们主要都是用于内存管理。使用智能指针可以免去很多手动删除变量的烦恼，所以在本教程里，我们从一开始都使用智能指针来创建VTK对象。如果你想了解更多关于引用计数和智能指针的内容，可以参考C++的经典著作《<a style="color: #6a3906;" name="OLE_LINK7"></a><a style="color: #6a3906;" name="OLE_LINK6"></a>More Effective C++》这本书。</p>
-<div style="color: gray;"><small>来源： &lt;<a href="http://blog.csdn.net/www_doling_net/article/details/8540242" target="_blank" rel="noopener">http://blog.csdn.net/www_doling_net/article/details/8540242</a><small>&gt;</small></small></div><br><small><small> </small></small><br><div></div>
+<p>综上所述，可以看出引用计数和智能指针是息息相关的，它们主要都是用于内存管理。使用智能指针可以免去很多手动删除变量的烦恼，所以在本教程里，我们从一开始都使用智能指针来创建VTK对象。如果你想了解更多关于引用计数和智能指针的内容，可以参考C++的经典著作《<a style="color: #6a3906;" name="OLE_LINK7">&lt;/a&gt;<a style="color: #6a3906;" name="OLE_LINK6"></a>More Effective C++》这本书。</a></p>
+<div style="color: gray;"><small>来源： &lt;[http://blog.csdn.net/www_doling_net/article/details/8540242](http://blog.csdn.net/www_doling_net/article/details/8540242)<small>&gt;</small></small></div>
+<small><small> </small></small>
+<div></div>
       
     </div>
 
@@ -532,9 +534,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vtk/" rel="tag"># vtk</a>
-          
             <a href="/tags/smartpointer/" rel="tag"># smartpointer</a>
+          
+            <a href="/tags/vtk/" rel="tag"># vtk</a>
           
         </div>
       
@@ -628,7 +630,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -872,7 +874,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yoursite.com/image/1553578972453.png">
 <meta property="og:image" content="http://yoursite.com/image/1553579087992.png">
 <meta property="og:image" content="http://yoursite.com/image/1553579124343.png">
-<meta property="og:updated_time" content="2019-03-26T07:50:25.040Z">
+<meta property="og:updated_time" content="2019-04-03T03:04:54.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="台大机器学习2019课程笔记-对抗攻击">
 <meta name="twitter:description" content="动机 学习算法需要在现实世界中应用 对于噪声应具有鲁棒性 能够应付恶意攻击 应用诸如垃圾邮件分类、恶意软件检测、网络入侵检测等  攻击1.如何做？  $x$-&amp;gt;Network-&amp;gt;class a $x+\delta x$-&amp;gt;Network-&amp;gt;class b  2.攻击损失函数  训练：$L_{train}(\theta)=C(y^{0},y^{true})$ =&amp;gt; $x">
@@ -399,12 +399,24 @@
                 
               
 
-              <time title="创建时间：2019-03-26 13:48:10 / 修改时间：15:50:25" itemprop="dateCreated datePublished" datetime="2019-03-26T13:48:10+08:00">2019-03-26</time>
+              <time title="创建时间：2019-03-26 13:48:10" itemprop="dateCreated datePublished" datetime="2019-03-26T13:48:10+08:00">2019-03-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-03 11:04:54" itemprop="dateModified" datetime="2019-04-03T11:04:54+08:00">2019-04-03</time>
               
             
           </span>
@@ -489,8 +501,8 @@
 </ul>
 <p>3.约束</p>
 <ul>
-<li><strong>L2-norm</strong><br>$$d(x^0,{x}’)=||x^0-{x}’||_2=(\delta x_1)^2+(\delta x_2)^2+…+(\delta x_n)^2$$</li>
-<li><strong>L-infinity</strong><br>$$d(x^0,{x}’)=||x^0-{x}’||<em>\infty=\max \left { \delta x</em>{1},\delta x_{2},…,\delta x_{n} \right }$$</li>
+<li><strong>L2-norm</strong><script type="math/tex; mode=display">d(x^0,{x}')=||x^0-{x}'||_2=(\delta x_1)^2+(\delta x_2)^2+...+(\delta x_n)^2</script></li>
+<li><strong>L-infinity</strong><script type="math/tex; mode=display">d(x^0,{x}')=||x^0-{x}'||_{\infty}=\max \left\{ \delta x_{1},\delta x_{2},...,\delta x_{n} \right\}</script></li>
 <li>具体采用何种距离约束取决于不同的任务。就视觉系统来说，L-infinity更好。</li>
 </ul>
 <a id="more"></a>
@@ -526,7 +538,7 @@
 </ul>
 <p>8.黑盒 vs 白盒</p>
 <ul>
-<li>前面的攻击，我们需要知道参数$\theta$，来找最优的$x^*$，称为<strong>白盒攻击</strong></li>
+<li>前面的攻击，我们需要知道参数$\theta$，来找最优的$x^<em>$，称为<em>*白盒攻击</em></em></li>
 <li>黑盒攻击：<ul>
 <li>如果有训练数据，则可以训练代理网络，使用代理网络生成攻击目标</li>
 <li>通过目标网络收集输入/输出组合<br><img src="/image/1553577708472.png" alt="Alt text"></li>
@@ -649,6 +661,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/04/03/台大机器学习2017课程笔记-回归/" rel="prev" title="台大机器学习2017课程笔记-回归">
+                台大机器学习2017课程笔记-回归 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -725,7 +741,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -969,7 +985,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

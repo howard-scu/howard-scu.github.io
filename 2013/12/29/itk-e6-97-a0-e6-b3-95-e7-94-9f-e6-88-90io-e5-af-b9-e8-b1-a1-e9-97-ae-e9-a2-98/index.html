@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="&amp;nbsp;   当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。 报错是说:Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file suffix, or    set th">
+  <meta name="description" content="&amp;nbsp;   当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。&amp;lt;/header&amp;gt;   报错是说:  Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file s">
 <meta name="keywords" content="itk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ITK无法生成IO对象问题">
 <meta property="og:url" content="http://yoursite.com/2013/12/29/itk-e6-97-a0-e6-b3-95-e7-94-9f-e6-88-90io-e5-af-b9-e8-b1-a1-e9-97-ae-e9-a2-98/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="&amp;nbsp;   当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。 报错是说:Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file suffix, or    set th">
+<meta property="og:description" content="&amp;nbsp;   当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。&amp;lt;/header&amp;gt;   报错是说:  Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file s">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ITK无法生成IO对象问题">
-<meta name="twitter:description" content="&amp;nbsp;   当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。 报错是说:Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file suffix, or    set th">
+<meta name="twitter:description" content="&amp;nbsp;   当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。&amp;lt;/header&amp;gt;   报错是说:  Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file s">
 
 
 
@@ -470,8 +470,22 @@
         <p>&nbsp;</p>
 <header>
 
-<h1 id="当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。"><a href="#当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。" class="headerlink" title="当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。"></a><span style="font-size: 13px;">当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。</span></h1><p></p></header><p></p>
-<div><br><br>报错是说:<br><br>Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file suffix, or    set the suffix to an unsupported type.<br><br>这是由于没有加入ITKIO的预处理器。<br><br>解决方法：<br><br>属性  -&gt;  配置属性  -&gt;  C/C++  -&gt;  预处理器<br><br>预处理器定义中加入：<strong>ITK_IO_FACTORY_REGISTER_MANAGER</strong><br><br></div>
+<h1 id="当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。"><a href="#当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。" class="headerlink" title="当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。"></a><span style="font-size: 13px;">当使用VS生成项目时，读取图像时容易出现ImageFileReaderException的问题。</span></h1><p>&lt;/header&gt;</p>
+<div>
+
+报错是说:
+
+Could not create IO object for file 1.jpg.  Tried to create one of the following:  You probably failed to set a file suffix, or    set the suffix to an unsupported type.
+
+这是由于没有加入ITKIO的预处理器。
+
+解决方法：
+
+属性  -&gt;  配置属性  -&gt;  C/C++  -&gt;  预处理器
+
+预处理器定义中加入：**ITK_IO_FACTORY_REGISTER_MANAGER**
+
+</div></header>
       
     </div>
 
@@ -625,7 +639,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -869,7 +883,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

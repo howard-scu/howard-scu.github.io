@@ -338,6 +338,217 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/10/11/copy-vtkimagedata-to-cvmat/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/10/11/copy-vtkimagedata-to-cvmat/" class="post-title-link" itemprop="url">Copy vtkImageData to cv::Mat</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-10-11 03:11:40" itemprop="dateCreated datePublished" datetime="2014-10-11T03:11:40+08:00">2014-10-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2014/10/11/copy-vtkimagedata-to-cvmat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/11/copy-vtkimagedata-to-cvmat/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <div>opencv无法读取dicom图像，就想到把vtkImageData转成cv::Mat进行处理。</div><div>废话不多说，上代码</div><div>
+</div><div><div>`<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>&nbsp; &nbsp;&nbsp;<font color="#008000">//convert&nbsp;vtkimagedata&nbsp;to&nbsp;cv::mat</font>
+&nbsp;&nbsp;&nbsp;&nbsp;vtkSmartPointer<font color="#333399">&lt;</font>vtkImageData<font color="#333399">&gt;</font>&nbsp;imageData_1&nbsp;<font color="#333399">=</font>&nbsp;reader<font color="#333399">-</font><font color="#333399">&gt;</font>GetOutput();
+&nbsp;&nbsp;&nbsp;&nbsp;vtkSmartPointer<font color="#333399">&lt;</font>vtkExtractVOI<font color="#333399">&gt;</font>&nbsp;extractVOI&nbsp;<font color="#333399">=</font>vtkSmartPointer<font color="#333399">&lt;</font>vtkExtractVOI<font color="#333399">&gt;</font><font color="#333399">:</font><font color="#333399">:</font>New()&nbsp;;
+&nbsp;&nbsp;&nbsp;&nbsp;extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>SetInput(imageData_1);
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**int**</font>&nbsp;dims[<font color="#6E00AA">3</font>];
+&nbsp;&nbsp;&nbsp;&nbsp;imageData_1<font color="#333399">-</font><font color="#333399">&gt;</font>GetDimensions(dims);
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;dims[<font color="#6E00AA">0</font>]<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;dims[<font color="#6E00AA">1</font>]<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;<font color="#333399">&lt;&lt;</font>&nbsp;dims[<font color="#6E00AA">2</font>]<font color="#333399">&lt;&lt;</font>&nbsp;endl;
+&nbsp;&nbsp;&nbsp;&nbsp;extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>SetVOI(<font color="#6E00AA">0</font>,&nbsp;dims[<font color="#6E00AA">0</font>],&nbsp;<font color="#6E00AA">0</font>,&nbsp;dims[<font color="#6E00AA">1</font>],&nbsp;<font color="#6E00AA">0</font>,&nbsp;<font color="#6E00AA">0</font>);&nbsp;<font color="#008000">//&nbsp;Set&nbsp;it&nbsp;to&nbsp;z=75</font>
+&nbsp;&nbsp;&nbsp;&nbsp;extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>GetOutput()<font color="#333399">-</font><font color="#333399">&gt;</font>SetScalarTypeToSignedChar();
+&nbsp;&nbsp;&nbsp;&nbsp;cv<font color="#333399">:</font><font color="#333399">:</font>Mat&nbsp;image(dims[<font color="#6E00AA">0</font>],&nbsp;dims[<font color="#6E00AA">1</font>],&nbsp;CV_8UC1);
+&nbsp;&nbsp;&nbsp;&nbsp;extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>Update();
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**for**</font>&nbsp;(<font color="#0000FF">**int**</font>&nbsp;i<font color="#333399">=</font><font color="#6E00AA">0</font>;&nbsp;i<font color="#333399">&lt;</font>dims[<font color="#6E00AA">0</font>];&nbsp;<font color="#333399">++</font>i)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">**for**</font>&nbsp;(<font color="#0000FF">**int**</font>&nbsp;j<font color="#333399">=</font><font color="#6E00AA">0</font>;&nbsp;j<font color="#333399">&lt;</font>dims[<font color="#6E00AA">1</font>];&nbsp;<font color="#333399">++</font>j)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image.at<font color="#333399">&lt;</font><font color="#0000FF">**unsigned**</font>&nbsp;<font color="#0000FF">**char**</font><font color="#333399">&gt;</font>(cv<font color="#333399">:</font><font color="#333399">:</font>Point(j,i))&nbsp;<font color="#333399">=</font>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#333399">*</font><font color="#0000FF">**static_cast**</font><font color="#333399">&lt;</font><font color="#0000FF">**unsigned**</font>&nbsp;<font color="#0000FF">**char**</font><font color="#333399">*</font><font color="#333399">&gt;</font>(extractVOI<font color="#333399">-</font><font color="#333399">&gt;</font>GetOutput()<font color="#333399">-</font><font color="#333399">&gt;</font>GetScalarPointer(i,j,<font color="#6E00AA">0</font>));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</div></div>`</div></div><div>
+</div><div>
+</div><div>参考：http://stackoverflow.com/questions/19891341/copy-vtkimagedata-to-cvmat</div>
+
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/09/25/e8-a7-a3-e5-86-b3grayscale-e5-9b-be-e5-83-8f-e6-97-a0-e6-b3-95-e8-b7-9frgb-e5-9b-be-e5-83-8fblend-e9-97-ae-e9-a2-98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -467,14 +678,15 @@
       
         
           
-            <p>当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。<div>当我使用Grayscale图像无法跟RGB图像会遇到error：</div><div><div><code>&lt;div style=&quot;background-color: rgb(0, 0, 0); color: rgb(0, 255, 0); border: 1px solid rgb(242, 242, 242); margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;ERROR&lt;font color=&quot;#00ff00&quot;&gt;:&lt;/font&gt;&amp;nbsp;In&amp;nbsp;..\..\src\Imaging\vtkImageBlend.cxx,&amp;nbsp;line&amp;nbsp;&lt;font color=&quot;#00ff00&quot;&gt;903&lt;/font&gt;
-vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&lt;/font&gt;)&lt;font color=&quot;#00ff00&quot;&gt;:&lt;/font&gt;&amp;nbsp;input&amp;nbsp;has&amp;nbsp;too&amp;nbsp;many&amp;nbsp;components,&amp;nbsp;can&lt;font color=&quot;#00ff00&quot;&gt;&#39;t&amp;nbsp;blend&amp;nbsp;RGB&amp;nbsp;data&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;into&amp;nbsp;greyscale&amp;nbsp;data&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;</code></div></div><div>解决的思路当然是把灰度图像转换为rgb图像，但是不用映射lookuptable，如果映射了lookuptable，灰色图像将映射到红色至蓝色之间的颜色。</div><div>具体工作代码如下：</div><div><div><code>&lt;div style=&quot;border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: &#39;Courier New&#39;; font-size: 12px;&quot;&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkScalarsToColors&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt; scalarsToColors &lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt;&amp;nbsp; vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkScalarsToColors&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
-&amp;nbsp;
-&amp;nbsp;&amp;nbsp;&amp;nbsp; vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageMapToColors&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt; colorMapper &lt;font color=&quot;#333399&quot;&gt;=&lt;/font&gt; vtkSmartPointer&lt;font color=&quot;#333399&quot;&gt;&amp;lt;&lt;/font&gt;vtkImageMapToColors&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;:&lt;/font&gt;New();
-&amp;nbsp;&amp;nbsp;&amp;nbsp; colorMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetOutputFormatToRGB();
-&amp;nbsp;&amp;nbsp;&amp;nbsp; colorMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetInput(reader&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;GetOutput());
-&amp;nbsp;&amp;nbsp;&amp;nbsp; colorMapper&lt;font color=&quot;#333399&quot;&gt;-&lt;/font&gt;&lt;font color=&quot;#333399&quot;&gt;&amp;gt;&lt;/font&gt;SetLookupTable( scalarsToColors );&lt;/div&gt;&lt;/div&gt;</code></div></div><div><br></div><div>参考：<a href="http://vtk.1045678.n5.nabble.com/Convert-grayscale-image-to-rgb-td5727289.html#" target="_blank" rel="noopener">http://vtk.1045678.n5.nabble.com/Convert-grayscale-image-to-rgb-td5727289.html#</a></div></p>
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+            <p>当使用Grayscale图像跟RGB图像进行blend的时候，使用vtkImageBlend滤波器，但是这个filter规定了只能进行Grayscale之间或者RGB之间的blend。<div>当我使用Grayscale图像无法跟RGB图像会遇到error：</div><div><div>`<div style="background-color: rgb(0, 0, 0); color: rgb(0, 255, 0); border: 1px solid rgb(242, 242, 242); margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>ERROR<font color="#00ff00">:</font>&nbsp;In&nbsp;..\..\src\Imaging\vtkImageBlend.cxx,&nbsp;line&nbsp;<font color="#00ff00">903</font>
+vtkImageBlend&nbsp;(<font color="#00ff00">0000000003B47450</font>)<font color="#00ff00">:</font>&nbsp;input&nbsp;has&nbsp;too&nbsp;many&nbsp;components,&nbsp;can<font color="#00ff00">'t&nbsp;blend&nbsp;RGB&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;into&nbsp;greyscale&nbsp;data</font></div>&lt;/div&gt;<code>&lt;/div&gt;&lt;/div&gt;&lt;div&gt;解决的思路当然是把灰度图像转换为rgb图像，但是不用映射lookuptable，如果映射了lookuptable，灰色图像将映射到红色至蓝色之间的颜色。&lt;/div&gt;&lt;div&gt;具体工作代码如下：&lt;/div&gt;&lt;div&gt;&lt;div&gt;</code><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><div>&nbsp; &nbsp; vtkSmartPointer<font color="#333399">&lt;</font>vtkScalarsToColors<font color="#333399">&gt;</font> scalarsToColors <font color="#333399">=</font>&nbsp; vtkSmartPointer<font color="#333399">&lt;</font>vtkScalarsToColors<font color="#333399">&gt;</font><font color="#333399">:</font><font color="#333399">:</font>New();
+&nbsp;
+&nbsp;&nbsp;&nbsp; vtkSmartPointer<font color="#333399">&lt;</font>vtkImageMapToColors<font color="#333399">&gt;</font> colorMapper <font color="#333399">=</font> vtkSmartPointer<font color="#333399">&lt;</font>vtkImageMapToColors<font color="#333399">&gt;</font><font color="#333399">:</font><font color="#333399">:</font>New();
+&nbsp;&nbsp;&nbsp; colorMapper<font color="#333399">-</font><font color="#333399">&gt;</font>SetOutputFormatToRGB();
+&nbsp;&nbsp;&nbsp; colorMapper<font color="#333399">-</font><font color="#333399">&gt;</font>SetInput(reader<font color="#333399">-</font><font color="#333399">&gt;</font>GetOutput());
+&nbsp;&nbsp;&nbsp; colorMapper<font color="#333399">-</font><font color="#333399">&gt;</font>SetLookupTable( scalarsToColors );</div>&lt;/div&gt;`&lt;/div&gt;&lt;/div&gt;<div>
+</div><div>参考：http://vtk.1045678.n5.nabble.com/Convert-grayscale-image-to-rgb-td5727289.html#</div></div></div></div></div></p>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
           
         
       
@@ -659,7 +871,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
       
         
           
-            <div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+            <div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
           
         
       
@@ -1030,7 +1242,38 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
       
         
           
-            <div>参见廖雪峰的python教程</div><br><div><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000</a></div><br><div></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>&gt;&gt;&gt; def fun(x):</div><br><div>return x<em>x</em></div><br><div></div><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> <span style="color: #0000ff;"><strong>def</strong></span> my_map(f,L)<span style="color: #333399;">:</span><br>newL <span style="color: #333399;">=</span> []<br><span style="color: #0000ff;"><strong>for</strong></span> item <span style="color: #0000ff;"><strong>in</strong></span> L<span style="color: #333399;">:</span><br>newL.append(f(item))<br><span style="color: #008000;">#print item</span><br><span style="color: #008000;">#print L</span><br><span style="color: #0000ff;"><strong>return</strong></span> newL<br><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> my_map(fun,[<span style="color: #6e00aa;">2</span>,<span style="color: #6e00aa;">3</span>])<span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">  #映射关系</span><br>[<span style="color: #6e00aa;">4</span>, <span style="color: #6e00aa;">9</span>]<br><span style="line-height: 1.5; color: #333399;">&gt;&gt;</span><span style="line-height: 1.5; color: #333399;">&gt;</span><span style="line-height: 1.5;"> sum([d </span><span style="line-height: 1.5; color: #0000ff;"><strong>for</strong></span><span style="line-height: 1.5;"> d </span><span style="line-height: 1.5; color: #0000ff;"><strong>in</strong></span><span style="line-height: 1.5; color: #0000ff;"><strong>range</strong></span><span style="line-height: 1.5;">(</span><span style="line-height: 1.5; color: #6e00aa;">101</span><span style="line-height: 1.5;">)])</span><br><span style="color: #6e00aa;">5050</span><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> <span style="color: #0000ff;"><strong>def</strong></span> prod(L)<span style="color: #333399;">:</span><br><span style="color: #0000ff;"><strong>return</strong></span> <span style="color: #0000ff;"><strong>reduce</strong></span>(<span style="color: #0000ff;"><strong>lambda</strong></span> x,y<span style="color: #333399;">:</span>x<span style="color: #333399;"></span>y,L)<span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    #计算阶乘</span><br><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> prod([d <span style="color: #0000ff;"><strong>for</strong></span> d <span style="color: #0000ff;"><strong>in</strong></span> <span style="color: #0000ff;"><strong>range</strong></span>(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">5</span>)])<br><span style="color: #6e00aa;">24</span><br><span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> prod([d <span style="color: #0000ff;"><strong>for</strong></span> d <span style="color: #0000ff;"><strong>in</strong></span> <span style="color: #0000ff;"><strong>range</strong></span>(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">6</span>)])<br><span style="color: #6e00aa;">120</span><br><br></div><br></div><br><div></div><br><div></div>
+            <div>参见廖雪峰的python教程</div>
+<div>[http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819873910807d8c322ca74d269c9f80f747330a52000)</div>
+<div></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>&gt;&gt;&gt; def fun(x):</div>
+<div>return x*x</div>
+<div></div>
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> <span style="color: #0000ff;">**def**</span> my_map(f,L)<span style="color: #333399;">:</span>
+newL <span style="color: #333399;">=</span> []
+<span style="color: #0000ff;">**for**</span> item <span style="color: #0000ff;">**in**</span> L<span style="color: #333399;">:</span>
+newL.append(f(item))
+<span style="color: #008000;">#print item</span>
+<span style="color: #008000;">#print L</span>
+<span style="color: #0000ff;">**return**</span> newL
+
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> my_map(fun,[<span style="color: #6e00aa;">2</span>,<span style="color: #6e00aa;">3</span>])<span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">  #映射关系</span>
+[<span style="color: #6e00aa;">4</span>, <span style="color: #6e00aa;">9</span>]
+<span style="line-height: 1.5; color: #333399;">&gt;&gt;</span><span style="line-height: 1.5; color: #333399;">&gt;</span><span style="line-height: 1.5;"> sum([d </span><span style="line-height: 1.5; color: #0000ff;">**for**</span><span style="line-height: 1.5;"> d </span><span style="line-height: 1.5; color: #0000ff;">**in**</span><span style="line-height: 1.5; color: #0000ff;">**range**</span><span style="line-height: 1.5;">(</span><span style="line-height: 1.5; color: #6e00aa;">101</span><span style="line-height: 1.5;">)])</span>
+<span style="color: #6e00aa;">5050</span>
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> <span style="color: #0000ff;">**def**</span> prod(L)<span style="color: #333399;">:</span>
+<span style="color: #0000ff;">**return**</span> <span style="color: #0000ff;">**reduce**</span>(<span style="color: #0000ff;">**lambda**</span> x,y<span style="color: #333399;">:</span>x<span style="color: #333399;">*</span>y,L)<span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    #计算阶乘</span>
+
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> prod([d <span style="color: #0000ff;">**for**</span> d <span style="color: #0000ff;">**in**</span> <span style="color: #0000ff;">**range**</span>(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">5</span>)])
+<span style="color: #6e00aa;">24</span>
+<span style="color: #333399;">&gt;&gt;</span><span style="color: #333399;">&gt;</span> prod([d <span style="color: #0000ff;">**for**</span> d <span style="color: #0000ff;">**in**</span> <span style="color: #0000ff;">**range**</span>(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">6</span>)])
+<span style="color: #6e00aa;">120</span>
+
+</div>
+</div>
+<div></div>
+<div></div>
           
         
       
@@ -1401,7 +1644,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
       
         
           
-            <p>1.可以使用easy_install安装相关包，但是可能会不兼容，比如numpy的包。比较可靠的做法是自己下载相应版本的然后安装：<div>地址为：<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a> </div><div>2.需要安装的包大致如下：numpy，scipy，matplotlib，scikit-learn；安装<span style="font-size: 10.5pt; line-height: 1.5;">matplotlib需要</span><span style="font-size: 10.5pt; line-height: 1.5;">pyparsing，six，dateutil；还需用到nose</span></div><div><span style="font-size: 10.5pt; line-height: 1.5;">3.测试matplotlib代码：</span></div><div><div><pre class="prettyprint linenums prettyprinted"></pre></div></div></p>
+            <p>1.可以使用easy_install安装相关包，但是可能会不兼容，比如numpy的包。比较可靠的做法是自己下载相应版本的然后安装：<div>地址为：[http://www.lfd.uci.edu/~gohlke/pythonlibs/](http://www.lfd.uci.edu/~gohlke/pythonlibs/) </div><div>2.需要安装的包大致如下：numpy，scipy，matplotlib，scikit-learn；安装<span style="font-size: 10.5pt; line-height: 1.5;">matplotlib需要</span><span style="font-size: 10.5pt; line-height: 1.5;">pyparsing，six，dateutil；还需用到nose</span></div><div><span style="font-size: 10.5pt; line-height: 1.5;">3.测试matplotlib代码：</span></div><div><div><pre class="prettyprint linenums prettyprinted"></pre></div></div></p>
 <ol>
 <li><code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; numpy &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;</code></li>
 <li><code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; matplotlib&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;pyplot &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;</code></li>
@@ -1414,9 +1657,11 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
 <li><code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code></li>
 <li><code>&lt;span class=&quot;pln&quot;&gt;fig &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code></li>
 <li><code>&lt;span class=&quot;pln&quot;&gt;cs &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;contour&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; f&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; colors &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code><div>4.测试scikit-learn请自行查看手册：<a href="http://cbio.ensmp.fr/~nvaroquaux/scikit-learn/user_guide.html" target="_blank" rel="noopener">http://cbio.ensmp.fr/~nvaroquaux/scikit-learn/user_guide.html</a> </div><div><br></div><div>Have fun!</div><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><!--StartFragment--><!--EndFragment--></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code>&lt;/pre&gt;&lt;/div&gt;<div>4.测试scikit-learn请自行查看手册：[http://cbio.ensmp.fr/~nvaroquaux/scikit-learn/user_guide.html](http://cbio.ensmp.fr/~nvaroquaux/scikit-learn/user_guide.html) </div>&lt;/div&gt;<div>
+</div><div>Have fun!</div><div><span style="font-size: 10.5pt; line-height: 1.5;">
+</span></div><!--StartFragment--><!--EndFragment--></li>
 </ol>
-<div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
           
         
       
@@ -1975,193 +2220,22 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
         
           
             <p>为了学习cocos2d-x，安装了vs2012，之后运行vs2010的项目出现问题：</p>
-<div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #6e00aa;">1</span><span style="color: #333399;">&gt;</span>LINK <span style="color: #333399;">:</span> fatal error LNK1123<span style="color: #333399;">:</span> 转换到 COFF 期间失败<span style="color: #333399;">:</span> 文件无效或损坏</div><br></div><br></div><br><div></div><br><div>解决方法：</div><br><div>1.解决方案更改属性  项目|项目属性|配置属性|清单工具|输入和输出|嵌入清单 将“是”改为“否”即可；</div><br><div><img src="http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/07/wpid-8fc8194c411808599d2f53d133f68982_107483222.png" alt></div><br><div>2.如果无法解决搜索cvtres.exe文件：可能存在两个版本</div><br><div>一个位于C:\Program Files(x86)\Microsoft Visual Studio 10.0\vc\bin\cvtres.exe；</div><br><div>另一个位于<span style="font-size: 10.5pt; line-height: 1.5;">C:\Windows\Microsoft.NET\Framework\v</span><span style="font-size: 10.5pt; line-height: 1.5;">4.0.30319\cvtres.exe；</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">使用高版本的替换低版本的。</span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">来源：</span><a href="http://bbs.csdn.net/topics/390121452" target="_blank" rel="noopener">http://bbs.csdn.net/topics/390121452</a></div>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/05/17/461/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/05/17/461/" class="post-title-link" itemprop="url">461</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-05-17 23:29:59" itemprop="dateCreated datePublished" datetime="2014-05-17T23:29:59+08:00">2014-05-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/未分类/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2014/05/17/461/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/05/17/461/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>Need Passion, Need Courage.</strong></p>
-
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #6e00aa;">1</span><span style="color: #333399;">&gt;</span>LINK <span style="color: #333399;">:</span> fatal error LNK1123<span style="color: #333399;">:</span> 转换到 COFF 期间失败<span style="color: #333399;">:</span> 文件无效或损坏</div>
+</div>
+</div>
+<div></div>
+<div>解决方法：</div>
+<div>1.解决方案更改属性  项目|项目属性|配置属性|清单工具|输入和输出|嵌入清单 将“是”改为“否”即可；</div>
+<div>![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/07/wpid-8fc8194c411808599d2f53d133f68982_107483222.png)</div>
+<div>2.如果无法解决搜索cvtres.exe文件：可能存在两个版本</div>
+<div>一个位于C:\Program Files(x86)\Microsoft Visual Studio 10.0\vc\bin\cvtres.exe；</div>
+<div>另一个位于<span style="font-size: 10.5pt; line-height: 1.5;">C:\Windows\Microsoft.NET\Framework\v</span><span style="font-size: 10.5pt; line-height: 1.5;">4.0.30319\cvtres.exe；</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">使用高版本的替换低版本的。</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">
+</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">来源：</span>[http://bbs.csdn.net/topics/390121452](http://bbs.csdn.net/topics/390121452)</div>
           
         
       
@@ -2250,7 +2324,7 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2494,7 +2568,9 @@ vtkImageBlend&amp;nbsp;(&lt;font color=&quot;#00ff00&quot;&gt;0000000003B47450&l
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

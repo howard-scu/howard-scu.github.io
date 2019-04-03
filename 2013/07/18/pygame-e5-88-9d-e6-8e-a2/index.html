@@ -524,8 +524,7 @@ def update(self,x,y):
     self.rect.x = x
     self.rect.y = y
 </code></pre><h1 id="self-rect-top-1"><a href="#self-rect-top-1" class="headerlink" title="self.rect.top += 1"></a>self.rect.top += 1</h1><h1 id="if-self-rect-top-gt-screen-size-1"><a href="#if-self-rect-top-gt-screen-size-1" class="headerlink" title="if self.rect.top &gt; screen_size[1]:"></a>if self.rect.top &gt; screen_size[1]:</h1><h1 id="self-reset"><a href="#self-reset" class="headerlink" title="self.reset()"></a>self.reset()</h1><h1 id="Initialize-things"><a href="#Initialize-things" class="headerlink" title="Initialize things"></a>Initialize things</h1><p>pygame.init()<br>screen_size = 800, 600<br>pygame.display.set_mode(screen_size, FULLSCREEN)</p>
-<p>#pygame.mouse.set_visible(0)</p>
-<h1 id="Load-the-weight-image"><a href="#Load-the-weight-image" class="headerlink" title="Load the weight image"></a>Load the weight image</h1><p>weight_image = pygame.image.load(‘1.jpg’)<br>weight_image = weight_image.convert() # …to match the display</p>
+<h1 id="pygame-mouse-set-visible-0"><a href="#pygame-mouse-set-visible-0" class="headerlink" title="pygame.mouse.set_visible(0)"></a>pygame.mouse.set_visible(0)</h1><h1 id="Load-the-weight-image"><a href="#Load-the-weight-image" class="headerlink" title="Load the weight image"></a>Load the weight image</h1><p>weight_image = pygame.image.load(‘1.jpg’)<br>weight_image = weight_image.convert() # …to match the display</p>
 <h1 id="Create-a-sprite-group-and-add-a-Weight"><a href="#Create-a-sprite-group-and-add-a-Weight" class="headerlink" title="Create a sprite group and add a Weight"></a>Create a sprite group and add a Weight</h1><p>sprites = pygame.sprite.RenderUpdates()<br>sprites.add(Weight())</p>
 <h1 id="Get-the-screen-surface-and-fill-it"><a href="#Get-the-screen-surface-and-fill-it" class="headerlink" title="Get the screen surface and fill it"></a>Get the screen surface and fill it</h1><p>screen = pygame.display.get_surface()<br>white = (255, 255, 255)<br>screen.fill(white)<br>pygame.display.flip()</p>
 <p>while 1:</p>
@@ -708,7 +707,7 @@ pygame.display.update(updates)&lt;/pre&gt;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -952,7 +951,9 @@ pygame.display.update(updates)&lt;/pre&gt;
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1014,7 +1015,7 @@ pygame.display.update(updates)&lt;/pre&gt;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#self-rect-top-1"><span class="nav-number">1.</span> <span class="nav-text">self.rect.top += 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if-self-rect-top-gt-screen-size-1"><span class="nav-number">2.</span> <span class="nav-text">if self.rect.top &gt; screen_size[1]:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#self-reset"><span class="nav-number">3.</span> <span class="nav-text">self.reset()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Initialize-things"><span class="nav-number">4.</span> <span class="nav-text">Initialize things</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Load-the-weight-image"><span class="nav-number">5.</span> <span class="nav-text">Load the weight image</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-sprite-group-and-add-a-Weight"><span class="nav-number">6.</span> <span class="nav-text">Create a sprite group and add a Weight</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get-the-screen-surface-and-fill-it"><span class="nav-number">7.</span> <span class="nav-text">Get the screen surface and fill it</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#self-rect-top-1"><span class="nav-number">1.</span> <span class="nav-text">self.rect.top += 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if-self-rect-top-gt-screen-size-1"><span class="nav-number">2.</span> <span class="nav-text">if self.rect.top &gt; screen_size[1]:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#self-reset"><span class="nav-number">3.</span> <span class="nav-text">self.reset()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Initialize-things"><span class="nav-number">4.</span> <span class="nav-text">Initialize things</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pygame-mouse-set-visible-0"><span class="nav-number">5.</span> <span class="nav-text">pygame.mouse.set_visible(0)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Load-the-weight-image"><span class="nav-number">6.</span> <span class="nav-text">Load the weight image</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-sprite-group-and-add-a-Weight"><span class="nav-number">7.</span> <span class="nav-text">Create a sprite group and add a Weight</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get-the-screen-surface-and-fill-it"><span class="nav-number">8.</span> <span class="nav-text">Get the screen surface and fill it</span></a></li></ol></div>
             
 
           </div>

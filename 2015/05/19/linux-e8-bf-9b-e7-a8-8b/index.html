@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;unistd.h&amp;gt;int main(void){printf(“%d %d %d\n”,getpid(),      /进程ID/                            getpgrp(),     /进程组ID/">
+  <meta name="description" content="#**include** &amp;lt;stdio.h&amp;gt; #**include** &amp;lt;stdlib.h&amp;gt; #**include** &amp;lt;unistd.h&amp;gt;  **int** main(**void**) { printf(&quot;%d %d %d\n&quot;,getpid(),      /*进程ID*/                             getpgrp(),">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux进程">
 <meta property="og:url" content="http://yoursite.com/2015/05/19/linux-e8-bf-9b-e7-a8-8b/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;unistd.h&amp;gt;int main(void){printf(“%d %d %d\n”,getpid(),      /进程ID/                            getpgrp(),     /进程组ID/">
+<meta property="og:description" content="#**include** &amp;lt;stdio.h&amp;gt; #**include** &amp;lt;stdlib.h&amp;gt; #**include** &amp;lt;unistd.h&amp;gt;  **int** main(**void**) { printf(&quot;%d %d %d\n&quot;,getpid(),      /*进程ID*/                             getpgrp(),">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux进程">
-<meta name="twitter:description" content="#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;unistd.h&amp;gt;int main(void){printf(“%d %d %d\n”,getpid(),      /进程ID/                            getpgrp(),     /进程组ID/">
+<meta name="twitter:description" content="#**include** &amp;lt;stdio.h&amp;gt; #**include** &amp;lt;stdlib.h&amp;gt; #**include** &amp;lt;unistd.h&amp;gt;  **int** main(**void**) { printf(&quot;%d %d %d\n&quot;,getpid(),      /*进程ID*/                             getpgrp(),">
 
 
 
@@ -466,17 +466,212 @@
       
 
       
-        <div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><br><div>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span></div><br><div>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>stdlib.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span><br><br><span style="color: #0000ff;"><strong>int</strong></span> main(<span style="color: #0000ff;"><strong>void</strong></span>)<br>{<br>printf(<span style="color: #ff00bf;">“%d %d %d\n”</span>,getpid(),      /<em>进程ID</em>/</div><br><div>                            getpgrp(),     /<em>进程组ID</em>/</div><br><div>                            getppid());    /<em>父进程ID</em>/</div><br><div>        printf(<span style="color: #ff00bf;">“%d %d %d %d\n”</span>,getuid(),     /<em>进程实际用户ID</em>/</div><br><div>                               geteuid(),    /<em>进程有效用户ID</em>/</div><br><div>                               getgid(),     /<em>进程实际组ID</em>/</div><br><div>                               getegid());   /<em>进程有效组ID</em>/</div><br><div>}</div><br></div><br></div><br></div><br><div>输出为：</div><br><div><br><div style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;"><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New';"><br><div>{ <span style="color: #333399;">~</span> }  » a.exe<br><span style="color: #6e00aa;">5088</span> <span style="color: #6e00aa;">5088</span> <span style="color: #6e00aa;">6020</span><br><span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">197121</span> <span style="color: #6e00aa;">197121</span><br>{ <span style="color: #333399;">~</span> }  » <span style="color: #0000ff;"><strong>ps</strong></span><br>PID    PPID    PGID     WINPID   TTY     UID    STIME COMMAND<br><span style="color: #6e00aa;">5740</span>    <span style="color: #6e00aa;">6020</span>    <span style="color: #6e00aa;">5740</span>        <span style="color: #6e00aa;">704</span>  pty0    <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">42</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">50</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span><span style="color: #0000ff;"><strong>ps</strong></span><br><span style="color: #6e00aa;">6020</span>    <span style="color: #6e00aa;">4984</span>    <span style="color: #6e00aa;">6020</span>       <span style="color: #6e00aa;">6124</span>  pty0    <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">26</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">10</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span>bash<br><span style="color: #6e00aa;">4984</span>       <span style="color: #6e00aa;">1</span>    <span style="color: #6e00aa;">4984</span>       <span style="color: #6e00aa;">4984</span>  <span style="color: #333399;">?</span>       <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">26</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">09</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span>mintty<br>{ <span style="color: #333399;">~</span> }  » id<br>uid<span style="color: #333399;">=</span><span style="color: #6e00aa;">197108</span>(Administrator) gid<span style="color: #333399;">=</span><span style="color: #6e00aa;">197121</span>(None) groups<span style="color: #333399;">=</span><span style="color: #6e00aa;">197121</span>(None),<span style="color: #6e00aa;">114</span>(本地帐户和管理员组成员),<span style="color: #6e00aa;">197609</span>(HelpLibraryUpdaters),<span style="color: #6e00aa;">544</span>(Administrators),<span style="color: #6e00aa;">545</span>(Users),<span style="color: #6e00aa;">4</span>(INTERACTIVE),<span style="color: #6e00aa;">66049</span>(控制台登录),<span style="color: #6e00aa;">11</span>(Authenticated Users),<span style="color: #6e00aa;">15</span>(This Organization),<span style="color: #6e00aa;">113</span>(本地帐户),<span style="color: #6e00aa;">4095</span>(CurrentSession),<span style="color: #6e00aa;">66048</span>(LOCAL),<span style="color: #6e00aa;">262154</span>(NTLM Authentication),<span style="color: #6e00aa;">405504</span>(High Mandatory Level)</div><br></div><br></div><br></div><br><div></div><br><div>进程号为：<span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">5672</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">  父进程为：</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">6020</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;"> （bash）</span></div><br><div><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">用户uid:</span><span style="color: #6e00aa; font-family: 'Courier New'; font-size: 12px; line-height: 18px;"> 197108  </span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">用户gid: </span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">197121</span></div><br><div><a id="more"></a></div>
+        <div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span></div>
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdlib.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span>
 
-<h2 id="获取环境变量"><a href="#获取环境变量" class="headerlink" title="获取环境变量"></a>获取环境变量</h2><div>1.env命令</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>{ <span style="color: #333399;">~</span> }  » env<br>HOMEPATH<span style="color: #333399;">=</span>\Users\Administrator<br>DISABLE_CHECK_ON_STARTUP<span style="color: #333399;">=</span>false<br>APPDATA<span style="color: #333399;">=</span>C<span style="color: #333399;">:</span>\Users\Administrator\AppData\Roaming<br>ProgramW6432<span style="color: #333399;">=</span>C<span style="color: #333399;">:</span>\Program Files<br>HOSTNAME<span style="color: #333399;">=</span>Lu</div><br><div>…</div><br></div><br></div><br><div></div><br><div>2.environ全局变量</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>stdlib.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span></div><br></div><br></div><br><span style="color: #0000ff;"><strong>extern</strong></span> <span style="color: #0000ff;"><strong>char</strong></span> <span style="color: #333399;"><em></em></span><span style="color: #333399;"></span>environ;<br><br><span style="color: #0000ff;"><strong>int</strong></span> main(<span style="color: #0000ff;"><strong>void</strong></span>)<br>{<br><span style="color: #0000ff;"><strong>char</strong></span> <span style="color: #333399;"><em></em></span><span style="color: #333399;"></span>p <span style="color: #333399;">=</span> environ;<br><span style="color: #0000ff;"><strong>while</strong></span>(<span style="color: #333399;"><em></em></span>p)<br>{<br>fprintf(stderr,<span style="color: #ff00bf;">“%s\n”</span>,<span style="color: #333399;"></span>p);<br>p<span style="color: #333399;">++</span>;<br>}<br>}<br><div></div><br><div>3.getenv()函数</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>char</strong></span><span style="color: #333399;"><em></em></span> name <span style="color: #333399;">=</span> <span style="color: #ff00bf;">“COMPUTERNAME”</span>;<br>printf(<span style="color: #ff00bf;">“%s\n”</span>,getenv(name));<span style="line-height: 1.5;">    //若没有键值为name，返回NULL</span></div><br></div><br></div><br><div></div><br><div>进程创建</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>stdlib.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span></div><br></div><br></div><br><span style="color: #0000ff;"><strong>int</strong></span> main(<span style="color: #0000ff;"><strong>void</strong></span>)<br>{<br>pid_t pid;<br><br><span style="color: #0000ff;"><strong>int</strong></span> i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>;<br>printf(<span style="color: #ff00bf;">“pid = %d, i = %d\n”</span>,getpid(),i);<br><br><span style="color: #0000ff;"><strong>if</strong></span>((pid <span style="color: #333399;">=</span> fork()  /pid赋值子进程ID<em>/ ) <span style="color: #333399;">&gt;</span> <span style="color: #6e00aa;">0 </span><span style="line-height: 1.5;">/</span></em>原进程<em>/<span style="line-height: 1.5; color: #6e00aa;"> </span><span style="line-height: 1.5;">)</span><br><div>                printf(<span style="color: #ff00bf;">“ppid = %d, cpid = %d\n”</span>,getpid(),pid);<br><span style="color: #0000ff;"><strong>else</strong></span> <span style="color: #0000ff;"><strong>if</strong></span>(pid <span style="color: #333399;">==</span> <span style="color: #6e00aa;">0</span>)<span style="font-family: 'Courier New';">    </span>/</div></em>子进程*/<br>{<br>printf(<span style="color: #ff00bf;">“cpid = %d\n”</span>,getpid());<span style="font-family: 'Courier New';">    //子进程id</span><br>i<span style="color: #333399;">++</span>;<br>}<br><span style="color: #0000ff;"><strong>else</strong></span><br>printf(<span style="color: #ff00bf;">“fork error”</span>);<br>printf(<span style="color: #ff00bf;">“pid = %d, i = %d\n”</span>,getpid(),i);<span style="font-family: 'Courier New';">    </span>//父进程id<br><br>}<br><div></div><br><div>输出为：</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>{ <span style="color: #333399;">~</span> }  » a.exe<br>process start<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1308</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span><br>cpid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6372</span><br>process end<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6372</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1</span><br>ppid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1308</span>, cpid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6372</span><br><span style="background-color: #ffff00;">process end<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1308</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span></span></div><br></div><br></div><br>{ <span style="color: #333399;">~</span> }  » a.exe<br>process start<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">5772</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span><br>ppid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">5772</span>, cpid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">4308</span><br>process end<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">5772</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span><br>cpid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">4308</span><br><span style="background-color: #ffff00;">process end<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">4308</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1</span></span><br><div></div><br><div>两次执行结果并不相同，说明子进程跟父进程并无先后关系，在fork之后是并行的。</div><br><div></div>
+<span style="color: #0000ff;">**int**</span> main(<span style="color: #0000ff;">**void**</span>)
+{
+printf(<span style="color: #ff00bf;">"%d %d %d\n"</span>,getpid(),      /*进程ID*/</div>
+<div>                            getpgrp(),     /*进程组ID*/</div>
+<div>                            getppid());    /*父进程ID*/</div>
+<div>        printf(<span style="color: #ff00bf;">"%d %d %d %d\n"</span>,getuid(),     /*进程实际用户ID*/</div>
+<div>                               geteuid(),    /*进程有效用户ID*/</div>
+<div>                               getgid(),     /*进程实际组ID*/</div>
+<div>                               getegid());   /*进程有效组ID*/</div>
+<div>}</div>
+</div>
+</div>
+</div>
+<div>输出为：</div>
+<div>
+<div style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New';">
+<div>{ <span style="color: #333399;">~</span> }  » a.exe
+<span style="color: #6e00aa;">5088</span> <span style="color: #6e00aa;">5088</span> <span style="color: #6e00aa;">6020</span>
+<span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">197121</span> <span style="color: #6e00aa;">197121</span>
+{ <span style="color: #333399;">~</span> }  » <span style="color: #0000ff;">**ps**</span>
+PID    PPID    PGID     WINPID   TTY     UID    STIME COMMAND
+<span style="color: #6e00aa;">5740</span>    <span style="color: #6e00aa;">6020</span>    <span style="color: #6e00aa;">5740</span>        <span style="color: #6e00aa;">704</span>  pty0    <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">42</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">50</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span><span style="color: #0000ff;">**ps**</span>
+<span style="color: #6e00aa;">6020</span>    <span style="color: #6e00aa;">4984</span>    <span style="color: #6e00aa;">6020</span>       <span style="color: #6e00aa;">6124</span>  pty0    <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">26</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">10</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span>bash
+<span style="color: #6e00aa;">4984</span>       <span style="color: #6e00aa;">1</span>    <span style="color: #6e00aa;">4984</span>       <span style="color: #6e00aa;">4984</span>  <span style="color: #333399;">?</span>       <span style="color: #6e00aa;">197108</span> <span style="color: #6e00aa;">14</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">26</span><span style="color: #333399;">:</span><span style="color: #6e00aa;">09</span> <span style="color: #333399;">/</span>usr<span style="color: #333399;">/</span>bin<span style="color: #333399;">/</span>mintty
+{ <span style="color: #333399;">~</span> }  » id
+uid<span style="color: #333399;">=</span><span style="color: #6e00aa;">197108</span>(Administrator) gid<span style="color: #333399;">=</span><span style="color: #6e00aa;">197121</span>(None) groups<span style="color: #333399;">=</span><span style="color: #6e00aa;">197121</span>(None),<span style="color: #6e00aa;">114</span>(本地帐户和管理员组成员),<span style="color: #6e00aa;">197609</span>(HelpLibraryUpdaters),<span style="color: #6e00aa;">544</span>(Administrators),<span style="color: #6e00aa;">545</span>(Users),<span style="color: #6e00aa;">4</span>(INTERACTIVE),<span style="color: #6e00aa;">66049</span>(控制台登录),<span style="color: #6e00aa;">11</span>(Authenticated Users),<span style="color: #6e00aa;">15</span>(This Organization),<span style="color: #6e00aa;">113</span>(本地帐户),<span style="color: #6e00aa;">4095</span>(CurrentSession),<span style="color: #6e00aa;">66048</span>(LOCAL),<span style="color: #6e00aa;">262154</span>(NTLM Authentication),<span style="color: #6e00aa;">405504</span>(High Mandatory Level)</div>
+</div>
+</div>
+</div>
+<div></div>
+<div>进程号为：<span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">5672</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">  父进程为：</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">6020</span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;"> （bash）</span></div>
+<div><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">用户uid:</span><span style="color: #6e00aa; font-family: 'Courier New'; font-size: 12px; line-height: 18px;"> 197108  </span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px;">用户gid: </span><span style="font-family: 'Courier New'; font-size: 12px; line-height: 18px; color: #6e00aa;">197121</span></div>
+<div><a id="more"></a></div>
 
-<h3 id="调用执行程序"><a href="#调用执行程序" class="headerlink" title="调用执行程序"></a>调用执行程序</h3><div>1.exec</div><br><div>2.fork-exec</div><br><div>3.vfork-exec（高效，shell实际操作方式）</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #0000ff;"><strong>if</strong></span>(pid<span style="color: #333399;">=</span>vfork() <span style="color: #333399;">==</span> <span style="color: #6e00aa;">0</span>)    <span style="color: #008000;">//子进程</span><br>{<br>execl(<span style="color: #ff00bf;">“/bin/ls”</span>,<span style="color: #ff00bf;">“-l”</span>);<br>}</div><br></div><br></div><br><div>4.system</div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>system(<span style="color: #ff00bf;">“/bin/ls -l”</span>);</div><br></div><br></div>
+<h2 id="获取环境变量"><a href="#获取环境变量" class="headerlink" title="获取环境变量"></a>获取环境变量</h2><div>1.env命令</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>{ <span style="color: #333399;">~</span> }  » env
+HOMEPATH<span style="color: #333399;">=</span>\Users\Administrator
+DISABLE_CHECK_ON_STARTUP<span style="color: #333399;">=</span>false
+APPDATA<span style="color: #333399;">=</span>C<span style="color: #333399;">:</span>\Users\Administrator\AppData\Roaming
+ProgramW6432<span style="color: #333399;">=</span>C<span style="color: #333399;">:</span>\Program Files
+HOSTNAME<span style="color: #333399;">=</span>Lu</div>
+<div>...</div>
+</div>
+</div>
+<div></div>
+<div>2.environ全局变量</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdlib.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span></div>
+</div>
+</div>
+<span style="color: #0000ff;">**extern**</span> <span style="color: #0000ff;">**char**</span> <span style="color: #333399;">*</span><span style="color: #333399;">*</span>environ;
 
-<h3 id="vfork和fork"><a href="#vfork和fork" class="headerlink" title="vfork和fork"></a>vfork和fork</h3><div><br><div>1.vfork保证<span style="background-color: #ffff00;">子进程先运行</span>，在它调用exec或exit之后父进程才可能被调度运行。如果在调用这两个函数之前子进程依赖于父进程的进一步动作，则会导致死锁。</div><br><div>2.fork要拷贝父进程的进程环境；而vfork则<span style="background-color: #ffff00;">不需要完全拷贝父进程的进程环境</span>，在子进程没有调用exec和exit之前，子进程与父进程共享进程环境，相当于线程的概念，此时父进程阻塞等待。</div><br></div><br><div></div>
+<span style="color: #0000ff;">**int**</span> main(<span style="color: #0000ff;">**void**</span>)
+{
+<span style="color: #0000ff;">**char**</span> <span style="color: #333399;">*</span><span style="color: #333399;">*</span>p <span style="color: #333399;">=</span> environ;
+<span style="color: #0000ff;">**while**</span>(<span style="color: #333399;">*</span>p)
+{
+fprintf(stderr,<span style="color: #ff00bf;">"%s\n"</span>,<span style="color: #333399;">*</span>p);
+p<span style="color: #333399;">++</span>;
+}
+}
+<div></div>
+<div>3.getenv()函数</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #0000ff;">**char**</span><span style="color: #333399;">*</span> name <span style="color: #333399;">=</span> <span style="color: #ff00bf;">"COMPUTERNAME"</span>;
+printf(<span style="color: #ff00bf;">"%s\n"</span>,getenv(name));<span style="line-height: 1.5;">    //若没有键值为name，返回NULL</span></div>
+</div>
+</div>
+<div></div>
+<div>进程创建</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdlib.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span></div>
+</div>
+</div>
+<span style="color: #0000ff;">**int**</span> main(<span style="color: #0000ff;">**void**</span>)
+{
+pid_t pid;
 
-<h3 id="进程休眠"><a href="#进程休眠" class="headerlink" title="进程休眠"></a>进程休眠</h3><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>sleep(<span style="color: #6e00aa;">1000</span>);<span style="line-height: 1.5;">    //1000秒</span></div><br></div><br></div><br><div></div>
+<span style="color: #0000ff;">**int**</span> i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>;
+printf(<span style="color: #ff00bf;">"pid = %d, i = %d\n"</span>,getpid(),i);
 
-<h3 id="进程终止"><a href="#进程终止" class="headerlink" title="进程终止"></a>进程终止</h3><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>exit(<span style="color: #6e00aa;">0</span>);<span style="line-height: 1.5;">    //退出</span></div><br><div><br><div>//1. exit用于结束正在运行的整个程序，它将参数返回给OS，把控制权交给操作系统；而return 是退出当前函数，返回函数值，把控制权交给调用函数。</div><br><div>//2. exit是系统调用级别，它表示一个进程的结束；而return 是语言级别的，它表示调用堆栈的返回。</div><br></div><br></div><br></div><br><div></div><br><div></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span><br>#<span style="color: #0000ff;"><strong>include</strong></span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span></div><br></div><br></div><br><span style="color: #0000ff;"><strong>int</strong></span> main()<br>{<br>pid_t pid,t;<br><br><span style="color: #0000ff;"><strong>int</strong></span> status;<br><br><span style="color: #0000ff;"><strong>if</strong></span>(pid <span style="color: #333399;">=</span> fork() <span style="color: #333399;">==</span> <span style="color: #6e00aa;">0</span>)   <span style="color: #008000;">//child process</span><br>{<br>sleep(<span style="color: #6e00aa;">1</span>);       <span style="color: #008000;">//sleep 10 seconds</span><br>printf(<span style="color: #ff00bf;">“pid = %d\n”</span>,getpid());<br>exit(<span style="color: #6e00aa;">2</span>);<br>}<br>t <span style="color: #333399;">=</span> wait(<span style="color: #333399;">&amp;</span>status);<br>printf(<span style="color: #ff00bf;">“pid = %d, wait_pid = %d, status = %d\n “</span>,getpid(),t,status);<br><span style="color: #0000ff;"><strong>return</strong></span> <span style="color: #6e00aa;">0</span>;<br>}<br><div></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div>{ <span style="color: #333399;">~</span> }  » a.exe<br>pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6760</span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    //子进程号=</span><span style="color: #6e00aa;"> 6760</span><span style="font-family: 'Courier New';"> ，退出号=2</span><br>pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">4140</span>, wait_pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6760</span>, status <span style="color: #333399;">=</span> <span style="color: #6e00aa;">512</span><span style="line-height: 1.5;">    //父进程号 = </span><span style="line-height: 1.5; color: #6e00aa;">4140</span><span style="line-height: 1.5;">, 等待子进程结束，status = exitno &lt;&lt; 8;</span></div><br></div><br></div><br><div></div><br><div><a href="http://www.wiz.cn/i/c09d0bb5" title="来自为知笔记(Wiz)" target="_blank" rel="noopener">来自为知笔记(Wiz)</a></div>
+<span style="color: #0000ff;">**if**</span>((pid <span style="color: #333399;">=</span> fork()  /*pid赋值子进程ID*/ ) <span style="color: #333399;">&gt;</span> <span style="color: #6e00aa;">0 </span><span style="line-height: 1.5;">/*原进程*/</span><span style="line-height: 1.5; color: #6e00aa;"> </span><span style="line-height: 1.5;">)</span>
+<div>                printf(<span style="color: #ff00bf;">"ppid = %d, cpid = %d\n"</span>,getpid(),pid);
+<span style="color: #0000ff;">**else**</span> <span style="color: #0000ff;">**if**</span>(pid <span style="color: #333399;">==</span> <span style="color: #6e00aa;">0</span>)<span style="font-family: 'Courier New';">    </span>/*子进程*/
+{
+printf(<span style="color: #ff00bf;">"cpid = %d\n"</span>,getpid());<span style="font-family: 'Courier New';">    //子进程id</span>
+i<span style="color: #333399;">++</span>;
+}
+<span style="color: #0000ff;">**else**</span>
+printf(<span style="color: #ff00bf;">"fork error"</span>);</div>
+printf(<span style="color: #ff00bf;">"pid = %d, i = %d\n"</span>,getpid(),i);<span style="font-family: 'Courier New';">    </span>//父进程id
+
+}
+<div></div>
+<div>输出为：</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>{ <span style="color: #333399;">~</span> }  » a.exe
+process start<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1308</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>
+cpid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6372</span>
+process end<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6372</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1</span>
+ppid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1308</span>, cpid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6372</span>
+<span style="background-color: #ffff00;">process end<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1308</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span></span></div>
+</div>
+</div>
+{ <span style="color: #333399;">~</span> }  » a.exe
+process start<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">5772</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>
+ppid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">5772</span>, cpid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">4308</span>
+process end<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">5772</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>
+cpid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">4308</span>
+<span style="background-color: #ffff00;">process end<span style="color: #333399;">:</span> pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">4308</span>, i <span style="color: #333399;">=</span> <span style="color: #6e00aa;">1</span></span>
+<div></div>
+<div>两次执行结果并不相同，说明子进程跟父进程并无先后关系，在fork之后是并行的。</div>
+<div></div>
+
+<h3 id="调用执行程序"><a href="#调用执行程序" class="headerlink" title="调用执行程序"></a>调用执行程序</h3><div>1.exec</div>
+<div>2.fork-exec</div>
+<div>3.vfork-exec（高效，shell实际操作方式）</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #0000ff;">**if**</span>(pid<span style="color: #333399;">=</span>vfork() <span style="color: #333399;">==</span> <span style="color: #6e00aa;">0</span>)    <span style="color: #008000;">//子进程</span>
+{
+execl(<span style="color: #ff00bf;">"/bin/ls"</span>,<span style="color: #ff00bf;">"-l"</span>);
+}</div>
+</div>
+</div>
+<div>4.system</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>system(<span style="color: #ff00bf;">"/bin/ls -l"</span>);</div>
+</div>
+</div>
+
+<h3 id="vfork和fork"><a href="#vfork和fork" class="headerlink" title="vfork和fork"></a>vfork和fork</h3><div>
+<div>1.vfork保证<span style="background-color: #ffff00;">子进程先运行</span>，在它调用exec或exit之后父进程才可能被调度运行。如果在调用这两个函数之前子进程依赖于父进程的进一步动作，则会导致死锁。</div>
+<div>2.fork要拷贝父进程的进程环境；而vfork则<span style="background-color: #ffff00;">不需要完全拷贝父进程的进程环境</span>，在子进程没有调用exec和exit之前，子进程与父进程共享进程环境，相当于线程的概念，此时父进程阻塞等待。</div>
+</div>
+<div></div>
+
+<h3 id="进程休眠"><a href="#进程休眠" class="headerlink" title="进程休眠"></a>进程休眠</h3><div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>sleep(<span style="color: #6e00aa;">1000</span>);<span style="line-height: 1.5;">    //1000秒</span></div>
+</div>
+</div>
+<div></div>
+
+<h3 id="进程终止"><a href="#进程终止" class="headerlink" title="进程终止"></a>进程终止</h3><div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>exit(<span style="color: #6e00aa;">0</span>);<span style="line-height: 1.5;">    //退出</span></div>
+<div>
+<div>//1\. exit用于结束正在运行的整个程序，它将参数返回给OS，把控制权交给操作系统；而return 是退出当前函数，返回函数值，把控制权交给调用函数。</div>
+<div>//2\. exit是系统调用级别，它表示一个进程的结束；而return 是语言级别的，它表示调用堆栈的返回。</div>
+</div>
+</div>
+</div>
+<div></div>
+<div></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>stdio.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>unistd.h<span style="color: #333399;">&gt;</span></div>
+</div>
+</div>
+<span style="color: #0000ff;">**int**</span> main()
+{
+pid_t pid,t;
+
+<span style="color: #0000ff;">**int**</span> status;
+
+<span style="color: #0000ff;">**if**</span>(pid <span style="color: #333399;">=</span> fork() <span style="color: #333399;">==</span> <span style="color: #6e00aa;">0</span>)   <span style="color: #008000;">//child process</span>
+{
+sleep(<span style="color: #6e00aa;">1</span>);       <span style="color: #008000;">//sleep 10 seconds</span>
+printf(<span style="color: #ff00bf;">"pid = %d\n"</span>,getpid());
+exit(<span style="color: #6e00aa;">2</span>);
+}
+t <span style="color: #333399;">=</span> wait(<span style="color: #333399;">&amp;</span>status);
+printf(<span style="color: #ff00bf;">"pid = %d, wait_pid = %d, status = %d\n "</span>,getpid(),t,status);
+<span style="color: #0000ff;">**return**</span> <span style="color: #6e00aa;">0</span>;
+}
+<div></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>{ <span style="color: #333399;">~</span> }  » a.exe
+pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6760</span><span style="font-family: 'Courier New';">    </span><span style="font-family: 'Courier New';">    //子进程号=</span><span style="color: #6e00aa;"> 6760</span><span style="font-family: 'Courier New';"> ，退出号=2</span>
+pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">4140</span>, wait_pid <span style="color: #333399;">=</span> <span style="color: #6e00aa;">6760</span>, status <span style="color: #333399;">=</span> <span style="color: #6e00aa;">512</span><span style="line-height: 1.5;">    //父进程号 = </span><span style="line-height: 1.5; color: #6e00aa;">4140</span><span style="line-height: 1.5;">, 等待子进程结束，status = exitno &lt;&lt; 8;</span></div>
+</div>
+</div>
+<div></div>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
       
     </div>
 
@@ -624,7 +819,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -868,7 +1063,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

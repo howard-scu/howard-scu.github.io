@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。2）子窗口的按钮slot函数中emit这个signal。3）在父窗口中把子窗口的这个signal连到自己的响应slot。// 子窗口class ChildWindow : public QWidget{Q_OBJECTpublic:ChildWindow(QWidget p = 0):QWidget(p){QV">
+  <meta name="description" content="1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。 2）子窗口的按钮slot函数中emit这个signal。 3）在父窗口中把子窗口的这个signal连到自己的响应slot。   // 子窗口 **class** ChildWindow : **public** QWidget { Q_OBJECT **public**: ChildWindow(QWidge">
 <meta name="keywords" content="qt,signals,slots">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt中父窗口处理子窗口事件">
 <meta property="og:url" content="http://yoursite.com/2013/12/03/qt-e4-b8-ad-e7-88-b6-e7-aa-97-e5-8f-a3-e5-a4-84-e7-90-86-e5-ad-90-e7-aa-97-e5-8f-a3-e4-ba-8b-e4-bb-b6/index.html">
 <meta property="og:site_name" content="Code Planet">
-<meta property="og:description" content="1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。2）子窗口的按钮slot函数中emit这个signal。3）在父窗口中把子窗口的这个signal连到自己的响应slot。// 子窗口class ChildWindow : public QWidget{Q_OBJECTpublic:ChildWindow(QWidget p = 0):QWidget(p){QV">
+<meta property="og:description" content="1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。 2）子窗口的按钮slot函数中emit这个signal。 3）在父窗口中把子窗口的这个signal连到自己的响应slot。   // 子窗口 **class** ChildWindow : **public** QWidget { Q_OBJECT **public**: ChildWindow(QWidge">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-08-15T13:40:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt中父窗口处理子窗口事件">
-<meta name="twitter:description" content="1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。2）子窗口的按钮slot函数中emit这个signal。3）在父窗口中把子窗口的这个signal连到自己的响应slot。// 子窗口class ChildWindow : public QWidget{Q_OBJECTpublic:ChildWindow(QWidget p = 0):QWidget(p){QV">
+<meta name="twitter:description" content="1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。 2）子窗口的按钮slot函数中emit这个signal。 3）在父窗口中把子窗口的这个signal连到自己的响应slot。   // 子窗口 **class** ChildWindow : **public** QWidget { Q_OBJECT **public**: ChildWindow(QWidge">
 
 
 
@@ -467,7 +467,74 @@
       
 
       
-        <div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。</span></div><br><div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">2）子窗口的按钮slot函数中emit这个signal。</span></div><br><div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">3）在父窗口中把子窗口的这个signal连到自己的响应slot。</span></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #008000;">// 子窗口</span><br><span style="color: #0000ff;"><strong>class</strong></span> ChildWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> QWidget<br>{<br>Q_OBJECT<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br>ChildWindow(QWidget<span style="color: #333399;"><em></em></span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)<br><span style="color: #333399;">:</span>QWidget(p)<br>{<br>QVBoxLayout<span style="color: #333399;"></span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QVBoxLayout(<span style="color: #0000ff;"><strong>this</strong></span>);<br>QPushButton<span style="color: #333399;"><em></em></span> btn <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QPushButton(<span style="color: #ff00bf;">“btn”</span>, <span style="color: #0000ff;"><strong>this</strong></span>);<br>l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(btn);connect(btn, SIGNAL(clicked()), SLOT(ClickedBtn());<br>}signals<span style="color: #333399;">:</span><br><span style="color: #ff0000;"><strong>    // 这个信号是发给父窗口的。<br>void ChildWindowEvent();</strong></span><br><span style="color: #0000ff;"><strong>protected</strong></span> slots<span style="color: #333399;">:</span><br><br><span style="color: #008000;">// 点击子窗口中按钮的slot</span><br><span style="color: #ff0000;"><strong>        void ClickedBtn()<br>{<br>// 触发子窗口的信号给父窗口接收。<br>emit ChildWindowEvent();<br>}</strong></span><br>}<br><br></div><br></div><br></div><br><div></div><br><div><br><div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;"><br><div><span style="color: #008000;">// 父窗口</span><br><span style="color: #0000ff;"><strong>class</strong></span> ParentWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;"><strong>public</strong></span> QWidget<br>{<br>Q_OBJECT<br><span style="color: #0000ff;"><strong>public</strong></span><span style="color: #333399;">:</span><br>ParentWindow(QWidget<span style="color: #333399;"></span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)<br><span style="color: #333399;">:</span>QWidget(p)<br>{<br>QVBoxLayout<span style="color: #333399;"><em></em></span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> QVBoxLayout(<span style="color: #0000ff;"><strong>this</strong></span>);<br>w <span style="color: #333399;">=</span> <span style="color: #0000ff;"><strong>new</strong></span> ChildWindow(<span style="color: #0000ff;"><strong>this</strong></span>);<br>l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(w);<span style="color: #ff0000;"><strong>        // 把子窗口的信号连接到父窗口来。<br>connect(w, SIGNAL(ChildWindowEvent()), SLOT(ChildWindowEventSlot());</strong></span><br>}<span style="color: #0000ff;"><strong>protected</strong></span><span style="color: #333399;">:</span><br><br>ChildWindow<span style="color: #333399;"></span> w;<br><br><span style="color: #0000ff;"><strong>protected</strong></span> slots<span style="color: #333399;">:</span><br><br><span style="color: #008000;">// 父窗口用于接收子窗口信号的slot。</span><br><span style="color: #ff0000;"><strong>        void ChildWindowEventSlot()<br>{<br>//子窗口的按钮被点击了。<br>}</strong></span><br>}<br><br></div><br></div><br></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;"><br></span></div><br><div><span style="font-size: 10.5pt; line-height: 1.5;">来源：<a href="http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY" target="_blank" rel="noopener">http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY</a>_</span></div><br><div></div><br><div></div>
+        <div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">1）在子窗口里面增加一个signal，在父窗口里面增加一个响应slot用于接收这个信号。</span></div>
+<div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">2）子窗口的按钮slot函数中emit这个signal。</span></div>
+<div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">3）在父窗口中把子窗口的这个signal连到自己的响应slot。</span></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #008000;">// 子窗口</span>
+<span style="color: #0000ff;">**class**</span> ChildWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> QWidget
+{
+Q_OBJECT
+<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
+ChildWindow(QWidget<span style="color: #333399;">*</span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)
+<span style="color: #333399;">:</span>QWidget(p)
+{
+QVBoxLayout<span style="color: #333399;">*</span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> QVBoxLayout(<span style="color: #0000ff;">**this**</span>);
+QPushButton<span style="color: #333399;">*</span> btn <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> QPushButton(<span style="color: #ff00bf;">"btn"</span>, <span style="color: #0000ff;">**this**</span>);
+l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(btn);connect(btn, SIGNAL(clicked()), SLOT(ClickedBtn());
+}signals<span style="color: #333399;">:</span>
+<span style="color: #ff0000;">**    // 这个信号是发给父窗口的。
+void ChildWindowEvent();**</span>
+<span style="color: #0000ff;">**protected**</span> slots<span style="color: #333399;">:</span>
+
+<span style="color: #008000;">// 点击子窗口中按钮的slot</span>
+<span style="color: #ff0000;">**        void ClickedBtn()
+{
+// 触发子窗口的信号给父窗口接收。
+emit ChildWindowEvent();
+}**</span>
+}
+
+</div>
+</div>
+</div>
+<div></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #008000;">// 父窗口</span>
+<span style="color: #0000ff;">**class**</span> ParentWindow <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> QWidget
+{
+Q_OBJECT
+<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
+ParentWindow(QWidget<span style="color: #333399;">*</span> p <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>)
+<span style="color: #333399;">:</span>QWidget(p)
+{
+QVBoxLayout<span style="color: #333399;">*</span> l <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> QVBoxLayout(<span style="color: #0000ff;">**this**</span>);
+w <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> ChildWindow(<span style="color: #0000ff;">**this**</span>);
+l<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>addWidget(w);<span style="color: #ff0000;">**        // 把子窗口的信号连接到父窗口来。
+connect(w, SIGNAL(ChildWindowEvent()), SLOT(ChildWindowEventSlot());**</span>
+}<span style="color: #0000ff;">**protected**</span><span style="color: #333399;">:</span>
+
+ChildWindow<span style="color: #333399;">*</span> w;
+
+<span style="color: #0000ff;">**protected**</span> slots<span style="color: #333399;">:</span>
+
+<span style="color: #008000;">// 父窗口用于接收子窗口信号的slot。</span>
+<span style="color: #ff0000;">**        void ChildWindowEventSlot()
+{
+//子窗口的按钮被点击了。
+}**</span>
+}
+
+</div>
+</div>
+</div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">
+</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">来源：http://zhidao.baidu.com/link?url=UfBe2D6gR-qCnB0cKOnUYcmMuqjuZPpWZLvE6Q9CGDGe6iAriihkQny4TV61t4UNSpxkNhiIcyeve_HXYUQEY_</span></div>
+<div></div>
+<div></div>
       
     </div>
 
@@ -616,7 +683,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">109</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -860,7 +927,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">78</span>
+                      
+                    
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
