@@ -338,6 +338,240 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/03/27/vim-e8-ae-be-e7-bd-aec-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/03/27/vim-e8-ae-be-e7-bd-aec-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/" class="post-title-link" itemprop="url">vim设置c开发环境</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-03-27 22:10:50" itemprop="dateCreated datePublished" datetime="2014-03-27T22:10:50+08:00">2014-03-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2014/03/27/vim-e8-ae-be-e7-bd-aec-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/03/27/vim-e8-ae-be-e7-bd-aec-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong><span style="color: green;">1</span>**</strong><span style="color: green;">、配置文件的位置</span>**</p>
+<div style="text-indent: 21pt;">在目录 /etc/ 下面，有个名为**vimrc**的文件，这是系统中公共的vim配置文件，对所有用户都有效。而在每个用户的主目录下，都可以自己建立私有的配置文件，命名为：“**<span style="font-size: 12pt;">.</span>****vimrc**”。例如，/root目录下，通常已经存在一个**<span style="font-size: 12pt;">.</span>****vimrc**文件。</div>
+<div>**<span style="color: green;">
+</span>**</div>
+<div>**<span style="color: green;">2</span>****<span style="color: green;">、设置语法高亮显示</span>**</div>
+<div style="margin: 0cm 0cm 0pt 21pt; text-indent: 21pt;">1) 打开vimrc，添加以下语句来使得语法高亮显示：</div>
+<div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;">syntax on</span></div>
+<div style="margin: 0cm 0cm 0pt 21pt; text-indent: 21pt;">2) 如果此时语法还是没有高亮显示，那么在/etc目录下的profile文件中添加以下语句：</div>
+<div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;">export TERM=xterm-color</span></div>
+<div></div>
+<div>**<span style="color: green;">3</span>****<span style="color: green;">、设置</span>****<span style="color: green;">Windows</span>****<span style="color: green;">风格的</span>****<span style="color: green;">C/C++</span>****<span style="color: green;">自动缩进（添加以下</span>****<span style="color: green;">set</span>****<span style="color: green;">语句到</span>****<span style="color: green;">vimrc</span>****<span style="color: green;">中）</span>**</div>
+> <div>1）设置（软）制表符宽度为4：</div>
+> 
+> > <div><span style="color: red;">set tabstop=4</span></div>
+> 
+> > <div><span style="color: red;"> set softtabstop=4</span></div>
+> 
+> <div>2）设置缩进的空格数为4</div>
+> 
+> <div><span style="color: red;">set shiftwidth=4</span></div>
+> 
+> <div>3）设置自动缩进：即每行的缩进值与上一行相等；使用 noautoindent 取消设置：</div>
+> 
+> <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">set autoindent</span></div>
+> 
+> <div>4）设置使用 C/C++ 语言的自动缩进方式：</div>
+> 
+> <div><span style="color: red;">set cindent</span></div>
+> 
+> <div>5）设置C/C++语言的具体缩进方式（以我的windows风格为例）：</div>
+> 
+> <div><span style="color: red;">set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,&gt;1s,=1s,:1s</span></div>
+> 
+> <div>6）如果想在左侧显示文本的行号，可以用以下语句：</div>
+> 
+> <div><span style="color: red;">set nu</span></div>
+> 
+> <div>7）最后，如果没有下列语句，就加上吧：</div>
+> 
+> <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">if &amp;term=="xterm"</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 84pt; text-indent: 21pt;"><span style="color: red;">set t_Co=8</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 42pt; text-indent: 21pt;"><span style="color: red;"> set t_Sb=^[[4%dm</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 84pt; text-indent: 21pt;"><span style="color: red;">set t_Sf=^[[3%dm</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"><span style="color: red;">endif</span></div>
+> 
+> <div style="margin: 0cm 0cm 0pt 63pt; text-indent: 21pt;"></div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/03/13/vtk-e6-8b-a6-e6-88-aa-e4-ba-8b-e4-bb-b6-e5-b9-b6-e5-a4-84-e7-90-86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2912,385 +3146,11 @@ Note that the renderer's actors are not moved; instead the camera is moved.
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/" class="post-title-link" itemprop="url">机器学习经典论文/survey合集</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-01-10 11:14:17" itemprop="dateCreated datePublished" datetime="2014-01-10T11:14:17+08:00">2014-01-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/01/10/e6-9c-ba-e5-99-a8-e5-ad-a6-e4-b9-a0-e7-bb-8f-e5-85-b8-e8-ae-ba-e6-96-87survey-e5-90-88-e9-9b-86/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>Active Learning</strong></p>
-<ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/106.pdf" target="_blank" rel="noopener">Two Faces of Active Learning</a>, Dasgupta, 2011</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/104.pdf" target="_blank" rel="noopener">Active Learning Literature Survey</a>, Settles, 2010<br><strong>Applications</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/100.pdf" target="_blank" rel="noopener">A Survey of Emerging Approaches to Spam Filtering</a>, Caruana, 2012</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/83.pdf" target="_blank" rel="noopener">Ambient Intelligence: A Survey</a>, Sadri, 2011</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/88.pdf" target="_blank" rel="noopener">A Survey of Online Failure Prediction Methods</a>, Salfner, 2010</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/23.pdf" target="_blank" rel="noopener">Anomaly Detection: A Survey</a>, Chandola, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/81.pdf" target="_blank" rel="noopener">Mining Data Streams: A Review</a>, Gaber, 2005</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/37.pdf" target="_blank" rel="noopener">Workflow Mining: A Survey of Issues and Approaches</a>, Aalst, 2003<br><strong>Biology</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/125.pdf" target="_blank" rel="noopener">Support Vector Machines in Bioinformatics: a Survey</a>, Chicco, 2012</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/63.pdf" target="_blank" rel="noopener">Computational Epigenetics: The New Scientific Paradigm </a>, Lim, 2010</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/2.pdf" target="_blank" rel="noopener">Automated Protein Structure Classification: A Survey</a>, Hassanzadeh, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/62.pdf" target="_blank" rel="noopener">Chemoinformatics - An Introduction for Computer Scientists</a>, Brown, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/77.pdf" target="_blank" rel="noopener">Computational Challenges in Systems Biology</a>, Heath, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/64.pdf" target="_blank" rel="noopener">Computational Epigenetics </a>, Bock, 2008</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/68.pdf" target="_blank" rel="noopener">Progress and Challenges in Protein Structure Prediction</a>, Zhang, 2008</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/58.pdf" target="_blank" rel="noopener">A Review of Feature Selection in Bioinformatics</a>, Saeys, 2007</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/57.pdf" target="_blank" rel="noopener">Machine Learning in Bioinformatics: A Brief Survey and Recommendations for Practitioners</a>, Bhaskar, 2006</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/3.pdf" target="_blank" rel="noopener">Bioinformatics - An Introduction for Computer Scientists</a>, Cohen, 2004</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/66.pdf" target="_blank" rel="noopener">Computational Systems Biology</a>, Kitano, 2002</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/69.pdf" target="_blank" rel="noopener">Protein Structure Prediction and Structural Genomics</a>, Baker, 2001</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/70.pdf" target="_blank" rel="noopener">Recent Developments and Future Directions in Computational Genomics</a>, Tsoka, 2000</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/14.pdf" target="_blank" rel="noopener">Molecular Biology for Computer Scientists</a>, Hunter, 1993<br><strong>Classification</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/54.pdf" target="_blank" rel="noopener">Supervised Machine Learning: A Review of Classification Techniques</a>, Kotsiantis, 2007<br><strong>Clustering</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/84.pdf" target="_blank" rel="noopener">XML Data Clustering: An Overview</a>, Algergawy, 2011</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/45.pdf" target="_blank" rel="noopener">Data Clustering: 50 Years Beyond K-Means</a>, Jain, 2010</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/105.pdf" target="_blank" rel="noopener">Clustering Stability: An Overview</a>, Luxburg, 2010</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/46.pdf" target="_blank" rel="noopener">Parallel Clustering Algorithms: A Survey</a>, Kim, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/47.pdf" target="_blank" rel="noopener">A Survey: Clustering Ensembles Techniques</a>, Ghaemi, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/25.pdf" target="_blank" rel="noopener">A Tutorial on Spectral Clustering</a>, Luxburg, 2007</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/15.pdf" target="_blank" rel="noopener">Survey of Clustering Data Mining Techniques</a>, Berkhin, 2006</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/16.pdf" target="_blank" rel="noopener">Survey of Clustering Algorithms</a>, Xu, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/22.pdf" target="_blank" rel="noopener">Clustering of Time Series Data - A Survey</a>, Liao, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/51.pdf" target="_blank" rel="noopener">Clustering Methods</a>, Rokach, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/24.pdf" target="_blank" rel="noopener">Recent Advances in Clustering: A Brief Survey</a>, Kotsiantis, 2004</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/28.pdf" target="_blank" rel="noopener">Subspace Clustering for High Dimensional Data: A Review</a>, Parsons, 2004</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/48.pdf" target="_blank" rel="noopener">Unsupervised and Semi-supervised Clustering: a Brief Survey</a>, Grira, 2004</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/40.pdf" target="_blank" rel="noopener">Clustering in Life Sciences</a>, Zhao, 2002</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/26.pdf" target="_blank" rel="noopener">On Clustering Validation Techniques</a>, Halkidi, 2001</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/18.pdf" target="_blank" rel="noopener">Data Clustering: A Review</a>, Jain, 1999</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/21.pdf" target="_blank" rel="noopener">A Survey of Fuzzy Clustering</a>, Yang, 1993<br><strong>Computer Vision</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/97.pdf" target="_blank" rel="noopener">Pedestrian Detection: An Evaluation of the State of the Art</a>, Dollar, 2012</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/101.pdf" target="_blank" rel="noopener">A Comparative Study of Palmprint Recognition Algorithms</a>, Zhang, 2012</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/85.pdf" target="_blank" rel="noopener">Human Activity Analysis: A Review</a>, Aggarwal, 2011</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/79.pdf" target="_blank" rel="noopener">Subspace Methods for Face Recognition</a>, Rao, 2010</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/136.pdf" target="_blank" rel="noopener">Context Based Object Categorization: A Critical Survey</a>, Galleguillos, 2010</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/29.pdf" target="_blank" rel="noopener">Object tracking: A Survey</a>, Yilmaz, 2006</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/35.pdf" target="_blank" rel="noopener">Detecting Faces in Images: A Survey</a>, Yang, 2002<br><strong>Databases</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/7.pdf" target="_blank" rel="noopener">Data Fusion</a>, Bleiholder, 2008</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/8.pdf" target="_blank" rel="noopener">Duplicate Record Detection: A Survey</a>, Elmagarmid, 2007</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/72.pdf" target="_blank" rel="noopener">Overview of Record Linkage and Current Research Directions</a>, Winkler, 2006</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/32.pdf" target="_blank" rel="noopener">A Survey of Schema-based Matching Approaches</a>, Shvaiko, 2005<br><strong>Deep Learning</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/110.pdf" target="_blank" rel="noopener">Representation Learning: A Review and New Perspectives</a>, Bengio, 2012<br><strong>Dimension Reduction</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/9.pdf" target="_blank" rel="noopener">Dimensionality Reduction: A Comparative Review</a>, Maaten, 2009</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/132.pdf" target="_blank" rel="noopener">Dimension Reduction: A Guided Tour</a>, Burges, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/129.pdf" target="_blank" rel="noopener">A Survey of Manifold-Based Learning Methods</a>, Huo, 2007</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/12.pdf" target="_blank" rel="noopener">Toward Integrating Feature Selection Algorithms for Classification and Clustering</a>, Liu, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/11.pdf" target="_blank" rel="noopener">An Introduction to Variable and Feature Selection</a>, Guyon, 2003</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/10.pdf" target="_blank" rel="noopener">A Survey of Dimension Reduction Techniques</a>, Fodor, 2002<br><strong>Economics</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/67.pdf" target="_blank" rel="noopener">Auctions and Bidding: A Guide for Computer Scientists</a>, Parsons, 2011</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/65.pdf" target="_blank" rel="noopener">Computational Sustainability</a>, Gomes, 2009</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/71.pdf" target="_blank" rel="noopener">Computational Finance</a>, Tsang, 2004<br><strong>Game Theory</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/76.pdf" target="_blank" rel="noopener">Computer Poker: A Review</a>, Rubin, 2011<br><strong>Graphical Models</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/123.pdf" target="_blank" rel="noopener">An Introduction to Variational Methods for Graphical Models</a>, Jordan, 1999<br><strong>Kernel Methods</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/131.pdf" target="_blank" rel="noopener">Kernels for Vector-Valued Functions: a Review</a>, Alvarez, 2012<br><strong>Learning Theory</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/118.pdf" target="_blank" rel="noopener">Introduction to Statistical Learning Theory</a>, Bousquet, 2004<br><strong>Machine Learning</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/124.pdf" target="_blank" rel="noopener">A Few Useful Things to Know about Machine Learning</a>, Domingos, 2012</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/109.pdf" target="_blank" rel="noopener">A Tutorial on Bayesian Nonparametric Models</a>, Blei, 2011</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/119.pdf" target="_blank" rel="noopener">Decision Forests for Classification, Regression, Density Estimation, Manifold Learning and Semi-Supervised Learning</a>, Criminisi, 2011</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/121.pdf" target="_blank" rel="noopener">Top 10 Algorithms in Data Mining</a>, Wu, 2008</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/17.pdf" target="_blank" rel="noopener">Semi-Supervised Learning Literature Survey</a>, Zhu, 2007</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/42.pdf" target="_blank" rel="noopener">Interestingness Measures for Data Mining: A Survey</a>, Geng, 2006</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/43.pdf" target="_blank" rel="noopener">A Survey of Interestingness Measures for Knowledge Discovery</a>, McGarry, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/115.pdf" target="_blank" rel="noopener">A Tutorial on the Cross-Entropy Method</a>, Boer, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/30.pdf" target="_blank" rel="noopener">A Survey of Kernels for Structured Data</a>, Gartner, 2003</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/44.pdf" target="_blank" rel="noopener">Survey on Frequent Pattern Mining</a>, Goethals, 2003</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/122.pdf" target="_blank" rel="noopener">The Boosting Approach to Machine Learning: An Overview</a>, Schapire, 2003</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/86.pdf" target="_blank" rel="noopener">A Survey on Wavelet Applications in Data Mining</a>, Li, 2002<br><strong>Mathematics</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/126.pdf" target="_blank" rel="noopener">Topology and Data</a>, Carlsson, 2009<br><strong>Multi-armed Bandit</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/133.pdf" target="_blank" rel="noopener">Regret Analysis of Stochastic and Nonstochastic Multi-armed Bandit Problems</a>, Bubeck, 2012<br><strong>Natural Computing</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/112.pdf" target="_blank" rel="noopener">Reservoir Computing Approaches to Recurrent Neural Network Training</a>, Jaeger, 2009</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/1.pdf" target="_blank" rel="noopener">Artificial Immune Systems</a>, Aickelin, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/39.pdf" target="_blank" rel="noopener">A Survey of Evolutionary Algorithms for Data Mining and Knowledge Discovery</a>, Freitasï¾ , 2003</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/61.pdf" target="_blank" rel="noopener">Data Mining in Soft Computing Framework: A Survey</a>, Mitra, 2002</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/55.pdf" target="_blank" rel="noopener">Neural Networks for Classification: A Survey</a>, Zhang, 2000<br><strong>Natural Language Processing</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/78.pdf" target="_blank" rel="noopener">Probabilistic Topic Models</a>, Blei, 2012</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/82.pdf" target="_blank" rel="noopener">Ontology Learning From Text: A Look Back And Into The Future</a>, Wong, 2012</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/103.pdf" target="_blank" rel="noopener">Machine Transliteration Survey</a>, Karimi, 2011</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/120.pdf" target="_blank" rel="noopener">Translation Techniques in Cross-Language Information Retrieval</a>, Zhou, 2011</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/134.pdf" target="_blank" rel="noopener">Comprehensive Review of Opinion Summarization</a>, Kim, 2011</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/73.pdf" target="_blank" rel="noopener">A Survey on Sentiment Detection of Reviews</a>, Tang, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/90.pdf" target="_blank" rel="noopener">Word Sense Desambiguation: A Survey</a>, Navigli, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/108.pdf" target="_blank" rel="noopener">Topic Models</a>, Blei, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/27.pdf" target="_blank" rel="noopener">Opinion Mining and Sentiment Analysis</a>, Pang, 2008</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/75.pdf" target="_blank" rel="noopener">Information Extraction</a>, Sarawagi, 2008</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/92.pdf" target="_blank" rel="noopener">Statistical Machine Translation</a>, Lopez, 2008</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/59.pdf" target="_blank" rel="noopener">A Survey of Named Entity Recognition and Classification</a>, Nadeau, 2007</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/93.pdf" target="_blank" rel="noopener">Adaptive Information Extraction</a>, Turmo, 2006</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/49.pdf" target="_blank" rel="noopener">Survey of Text Clustering</a>, Jing, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/96.pdf" target="_blank" rel="noopener">Machine Learning in Automated Text Categorization</a>, Sebastiani, 2002</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/33.pdf" target="_blank" rel="noopener">Web Mining Research: A Survey</a>, Kosala, 2000<br><strong>Networks</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/5.pdf" target="_blank" rel="noopener">Community Detection in Graphs</a>, Fortunato, 2010</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/50.pdf" target="_blank" rel="noopener">A Survey of Statistical Network Models</a>, Goldenberg, 2010</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/4.pdf" target="_blank" rel="noopener">Communities in Networks</a>, Porter, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/13.pdf" target="_blank" rel="noopener">Graph Clustering</a>, Schaeffer, 2007</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/95.pdf" target="_blank" rel="noopener">Graph Mining: Laws, Generators, and Algorithms</a>, Chakrabarti, 2006</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/6.pdf" target="_blank" rel="noopener">Comparing Community Structure Identification</a>, Danon, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/19.pdf" target="_blank" rel="noopener">Link Mining: A Survey</a>, Getoor, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/56.pdf" target="_blank" rel="noopener">Detecting Community Structure in Networks</a>, Newman, 2004</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/20.pdf" target="_blank" rel="noopener">Link Mining: A New Data Mining Challenge</a>, Getoor, 2003<br><strong>On-Line Learning</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/114.pdf" target="_blank" rel="noopener">On-Line Algorithms in Machine Learning</a>, Blum, 1998<br><strong>Others</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/34.pdf" target="_blank" rel="noopener">A Survey of Very Large-Scale Neighborhood Search Techniques</a>, Ahuja, 2001<br><strong>Planning and Scheduling</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/135.pdf" target="_blank" rel="noopener">A Review of Machine Learning for Automated Planning</a>, Jimenez, 2009<br><strong>Probabilistic</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/117.pdf" target="_blank" rel="noopener">Approximate Policy Iteration: A Survey and Some New Methods</a>, Bertsekas, 2011</p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/116.pdf" target="_blank" rel="noopener">An Introduction to MCMC for Machine Learning</a>, Andrieu, 2003<br><strong>Probabilistic Models</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/130.pdf" target="_blank" rel="noopener">An Introduction to Conditional Random Fields</a>, Sutton, 2010<br><strong>Randomized Algorithms</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/127.pdf" target="_blank" rel="noopener">Randomized Algorithms for Matrices and Data</a>, Mahoney, 2011<br><strong>Recommender Systems</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/107.pdf" target="_blank" rel="noopener">Recent advances in Personalized Recommender Systems</a>, Liu, 2009</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/113.pdf" target="_blank" rel="noopener">Matrix Factorization Techniques for Recommender Systems</a>, Koren, 2009</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/128.pdf" target="_blank" rel="noopener">A Survey of Collaborative Filtering Techniques</a>, Su, 2009<br><strong>Regression</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/80.pdf" target="_blank" rel="noopener">Ensemble Approaches for Regression: a Survey</a>, Moreira, 2012<br><strong>Reinforcement Learning</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/74.pdf" target="_blank" rel="noopener">A Survey of Reinforcement Learning in Relational Domains</a>, Otterlo, 2005</p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/52.pdf" target="_blank" rel="noopener">Reinforcement Learning: A Survey</a>, Kaelbling, 1996<br><strong>Rule Learning</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/94.pdf" target="_blank" rel="noopener">Association Mining</a>, Ceglar, 2006</p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/38.pdf" target="_blank" rel="noopener">Algorithms for Association Rule Mining - A General Survey and Comparison</a>, Hipp, 2000<br><strong>Testing</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/111.pdf" target="_blank" rel="noopener">Controlled Experiments on the Web: Survey and Practical Guide</a>, Kohavi, 2009<br><strong>Time Series</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/98.pdf" target="_blank" rel="noopener">Time-Series Data Mining</a>, Esling, 2012</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/99.pdf" target="_blank" rel="noopener">A Review on Time Series Data Mining</a>, Fu, 2011</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/102.pdf" target="_blank" rel="noopener">Discrete Wavelet Transform-Based Time Series Analysis and Mining</a>, Chaovalit, 2011<br><strong>Transfer Learning</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/53.pdf" target="_blank" rel="noopener">A Survey on Transfer Learning</a>, Pan, 2010<br><strong>Web Mining</strong></p>
-</li>
-<li><p><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/87.pdf" target="_blank" rel="noopener">A Taxonomy of Sequential Pattern Mining Algorithms</a>, Mabroukeh, 2010</p>
-</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/89.pdf" target="_blank" rel="noopener">A Survey of Web Clustering Engines</a>, Carpineto, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/91.pdf" target="_blank" rel="noopener">Web Page Classification: Features and Algorithms</a>, Qi, 2009</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/31.pdf" target="_blank" rel="noopener">Mining Interesting Knowledge from Weblogs: A Survey</a>, Facca, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/41.pdf" target="_blank" rel="noopener">An Overview of Web Data Clustering Practices</a>, Vakali, 2005</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/36.pdf" target="_blank" rel="noopener">A Survey of Web Metrics</a>, Dhyani, 2002</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/mlsurveys/60.pdf" target="_blank" rel="noopener">Data Mining for Hypertext: A Tutorial Survey</a>, Chakrabarti, 2000<br><a href="http://www.mlsurveys.com/" target="_blank" rel="noopener">http://www.mlsurveys.com/</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -3334,7 +3194,7 @@ Note that the renderer's actors are not moved; instead the camera is moved.
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">110</span>
+                    <span class="site-state-item-count">111</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3580,7 +3440,11 @@ Note that the renderer's actors are not moved; instead the camera is moved.
                     
                       
                     
-                    <span class="site-state-item-count">79</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">81</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

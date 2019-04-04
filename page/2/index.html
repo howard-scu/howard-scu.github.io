@@ -338,6 +338,197 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/二值图像距离图生成算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/二值图像距离图生成算法/" class="post-title-link" itemprop="url">二值图像距离图生成算法</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:31:21 / 修改时间：12:34:25" itemprop="dateCreated datePublished" datetime="2019-02-28T12:31:21+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/二值图像距离图生成算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/二值图像距离图生成算法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="算法主要步骤"><a href="#算法主要步骤" class="headerlink" title="算法主要步骤"></a>算法主要步骤</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><ul>
+<li>将图像分为内部点和非内部点（内部点本身为1且4领域皆为1）</li>
+<li>初始化距离图像，内部点值为INF，非内部点为0</li>
+</ul>
+<h4 id="更新距离"><a href="#更新距离" class="headerlink" title="更新距离"></a>更新距离</h4><p><img src="/image/20180428101426564.png" alt="这里写图片描述"></p>
+<ul>
+<li><p>由上到下，由左至右迭代计算，伪代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def forward_conv(image):</span><br><span class="line">	for i in range(hight):</span><br><span class="line">		for j in range(width):</span><br><span class="line">			for pixel in Neighbour:</span><br><span class="line">				dist = template[pixel]+dist[pixel]</span><br><span class="line">			find the minimun dist</span><br><span class="line">			dist[i][j] = min(dist[i][j],dist)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后向更新距离图</p>
+</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/28/二值图像距离图生成算法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/Qt部署qwindows-dll错误问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1922,218 +2113,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/29/matplotlib基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/12/29/matplotlib基础/" class="post-title-link" itemprop="url">matplotlib基础</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-12-29 15:32:45 / 修改时间：15:46:53" itemprop="dateCreated datePublished" datetime="2015-12-29T15:32:45+08:00">2015-12-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/12/29/matplotlib基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/29/matplotlib基础/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="matplotlib基础"><a href="#matplotlib基础" class="headerlink" title="matplotlib基础"></a>matplotlib基础</h2><h3 id="1-基本绘图"><a href="#1-基本绘图" class="headerlink" title="1.基本绘图"></a>1.基本绘图</h3><h4 id="控制颜色"><a href="#控制颜色" class="headerlink" title="控制颜色"></a>控制颜色</h4><ul>
-<li><p>颜色之间的对应关系为</p>
-<blockquote>
-<p>b—-blue<br>c—-cyan<br>g—-green<br>k——black<br>m—-magenta<br>r—-red<br>w—-white<br>y——yellow</p>
-</blockquote>
-</li>
-<li><p>表示颜色的方式:</p>
-<blockquote>
-<p>a:用全名<br>b:16进制如：#FF00FF<br>c:RGB或RGBA元组（1,0,1,1）<br>d:灰度强度如：‘0.7’</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="控制线型"><a href="#控制线型" class="headerlink" title="控制线型"></a>控制线型</h4><ul>
-<li>符号和线型之间的对应关系<blockquote>
-<ul>
-<li>实线<br>—     短线<br>-.     短点相间线<br>：     虚点线</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h4 id="控制标记风格"><a href="#控制标记风格" class="headerlink" title="控制标记风格"></a>控制标记风格</h4><ul>
-<li>标记风格有多种：<blockquote>
-<p>.     Point marker<br>,     Pixel marker<br>o     Circle marker<br>v     Triangle down marker<br>^     Triangle up marker<br>&lt;     Triangle left marker<br>>     Triangle right marker<br>1     Tripod down marker<br>2     Tripod up marker<br>3     Tripod left marker<br>4     Tripod right marker<br>s     Square marker<br>p     Pentagon marker<br>*     Star marker<br>h     Hexagon marker<br>H     Rotated hexagon D Diamond marker<br>d     Thin diamond marker<br>|     Vertical line (vlinesymbol) marker<br>_     Horizontal line (hline symbol) marker<br>+     Plus marker<br>x     Cross (x) marker</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入matplot库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出图像大小</span></span><br><span class="line">plt.rc(<span class="string">'figure'</span>, figsize=(<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">10</span>)  				<span class="comment"># [0,2]之间均匀产生10个值</span></span><br><span class="line">plt.plot(x, x, <span class="string">'o-'</span>, label=<span class="string">'linear'</span>)	<span class="comment"># y = x 曲线</span></span><br><span class="line">plt.plot(x, x ** <span class="number">2</span>, <span class="string">'x-'</span>, label=<span class="string">'quadratic'</span>)	<span class="comment"># y=x^2曲线</span></span><br><span class="line">plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">plt.title(<span class="string">'Linear vs Quadratic progression'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Input'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Output'</span>);</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<h4 id="生成结果"><a href="#生成结果" class="headerlink" title="生成结果"></a>生成结果</h4><p><img src="/image/1451373096231.png" alt="Alt text"></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/12/29/matplotlib基础/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2177,7 +2161,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">110</span>
+                    <span class="site-state-item-count">111</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2423,7 +2407,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">79</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">81</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
