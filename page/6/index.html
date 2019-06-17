@@ -338,6 +338,252 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/11/a-e5-af-bb-e8-b7-af-e7-ae-97-e6-b3-95-e5-85-a5-e9-97-a8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/03/11/a-e5-af-bb-e8-b7-af-e7-ae-97-e6-b3-95-e5-85-a5-e9-97-a8/" class="post-title-link" itemprop="url">A*寻路算法入门</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-03-11 21:04:18" itemprop="dateCreated datePublished" datetime="2015-03-11T21:04:18+08:00">2015-03-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithms/" itemprop="url" rel="index"><span itemprop="name">algorithms</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2015/03/11/a-e5-af-bb-e8-b7-af-e7-ae-97-e6-b3-95-e5-85-a5-e9-97-a8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/11/a-e5-af-bb-e8-b7-af-e7-ae-97-e6-b3-95-e5-85-a5-e9-97-a8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div style="text-align: center;">**序：搜索区域**</div>
+<div> <span style="line-height: 1.5; font-size: 10.5pt;">假设有人想从A点移动到一墙之隔的B点，如下图，绿色的是起点A，红色是终点B，蓝色方块是中间的墙。</span></div>
+<div> ![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_52b63ab3-ce45-417b-84fe-3638d0346774.jpg)</div>
+<div> <span style="line-height: 1.5; font-size: 10.5pt;">[图-1]</span></div>
+<div></div>
+<div>你首先注意到，搜索区域被我们划分成了方形网格。像这样，简化搜索区域，是寻路的第一步。这一方法把搜索区域简化成了一个二维数组。数组的每一个元素是网格的一个方块，方块被标记为可通过的和不可通过的。路径被描述为从A到B我们经过的方块的集合。一旦路径被找到，我们的人就从一个方格的中心走向另一个，直到到达目的地。</div>
+<div></div>
+<div>这些中点被称为“节点”。当你阅读其他的寻路资料时，你将经常会看到人们讨论节点。为什么不把他们描述为方格呢？因为有可能你的路径被分割成其他不是方格的结构。他们完全可以是矩形，六角形，或者其他任意形状。节点能够被放置在形状的任意位置－可以在中心，或者沿着边界，或其他什么地方。我们使用这种系统，无论如何，因为它是最简单的。</div>
+<div></div>
+<div style="text-align: center;">**开始搜索**</div>
+<div></div>
+<div>正如我们处理上图网格的方法，一旦搜索区域被转化为容易处理的节点，下一步就是去引导一次找到最短路径的搜索。在A*寻路算法中，我们通过从点A开始，检查相邻方格的方式，向外扩展直到找到目标。</div>
+<div></div>
+<div>我们做如下操作开始搜索：</div>
+<div></div>
+<div></div>
+<div></div>
+<div>   1，从点A开始，并且把它作为待处理点存入一个“开启列表”。开启列表就像一张购物清单。尽管现在列表里只有一个元素，但以后就会多起来。你的路径可能会通过它包含的方格，也可能不会。基本上，这是一个待检查方格的列表。</div>
+<div></div>
+<div>   2，寻找起点周围所有可到达或者可通过的方格，跳过有墙，水，或其他无法通过地形的方格。也把他们加入开启列表。为所有这些方格保存点A作为“父方格”。当我们想描述路径的时候，父方格的资料是十分重要的。后面会解释它的具体用途。</div>
+<div></div>
+<div>   3，从开启列表中删除点A，把它加入到一个“关闭列表”，列表中保存所有不需要再次检查的方格。在这一点，你应该形成如图的结构。在图中，暗绿色方格是你起始方格的中心。它被用浅蓝色描边，以表示它被加入到关闭列表中了。所有的相邻格现在都在开启列表中，它们被用浅绿色描边。每个方格都有一个灰色指针反指他们的父方格，也就是开始的方格。</div>
+<div></div>
+<div></div>
+<div> ![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_8c2dec0b-bd6d-4961-9037-47532f839ee6.jpg)</div>
+<div>[图-2]</div>
+<div></div>
+<div>接着，我们选择开启列表中的临近方格，大致重复前面的过程，如下。但是，哪个方格是我们要选择的呢？是那个F值最低的。</div>
+<div></div>
+<div>路径评分</div>
+<div></div>
+<div>选择路径中经过哪个方格的关键是下面这个等式：F = G + H</div>
+<div></div>
+<div>这里：</div>
+<div></div>
+<div>    * G = 从起点A，沿着产生的路径，移动到网格上指定方格的移动耗费。</div>
+<div></div>
+<div>    * H = 从网格上那个方格移动到终点B的预估移动耗费。这经常被称为启发式的，可能会让你有点迷惑。这样叫的原因是因为它只是个猜测。我们没办法事先知道路径的长度，因为路上可能存在各种障碍(墙，水，等等)。虽然本文只提供了一种计算H的方法，但是你可以在网上找到很多其他的方法。</div>
+<div></div>
+<div>我们的路径是通过反复遍历开启列表并且选择具有最低F值的方格来生成的。文章将对这个过程做更详细的描述。首先，我们更深入的看看如何计算这个方程。</div>
+<div></div>
+<div>正如上面所说，G表示沿路径从起点到当前点的移动耗费。在这个例子里，我们令水平或者垂直移动的耗费为，对角线方向耗费为。我们取这些值是因为沿对角线的距离是沿水平或垂直移动耗费的的根号（别怕），或者约.414倍。为了简化，我们用和近似。比例基本正确，同时我们避免了求根运算和小数。这不是只因为我们怕麻烦或者不喜欢数学。使用这样的整数对计算机来说也更快捷。你不就就会发现，如果你不使用这些简化方法，寻路会变得很慢。</div>
+<div></div>
+<div>既然我们在计算沿特定路径通往某个方格的G值，求值的方法就是取它父节点的G值，然后依照它相对父节点是对角线方向或者直角方向(非对角线)，分别增加和。例子中这个方法的需求会变得更多，因为我们从起点方格以外获取了不止一个方格。</div>
+<div></div>
+<div>H值可以用不同的方法估算。我们这里使用的方法被称为曼哈顿方法，它计算从当前格到目的格之间水平和垂直的方格的数量总和，忽略对角线方向，然后把结果乘以10。这被称为曼哈顿方法是因为它看起来像计算城市中从一个地方到另外一个地方的街区数，在那里你不能沿对角线方向穿过街区。很重要的一点，我们忽略了一切障碍物。这是对剩余距离的一个估算，而非实际值，这也是这一方法被称为启发式的原因。想知道更多？你可以在这里找到方程和额外的注解。</div>
+<div></div>
+<div>F的值是G和H的和。第一步搜索的结果可以在下面的图表中看到。F,G和H的评分被写在每个方格里。正如在紧挨起始格右侧的方格所表示的，F被打印在左上角，G在左下角，H则在右下角。</div>
+<div></div>
+<div> ![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2015/03/wpid-3e3e252612c906a8a13ad2841325b750_39ff78ef-a66c-42a4-af1d-668ef146dc6b.jpg)</div>
+<div></div>
+<div>[图-3]</div>
+<div></div>
+<div>现在我们来看看这些方格。写字母的方格里，G = 10。这是因为它只在水平方向偏离起始格一个格距。紧邻起始格的上方，下方和左边的方格的G值都等于10。对角线方向的G值是14。</div>
+<div>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/03/11/a-e5-af-bb-e8-b7-af-e7-ae-97-e6-b3-95-e5-85-a5-e9-97-a8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </div></article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/21/e5-85-b3-e4-ba-8esql-e8-af-ad-e5-8f-a5-e4-b8-adsum-e5-87-bd-e6-95-b0-e8-bf-94-e5-9b-9enull-e7-9a-84-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2179,208 +2425,6 @@ newL.append(f(item))
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/08/19/scikit-learn-e5-ae-89-e8-a3-85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/08/19/scikit-learn-e5-ae-89-e8-a3-85/" class="post-title-link" itemprop="url">scikit learn 安装</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-08-19 11:20:04" itemprop="dateCreated datePublished" datetime="2014-08-19T11:20:04+08:00">2014-08-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/未分类/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2014/08/19/scikit-learn-e5-ae-89-e8-a3-85/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/08/19/scikit-learn-e5-ae-89-e8-a3-85/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.可以使用easy_install安装相关包，但是可能会不兼容，比如numpy的包。比较可靠的做法是自己下载相应版本的然后安装：<div>地址为：[http://www.lfd.uci.edu/~gohlke/pythonlibs/](http://www.lfd.uci.edu/~gohlke/pythonlibs/) </div><div>2.需要安装的包大致如下：numpy，scipy，matplotlib，scikit-learn；安装<span style="font-size: 10.5pt; line-height: 1.5;">matplotlib需要</span><span style="font-size: 10.5pt; line-height: 1.5;">pyparsing，six，dateutil；还需用到nose</span></div><div><span style="font-size: 10.5pt; line-height: 1.5;">3.测试matplotlib代码：</span></div><div><div><pre class="prettyprint linenums prettyprinted"></pre></div></div></p>
-<ol>
-<li><code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; numpy &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; matplotlib&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;pyplot &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;X &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;Y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;meshgrid&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; Y&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;f &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; x &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;225&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;fig &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;cs &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;contour&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; f&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; colors &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
-<li><code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code>&lt;/pre&gt;&lt;/div&gt;<div>4.测试scikit-learn请自行查看手册：[http://cbio.ensmp.fr/~nvaroquaux/scikit-learn/user_guide.html](http://cbio.ensmp.fr/~nvaroquaux/scikit-learn/user_guide.html) </div>&lt;/div&gt;<div>
-</div><div>Have fun!</div><div><span style="font-size: 10.5pt; line-height: 1.5;">
-</span></div><!--StartFragment--><!--EndFragment--></li>
-</ol>
-<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2429,7 +2473,7 @@ newL.append(f(item))
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-count">114</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

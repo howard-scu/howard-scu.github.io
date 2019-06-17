@@ -338,6 +338,208 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/08/19/scikit-learn-e5-ae-89-e8-a3-85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/08/19/scikit-learn-e5-ae-89-e8-a3-85/" class="post-title-link" itemprop="url">scikit learn 安装</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-08-19 11:20:04" itemprop="dateCreated datePublished" datetime="2014-08-19T11:20:04+08:00">2014-08-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/未分类/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2014/08/19/scikit-learn-e5-ae-89-e8-a3-85/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/08/19/scikit-learn-e5-ae-89-e8-a3-85/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.可以使用easy_install安装相关包，但是可能会不兼容，比如numpy的包。比较可靠的做法是自己下载相应版本的然后安装：<div>地址为：[http://www.lfd.uci.edu/~gohlke/pythonlibs/](http://www.lfd.uci.edu/~gohlke/pythonlibs/) </div><div>2.需要安装的包大致如下：numpy，scipy，matplotlib，scikit-learn；安装<span style="font-size: 10.5pt; line-height: 1.5;">matplotlib需要</span><span style="font-size: 10.5pt; line-height: 1.5;">pyparsing，six，dateutil；还需用到nose</span></div><div><span style="font-size: 10.5pt; line-height: 1.5;">3.测试matplotlib代码：</span></div><div><div><pre class="prettyprint linenums prettyprinted"></pre></div></div></p>
+<ol>
+<li><code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; numpy &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;kwd&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; matplotlib&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;pyplot &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;X &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;Y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;meshgrid&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; Y&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;f &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; x &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; np&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;225&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;fig &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;cs &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;contour&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; y&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; f&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; colors &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;</code></li>
+<li><code>&lt;span class=&quot;pln&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;()&lt;/span&gt;</code>&lt;/pre&gt;&lt;/div&gt;<div>4.测试scikit-learn请自行查看手册：[http://cbio.ensmp.fr/~nvaroquaux/scikit-learn/user_guide.html](http://cbio.ensmp.fr/~nvaroquaux/scikit-learn/user_guide.html) </div>&lt;/div&gt;<div>
+</div><div>Have fun!</div><div><span style="font-size: 10.5pt; line-height: 1.5;">
+</span></div><!--StartFragment--><!--EndFragment--></li>
+</ol>
+<div>[来自为知笔记(Wiz)](http://www.wiz.cn/i/c09d0bb5 "来自为知笔记(Wiz)")</div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/13/473/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2241,211 +2443,6 @@ userdata<span style="color: #333399;">:</span> (user stuff)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/" class="post-title-link" itemprop="url">VS2010编译64位版本QT</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-05-05 03:27:52" itemprop="dateCreated datePublished" datetime="2014-05-05T03:27:52+08:00">2014-05-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <div><span style="font-size: 10.5pt; line-height: 1.5;">1\. 下载，直接找官网下载就可以了。我的是</span>qt-win-opensource-4.8.5-vs2010.exe<span style="font-size: 10.5pt; line-height: 1.5;">；</span></div>
-<div></div>
-<div>2\. 设置环境变量：</div>
-<div>我的电脑&gt; 属性&gt; 高级&gt; 环境变量&gt; 用户变量里面设置几个变量:</div>
-<div>path中增加C:\Qt\4.8.5\bin(如果没有就创建)</div>
-<div>创建qmakespec值为 win32-msvc2010</div>
-<div>创建qtdir值为 <span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\</span></div>
-<div>最后为了使的你刚才修改的环境变量生效，重启cmd，可以通过c:\&gt; qmake -v来看你使用的qt版本。</div>
-<div></div>
-<div>3\. 点击 开始-&gt;Microsoft Visual Studio 2008-&gt;Visual Studio Tools-&gt;Visual Studio 2008 x64 Win64 Command Prompt</div>
-<div>现在开始安装</div>
-<div>首先进入你所在的Qt openresource 所在的文件夹</div>
-<div>例如：<span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span></div>
-<div><span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span>&gt;configure -no-stl -no-dsp -vcproj</div>
-<div></div>
-<div>此时会有一个选项 是选择商业版还是开源版，此处要选择开源版，</div>
-<div>只需输入o 然后 回车 此过程时间大概几分钟</div>
-<div>接下来就开始</div>
-<div><span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span>&gt;nmake</div>
-<div></div>
-<div>最后这个过程时间较长，需要两三个小时</div>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2494,7 +2491,7 @@ userdata<span style="color: #333399;">:</span> (user stuff)
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-count">114</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

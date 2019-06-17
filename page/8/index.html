@@ -338,6 +338,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/" class="post-title-link" itemprop="url">VS2010编译64位版本QT</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-05-05 03:27:52" itemprop="dateCreated datePublished" datetime="2014-05-05T03:27:52+08:00">2014-05-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/05/05/vs2010-e7-bc-96-e8-af-9164-e4-bd-8d-e7-89-88-e6-9c-acqt/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <div><span style="font-size: 10.5pt; line-height: 1.5;">1\. 下载，直接找官网下载就可以了。我的是</span>qt-win-opensource-4.8.5-vs2010.exe<span style="font-size: 10.5pt; line-height: 1.5;">；</span></div>
+<div></div>
+<div>2\. 设置环境变量：</div>
+<div>我的电脑&gt; 属性&gt; 高级&gt; 环境变量&gt; 用户变量里面设置几个变量:</div>
+<div>path中增加C:\Qt\4.8.5\bin(如果没有就创建)</div>
+<div>创建qmakespec值为 win32-msvc2010</div>
+<div>创建qtdir值为 <span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\</span></div>
+<div>最后为了使的你刚才修改的环境变量生效，重启cmd，可以通过c:\&gt; qmake -v来看你使用的qt版本。</div>
+<div></div>
+<div>3\. 点击 开始-&gt;Microsoft Visual Studio 2008-&gt;Visual Studio Tools-&gt;Visual Studio 2008 x64 Win64 Command Prompt</div>
+<div>现在开始安装</div>
+<div>首先进入你所在的Qt openresource 所在的文件夹</div>
+<div>例如：<span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span>&gt;configure -no-stl -no-dsp -vcproj</div>
+<div></div>
+<div>此时会有一个选项 是选择商业版还是开源版，此处要选择开源版，</div>
+<div>只需输入o 然后 回车 此过程时间大概几分钟</div>
+<div>接下来就开始</div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">C:\Qt\4.8.5</span><span style="font-size: 10.5pt; line-height: 1.5;">\bin</span>&gt;nmake</div>
+<div></div>
+<div>最后这个过程时间较长，需要两三个小时</div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/04/17/e7-83-ad-e7-88-b1-e7-94-9f-e5-91-bd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2533,482 +2738,6 @@ std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>c
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/11/command-and-observer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/01/11/command-and-observer/" class="post-title-link" itemprop="url">Command and Observer</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-01-11 00:50:30" itemprop="dateCreated datePublished" datetime="2014-01-11T00:50:30+08:00">2014-01-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/design-pattern/" itemprop="url" rel="index"><span itemprop="name">design pattern</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2014/01/11/command-and-observer/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/01/11/command-and-observer/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">1.Observer(观察者模式)</span></strong></p>
-<div>主题对象管理某些数据，当主题内的数据发生改变，就通知观察者，观察者已经注册主题便会在主题数据发生改变时能够收到更新。一旦数据改变，新的数据会以某种形式送到观察者手上。
-<div><span style="color: #ff0000;">观察者模式</span>定义了对象之间的<span style="color: #ff0000;">一对多关系</span>，当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。</div>
-</div>
-<div>![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-4056175e6cecd785cac776067999cc1e_obsv1.jpg)</div>
-<div>例子：</div>
-<div>
-<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
-<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>iostream<span style="color: #333399;">&gt;</span>
-#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>set<span style="color: #333399;">&gt;</span>
-#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>string<span style="color: #333399;">&gt;</span>
-<span style="color: #0000ff;">**using**</span> <span style="color: #0000ff;">**namespace**</span> std;
-<span style="color: #008000;">/////////////////////抽象模式定义</span>
-<span style="color: #0000ff;">**class**</span> CObservable;
-<span style="color: #008000;">//观察者，纯虚基类</span>
-<span style="color: #0000ff;">**class**</span> CObserver
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-CObserver<span style="color: #333399;">:</span><span style="color: #333399;">:</span>CObserver(){};
-<span style="color: #0000ff;">**virtual**</span> CObserver<span style="color: #333399;">:</span><span style="color: #333399;">:</span><span style="color: #333399;">~</span>CObserver(){};
-<span style="color: #008000;">//当被观察的目标发生变化时，通知调用该方法</span>
-<span style="color: #008000;">//来自被观察者pObs, 扩展参数为pArg</span>
-<span style="color: #0000ff;">**virtual**</span> <span style="color: #0000ff;">**void**</span> Update(CObservable<span style="color: #333399;">*</span> pObs, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> pArg <span style="color: #333399;">=</span> NULL) <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>;
-};
-<span style="color: #008000;">//被观察者，即Subject</span>
-<span style="color: #0000ff;">**class**</span> CObservable
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-CObservable() <span style="color: #333399;">:</span> m_bChanged(<span style="color: #0000ff;">**false**</span>) {};
-<span style="color: #0000ff;">**virtual**</span> <span style="color: #333399;">~</span>CObservable() {};
-<span style="color: #008000;">//注册观察者</span>
-<span style="color: #0000ff;">**void**</span> Attach(CObserver<span style="color: #333399;">*</span> pObs);
-<span style="color: #008000;">//注销观察者</span>
-<span style="color: #0000ff;">**void**</span> Detach(CObserver<span style="color: #333399;">*</span> pObs);
-<span style="color: #008000;">//注销所有观察者</span>
-<span style="color: #0000ff;">**void**</span> DetachAll();
-<span style="color: #008000;">//若状态变化，则遍历观察者，逐个通知更新</span>
-<span style="color: #0000ff;">**void**</span> Notify(<span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> pArg <span style="color: #333399;">=</span> NULL);
-<span style="color: #008000;">//测试目标状态是否变化</span>
-<span style="color: #0000ff;">**bool**</span> HasChanged();
-<span style="color: #008000;">//获取观察者数量</span>
-<span style="color: #0000ff;">**int**</span> GetObserversCount();
-<span style="color: #0000ff;">**protected**</span><span style="color: #333399;">:</span>
-<span style="color: #008000;">//设置状态变化!!!必须继承CObservable才能设置目标状态</span>
-<span style="color: #0000ff;">**void**</span> SetChanged();
-<span style="color: #008000;">//初始化目标为未变化状态</span>
-<span style="color: #0000ff;">**void**</span> ClearChanged();
-<span style="color: #0000ff;">**private**</span><span style="color: #333399;">:</span>
-<span style="color: #0000ff;">**bool**</span> m_bChanged; <span style="color: #008000;">//状态</span>
-set<span style="color: #333399;">&lt;</span>CObserver<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span> m_setObs; <span style="color: #008000;">//set保证目标唯一性</span>
-};
-<span style="color: #008000;">/////////////////////抽象模式实现</span>
-<span style="color: #0000ff;">**void**</span> CObservable<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Attach(CObserver<span style="color: #333399;">*</span> pObs)
-{
-<span style="color: #0000ff;">**if**</span> (<span style="color: #333399;">!</span>pObs) <span style="color: #0000ff;">**return**</span>;
-m_setObs.insert(pObs);
-}
-<span style="color: #0000ff;">**void**</span> CObservable<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Detach(CObserver<span style="color: #333399;">*</span> pObs)
-{
-<span style="color: #0000ff;">**if**</span> (<span style="color: #333399;">!</span>pObs) <span style="color: #0000ff;">**return**</span>;
-m_setObs.erase(pObs);
-}
-<span style="color: #0000ff;">**void**</span> CObservable<span style="color: #333399;">:</span><span style="color: #333399;">:</span>DetachAll()
-{
-m_setObs.clear();
-}
-<span style="color: #0000ff;">**void**</span> CObservable<span style="color: #333399;">:</span><span style="color: #333399;">:</span>SetChanged()
-{
-m_bChanged <span style="color: #333399;">=</span> <span style="color: #0000ff;">**true**</span>;
-}
-<span style="color: #0000ff;">**void**</span> CObservable<span style="color: #333399;">:</span><span style="color: #333399;">:</span>ClearChanged()
-{
-m_bChanged <span style="color: #333399;">=</span> <span style="color: #0000ff;">**false**</span>;
-}
-<span style="color: #0000ff;">**bool**</span> CObservable<span style="color: #333399;">:</span><span style="color: #333399;">:</span>HasChanged()
-{
-<span style="color: #0000ff;">**return**</span> m_bChanged;
-}
-<span style="color: #0000ff;">**int**</span> CObservable<span style="color: #333399;">:</span><span style="color: #333399;">:</span>GetObserversCount()
-{
-<span style="color: #0000ff;">**return**</span> m_setObs.size();
-}
-<span style="color: #0000ff;">**void**</span> CObservable<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Notify(<span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> pArg <span style="color: #008000;">/* = NULL */</span>)
-{
-<span style="color: #0000ff;">**if**</span> (<span style="color: #333399;">!</span>HasChanged()) <span style="color: #0000ff;">**return**</span>;
-cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"notify observers…"</span> <span style="color: #333399;">&lt;&lt;</span> endl;
-ClearChanged();
-set<span style="color: #333399;">&lt;</span>CObserver<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>iterator itr <span style="color: #333399;">=</span> m_setObs.begin();
-<span style="color: #0000ff;">**for**</span> (; itr <span style="color: #333399;">!=</span> m_setObs.end(); itr<span style="color: #333399;">++</span>)
-{
-(<span style="color: #333399;">*</span>itr)<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update(<span style="color: #0000ff;">**this**</span>, pArg);
-}
-}
-<span style="color: #008000;">/////////////////////具体应用类定义和实现</span>
-<span style="color: #008000;">//bloger是发布者，即被观察者(subject)</span>
-<span style="color: #0000ff;">**class**</span> CBloger <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> CObservable
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-<span style="color: #0000ff;">**void**</span> Publish(<span style="color: #0000ff;">**const**</span> string <span style="color: #333399;">&amp;</span>strContent)
-{
-cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"bloger publish, content: "</span> <span style="color: #333399;">&lt;&lt;</span> strContent <span style="color: #333399;">&lt;&lt;</span> endl;
-SetChanged();
-Notify(<span style="color: #0000ff;">**const_cast**</span><span style="color: #333399;">&lt;</span><span style="color: #0000ff;">**char**</span><span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(strContent.c_str()));
-}
-};
-<span style="color: #008000;">//portal是发布者，即被观察者(subject)</span>
-<span style="color: #0000ff;">**class**</span> CPortal <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> CObservable
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-<span style="color: #0000ff;">**void**</span> Publish(<span style="color: #0000ff;">**const**</span> string <span style="color: #333399;">&amp;</span>strContent)
-{
-cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"portal publish, content: "</span> <span style="color: #333399;">&lt;&lt;</span> strContent <span style="color: #333399;">&lt;&lt;</span> endl;
-SetChanged();
-Notify(<span style="color: #0000ff;">**const_cast**</span><span style="color: #333399;">&lt;</span><span style="color: #0000ff;">**char**</span><span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(strContent.c_str()));
-}
-};
-<span style="color: #008000;">//RSS阅读器，观察者</span>
-<span style="color: #0000ff;">**class**</span> CRSSReader <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> CObserver
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-CRSSReader(<span style="color: #0000ff;">**const**</span> string <span style="color: #333399;">&amp;</span>strName) <span style="color: #333399;">:</span> m_strName(strName){}
-<span style="color: #0000ff;">**virtual**</span> <span style="color: #0000ff;">**void**</span> Update(CObservable<span style="color: #333399;">*</span> pObs, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> pArg <span style="color: #333399;">=</span> NULL)
-{
-<span style="color: #0000ff;">**char**</span><span style="color: #333399;">*</span> pContent <span style="color: #333399;">=</span> <span style="color: #0000ff;">**static_cast**</span><span style="color: #333399;">&lt;</span><span style="color: #0000ff;">**char**</span><span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(pArg);
-<span style="color: #008000;">//观察多个目标</span>
-<span style="color: #0000ff;">**if**</span> (<span style="color: #0000ff;">**dynamic_cast**</span><span style="color: #333399;">&lt;</span>CBloger<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(pObs))
-{
-cout <span style="color: #333399;">&lt;&lt;</span> m_strName <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">" updated from bloger, content: "</span> <span style="color: #333399;">&lt;&lt;</span> pContent <span style="color: #333399;">&lt;&lt;</span> endl;
-}
-<span style="color: #0000ff;">**else**</span> <span style="color: #0000ff;">**if**</span> (<span style="color: #0000ff;">**dynamic_cast**</span><span style="color: #333399;">&lt;</span>CPortal<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(pObs))
-{
-cout <span style="color: #333399;">&lt;&lt;</span> m_strName <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">" updated from portal, content: "</span> <span style="color: #333399;">&lt;&lt;</span> pContent <span style="color: #333399;">&lt;&lt;</span> endl;
-}
-}
-<span style="color: #0000ff;">**private**</span><span style="color: #333399;">:</span>
-string m_strName;
-};
-<span style="color: #008000;">//Mail阅读器，观察者</span>
-<span style="color: #0000ff;">**class**</span> CMailReader <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> CObserver
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-CMailReader(<span style="color: #0000ff;">**const**</span> string <span style="color: #333399;">&amp;</span>strName) <span style="color: #333399;">:</span> m_strName(strName){}
-<span style="color: #0000ff;">**virtual**</span> <span style="color: #0000ff;">**void**</span> Update(CObservable<span style="color: #333399;">*</span> pObs, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> pArg <span style="color: #333399;">=</span> NULL)
-{
-<span style="color: #0000ff;">**char**</span><span style="color: #333399;">*</span> pContent <span style="color: #333399;">=</span> <span style="color: #0000ff;">**static_cast**</span><span style="color: #333399;">&lt;</span><span style="color: #0000ff;">**char**</span><span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(pArg);
-<span style="color: #0000ff;">**if**</span> (<span style="color: #0000ff;">**dynamic_cast**</span><span style="color: #333399;">&lt;</span>CBloger<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(pObs))
-{
-cout <span style="color: #333399;">&lt;&lt;</span> m_strName <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">" updated from bloger, content: "</span> <span style="color: #333399;">&lt;&lt;</span> pContent <span style="color: #333399;">&lt;&lt;</span> endl;
-}
-<span style="color: #0000ff;">**if**</span> (<span style="color: #0000ff;">**dynamic_cast**</span><span style="color: #333399;">&lt;</span>CPortal<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(pObs))
-{
-cout <span style="color: #333399;">&lt;&lt;</span> m_strName <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">" updated from portal, content: "</span> <span style="color: #333399;">&lt;&lt;</span> pContent <span style="color: #333399;">&lt;&lt;</span> endl;
-}
-}
-<span style="color: #0000ff;">**private**</span><span style="color: #333399;">:</span>
-string m_strName;
-};
-<span style="color: #008000;">/////////////////Main</span>
-<span style="color: #0000ff;">**int**</span> main()
-{
-<span style="color: #008000;">//目标(被观察者)</span>
-CBloger<span style="color: #333399;">*</span> pBloger <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> CBloger();
-CPortal<span style="color: #333399;">*</span> pPortal <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> CPortal();
-<span style="color: #008000;">//观察者. 一个观察者可以观察多个目标</span>
-CRSSReader<span style="color: #333399;">*</span> pRssReader <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> CRSSReader(<span style="color: #ff00bf;">"rss reader"</span>);
-CMailReader<span style="color: #333399;">*</span> pMailReader <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> CMailReader(<span style="color: #ff00bf;">"mail reader"</span>);
-pBloger<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Attach(pRssReader); <span style="color: #008000;">//bloger注册观察者</span>
-pBloger<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Attach(pMailReader); <span style="color: #008000;">//bloger注册观察者</span>
-pPortal<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Attach(pRssReader); <span style="color: #008000;">//portal注册观察者</span>
-pPortal<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Attach(pMailReader); <span style="color: #008000;">//portal注册观察者</span>
-<span style="color: #008000;">//博客发布信息</span>
-pBloger<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Publish(<span style="color: #ff00bf;">"博客分享设计模式"</span>);
-cout <span style="color: #333399;">&lt;&lt;</span> endl;
-<span style="color: #008000;">//门户发布信息</span>
-pPortal<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Publish(<span style="color: #ff00bf;">"门户分享设计模式"</span>);
-cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"\nportal detached mail reader"</span> <span style="color: #333399;">&lt;&lt;</span> endl;
-pPortal<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Detach(pMailReader);
-cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"portal observers count: "</span> <span style="color: #333399;">&lt;&lt;</span> pPortal<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetObserversCount() <span style="color: #333399;">&lt;&lt;</span> endl <span style="color: #333399;">&lt;&lt;</span> endl;
-pPortal<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Publish(<span style="color: #ff00bf;">"门户分享设计模式"</span>);
-system(<span style="color: #ff00bf;">"pause"</span>);
-<span style="color: #0000ff;">**return**</span> <span style="color: #6e00aa;">0</span>;
-}</div>
-</div>
-</div>
-<div></div>
-<div><span style="font-size: 12pt;" data-wiz-span="data-wiz-span">**2.Command(命令模式)**</span>
-<div>命令模式通俗的例子：在餐厅，顾客订餐，把订单交给女招待，女招待拿了订单，交给厨师，厨师根据订单准备食物。一张订单封装了准备食物的请求。女招待的工作就是接受订单，然后调用订单的orderUp()方法。</div>
-</div>
-<div>命令模式，将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤消的操作。</div>
-<div>![](http://codeplanet-wordpress.stor.sinaapp.com/uploads/2014/01/wpid-4056175e6cecd785cac776067999cc1e_cmd1.jpg)</div>
-<div>示例代码：</div>
-<div>
-<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
-<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>iostream<span style="color: #333399;">&gt;</span>
-#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vector<span style="color: #333399;">&gt;</span>
-<span style="color: #0000ff;">**using**</span> <span style="color: #0000ff;">**namespace**</span>std;<span style="color: #008000;">// 烤肉师傅</span>
-<span style="color: #0000ff;">**class**</span> RoastCook
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-<span style="color: #0000ff;">**void**</span> MakeMutton()
-{ cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"烤羊肉"</span> <span style="color: #333399;">&lt;&lt;</span>endl; }<span style="color: #0000ff;">**void**</span> MakeChickenWing()
-{ cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"烤鸡翅膀"</span> <span style="color: #333399;">&lt;&lt;</span> endl; }
-
-};
-
-<span style="color: #008000;">// 抽象命令类</span>
-
-<span style="color: #0000ff;">**class**</span> Command
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-Command(RoastCook<span style="color: #333399;">*</span> temp) { receiver <span style="color: #333399;">=</span> temp; }
-<span style="color: #0000ff;">**virtual**</span> <span style="color: #0000ff;">**void**</span> ExecuteCmd() <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>;
-<span style="color: #0000ff;">**protected**</span><span style="color: #333399;">:</span>
-RoastCook<span style="color: #333399;">*</span> receiver;
-};
-
-<span style="color: #008000;">// 烤羊肉命令</span>
-<span style="color: #0000ff;">**class**</span> MakeMuttonCmd <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> Command
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-MakeMuttonCmd(RoastCook<span style="color: #333399;">*</span> temp) <span style="color: #333399;">:</span> Command(temp) {}
-<span style="color: #0000ff;">**virtual**</span> <span style="color: #0000ff;">**void**</span> ExecuteCmd() { receiver<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>MakeMutton(); }
-};
-
-<span style="color: #008000;">// 烤鸡翅膀命令</span>
-<span style="color: #0000ff;">**class**</span> MakeChickenWingCmd <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> Command
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-MakeChickenWingCmd(RoastCook<span style="color: #333399;">*</span> temp) <span style="color: #333399;">:</span> Command(temp) {}
-<span style="color: #0000ff;">**virtual**</span> <span style="color: #0000ff;">**void**</span> ExecuteCmd() { receiver<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>MakeChickenWing(); }
-};
-
-<span style="color: #008000;">// 服务员类</span>
-<span style="color: #0000ff;">**class**</span> Waiter
-{
-<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
-<span style="color: #0000ff;">**void**</span> SetCmd(Command<span style="color: #333399;">*</span> temp);
-
-<span style="color: #008000;">// 通知执行</span>
-<span style="color: #0000ff;">**void**</span> Notify();
-
-<span style="color: #0000ff;">**protected**</span><span style="color: #333399;">:</span>
-vector<span style="color: #333399;">&lt;</span>Command<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span> m_commandList;
-};
-
-<span style="color: #0000ff;">**void**</span> Waiter<span style="color: #333399;">:</span><span style="color: #333399;">:</span>SetCmd(Command<span style="color: #333399;">*</span> temp)
-{
-m_commandList.push_back(temp);
-cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"增加订单"</span> <span style="color: #333399;">&lt;&lt;</span> endl;
-}
-
-<span style="color: #0000ff;">**void**</span> Waiter<span style="color: #333399;">:</span><span style="color: #333399;">:</span>Notify()
-{
-vector<span style="color: #333399;">&lt;</span>Command<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>iterator it;
-
-<span style="color: #0000ff;">**for**</span> (it<span style="color: #333399;">=</span>m_commandList.begin(); it<span style="color: #333399;">!=</span>m_commandList.end(); <span style="color: #333399;">++</span>it)
-{
-(<span style="color: #333399;">*</span>it)<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>ExecuteCmd();
-}
-}
-
-<span style="color: #0000ff;">**int**</span> main()
-{
-<span style="color: #008000;">// 店里添加烤肉师傅、菜单、服务员等顾客</span>
-RoastCook<span style="color: #333399;">*</span> cook <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> RoastCook();
-Command<span style="color: #333399;">*</span>   cmd1 <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> MakeMuttonCmd(cook);
-Command<span style="color: #333399;">*</span>   cmd2 <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> MakeChickenWingCmd(cook);
-Waiter<span style="color: #333399;">*</span>    girl <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> Waiter();
-
-<span style="color: #008000;">// 点菜</span>
-girl<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetCmd(cmd1);
-girl<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetCmd(cmd2);
-
-<span style="color: #008000;">// 服务员通知</span>
-girl<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Notify();
-system(<span style="color: #ff00bf;">"pause"</span>);
-<span style="color: #0000ff;">**return**</span> <span style="color: #6e00aa;">0</span>;
-}
-
-</div>
-</div>
-</div>
-<div>
-<div></div>
-<div>**3.Command 和 Observer 的一些区别**</div>
-<div><span style="font-size: 10.5pt; line-height: 1.5;">1.Command封装一个请求对象，Observer定义一种一对多的依赖关系;</span></div>
-<div><span style="font-size: 10.5pt; line-height: 1.5;">2.Command通过对象解耦，Observer可以通过消息解耦;</span></div>
-<div>3.Command可以有执行和撤消操作，所以从某种意义上来说，Command是有序的，Observer是无序的;</div>
-<div>4.Command是在主类中通过接口调用各客户端子类的功能，Observer支持主类将更新通知给客户端，然后由客户端自行处理。</div>
-</div>
-<div></div>
-<div>[参考]:http://www.cnblogs.com/Random/archive/2012/03/21/2409090.html</div>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3057,7 +2786,7 @@ system(<span style="color: #ff00bf;">"pause"</span>);
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-count">114</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
