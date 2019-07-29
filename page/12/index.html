@@ -338,6 +338,320 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/28/c-e8-b0-83-e7-94-a8sqlite3-e6-95-b0-e6-8d-ae-e5-ba-93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/07/28/c-e8-b0-83-e7-94-a8sqlite3-e6-95-b0-e6-8d-ae-e5-ba-93/" class="post-title-link" itemprop="url">c++调用sqlite3数据库</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-07-28 16:24:50" itemprop="dateCreated datePublished" datetime="2013-07-28T16:24:50+08:00">2013-07-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c-cpp/" itemprop="url" rel="index"><span itemprop="name">c/cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2013/07/28/c-e8-b0-83-e7-94-a8sqlite3-e6-95-b0-e6-8d-ae-e5-ba-93/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/07/28/c-e8-b0-83-e7-94-a8sqlite3-e6-95-b0-e6-8d-ae-e5-ba-93/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre class="brush:cpp">#include "stdio.h"
+#include "stdlib.h"
+extern "C"
+{
+#include "sqlite3.h"
+};
+
+int open_database(sqlite3** db,char* dbName);
+int close_database(sqlite3* db);
+int query(void* para,int n_column,char** column_value,char **column_name);
+
+int main()
+{
+    char* errmsg=NULL;
+    sqlite3* db;
+    open_database(&amp;db,"C:\\test.db");
+    int ret = sqlite3_exec(db, "select * from stu;" ,query, NULL, &amp;errmsg );
+    close_database(db);
+
+    system("pause");
+    return 0;
+}
+int open_database(sqlite3** db,char* dbName)
+{
+    int result;
+    char * errmsg = NULL;
+    result = sqlite3_open(dbName,db );
+    if( result != SQLITE_OK )
+    {
+        // 数据库打开失败
+        printf("打开数据库【%s】失败\n",dbName);
+        return 0;
+    }
+    printf("打开数据库【%s】成功\n",dbName);
+    return 1;
+}
+
+int query_nn(sqlite3** db,char* sql)
+{
+    char** dbResult;
+    int nRow,nColumn;
+    int index;
+    int result;
+    char* errmsg = NULL;
+    //
+    result = sqlite3_get_table(*db,sql,&amp;dbResult,&amp;nRow,&amp;nColumn,&amp;errmsg );
+    if( SQLITE_OK == result )
+    {
+        // 查询成功
+        index = nColumn; // 前面说过 dbResult 前面第一行数据是字段名称，从 nColumn 索引开始才是真正的数据
+        printf( "查到 %d 条记录 \n " , nRow );
+        for(int i = 0; i &lt; nRow ; i++ )
+        {
+            printf( "第 %d 条记录 \n " , i+1 );
+            for(int j = 0 ; j &lt; nColumn; j++ )
+            {
+                printf( "字段名 :%s &gt; 字段值 :%s\n " , dbResult[j], dbResult [index] );
+                ++index; // dbResult 的字段值是连续的 ， 从第 0 索引到第 nColumn - 1 索引都是字段名称 ， 从第nColumn 索引开始 ， 后面都是字段值 ， 它把一个二维的表 （ 传统的行列表示法 ） 用一个扁平的形式来表示
+            }
+            printf( "-------\n " );
+        }
+    }
+    //printf( "!!!错误码 :%d ，错误原因 :%s\n ", result, errmsg );
+    // 到这里 ， 不论数据库查询是否成功 ， 都释放 char** 查询结果 ， 使用 sqlite 提供的功能来释放
+    sqlite3_free_table( dbResult );
+    return 1;
+}
+
+int close_database(sqlite3* db)
+{
+    int result;
+    char * errmsg = NULL;
+    result = sqlite3_close(db);
+    if( result != SQLITE_OK )
+    {
+        // 数据库打开失败
+        printf("关闭数据库失败\n");
+        return 0;
+    }
+    printf("关闭数据库成功\n");
+    return 1;
+}
+int query(void* para,int n_column,char** column_value,char **column_name)
+{
+    //para是你在sqlite3_exec里传入的void*参数
+    //n_column是这一条记录有多少个字段
+    //char** column_value是个关键值，查出来的数据都保存在这里(实际上是个 1 维数组)
+    //char** column_name跟 column_value 是对应的，表示这个字段的字段名称
+    int i;
+    printf("记录包含 %d 个字段\n", n_column );
+    for(i = 0 ; i &lt; n_column; i++ )
+    {
+        printf("字段名 :%s &gt; 字段值 :%s\n" , column_name[i], column_value[i] );
+    }
+    printf("-------------------------------\n ");
+    return 0;
+}
+
+/*
+//创建一个测试表，表名叫stu
+result = sqlite3_exec( db, "create table stu( id integer primary key autoincrement, name varchar(10),age integer);" , NULL, NULL, &amp;errmsg );
+if(result != SQLITE_OK )
+{
+printf( "创建表失败，错误码 :%d，错误原因 :%s\n" , result, errmsg );
+}
+
+// 插入一些记录
+result = sqlite3_exec( db, "insert into stu(name,age) values ('Alex',18);" , 0, 0, &amp;errmsg );
+if(result != SQLITE_OK )
+{
+printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n " , result, errmsg );
+}
+result = sqlite3_exec( db, "insert into stu(name,age) values ('Bob',19);" , 0, 0, &amp;errmsg );
+if(result != SQLITE_OK )
+{
+printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n ", result, errmsg );
+}
+result = sqlite3_exec( db, "insert into stu(name,age) values ('Cindy',20);", 0, 0, &amp;errmsg);
+if(result != SQLITE_OK )
+{
+printf( "插入记录失败，错误码 :%d ，错误原因 :%s\n " , result, errmsg );
+}
+// 开始查询数据库
+//result = sqlite3_exec( db, "select * from stu;" , LoadMyInfo, NULL, &amp;errmsg );
+
+*/</pre>
+
+<p>查询结果输出到文件：</p>
+<p>sqlite&gt; .output ‘result’                                        // 指定导出文件<br>sqlite&gt; select <em> from class;                                 // 查询数据，输出到文件<br>sqlite&gt; .read ‘result’                                           // 查看到处的文件数据<br>sqlite&gt; .output stdout                                        // 重新设置输出终端<br>sqlite&gt; select </em> from class;                                 // 查询数据，可在终端看到数据</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/18/pygame-e5-88-9d-e6-8e-a2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1342,7 +1656,7 @@ result_message: The area is:</pre>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">115</span>
+                    <span class="site-state-item-count">116</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1604,7 +1918,9 @@ result_message: The area is:</pre>
                     
                       
                     
-                    <span class="site-state-item-count">85</span>
+                      
+                    
+                    <span class="site-state-item-count">86</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1830,6 +2146,8 @@ result_message: The area is:</pre>
 
   
   
+    
+      
     
       
     

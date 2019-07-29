@@ -338,6 +338,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtk设置actor颜色问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/vtk设置actor颜色问题/" class="post-title-link" itemprop="url">vtk设置actor颜色问题</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:28:08 / 修改时间：12:28:24" itemprop="dateCreated datePublished" datetime="2019-02-28T12:28:08+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/vtk设置actor颜色问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtk设置actor颜色问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>设置颜色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vessel_actors-&gt;GetProperty()-&gt;SetColor(0.75, 0.75, 0.75);</span><br></pre></td></tr></table></figure></p>
+<p> 此时，会显示蓝色<br>需要设置对应的mapper<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vessel_mappers-&gt;ScalarVisibilityOff();</span><br></pre></td></tr></table></figure></p>
+<p>参考：<br><a href="http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html" target="_blank" rel="noopener">http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtk处理外部事件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1772,7 +1948,7 @@
         
           
             <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.启动hbase<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  hbase-1.1.2  ./bin/start-hbase.sh</span><br><span class="line">starting master, logging to /home/luxh/hbase/hbase-1.1.2/bin/../logs/hbase-luxh-master-ubuntu.out</span><br></pre></td></tr></table></figure></p>
-<p> 2.启动gremlin：连接本地hbase时不需要显式加入host<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  titan-1.0.0-hadoop1  bin/gremlin.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: aurelius.titan</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</span><br><span class="line">15:04:30 INFO  org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph  - HADOOP_GREMLIN_LIBS is set to: /home/luxh/titan/titan-1.0.0-hadoop1/lib</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line"><span class="meta">gremlin&gt;</span> </span><br><span class="line"><span class="meta">gremlin&gt;</span> TitanGraph graph = TitanFactory.build().set("storage.backend", "hbase").open();</span><br><span class="line">==&gt;standardtitangraph[hbase:[127.0.0.1]]</span><br><span class="line"><span class="meta">gremlin&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p> 2.启动gremlin：连接本地hbase时不需要显式加入host<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  titan-1.0.0-hadoop1  bin/gremlin.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: aurelius.titan</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/home/luxh/titan/titan-1.0.0-hadoop1/lib/logback-classic-1.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</span><br><span class="line">15:04:30 INFO  org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph  - HADOOP_GREMLIN_LIBS is set to: /home/luxh/titan/titan-1.0.0-hadoop1/lib</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"> TitanGraph graph = TitanFactory.build().<span class="built_in">set</span>(<span class="string">"storage.backend"</span>, <span class="string">"hbase"</span>).open();</span></span><br><span class="line">==&gt;standardtitangraph[hbase:[127.0.0.1]]</span><br><span class="line"><span class="meta">gremlin&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure></p>
 <p>连接远程hbase时，语句如下更改为如下方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TitanGraph g = TitanFactory.build().set(&quot;storage.backend&quot;, &quot;hbase&quot;).set(&quot;storage.hostname&quot;, &quot;77.77.77.77, 77.77.77.78, 77.77.77.79&quot;).open();</span><br></pre></td></tr></table></figure></p>
 <h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>[1]. <a href="http://s3.thinkaurelius.com/docs/titan/1.0.0/hbase.html" target="_blank" rel="noopener">http://s3.thinkaurelius.com/docs/titan/1.0.0/hbase.html</a></p>
 
@@ -2005,191 +2181,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/13/笔试练习（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/10/13/笔试练习（二）/" class="post-title-link" itemprop="url">笔试练习（二）</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-10-13 23:35:01 / 修改时间：23:42:44" itemprop="dateCreated datePublished" datetime="2015-10-13T23:35:01+08:00">2015-10-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2015/10/13/笔试练习（二）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/13/笔试练习（二）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h3><ul>
-<li>根据先序遍历和中序遍历重建二叉树</li>
-<li>问题1：vector分片</li>
-<li>问题2：相似语句复制粘贴容易出问题而且不易察觉（特别是仅有下标不同的情况）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	TreeNode *left;</span><br><span class="line">	TreeNode *right;</span><br><span class="line">	TreeNode(<span class="keyword">int</span> x) : val(x), left(<span class="literal">NULL</span>), right(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">struct TreeNode* <span class="title">reConstructBinaryTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pre.empty() || in.empty()) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	TreeNode* root = <span class="keyword">new</span> TreeNode(pre[<span class="number">0</span>]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;pre.size();i++)</span><br><span class="line">		<span class="keyword">if</span>(pre[<span class="number">0</span>] == in[i]) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre1(pre.begin()+<span class="number">1</span>, pre.begin()+i+<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre2(pre.begin()+i+<span class="number">1</span>, pre.end());</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in1(in.begin(), in.begin()+i);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in2(in.begin()+i+<span class="number">1</span>, in.end());</span><br><span class="line"></span><br><span class="line">	<span class="comment">//vector&lt;int&gt;::iterator it;</span></span><br><span class="line">	<span class="comment">//for(it = pre1.begin();it!=pre1.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = pre2.begin();it!=pre2.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = in1.begin();it!=in1.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//for(it = in2.begin();it!=in2.end();it++)</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; *it &lt;&lt; "\t";</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">	root-&gt;left = reConstructBinaryTree(pre1,in1);</span><br><span class="line">	root-&gt;right = reConstructBinaryTree(pre2,in2);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/10/13/笔试练习（二）/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2238,7 +2229,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">115</span>
+                    <span class="site-state-item-count">116</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2500,7 +2491,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">85</span>
+                      
+                    
+                    <span class="site-state-item-count">86</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
