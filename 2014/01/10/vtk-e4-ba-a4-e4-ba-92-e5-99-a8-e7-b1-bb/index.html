@@ -439,7 +439,7 @@
             
                 <span class="post-meta-item-text">评论数：</span>
                 <a href="/2014/01/10/vtk-e4-ba-a4-e4-ba-92-e5-99-a8-e7-b1-bb/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/01/10/vtk-e4-ba-a4-e4-ba-92-e5-99-a8-e7-b1-bb/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2014/01/10/vtk-e4-ba-a4-e4-ba-92-e5-99-a8-e7-b1-bb/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -620,7 +620,7 @@ Note that the renderer's actors are not moved; instead the camera is moved.
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/image/20190228134126.jpg" alt="Lu Xiaohua 微信支付">
+        <img id="wechat_qr" src="/image/20190729160633.jpg" alt="Lu Xiaohua 微信支付">
         <p>微信支付</p>
       </div>
     
@@ -692,9 +692,9 @@ Note that the renderer's actors are not moved; instead the camera is moved.
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
+      
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -1208,30 +1208,48 @@ Note that the renderer's actors are not moved; instead the camera is moved.
 
   
   
-  
-  <script id="dsq-count-scr" src="https://luxiaohua.disqus.com/count.js" async></script>
 
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
 
 <script>
-  var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2014/01/10/vtk-e4-ba-a4-e4-ba-92-e5-99-a8-e7-b1-bb/";
-    this.page.identifier = "2014/01/10/vtk-e4-ba-a4-e4-ba-92-e5-99-a8-e7-b1-bb/";
-    this.page.title = 'VTK交互器类';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://luxiaohua.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'howard-scu',
+      repo: 'git@github.com:howard-scu/howard-scu.github.io.git',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '11e869642f48730750be5a254fc7b2ee91cde229',
+      
+        client_id: '2e453f8a4c9ea2de50d4'
+      }
+    });
+    gitment.render('gitment-container');
   }
+
   
-    loadComments();
+    renderGitment();
   
 </script>
-
-
-
-
 
   
 

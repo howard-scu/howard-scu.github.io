@@ -439,7 +439,7 @@
             
                 <span class="post-meta-item-text">评论数：</span>
                 <a href="/2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c1/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -590,7 +590,7 @@ userdata<span style="color: #333399;">:</span> (user stuff)
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/image/20190228134126.jpg" alt="Lu Xiaohua 微信支付">
+        <img id="wechat_qr" src="/image/20190729160633.jpg" alt="Lu Xiaohua 微信支付">
         <p>微信支付</p>
       </div>
     
@@ -666,9 +666,9 @@ userdata<span style="color: #333399;">:</span> (user stuff)
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
+      
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -1182,30 +1182,48 @@ userdata<span style="color: #333399;">:</span> (user stuff)
 
   
   
-  
-  <script id="dsq-count-scr" src="https://luxiaohua.disqus.com/count.js" async></script>
 
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
 
 <script>
-  var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c1/";
-    this.page.identifier = "2014/05/06/e6-84-9f-e7-9f-a5-e5-99-a8-e7-a5-9e-e7-bb-8f-e7-bd-91-e7-bb-9c1/";
-    this.page.title = 'Matlab构建感知器神经网络';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://luxiaohua.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'howard-scu',
+      repo: 'git@github.com:howard-scu/howard-scu.github.io.git',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '11e869642f48730750be5a254fc7b2ee91cde229',
+      
+        client_id: '2e453f8a4c9ea2de50d4'
+      }
+    });
+    gitment.render('gitment-container');
   }
+
   
-    loadComments();
+    renderGitment();
   
 </script>
-
-
-
-
 
   
 

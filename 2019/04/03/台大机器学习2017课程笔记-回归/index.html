@@ -95,7 +95,7 @@
 
 
   <meta name="description" content="回归：输出为数值 股票市场预测=&amp;gt;道琼斯指数 自动驾驶汽车=&amp;gt;方向盘角度 推荐系统=&amp;gt;购买可能性  线性回归模型y = b + wx损失函数L(f) = \sum_{i=1}^{n}(\hat{y}^i-f(x^i))^2L(w,b) = \sum_{i=1}^{n}(\hat{y}^i-(wx^i+b))最优化f^* = arg \underset{f}{\min} L(f)w">
-<meta name="keywords" content="machine learning,笔记,regression">
+<meta name="keywords" content="machine learning,regression,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="台大机器学习2017课程笔记-回归">
 <meta property="og:url" content="http://yoursite.com/2019/04/03/台大机器学习2017课程笔记-回归/index.html">
@@ -431,7 +431,7 @@
             
                 <span class="post-meta-item-text">评论数：</span>
                 <a href="/2019/04/03/台大机器学习2017课程笔记-回归/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/03/台大机器学习2017课程笔记-回归/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/03/台大机器学习2017课程笔记-回归/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -520,7 +520,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/image/20190228134126.jpg" alt="Lu Xiaohua 微信支付">
+        <img id="wechat_qr" src="/image/20190729160633.jpg" alt="Lu Xiaohua 微信支付">
         <p>微信支付</p>
       </div>
     
@@ -543,9 +543,9 @@
           
             <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
           
-            <a href="/tags/笔记/" rel="tag"># 笔记</a>
-          
             <a href="/tags/regression/" rel="tag"># regression</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
         </div>
       
@@ -594,9 +594,9 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
+      
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -1136,30 +1136,48 @@
 
   
   
-  
-  <script id="dsq-count-scr" src="https://luxiaohua.disqus.com/count.js" async></script>
 
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
 
 <script>
-  var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2019/04/03/台大机器学习2017课程笔记-回归/";
-    this.page.identifier = "2019/04/03/台大机器学习2017课程笔记-回归/";
-    this.page.title = '台大机器学习2017课程笔记-回归';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://luxiaohua.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'howard-scu',
+      repo: 'git@github.com:howard-scu/howard-scu.github.io.git',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '11e869642f48730750be5a254fc7b2ee91cde229',
+      
+        client_id: '2e453f8a4c9ea2de50d4'
+      }
+    });
+    gitment.render('gitment-container');
   }
+
   
-    loadComments();
+    renderGitment();
   
 </script>
-
-
-
-
 
   
 
