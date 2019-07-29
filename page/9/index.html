@@ -338,6 +338,460 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/11/vtk-callbacks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2014/01/11/vtk-callbacks/" class="post-title-link" itemprop="url">VTK Callbacks</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-01-11 20:24:14" itemprop="dateCreated datePublished" datetime="2014-01-11T20:24:14+08:00">2014-01-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vtk/" itemprop="url" rel="index"><span itemprop="name">vtk</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2014/01/11/vtk-callbacks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/01/11/vtk-callbacks/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <div>简介：<span style="font-size: 10.5pt; line-height: 1.5;"> </span></div>
+<div>回调函数就是命令/观察者模式中的观察者。<span style="background-color: #ffffff; color: #252525; font-family: 'Microsoft YaHei'; font-size: 16px; line-height: 25.33333396911621px;">VTK对象状态发生变化时,它就会发出一个命令通知所有观察家该事件。</span></div>
+<div></div>
+<div>为了捕获这个事件，你需要做下面几件事：</div>
+<div></div>
+<div>1\. 声明一个如下形式的函数:</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #0000ff;">**void**</span> func(vtkObject<span style="color: #333399;">*</span>, <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**long**</span> eid, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> clientdata, <span style="color: #0000ff;">**void**</span> <span style="color: #333399;">*</span>calldata)</div>
+</div>
+</div>
+<div></div>
+<div>2\. 创建一个<span style="font-size: 10.5pt; line-height: 1.5;">vtkCallbackCommand对象，并将其回调函数设置为你自己创建的函数：</span></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>  vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> keypressCallback <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+keypressCallback<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetCallback ( func );</div>
+</div>
+</div>
+<div></div>
+<div>或者</div>
+<div></div>
+<div>2\. 创建一个vtkCallbackCommand并重写execute函数：</div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;">virtual void Execute(vtkObject *caller, unsigned long, void*)</span></div>
+<div>它会在创建<span style="font-size: 10.5pt; line-height: 1.5;">CallbackCommand对象后自动当成callback被执行</span><span style="font-size: 10.5pt; line-height: 1.5;"> </span></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>  vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> keypressCallback <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();</div>
+</div>
+</div>
+<div></div>
+<div>3\. 注册callback，监听命令</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span> renderWindowInteractor <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetRenderWindow(renderWindow);renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddObserver ( vtkCommand<span style="color: #333399;">:</span><span style="color: #333399;">:</span>KeyPressEvent, keypressCallback );
+
+</div>
+</div>
+</div>
+<div>在这个例子中，<span style="font-size: 10.5pt; line-height: 1.5;">vtkRenderWindowInteractor用来监听</span><span style="font-size: 10.5pt; line-height: 1.5;">KeyPressEvent事件。</span></div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;"> </span></div>
+<div>**caller**</div>
+<div>vtkObject对象caller是观察者的指针。在例子中，因为我们是绑定<span style="font-size: 10.5pt; line-height: 1.5;">vtkCallbackCommand在</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkRenderWindowInteractor对象上，所以我们可以强制类型转换caller到</span><span style="font-size: 10.5pt; line-height: 1.5;">vtkRenderWindowInteractor</span><span style="font-size: 10.5pt; line-height: 1.5;">类型。</span></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #0000ff;">**void**</span> KeypressCallbackFunction ( vtkObject<span style="color: #333399;">*</span> caller, <span style="color: #0000ff;">**long**</span> <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span> eventId, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> clientData, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> callData )
+{
+cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"Keypress callback"</span> <span style="color: #333399;">&lt;&lt;</span>endl;vtkRenderWindowInteractor <span style="color: #333399;">*</span>iren <span style="color: #333399;">=</span>
+<span style="color: #0000ff;">**static_cast**</span><span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(caller);
+
+cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"Pressed: "</span> <span style="color: #333399;">&lt;&lt;</span> iren<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetKeySym() <span style="color: #333399;">&lt;&lt;</span> endl;
+}
+
+</div>
+</div>
+</div>
+<div></div>
+<div>**clientdata**</div>
+<div>clientdata提供了一种方法来提供对数据的访问,将必要的回调函数。你可以使用<span style="font-size: 10.5pt; line-height: 1.5;">vtkCallbackCommand函数的</span><span style="font-size: 10.5pt; line-height: 1.5;">SetClientData方法</span><span style="font-size: 10.5pt; line-height: 1.5;">设置该数据。假如,您想要访问</span><span style="font-size: 10.5pt; line-height: 1.5;">回调函数</span><span style="font-size: 10.5pt; line-height: 1.5;">的</span>vtkProgrammableFilter<span style="font-size: 10.5pt; line-height: 1.5;">实例,你可以这么做:</span></div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>  vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkProgrammableFilter<span style="color: #333399;">&gt;</span> filter <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkProgrammableFilter<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> timerCallback <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+timerCallback<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetCallback ( func );
+timerCallback<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetClientData(filter);
+
+</div>
+</div>
+</div>
+<div></div>
+<div>然后再回调函数中，你可以这样使用该数据：</div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div><span style="color: #0000ff;">**void**</span> func ( vtkObject<span style="color: #333399;">*</span> caller, <span style="color: #0000ff;">**long**</span> <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span> eventId, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> clientData, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> callData )
+{
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkProgrammableFilter<span style="color: #333399;">&gt;</span> programmableFilter <span style="color: #333399;">=</span>
+<span style="color: #0000ff;">**reinterpret_cast**</span><span style="color: #333399;">&lt;</span>vtkProgrammableFilter<span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(clientData);
+}</div>
+</div>
+</div>
+<div><span style="font-size: 10.5pt; line-height: 1.5;"> </span><span style="font-size: 10.5pt; line-height: 1.5;">完整范例：</span></div>
+<div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkPolyDataMapper.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkActor.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkSmartPointer.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkRenderWindow.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkRenderer.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkPolyData.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkSphereSource.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkCallbackCommand.h<span style="color: #333399;">&gt;</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #333399;">&lt;</span>vtkCommand.h<span style="color: #333399;">&gt;</span><span style="color: #0000ff;">**static**</span> <span style="color: #0000ff;">**void**</span> KeypressCallbackFunction ( vtkObject<span style="color: #333399;">*</span> caller, <span style="color: #0000ff;">**long**</span> <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span> eventId,
+<span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> clientData, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> callData );
+
+<span style="color: #0000ff;">**int**</span> main(<span style="color: #0000ff;">**int**</span>, <span style="color: #0000ff;">**char**</span> <span style="color: #333399;">*</span>[])
+{
+<span style="color: #008000;">// Create a sphere</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkSphereSource<span style="color: #333399;">&gt;</span> sphereSource <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkSphereSource<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetCenter(<span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">0</span>, <span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">0</span>, <span style="color: #6e00aa;">0</span>.<span style="color: #6e00aa;">0</span>);
+sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetRadius(<span style="color: #6e00aa;">5</span>.<span style="color: #6e00aa;">0</span>);
+sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update();
+
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkPolyDataMapper<span style="color: #333399;">&gt;</span> mapper <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkPolyDataMapper<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+mapper<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetInputConnection(sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetOutputPort());
+
+<span style="color: #008000;">// Create an actor</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkActor<span style="color: #333399;">&gt;</span> actor <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkActor<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+actor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetMapper(mapper);
+
+<span style="color: #008000;">// A renderer and render window</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderer<span style="color: #333399;">&gt;</span> renderer <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderer<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindow<span style="color: #333399;">&gt;</span> renderWindow <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindow<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+renderWindow<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddRenderer(renderer);
+
+<span style="color: #008000;">// An interactor</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span> renderWindowInteractor <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetRenderWindow(renderWindow);
+
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> keypressCallback <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+
+<span style="color: #008000;">// Allow the observer to access the sphereSource</span>
+<span style="color: #ff0000;">  **keypressCallback-&gt;SetClientData(sphereSource);//设置clientdata对象**</span>
+**<span style="color: #ff0000;">  keypressCallback-&gt;SetCallback(KeypressCallbackFunction );//将回调命令与callback函数绑定</span>**
+**<span style="color: #ff0000;">renderWindowInteractor-&gt;AddObserver(vtkCommand::KeyPressEvent, keypressCallback);//监听keypress事件，绑定回调命令</span>**
+
+renderer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddActor(actor);
+renderer<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetBackground(<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">1</span>,<span style="color: #6e00aa;">1</span>); <span style="color: #008000;">// Background color white</span>
+renderWindow<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Render();
+renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Start();
+
+<span style="color: #0000ff;">**return**</span> EXIT_SUCCESS;
+}
+
+<span style="color: #0000ff;">**void**</span> KeypressCallbackFunction(vtkObject<span style="color: #333399;">*</span> caller, <span style="color: #0000ff;">**long**</span> <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span> vtkNotUsed(eventId), <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> clientData, <span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> vtkNotUsed(callData) )
+{
+<span style="color: #008000;">// Prove that we can access the sphere source</span>
+<span style="color: #ff0000;">**  vtkSphereSource* sphereSource =
+static_cast&lt;vtkSphereSource*&gt;(clientData);//强制类型转换为原来的对象**</span>
+std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #ff00bf;">"Radius is "</span> <span style="color: #333399;">&lt;&lt;</span> sphereSource<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>GetRadius() <span style="color: #333399;">&lt;&lt;</span> std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>endl;
+}
+
+</div>
+</div>
+</div>
+</div>
+<div></div>
+<div>
+<div>**calldata**</div>
+<div>calldata是通过callback传递的数据。例如,当ProgressEvent事件被发送时,进程值可以作为calldata被一同发送。</div>
+<div>完整范例：在这里例子中，我们创建一个自定义的VTK过滤器来调用我们绑定的带有calldata值的事件。我们使用一个定制的计时器来更新过滤器以便事件可以自动重复触发。更新过程为<span style="font-family: 'Courier New'; font-size: 11.578947067260742px; line-height: 18.947368621826172px;">vtkMyTestFilter更新-&gt;</span><span style="font-family: 'Courier New'; font-size: 11.578947067260742px; line-height: 18.947368621826172px;"> vtkCallbackCommand-&gt;</span><span style="font-family: 'Courier New'; font-size: 11.578947067260742px; line-height: 18.947368621826172px;"> CallbackFunction</span></div>
+</div>
+<div>
+<div>
+<div style="border: 1px solid black; margin-left: auto; margin-right: auto; padding: 3px; font-family: 'Courier New'; font-size: 12px;">
+<div>#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkObjectFactory.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkCommand.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkCallbackCommand.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkStreamingDemandDrivenPipeline.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkInformationVector.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkInformation.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkDataObject.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkSmartPointer.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkAppendPolyData.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkSphereSource.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkPolyDataAlgorithm.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkRenderer.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkRenderWindow.h"</span>
+#<span style="color: #0000ff;">**include**</span> <span style="color: #ff00bf;">"vtkRenderWindowInteractor.h"</span>
+<span style="color: #0000ff;">**class**</span> vtkMyTestFilter <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> vtkPolyDataAlgorithm
+{
+<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
+vtkTypeMacro(vtkMyTestFilter,vtkPolyDataAlgorithm);
+<span style="color: #0000ff;">**static**</span> vtkMyTestFilter <span style="color: #333399;">*</span>New();
+<span style="color: #0000ff;">**int**</span> RefreshEvent;
+<span style="color: #0000ff;">**protected**</span><span style="color: #333399;">:</span>
+vtkMyTestFilter()
+{
+<span style="color: #0000ff;">**this**</span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetNumberOfInputPorts(<span style="color: #6e00aa;">0</span>);
+<span style="color: #0000ff;">**this**</span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>RefreshEvent <span style="color: #333399;">=</span> vtkCommand<span style="color: #333399;">:</span><span style="color: #333399;">:</span>UserEvent <span style="color: #333399;">+</span> <span style="color: #6e00aa;">1</span>;
+<span style="color: #0000ff;">**this**</span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Counter <span style="color: #333399;">=</span> <span style="color: #6e00aa;">0</span>;
+}
+<span style="color: #0000ff;">**int**</span> RequestData(vtkInformation <span style="color: #333399;">*</span>, vtkInformationVector <span style="color: #333399;">*</span><span style="color: #333399;">*</span>, vtkInformationVector <span style="color: #333399;">*</span>)
+{
+<span style="color: #0000ff;">**this**</span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>InvokeEvent(<span style="color: #0000ff;">**this**</span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>RefreshEvent, <span style="color: #333399;">&amp;</span><span style="color: #0000ff;">**this**</span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Counter);
+<span style="color: #0000ff;">**this**</span><span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Counter<span style="color: #333399;">++</span>;
+<span style="color: #0000ff;">**return**</span> <span style="color: #6e00aa;">1</span>;
+}
+<span style="color: #0000ff;">**private**</span><span style="color: #333399;">:</span>
+vtkMyTestFilter(<span style="color: #0000ff;">**const**</span> vtkMyTestFilter<span style="color: #333399;">&amp;</span>);  <span style="color: #008000;">// Not implemented.</span>
+<span style="color: #0000ff;">**void**</span> <span style="color: #0000ff;">**operator**</span><span style="color: #333399;">=</span>(<span style="color: #0000ff;">**const**</span> vtkMyTestFilter<span style="color: #333399;">&amp;</span>);  <span style="color: #008000;">// Not implemented.</span>
+<span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span> Counter;
+};
+vtkStandardNewMacro(vtkMyTestFilter);
+<span style="color: #0000ff;">**static**</span> <span style="color: #0000ff;">**void**</span> CallbackFunction(vtkObject<span style="color: #333399;">*</span> caller,
+<span style="color: #0000ff;">**long**</span> <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span> eventId,
+<span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> clientData,
+<span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> callData );
+<span style="color: #0000ff;">**class**</span> vtkTimerCallback <span style="color: #333399;">:</span> <span style="color: #0000ff;">**public**</span> vtkCommand
+{
+<span style="color: #0000ff;">**public**</span><span style="color: #333399;">:</span>
+<span style="color: #0000ff;">**static**</span> vtkTimerCallback <span style="color: #333399;">*</span>New()
+{
+vtkTimerCallback <span style="color: #333399;">*</span>cb <span style="color: #333399;">=</span> <span style="color: #0000ff;">**new**</span> vtkTimerCallback;
+<span style="color: #0000ff;">**return**</span> cb;
+}
+<span style="color: #0000ff;">**virtual**</span> <span style="color: #0000ff;">**void**</span> Execute(vtkObject <span style="color: #333399;">*</span>vtkNotUsed(caller),
+<span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**long**</span> vtkNotUsed(eventId),
+<span style="color: #0000ff;">**void**</span> <span style="color: #333399;">*</span>vtkNotUsed(callData))
+{
+TestFilter<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Modified();
+TestFilter<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update();
+}
+vtkMyTestFilter<span style="color: #333399;">*</span> TestFilter;
+};
+<span style="color: #0000ff;">**int**</span> main(<span style="color: #0000ff;">**int**</span>, <span style="color: #0000ff;">**char**</span> <span style="color: #333399;">*</span>[])
+{
+<span style="color: #008000;">// Create a renderer, render window, and interactor</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderer<span style="color: #333399;">&gt;</span> renderer <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderer<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindow<span style="color: #333399;">&gt;</span> renderWindow <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindow<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+renderWindow<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddRenderer(renderer);
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span> renderWindowInteractor <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkRenderWindowInteractor<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>SetRenderWindow(renderWindow);
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkMyTestFilter<span style="color: #333399;">&gt;</span> testFilter <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkMyTestFilter<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span> callback <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkCallbackCommand<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+**<span style="color: #ff0000;">callback-&gt;SetCallback(CallbackFunction );</span>**
+**<span style="color: #ff0000;">testFilter-&gt;AddObserver(testFilter-&gt;RefreshEvent, callback);//将callback函数绑定testFilter的更新事件</span>**
+testFilter<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Update();
+renderWindow<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Render();
+renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Initialize();
+<span style="color: #008000;">// Sign up to receive TimerEvent</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkTimerCallback<span style="color: #333399;">&gt;</span> timerCallback <span style="color: #333399;">=</span>
+vtkSmartPointer<span style="color: #333399;">&lt;</span>vtkTimerCallback<span style="color: #333399;">&gt;</span><span style="color: #333399;">:</span><span style="color: #333399;">:</span>New();
+timerCallback<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>TestFilter <span style="color: #333399;">=</span> testFilter;
+renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>AddObserver(vtkCommand<span style="color: #333399;">:</span><span style="color: #333399;">:</span>TimerEvent, timerCallback);
+renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>CreateRepeatingTimer(<span style="color: #6e00aa;">100</span>);
+renderWindowInteractor<span style="color: #333399;">-</span><span style="color: #333399;">&gt;</span>Start();
+<span style="color: #0000ff;">**return**</span> EXIT_SUCCESS;
+}
+<span style="color: #0000ff;">**void**</span> CallbackFunction(vtkObject<span style="color: #333399;">*</span> vtkNotUsed(caller),
+<span style="color: #0000ff;">**long**</span> <span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span> vtkNotUsed(eventId),
+<span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> vtkNotUsed(clientData),
+<span style="color: #0000ff;">**void**</span><span style="color: #333399;">*</span> callData )
+{
+<span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span><span style="color: #333399;">*</span> callDataCasted <span style="color: #333399;">=</span> <span style="color: #0000ff;">**reinterpret_cast**</span><span style="color: #333399;">&lt;</span><span style="color: #0000ff;">**unsigned**</span> <span style="color: #0000ff;">**int**</span><span style="color: #333399;">*</span><span style="color: #333399;">&gt;</span>(callData);
+std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>cout <span style="color: #333399;">&lt;&lt;</span> <span style="color: #333399;">*</span>callDataCasted <span style="color: #333399;">&lt;&lt;</span> std<span style="color: #333399;">:</span><span style="color: #333399;">:</span>endl;
+}</div>
+</div>
+</div>
+</div>
+<div></div>
+<div></div>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/01/11/command-and-observer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2894,217 +3348,6 @@ disp_pixel_val = nPixelVal;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/12/29/the-road-not-taken/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2013/12/29/the-road-not-taken/" class="post-title-link" itemprop="url">The Road Not Taken</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2013-12-29 17:23:45" itemprop="dateCreated datePublished" datetime="2013-12-29T17:23:45+08:00">2013-12-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2015-08-15 21:40:08" itemprop="dateModified" datetime="2015-08-15T21:40:08+08:00">2015-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/poem/" itemprop="url" rel="index"><span itemprop="name">poem</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2013/12/29/the-road-not-taken/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/12/29/the-road-not-taken/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="——by-lt-span-gt-Robert-Frost"><a href="#——by-lt-span-gt-Robert-Frost" class="headerlink" title="_——by _&lt;/span&gt;_Robert Frost_"></a><span style="widows: 2; text-transform: none; background-color: #f9f9f9; text-indent: 0px; letter-spacing: normal; display: inline !important; font: x-small verdana, arial, 'lucida sans', helvetica, geneva, sans-serif; white-space: normal; orphans: 2; float: none; color: #000000; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;">_——by<span class="Apple-converted-space"> </span>_&lt;/span&gt;<a href="http://www.poets.org/poet.php/prmPID/192" target="_blank" rel="noopener">_Robert Frost_</a></span></h4><div>
-<div>_<span style="font-family: 'Times New Roman';">Two roads diverged in a yellow wood,</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">And sorry I could not travel both</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">And be one traveler, long I stood</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">And looked down one as far as I could</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">To where it bent in the undergrowth;</span>_</div>
-<div></div>
-<div>_<span style="font-family: 'Times New Roman';">Then took the other, as just as fair,</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">And having perhaps the better claim,</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">Because it was grassy and wanted wear;</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">Though as for that the passing there</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">Had worn them really about the same,</span>_</div>
-<div></div>
-<div>_<span style="font-family: 'Times New Roman';">And both that morning equally lay</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">In leaves no step had trodden black.</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">Oh, I kept the first for another day!</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">Yet knowing how way leads on to way,</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">I doubted if I should ever come back.</span>_</div>
-<div></div>
-<div>_<span style="font-family: 'Times New Roman';">I shall be telling this with a sigh</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">Somewhere ages and ages hence:</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">Two roads diverged in a wood, and I--</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">I took the one less traveled by,</span>_</div>
-<div>_<span style="font-family: 'Times New Roman';">And that has made all the difference.</span>_</div>
-</div>
-<div></div>
-<div></div>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3153,7 +3396,7 @@ disp_pixel_val = nPixelVal;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">114</span>
+                    <span class="site-state-item-count">115</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

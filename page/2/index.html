@@ -338,6 +338,202 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/轮廓追踪算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/28/轮廓追踪算法/" class="post-title-link" itemprop="url">轮廓追踪算法</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:57:51 / 修改时间：13:04:50" itemprop="dateCreated datePublished" datetime="2019-02-28T12:57:51+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/轮廓追踪算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/轮廓追踪算法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-Contour-Tracing-Algorithms"><a href="#1-Contour-Tracing-Algorithms" class="headerlink" title="1. Contour Tracing Algorithms"></a>1. Contour Tracing Algorithms</h3><ul>
+<li>Square Tracing Algorithm </li>
+<li>Moore-Neighbor Tracing</li>
+<li>Radial Sweep </li>
+<li>Theo Pavlidis’ Algorithm</li>
+</ul>
+<h3 id="2-Square-Tracing-Algorithm"><a href="#2-Square-Tracing-Algorithm" class="headerlink" title="2. Square Tracing Algorithm"></a>2. Square Tracing Algorithm</h3><ul>
+<li>扫描得到起始点</li>
+<li>当前为黑色点，左转</li>
+<li>当前点位白色点，右转</li>
+<li><p>循环直到回到起始点</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">注意：左转和右转是针对当前循环的位置</span><br><span class="line">-------------</span><br><span class="line">|   | 1 |   |</span><br><span class="line">-------------</span><br><span class="line">| 2 | x | 0 |</span><br><span class="line">-------------</span><br><span class="line">|   | 3 |   |</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">如果当前点位置为x，前向点位置为0时：</span><br><span class="line">    left = 3; right = 1</span><br><span class="line">    </span><br><span class="line">如果当前点位置为x，前向点位置为3时：</span><br><span class="line">    left = 2; right = 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无法追踪斜线，改进：终止条件改为访问起始点多次</p>
+</li>
+<li>通过4邻域而非8领域追踪边界</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/28/轮廓追踪算法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/Catch2单元测试框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1932,181 +2128,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vtk处理外部事件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/28/vtk处理外部事件/" class="post-title-link" itemprop="url">vtk处理外部事件</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-28 12:26:50 / 修改时间：12:27:40" itemprop="dateCreated datePublished" datetime="2019-02-28T12:26:50+08:00">2019-02-28</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/02/28/vtk处理外部事件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/vtk处理外部事件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Command方式<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommandSubclass</span> :</span> <span class="keyword">public</span> vtkCommand</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	vtkTypeMacro(CommandSubclass , vtkCommand);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">static</span> CommandSubclass *<span class="title">New</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> CommandSubclass ;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Execute</span><span class="params">(vtkObject *caller, <span class="keyword">unsigned</span> <span class="keyword">long</span> eventId,<span class="keyword">void</span> *callData)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">			<span class="comment">// 过滤按键信息</span></span><br><span class="line">		<span class="keyword">if</span> (eventId == vtkCommand::KeyPressEvent)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 过滤ctrl</span></span><br><span class="line">			vtkRenderWindowInteractor* interactor =</span><br><span class="line">				<span class="keyword">dynamic_cast</span>&lt;vtkRenderWindowInteractor*&gt;(caller);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span> (interactor-&gt;GetControlKey())</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">std</span>::<span class="built_in">string</span> key = interactor-&gt;GetKeySym();</span><br><span class="line">				<span class="keyword">if</span>(key == <span class="string">"a"</span>)</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="string">"ctrl + a"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>InteractorStyle方式<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MouseInteractorStyleDoubleClick</span> :</span> <span class="keyword">public</span> vtkInteractorStyleTrackballCamera</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">// 先是interactor style进行处理</span></span><br><span class="line">	<span class="comment">// 再是Command进行捕获处理</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> MouseInteractorStyleDoubleClick* <span class="title">New</span><span class="params">()</span></span>;</span><br><span class="line">	vtkTypeMacro(MouseInteractorStyleDoubleClick, vtkInteractorStyleTrackballCamera);</span><br><span class="line"></span><br><span class="line">	MouseInteractorStyleDoubleClick() : NumberOfClicks(<span class="number">0</span>), ResetPixelDistance(<span class="number">5</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;PreviousPosition[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">this</span>-&gt;PreviousPosition[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//http://blog.sina.com.cn/s/blog_5e3a1bbb0100esv3.html</span></span><br><span class="line">	<span class="comment">// keydown跟keypress区别</span></span><br><span class="line">	<span class="comment">//virtual void OnKeyPress()</span></span><br><span class="line">	<span class="comment">//&#123;</span></span><br><span class="line">	<span class="comment">//	//// Get the keypress</span></span><br><span class="line">	<span class="comment">//	//vtkRenderWindowInteractor *rwi = this-&gt;Interactor;</span></span><br><span class="line">	<span class="comment">//	//std::string key = rwi-&gt;GetKeySym();</span></span><br><span class="line">	<span class="comment">//	//if (rwi-&gt;GetControlKey())</span></span><br><span class="line">	<span class="comment">//	//&#123;</span></span><br><span class="line">	<span class="comment">//	//	// ctrl+ a</span></span><br><span class="line">	<span class="comment">//	//	if (key == "a")</span></span><br><span class="line">	<span class="comment">//	//	&#123;</span></span><br><span class="line">	<span class="comment">//	//		std::cout &lt;&lt; "Ctrl + a" &lt;&lt; std::endl;</span></span><br><span class="line">	<span class="comment">//	//	&#125;</span></span><br><span class="line">	<span class="comment">//	//	//rwi-&gt;get</span></span><br><span class="line">	<span class="comment">//	//&#125;</span></span><br><span class="line">	<span class="comment">//	//vtkInteractorStyleTrackballCamera::OnKeyPress();</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">OnLeftButtonUp</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		vtkRenderWindowInteractor *rwi = <span class="keyword">this</span>-&gt;Interactor;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"left mouse"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> (rwi-&gt;GetControlKey())</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Ctrl + left mouse"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		vtkInteractorStyleTrackballCamera::OnLeftButtonUp();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> NumberOfClicks;</span><br><span class="line">	<span class="keyword">int</span> PreviousPosition[<span class="number">2</span>];</span><br><span class="line">	<span class="keyword">int</span> ResetPixelDistance;</span><br><span class="line">&#125;;</span><br><span class="line">vtkStandardNewMacro(MouseInteractorStyleDoubleClick);</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2155,7 +2176,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">114</span>
+                    <span class="site-state-item-count">115</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

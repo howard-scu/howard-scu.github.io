@@ -338,6 +338,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/C-调用C-编译Dll/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Xiaohua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code Planet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/29/C-调用C-编译Dll/" class="post-title-link" itemprop="url">C#调用C++编译Dll</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-29 10:52:09 / 修改时间：11:01:27" itemprop="dateCreated datePublished" datetime="2019-07-29T10:52:09+08:00">2019-07-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/07/29/C-调用C-编译Dll/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/29/C-调用C-编译Dll/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="C-编译DLL"><a href="#C-编译DLL" class="headerlink" title="C++编译DLL"></a>C++编译DLL</h3><p>这里以C++编译数组排序为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">extern &quot;C&quot; __declspec(dllexport) void array_sort(int* a, int len)</span><br><span class="line">&#123;</span><br><span class="line">	for (int i = 0; i &lt; len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int j = i + 1; j &lt; len; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			if (a[i] &gt; a[j])</span><br><span class="line">			&#123;</span><br><span class="line">				int tmp = a[i];</span><br><span class="line">				a[i] = a[j];</span><br><span class="line">				a[j] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意库的编译方式x86/x64/Debug/Release</p>
+<h4 id="C-调用DLL"><a href="#C-调用DLL" class="headerlink" title="C#调用DLL"></a>C#调用DLL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">using System.Runtime.InteropServices;</span><br><span class="line">[DllImport(&quot;CppDll.dll&quot;, EntryPoint = &quot;array_sort&quot;)]</span><br><span class="line"></span><br><span class="line">static extern int array_sort(int[] a, int b);</span><br><span class="line"></span><br><span class="line">private void button1_Click(object sender, EventArgs e)</span><br><span class="line">&#123;</span><br><span class="line">    int[] array = new int[5];</span><br><span class="line">    array[0] = 10;</span><br><span class="line">    array[1] = 12;</span><br><span class="line">    array[2] = 11;</span><br><span class="line">    array[3] = 15;</span><br><span class="line">    array[4] = 13;</span><br><span class="line">    array_sort(array,5);</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; 5; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.Write(array[i].ToString()+&quot;,&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样需要注意库的编译方式x86/x64/Debug/Release，C#中默认为Any CPU</p>
+<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p>[1].<a href="https://www.codeguru.com/csharp/csharp/cs_data/article.php/c4217/Calling-Unmanaged-Code-Part-1--simple-DLLImport.htm" target="_blank" rel="noopener">https://www.codeguru.com/csharp/csharp/cs_data/article.php/c4217/Calling-Unmanaged-Code-Part-1--simple-DLLImport.htm</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/vtkRenderWindow控件集成/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2071,202 +2249,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/轮廓追踪算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lu Xiaohua">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/image/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code Planet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/28/轮廓追踪算法/" class="post-title-link" itemprop="url">轮廓追踪算法</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-28 12:57:51 / 修改时间：13:04:50" itemprop="dateCreated datePublished" datetime="2019-02-28T12:57:51+08:00">2019-02-28</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/02/28/轮廓追踪算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/28/轮廓追踪算法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-Contour-Tracing-Algorithms"><a href="#1-Contour-Tracing-Algorithms" class="headerlink" title="1. Contour Tracing Algorithms"></a>1. Contour Tracing Algorithms</h3><ul>
-<li>Square Tracing Algorithm </li>
-<li>Moore-Neighbor Tracing</li>
-<li>Radial Sweep </li>
-<li>Theo Pavlidis’ Algorithm</li>
-</ul>
-<h3 id="2-Square-Tracing-Algorithm"><a href="#2-Square-Tracing-Algorithm" class="headerlink" title="2. Square Tracing Algorithm"></a>2. Square Tracing Algorithm</h3><ul>
-<li>扫描得到起始点</li>
-<li>当前为黑色点，左转</li>
-<li>当前点位白色点，右转</li>
-<li><p>循环直到回到起始点</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">注意：左转和右转是针对当前循环的位置</span><br><span class="line">-------------</span><br><span class="line">|   | 1 |   |</span><br><span class="line">-------------</span><br><span class="line">| 2 | x | 0 |</span><br><span class="line">-------------</span><br><span class="line">|   | 3 |   |</span><br><span class="line">-------------</span><br><span class="line"></span><br><span class="line">如果当前点位置为x，前向点位置为0时：</span><br><span class="line">    left = 3; right = 1</span><br><span class="line">    </span><br><span class="line">如果当前点位置为x，前向点位置为3时：</span><br><span class="line">    left = 2; right = 0</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>无法追踪斜线，改进：终止条件改为访问起始点多次</p>
-</li>
-<li>通过4邻域而非8领域追踪边界</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/28/轮廓追踪算法/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2315,7 +2297,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">114</span>
+                    <span class="site-state-item-count">115</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2811,9 +2793,9 @@
       
     
       
-        
-      
     
+      
+        
       
     
       
